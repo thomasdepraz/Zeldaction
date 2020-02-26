@@ -121,12 +121,41 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &895797812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8866119257483132336, guid: 077e58590ad43d44093a1b80ecf13b9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 990475593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &895797816 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 803936002081425466, guid: 077e58590ad43d44093a1b80ecf13b9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 990475593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &895797818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2833044651291580734, guid: 077e58590ad43d44093a1b80ecf13b9f,
     type: 3}
   m_PrefabInstance: {fileID: 990475593}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &895797819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895797812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c0ff9deac23a54491761a63c43b118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRb: {fileID: 895797816}
+  playerControl: {x: 0, y: 0, z: 0}
+  playerSpeed: 200
+  playerBindHorizontal: 0
+  playerBindVertical: 0
 --- !u!1001 &990475593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -217,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1573919487
 SpriteRenderer:
   m_ObjectHideFlags: 0
