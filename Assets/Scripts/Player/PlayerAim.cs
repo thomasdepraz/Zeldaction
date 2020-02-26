@@ -10,6 +10,7 @@ namespace Player
         [Header("Elements")]
         public GameObject crosshair;
         private AimAutoLock aimAutoLock;
+        public GameObject aimDirectionPreview;
         [HideInInspector] public Transform crosshairTransform;
         private Transform playerTransform;
 
@@ -54,6 +55,9 @@ namespace Player
             {
                 coroutineCanStart = true;
                 crosshair.SetActive(true);
+                aimDirectionPreview.SetActive(true); // ajout Tim: active le gameobject arrow
+                aimDirectionPreview.transform.position = (Vector3)transform.position + direction.normalized * 0.5f;
+                aimDirectionPreview.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction));
                 direction = new Vector3(horizontalAim, verticalAim, 0).normalized;
                 //on ralentit le joueur
 
@@ -71,6 +75,8 @@ namespace Player
 
             else if (horizontalAim == 0 && verticalAim == 0)//Si le joystick est à 0,0 alors la visée est désactivée après 1 sec.
             {
+                aimDirectionPreview.SetActive(false); // désactive l'arrow si le joystick est à 0,0
+
                 if (coroutineCanStart && !aimAutoLock.locked)
                 {
                     StartCoroutine("HideCrosshair");

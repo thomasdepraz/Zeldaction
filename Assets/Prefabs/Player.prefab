@@ -243,6 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshair: {fileID: 2264886750864153647}
+  aimDirectionPreview: {fileID: 7675008981373431264, guid: 735586b38f5330b4ead2aa4be89a77c2,
+    type: 3}
   crosshairTransform: {fileID: 0}
   maxRange: 1
   distanceToPlayer: 0
