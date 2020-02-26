@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7976290565545270253}
   - component: {fileID: 3771470052326492358}
+  - component: {fileID: 791295086}
   m_Layer: 0
   m_Name: Crosshair
   m_TagString: Untagged
@@ -81,6 +82,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &791295086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2264886750864153647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 363977207d2174546807286487633a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8866119257483132336}
+  locked: 0
+  autoLockDistance: 0.1
 --- !u!1 &8866119257483132336
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +113,7 @@ GameObject:
   - component: {fileID: 4095540140640535786}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,6 +245,7 @@ MonoBehaviour:
   crosshair: {fileID: 2264886750864153647}
   crosshairTransform: {fileID: 0}
   maxRange: 1
+  distanceToPlayer: 0
   speed: 1
 --- !u!95 &4095540140640535786
 Animator:
