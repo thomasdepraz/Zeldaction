@@ -11,12 +11,14 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed = 500;
     private float controllerDeadzone = 0.25f;
 
-  //Player inputs
+    //Player inputs
     [Header("Player inputs")]
     [Range(-1f, 1f)]
     public float playerBindHorizontal;
     [Range(-1f, 1f)]
     public float playerBindVertical;
+
+    public Vector2 lastDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -39,21 +41,24 @@ public class PlayerMovement : MonoBehaviour
     void Movement()
     {
         playerControl = new Vector3(playerBindHorizontal, playerBindVertical);
+
         if (playerControl.magnitude < controllerDeadzone)
         {
             playerControl = Vector2.zero;
             playerRb.velocity = Vector2.zero;
+            lastDirection = playerControl.normalized;
         }
         else
         {
             playerRb.velocity = new Vector2(playerBindHorizontal * playerSpeed * Time.deltaTime, playerBindVertical * playerSpeed * Time.deltaTime);
-        }    
+        }
 
 	}
     void GetPlayerController()
     {
         playerBindHorizontal = Input.GetAxis("Horizontal");
         playerBindVertical = Input.GetAxis("Vertical");
+        playerRb.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, playerControl));
     }
 
 }
