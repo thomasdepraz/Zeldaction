@@ -23,9 +23,9 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetButton("AttackButton"))
             {
+                Debug.Log("j'attaque!");
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
-                Debug.Log("j'attaque!");
             }
         }
     }

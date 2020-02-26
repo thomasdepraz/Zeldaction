@@ -18,8 +18,6 @@ public class PlayerMovement : MonoBehaviour
     [Range(-1f, 1f)]
     public float playerBindVertical;
 
-    public Vector2 lastDirection;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -42,11 +40,10 @@ public class PlayerMovement : MonoBehaviour
     {
         playerControl = new Vector3(playerBindHorizontal, playerBindVertical);
 
-        if (playerControl.magnitude < controllerDeadzone)
+        if (playerControl.magnitude < controllerDeadzone) // ajout d'une deadzone
         {
             playerControl = Vector2.zero;
             playerRb.velocity = Vector2.zero;
-            lastDirection = playerControl.normalized;
         }
         else
         {
@@ -58,7 +55,12 @@ public class PlayerMovement : MonoBehaviour
     {
         playerBindHorizontal = Input.GetAxis("Horizontal");
         playerBindVertical = Input.GetAxis("Vertical");
-        playerRb.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, playerControl));
+
+        // fait en sorte que l'angle du player soit celui de la dernière direction choisie
+        if (playerControl != Vector3.zero)
+        { 
+            playerRb.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, playerControl));
+        }
     }
 
 }
