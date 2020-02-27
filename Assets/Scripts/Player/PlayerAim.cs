@@ -96,7 +96,7 @@ namespace Player
             yield return null;
         }
 
-        private IEnumerator Unlock()//Sil le joueur utilise le joystick pendant plus de 0.3 sec alors que le viseur est lock, ce dernier se unlock.
+        private IEnumerator Unlock()//Si le joueur utilise le joystick pendant plus de 0.3 sec alors que le viseur est lock, ce dernier se unlock.
         {
             unlockCoroutineCanStart = false;
             yield return new WaitForSeconds(0.3f);
