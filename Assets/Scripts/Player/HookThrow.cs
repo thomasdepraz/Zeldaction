@@ -17,8 +17,13 @@ public class HookThrow : MonoBehaviour
     public float speed;
     private Vector3 direction;
     private bool isThrown;
+    private bool isHooked = false;
     private Vector3 originPosition;
     private float distancePlayerHook;
+
+    [Header("Tweak")]
+    [Range(0f, 5f)]
+    public float hookDetectionRange;
 
 
     // Start is called before the first frame update
@@ -40,7 +45,7 @@ public class HookThrow : MonoBehaviour
             Throw();
         }
 
-        if(isThrown)
+        if(isThrown && !isHooked)
         {
             Hook();
         }
@@ -60,6 +65,18 @@ public class HookThrow : MonoBehaviour
 
     void Hook()
     {
-        
+        Collider2D[] hit = Physics2D.OverlapCircleAll(hook.transform.position, hookDetectionRange);
+        foreach (Collider2D hookable in hit)
+        {
+            Debug.Log(hookable.gameObject.tag);
+            if(hookable.gameObject.CompareTag("Hookable"))
+            {
+                //S'accrocher à l'objet
+                hook.transform.position = hookable.gameObject.transform.position;
+                hook.transform.SetParent(hookable.gameObject.transform);
+                //isHooked = true;
+            }
+        }
+
     }
 }
