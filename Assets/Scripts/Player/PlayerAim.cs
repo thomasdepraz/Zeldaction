@@ -55,16 +55,14 @@ namespace Player
             {
                 coroutineCanStart = true;
                 crosshair.SetActive(true);
-                aimDirectionPreview.SetActive(true); // ajout Tim: active le gameobject arrow
-                aimDirectionPreview.transform.position = (Vector3)transform.position + direction.normalized * 0.5f;
-                aimDirectionPreview.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction));
-                direction = new Vector3(horizontalAim, verticalAim, 0).normalized;
-                //on ralentit le joueur
 
-                if (distanceToPlayer <= maxRange && !aimAutoLock.locked) //On peut bouger le viseur jusqu'a maxRange.
-                {
-                    crosshairTransform.position += direction * Time.deltaTime * speed;//on déplace le viseur                                                              
-                }
+                direction = new Vector3(horizontalAim, verticalAim, 0).normalized;
+
+                aimDirectionPreview.SetActive(true); // ajout Tim: active le gameobject arrow
+                aimDirectionPreview.transform.position = (Vector3)transform.position + direction.normalized * 0.5f; //The float is the distance from the player
+                aimDirectionPreview.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction));
+
+                //on ralentit le joueur
 
                 if (aimAutoLock.locked)
                 {
@@ -75,7 +73,7 @@ namespace Player
 
             else if (horizontalAim == 0 && verticalAim == 0)//Si le joystick est à 0,0 alors la visée est désactivée après 1 sec.
             {
-                aimDirectionPreview.SetActive(false); // désactive l'arrow si le joystick est à 0,0
+                //aimDirectionPreview.SetActive(false); // désactive l'arrow si le joystick est à 0,0
 
                 if (coroutineCanStart && !aimAutoLock.locked)
                 {
@@ -90,7 +88,7 @@ namespace Player
             yield return new WaitForSeconds(1f);
             if (horizontalAim == 0 && verticalAim == 0 && !aimAutoLock.locked)
             {
-                crosshair.SetActive(false);
+                aimDirectionPreview.SetActive(false); 
                 //reset la vitesse du joueur
             }
             yield return null;

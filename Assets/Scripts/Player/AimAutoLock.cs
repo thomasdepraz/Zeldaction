@@ -16,6 +16,10 @@ public class AimAutoLock : MonoBehaviour
     private float distanceToHookable;
     [HideInInspector] public bool locked;
     private bool canLock = true;
+    private RaycastHit2D hit;
+    public LayerMask playerLayerMask;
+    
+
 
     [Header("Tweak")]
     [Range(0f, 1f)]
@@ -32,9 +36,10 @@ public class AimAutoLock : MonoBehaviour
 
     void Update()
     {
+        playerLayerMask = ~playerLayerMask;
         CheckHookables();
 
-        if(locked && playerAim.distanceToPlayer >= playerAim.maxRange)//If player is too far from locked crosshair, then it unlocks
+        if (locked && playerAim.distanceToPlayer >= playerAim.maxRange)//If player is too far from locked crosshair, then it unlocks
         {
             StartCoroutine("CanLock");
             locked = false;     
@@ -45,8 +50,10 @@ public class AimAutoLock : MonoBehaviour
     }
 
     void CheckHookables()
-    {
-        for(int i = 0; i < hookables.Length; i++)
+    {       
+        Vector2 direction = (Vector2)(gameObject.transform.position - player.transform.position).normalized;
+       
+        for (int i = 0; i < hookables.Length; i++)
         {
             distanceToHookable = (gameObject.transform.position - hookables[i].transform.position).magnitude;
 
@@ -59,6 +66,16 @@ public class AimAutoLock : MonoBehaviour
                 gameObject.transform.SetParent(hookables[i].transform); //crossair sticks to target
             }
         }
+
+        hit = Physics2D.Raycast(player.transform.position, direction, playerAim.maxRange, playerLayerMask);
+        if (hit.collider != null)
+        {
+            if(hit.collider.gameObject.CompareTag("Hookable"))
+            {
+                Debug.DrawRay(player.transform.position, direction, Color.red);
+                //Le hookable est repéré, il faut lock ici.
+            }
+        }       
     }
 
     public IEnumerator CanLock()
