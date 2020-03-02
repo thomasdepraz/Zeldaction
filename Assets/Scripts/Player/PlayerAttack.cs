@@ -6,10 +6,20 @@ public class PlayerAttack : MonoBehaviour
 {
     [Header ("Attack Details:")]
     public Transform attackPoint;
+    [Range(0f, 100f)]
+    public int attackDamage = 40;
     [Range(0f,0.1f)]
     public float attackRange = 0.05f;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
+
+    [Header("Knockback")]
+    [Range(0f,0.001f)]
+    public float knockbackForce = 0.001f;
+    public Transform enemyPos;
+
+    public LayerMask enemyLayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +31,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (Time.time >= nextAttackTime)
         {
-            if (Input.GetButton("AttackButton"))
+            if (Input.GetButtonDown("AttackButton"))
             {
                 Debug.Log("j'attaque!");
                 Attack();
@@ -31,11 +41,21 @@ public class PlayerAttack : MonoBehaviour
     }
     void Attack()
     {
-        Collider2D[] hit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange);
-        foreach(Collider2D enemy in hit)
+        //play animation
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer );
+        foreach(Collider2D enemy in hitEnemies)
         {
+            enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
+            Knockback(enemy.gameObject);
             Debug.Log("touché!");
         }
+    }
+
+    void Knockback(GameObject enemy)
+    {
+        Vector2 direction = (Vector2)(enemy.transform.position - gameObject.transform.position);
+        enemy.GetComponent<Rigidbody2D>().velocity = (direction.normalized*knockbackForce)/100;
+        Debug.Log("kb fonctionne");
     }
     void OnDrawGizmosSelected()
     {
