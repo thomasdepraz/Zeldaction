@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             //playerRb.velocity = new Vector2(playerBindHorizontal * playerSpeed * Time.deltaTime, playerBindVertical * playerSpeed * Time.deltaTime); Calcul trop compliqué et pas normalisé
-            playerRb.velocity += direction.normalized * playerSpeed * Time.deltaTime;
+            playerRb.velocity = direction.normalized * playerSpeed * Time.deltaTime;
         }
 
 	}
