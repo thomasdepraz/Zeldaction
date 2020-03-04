@@ -48,7 +48,7 @@ public class PlayerAttack : MonoBehaviour
             if (enemy.GetType() == typeof(BoxCollider2D)) //va prendre en compte uniquement les boxcollider de l'ennemi dans le calcul des dommages
             {
                 enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
-                enemy.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic; //lui donne un RB dynamic, ce qui lui permet d'être knockedback
+                //enemy.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic; //lui donne un RB dynamic, ce qui lui permet d'être knockedback
                 enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None; //dé-lock sa position
                 Knockback(enemy.gameObject);
                 Debug.Log("touché!");

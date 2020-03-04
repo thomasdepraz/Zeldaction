@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-  //Player 
+    //Player 
     [Header("Player variables")]
     public Rigidbody2D playerRb;
     public Vector2 direction;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Movement();
-	}
+    }
 
     void Movement()
     {
@@ -51,17 +51,18 @@ public class PlayerMovement : MonoBehaviour
             playerRb.velocity = direction.normalized * playerSpeed * Time.deltaTime;
         }
 
-	}
+    }
     void GetPlayerController()
     {
         horizontalDir = Input.GetAxis("Horizontal");
         verticalDir = Input.GetAxis("Vertical");
 
         // fait en sorte que l'angle du player soit celui de la dernière direction choisie
-        if (direction!= Vector2.zero)
-        { 
-            //playerRb.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction)); c'est cool mais pas utile, à voir.
-        }
+        /*   if (direction!= Vector2.zero)
+           { 
+               playerRb.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction)); c'est cool mais pas utile, à voir.
+           }
+        */
     }
 
 }
