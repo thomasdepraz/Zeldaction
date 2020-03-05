@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player variables")]
     public Rigidbody2D playerRb;
     public Vector2 direction;
-    public float playerSpeed = 500;
+    public float playerSpeed = 200f;
     private float controllerDeadzone = 0.25f;
 
     //Player inputs
@@ -47,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            //playerRb.velocity = new Vector2(playerBindHorizontal * playerSpeed * Time.deltaTime, playerBindVertical * playerSpeed * Time.deltaTime); Calcul trop compliqué et pas normalisé
             playerRb.velocity = direction.normalized * playerSpeed * Time.deltaTime;
         }
 

@@ -1401,6 +1401,8 @@ GameObject:
   - component: {fileID: 405648648027242711}
   - component: {fileID: 8866119255972768232}
   - component: {fileID: 8866119255972768233}
+  - component: {fileID: 8866119255972768234}
+  - component: {fileID: 8866119255972768235}
   m_Layer: 8
   m_Name: TestDummy
   m_TagString: Player
@@ -1437,7 +1439,47 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.12
+  m_Radius: 0.5
+--- !u!114 &8866119255972768234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8866119255972768231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb6a6c4f41b0b745abd50db39680ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2833044650905267319}
+  direction: {x: 0, y: 0}
+  enemySpeed: 150
+  canMove: 1
+--- !u!114 &8866119255972768235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8866119255972768231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6bf365595bc4b042bcefbed6131951f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 40
+  enemysIsTackling: 0
+  chargeStopDistance: 0.7
+  enemyChargeSpeed: 200
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  chargeMaxTime: 0.5
+  chargeRadiusTriggerAttack: 0.2
+  prepairTime: 0.5
+  stunTime: 2
+  playerHP: {fileID: 8866119257063246074}
 --- !u!1 &8866119257063246073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1496,7 @@ GameObject:
   - component: {fileID: 895797813}
   - component: {fileID: 8866119257063246074}
   - component: {fileID: 895797819}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
