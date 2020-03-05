@@ -9,6 +9,8 @@ public class AimAutoLock : MonoBehaviour
     [Header("Elements")]
     public GameObject player;
     private PlayerAim playerAim;
+    private SpriteRenderer rend;
+    public GameObject lockGuizmo;
 
 
     //Logic
@@ -29,7 +31,7 @@ public class AimAutoLock : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");//Get the player
         playerAim = player.GetComponent<PlayerAim>();
-
+        rend = gameObject.GetComponent<SpriteRenderer>();
         hookables = GameObject.FindGameObjectsWithTag("Hookable");//Get every hookable object in the scene
         
     }
@@ -53,29 +55,27 @@ public class AimAutoLock : MonoBehaviour
     {       
         Vector2 direction = (Vector2)(gameObject.transform.position - player.transform.position).normalized;
        
-        for (int i = 0; i < hookables.Length; i++)
-        {
-            distanceToHookable = (gameObject.transform.position - hookables[i].transform.position).magnitude;
-
-            if(distanceToHookable <= autoLockDistance && !locked  && canLock)
+       if(!locked)
+       {
+            hit = Physics2D.Raycast(player.transform.position, direction, playerAim.maxRange, playerLayerMask);
+            if (hit.collider != null)
             {
-                Debug.Log(hookables.ToString());
-                canLock = false;
-                locked = true;
-                gameObject.transform.position = hookables[i].transform.position; //crosshair pos to target pos
-                gameObject.transform.SetParent(hookables[i].transform); //crossair sticks to target
-            }
-        }
+                if (hit.collider.gameObject.CompareTag("Hookable"))
+                {
+                    Debug.DrawRay(player.transform.position, direction, Color.red);
+                    //Le hookable est repéré, il faut lock ici.
 
-        hit = Physics2D.Raycast(player.transform.position, direction, playerAim.maxRange, playerLayerMask);
-        if (hit.collider != null)
-        {
-            if(hit.collider.gameObject.CompareTag("Hookable"))
-            {
-                Debug.DrawRay(player.transform.position, direction, Color.red);
-                //Le hookable est repéré, il faut lock ici.
+                    //Le viseur disparait
+                    rend.enabled = false;
+                    //le marqueur apparait et s'accroche à la cible
+                    lockGuizmo.SetActive(true);
+                    lockGuizmo.transform.position = hit.collider.gameObject.transform.position;
+                    lockGuizmo.transform.SetParent(hit.collider.gameObject.transform);
+                    locked = true;
+                }
             }
-        }       
+       }
+           
     }
 
     public IEnumerator CanLock()
