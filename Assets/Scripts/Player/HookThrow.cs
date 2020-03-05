@@ -18,6 +18,8 @@ public class HookThrow : MonoBehaviour
     private Vector3 direction;
     private bool isThrown;
     private bool isHooked = false;
+    private bool isPulled = false;
+    private bool isHeavy;
     private Vector3 originPosition;
     private float distancePlayerHook;
 
@@ -45,6 +47,12 @@ public class HookThrow : MonoBehaviour
             Throw();
         }
 
+        if (Input.GetButtonDown("Throw") && isThrown)// si l'hameçon est lancée et qu'on appuie sur R1 on le tire
+        {
+            isThrown = false;
+            Pull();
+        }
+
         if(isThrown && !isHooked)
         {
             Hook();
@@ -55,12 +63,53 @@ public class HookThrow : MonoBehaviour
             hookRigidBody.velocity = Vector2.zero;
         }
 
+        if (isPulled && distancePlayerHook <= 1)
+        {
+            if (isHooked && !isHeavy)
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            }
+            else
+            {
+                hookRigidBody.velocity = Vector2.zero;
+            }
+
+            isPulled = false;
+            isHooked = false;
+            isThrown = false;
+        }
+
     }
 
     void Throw()
     {
         direction = (crosshair.transform.position - hook.transform.position).normalized;
         hookRigidBody.velocity += (Vector2)direction * speed; 
+    }
+
+    void Pull()
+    {
+        if (isHooked)
+        {
+            if (GetComponent<Weight>().weight >= transform.parent.GetComponent<Weight>().weight)
+            {
+                direction = (hook.transform.position - transform.position).normalized;
+                hookRigidBody.velocity += (Vector2)direction * speed;
+                isHeavy = true;
+            }
+            else
+            {
+                direction = (transform.position - hook.transform.position).normalized;
+                GetComponent<Rigidbody2D>().velocity += (Vector2)direction * speed;
+                isHeavy = false;
+            }
+        }
+        else
+        {
+            direction = (hook.transform.position - transform.position).normalized;
+            hookRigidBody.velocity += (Vector2)direction * speed;
+        }
+        isPulled = true;
     }
 
     void Hook()
