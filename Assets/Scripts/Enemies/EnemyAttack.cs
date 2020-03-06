@@ -49,11 +49,11 @@ public class EnemyAttack : MonoBehaviour
         coroutineCanStart = false;
         enemyMovement.canMove = false;
         enemyRb.velocity = Vector2.zero;
-        Vector2 direction = playerHP.transform.position - transform.position;
-        direction.Normalize();
         //play animation (courir sur place)
         yield return new WaitForSeconds(prepairTime);
         float chargeTime = 0f;
+        Vector2 direction = playerHP.transform.position - transform.position;
+        direction.Normalize();
         do
         {
             chargeTime += Time.fixedDeltaTime;
@@ -70,5 +70,10 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(stunTime);
         coroutineCanStart = true;
         enemyMovement.canMove = true;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(gameObject.transform.position, 2.5f);
+        Gizmos.color = Color.red;
     }
 }
