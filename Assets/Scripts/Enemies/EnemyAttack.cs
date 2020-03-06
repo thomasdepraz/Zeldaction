@@ -52,10 +52,12 @@ public class EnemyAttack : MonoBehaviour
         //play animation (courir sur place)
         yield return new WaitForSeconds(prepairTime);
         float chargeTime = 0f;
+        Vector2 direction = playerHP.transform.position - transform.position;
+        direction.Normalize();
         do
         {
             chargeTime += Time.fixedDeltaTime;
-            enemyRb.velocity = enemyMovement.direction.normalized * enemyChargeSpeed * Time.deltaTime;
+            enemyRb.velocity = direction.normalized * enemyChargeSpeed * Time.deltaTime;
             yield return new WaitForFixedUpdate();
             if (Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer))
             {
@@ -63,9 +65,15 @@ public class EnemyAttack : MonoBehaviour
             }
         }
         while (chargeTime < chargeMaxTime && !Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer));
+
         enemyRb.velocity = Vector2.zero;
         yield return new WaitForSeconds(stunTime);
         coroutineCanStart = true;
         enemyMovement.canMove = true;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(gameObject.transform.position, 2.5f);
+        Gizmos.color = Color.red;
     }
 }
