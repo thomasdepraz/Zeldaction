@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ce18d7996b985419ae0e010f24fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 67.7
   detectionDistance: 3
   attackDistance: 0.5
   pinceCrabe: {fileID: 1108550514}

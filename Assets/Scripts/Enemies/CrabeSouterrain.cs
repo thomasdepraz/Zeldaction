@@ -13,7 +13,7 @@ public class CrabeSouterrain : MonoBehaviour
 
     
     [Header("Tweaks")]
-    [Range(0f, 5f)]
+    [Range(0f, 100F)]
     public float speed;
     [Range(0f, 5f)]
     public float detectionDistance;
