@@ -18,10 +18,12 @@ public class PlayerAttack : MonoBehaviour
     public float startTime;
 
     [Header("Knockback")]
-    [Range(0f, 0.003f)]
-    public float lightKnockbackForce = 0.001f;
-    [Range(0f, 0.005f)]
-    public float heavyKnockbackForce = 0.003f;
+    [Range(0f, 3f)]
+    public float lightKnockbackForce = 1f;
+    [Range(0f, 5f)]
+    public float heavyKnockbackForce = 2f;
+    float lightKnockbackDuration = 2f;
+    float heavyKnockbackDuration = 4f;
     public Transform enemyPos;
 
     public LayerMask enemyLayer;
@@ -42,23 +44,21 @@ public class PlayerAttack : MonoBehaviour
                 //charge l'attaque
                 startTime += Time.deltaTime;
             }
-            if (Input.GetButtonUp("AttackButton") && startTime < 2f) // si le bouton est pressé moins de deux secondes, fait une attaque rapide
+            if (Input.GetButtonUp("AttackButton") && startTime < 1f) // si le bouton est pressé moins de une seconde, fait une attaque rapide
             {
-                Debug.Log(startTime);
-                LightAttack();
+                Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration);
                 nextAttackTime = Time.time + 1f / attackRate;
                 startTime = 0;
             }
-            if (Input.GetButtonUp("AttackButton") && startTime > 2f) // si pressé pendant plus de deux secondes, fait uen attaque lourde
+            if (Input.GetButtonUp("AttackButton") && startTime > 1f) // si pressé pendant plus de une seconde, fait uen attaque lourde
             {
-                Debug.Log(startTime);
-                HeavyAttack();
+                Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration);
                 nextAttackTime = Time.time + 1f / attackRate;
                 startTime = 0;
             }
         }
     }
-    void LightAttack()
+    void Attack(int attackDamage, float knockbackForce, float knockbackDuration)
     {
         //play animation
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(lightAttackPoint.position, attackRange, enemyLayer);
@@ -66,40 +66,19 @@ public class PlayerAttack : MonoBehaviour
         {
             if (enemy.GetType() == typeof(BoxCollider2D)) //va prendre en compte uniquement les boxcollider de l'ennemi dans le calcul des dommages
             {
-                enemy.GetComponent<EnemyHP>().TakeDamage(lightAttackDamage);
+                enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
+                StartCoroutine(KnockBackMove(enemy.GetComponent<EnemyMovement>(), knockbackDuration));
                 //enemy.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic; //lui donne un RB dynamic, ce qui lui permet d'être knockedback
                 enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None; //dé-lock sa position
-                LightKnockback(enemy.gameObject);
-                Debug.Log("touché rapide!");
+                Knockback(enemy.gameObject, knockbackForce);
+                Debug.Log(attackDamage);
             }
         }
     }
-
-    void HeavyAttack()
-    {
-        //play animation
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(heavyAttackPoint.position, attackRange, enemyLayer);
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            if (enemy.GetType() == typeof(BoxCollider2D)) //va prendre en compte uniquement les boxcollider de l'ennemi dans le calcul des dommages
-            {
-                enemy.GetComponent<EnemyHP>().TakeDamage(heavyAttackDamage);
-                enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None; //dé-lock sa position
-                HeavyKnockback(enemy.gameObject);
-                Debug.Log("touché lourd!");
-            }
-        }
-    }
-    void LightKnockback(GameObject enemy)
-    {
-        //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-        Vector2 direction = (Vector2)(enemy.transform.position - gameObject.transform.position); //direction du knockback
-        enemy.GetComponent<Rigidbody2D>().velocity = (direction.normalized * lightKnockbackForce) / 100; //applique la direction et la force au knockback au RB de l'ennemi
-    }
-    void HeavyKnockback(GameObject enemy)
+    void Knockback(GameObject enemy, float force)
     {
         Vector2 direction = (Vector2)(enemy.transform.position - gameObject.transform.position); //direction du knockback
-        enemy.GetComponent<Rigidbody2D>().velocity = (direction.normalized * heavyKnockbackForce) / 100; //applique la direction et la force au knockback au RB de l'ennemi
+        enemy.GetComponent<Rigidbody2D>().velocity = (direction.normalized * force); //applique la direction et la force au knockback au RB de l'ennemi
     }
     void OnDrawGizmosSelected()
     {
@@ -107,5 +86,12 @@ public class PlayerAttack : MonoBehaviour
             return;
 
         Gizmos.DrawWireSphere(lightAttackPoint.position, attackRange);
+    }
+
+    IEnumerator KnockBackMove(EnemyMovement enemy, float knockbackDuration)
+    {
+        enemy.canMove = false;
+        yield return new WaitForSeconds(knockbackDuration);
+        enemy.canMove = true;
     }
 }

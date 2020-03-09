@@ -23,7 +23,6 @@ public class EnemyMovement : MonoBehaviour
         enemyRb = GetComponent<Rigidbody2D>();
         latestDirectionChangeTime = 0f;
         patrolCenterPosition = transform.position;
-        WanderAround();
     }
 
     // Update is called once per frame
@@ -49,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
      }*/
     void WanderAround()
     {
-        randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) *patrolRadius;
+        randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;
     }
 
     void MoveTowardsTarget()
@@ -57,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
         targetPosition = randomPatrolPosition;
         if (canMove)
         {
-            if(Vector2.Distance(transform.position, targetPosition) > minStopDistance)
+            if (Vector2.Distance(transform.position, targetPosition) > minStopDistance)
             {
                 enemyRb.velocity = (targetPosition - (Vector2)transform.position).normalized * enemySpeed * Time.fixedDeltaTime;
             }
@@ -66,11 +65,11 @@ public class EnemyMovement : MonoBehaviour
                 enemyRb.velocity = Vector2.zero;
             }
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Hello There");
         enemyRb.constraints = RigidbodyConstraints2D.FreezeAll; // lui freeze sa position
     }
     void OnCollisionExit2D(Collision2D collision)
