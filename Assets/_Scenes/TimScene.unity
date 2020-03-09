@@ -1432,7 +1432,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8866119257063246073}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20bf8b991e57c804fb94f63ead31941a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 100
   currentHealth: 0
 --- !u!58 &8866119255972768233
 CircleCollider2D:
@@ -1567,7 +1567,7 @@ MonoBehaviour:
   chargeMaxTime: 0.5
   chargeRadiusTriggerAttack: 0.2
   prepairTime: 0.5
-  stunTime: 2
+  stunTime: 3
   playerHP: {fileID: 8866119257063246074}
 --- !u!1 &8866119257063246073
 GameObject:

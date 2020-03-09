@@ -44,13 +44,13 @@ public class PlayerAttack : MonoBehaviour
                 //charge l'attaque
                 startTime += Time.deltaTime;
             }
-            if (Input.GetButtonUp("AttackButton") && startTime < 1f) // si le bouton est pressé moins de une seconde, fait une attaque rapide
+            if (Input.GetButtonUp("AttackButton") && startTime < 0.5f) // si le bouton est pressé moins de 0.5 secondes, fait une attaque rapide
             {
                 Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration);
                 nextAttackTime = Time.time + 1f / attackRate;
                 startTime = 0;
             }
-            if (Input.GetButtonUp("AttackButton") && startTime > 1f) // si pressé pendant plus de une seconde, fait uen attaque lourde
+            if (Input.GetButtonUp("AttackButton") && startTime > 0.5f) // si pressé pendant plus de 0.5 secondes, fait uen attaque lourde
             {
                 Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration);
                 nextAttackTime = Time.time + 1f / attackRate;
@@ -72,6 +72,7 @@ public class PlayerAttack : MonoBehaviour
                 enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None; //dé-lock sa position
                 Knockback(enemy.gameObject, knockbackForce);
                 Debug.Log(attackDamage);
+                Debug.Log(startTime);
             }
         }
     }
