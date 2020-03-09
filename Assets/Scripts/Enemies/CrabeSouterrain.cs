@@ -22,8 +22,12 @@ public class CrabeSouterrain : MonoBehaviour
 
     public GameObject pinceCrabe;
 
-    bool canTakeDamage = false;
+    [Header("LoadTime")]
     public float loadAttack;
+    public float loadMovement;
+    
+    bool canGiveDamage = false;
+    bool canMove = true;
     Coroutine LoadAttaque;
 
     void Start()
@@ -44,14 +48,14 @@ public class CrabeSouterrain : MonoBehaviour
     {
         distanceToPlayer = (player.transform.position - gameObject.transform.position).magnitude;
 
-        if(distanceToPlayer <= detectionDistance)//condition de déplacement
+        if(distanceToPlayer <= detectionDistance && canMove)//condition de déplacement
         {
             direction = player.transform.position - gameObject.transform.position;
             rb.velocity = direction.normalized * speed * Time.deltaTime;
         }
         else
         {
-            rb.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;            
         }
     }
 
@@ -60,12 +64,15 @@ public class CrabeSouterrain : MonoBehaviour
         if(distanceToPlayer <= attackDistance)//Condition au déclenchement
         {
             rb.velocity = Vector2.zero;
-            canTakeDamage = true;
+            canMove = false;
+            canGiveDamage = true;
             StartCoroutine(LoadAttack());
+            StartCoroutine(LoadMovement());
+            
         }
         else
-        {
-            canTakeDamage = false;
+        {            
+            canGiveDamage = false;
             StopCoroutine(LoadAttaque);
         }
 
@@ -73,9 +80,17 @@ public class CrabeSouterrain : MonoBehaviour
     IEnumerator LoadAttack()
     {
         yield return new WaitForSeconds(loadAttack);
-        if(canTakeDamage == true)
+        if(canGiveDamage == true)
         {
             Debug.Log("le PJ prend des dégâts");
         }
     }
+
+    IEnumerator LoadMovement()
+    {
+        yield return new WaitForSeconds(loadMovement);
+        canMove = true;
+    }
+
+    // Il manque l'élimination du crabe qui s'effectue avec le pull du crabe via l'hameçon du PJ.
 }
