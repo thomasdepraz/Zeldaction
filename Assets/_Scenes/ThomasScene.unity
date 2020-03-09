@@ -503,6 +503,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1002179001}
     m_Modifications:
+    - target: {fileID: 24768320, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2833044651291580734, guid: 077e58590ad43d44093a1b80ecf13b9f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -556,6 +560,16 @@ PrefabInstance:
     - target: {fileID: 2833044651291580734, guid: 077e58590ad43d44093a1b80ecf13b9f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095540140640535786, guid: 077e58590ad43d44093a1b80ecf13b9f,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cbfa1d6fb351fcf40b2204c559b45cdb, type: 2}
+    - target: {fileID: 6424791723635230786, guid: 077e58590ad43d44093a1b80ecf13b9f,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8866119257483132336, guid: 077e58590ad43d44093a1b80ecf13b9f,
