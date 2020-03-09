@@ -246,9 +246,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1066814258}
   - component: {fileID: 1066814257}
+  - component: {fileID: 1066814261}
   - component: {fileID: 1066814259}
   - component: {fileID: 1066814260}
-  - component: {fileID: 1066814261}
   m_Layer: 8
   m_Name: Crabe Souterrain
   m_TagString: Untagged
@@ -354,6 +354,7 @@ MonoBehaviour:
   attackDistance: 0.5
   pinceCrabe: {fileID: 1108550514}
   loadAttack: 3
+  loadMovement: 4
 --- !u!50 &1066814261
 Rigidbody2D:
   serializedVersion: 4
