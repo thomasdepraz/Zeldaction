@@ -68,10 +68,10 @@ public class AimAutoLock : MonoBehaviour
                     //Le viseur disparait
                     rend.enabled = false;
                     //le marqueur apparait et s'accroche à la cible
-                    lockGuizmo.SetActive(true);
+                   /* lockGuizmo.SetActive(true);
                     lockGuizmo.transform.position = hit.collider.gameObject.transform.position;
                     lockGuizmo.transform.SetParent(hit.collider.gameObject.transform);
-                    locked = true;
+                    locked = true;*/
                 }
             }
        }

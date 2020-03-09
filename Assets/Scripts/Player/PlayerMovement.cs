@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player variables")]
     public Rigidbody2D playerRb;
     public Vector2 direction;
+    public Animator anim; 
     public float playerSpeed = 200f;
     private float controllerDeadzone = 0.25f;
 
@@ -56,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
         horizontalDir = Input.GetAxis("Horizontal");
         verticalDir = Input.GetAxis("Vertical");
 
+        anim.SetFloat("HorizontalMove", horizontalDir);
+        anim.SetFloat("VerticalMove", verticalDir);
         // fait en sorte que l'angle du player soit celui de la dernière direction choisie
         /*   if (direction!= Vector2.zero)
            { 
