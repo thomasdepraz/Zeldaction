@@ -28,7 +28,10 @@ public class EnemyHP : MonoBehaviour
     }
     void Die()
     {
+        //afficher l'animation et le sprite de mort
         GetComponent<Collider2D>().enabled = false; // en cas de mort, le collider du monstre est désactivé
         this.enabled = false;
+        GetComponent<EnemyMovement>().enabled = false;
+        GetComponent<EnemyAttack>().enabled = false;
     }
 }
