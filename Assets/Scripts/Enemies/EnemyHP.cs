@@ -12,12 +12,6 @@ public class EnemyHP : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle de l'ennemi

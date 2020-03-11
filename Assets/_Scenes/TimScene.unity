@@ -295,11 +295,13 @@ MonoBehaviour:
   lightAttackPoint: {fileID: 1472155852}
   lightAttackDamage: 40
   heavyAttackDamage: 80
-  attackRange: 0.05
-  attackRate: 2
-  startTime: 0
+  lightAttackCooldown: 0.2
+  heavyAttackCooldown: 1
+  channelTime: 0
   lightKnockbackForce: 1
   heavyKnockbackForce: 3
+  lightKnockbackDuration: 2
+  heavyKnockbackDuration: 4
   enemyPos: {fileID: 2833044651995811177}
   enemyLayer:
     serializedVersion: 2
@@ -319,8 +321,6 @@ MonoBehaviour:
   playerRb: {fileID: 803936002467921267}
   direction: {x: 0, y: 0}
   playerSpeed: 200
-  horizontalDir: 0
-  verticalDir: 0
 --- !u!1 &975335732
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,8 +500,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472155851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.12, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0.17, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 2833044650905267319}
   m_RootOrder: 2
@@ -1348,7 +1348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8866119257063246073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.35, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7976290565730430628}
@@ -1368,7 +1368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8866119255972768231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.53, z: 0}
+  m_LocalPosition: {x: 0, y: 3.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1541,8 +1541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2833044650905267319}
   direction: {x: 0, y: 0}
-  enemySpeed: 150
   canMove: 1
+  enemySpeed: 150
   patrolRadius: 2
   minStopDistance: 0.2
 --- !u!114 &8866119255972768235
@@ -1561,13 +1561,13 @@ MonoBehaviour:
   enemysIsTackling: 0
   chargeStopDistance: 0.7
   enemyChargeSpeed: 400
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 512
   chargeMaxTime: 0.5
   chargeRadiusTriggerAttack: 0.2
   prepairTime: 0.5
-  stunTime: 3
+  stunTime: 2.5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
   playerHP: {fileID: 8866119257063246074}
 --- !u!1 &8866119257063246073
 GameObject:
@@ -1582,9 +1582,9 @@ GameObject:
   - component: {fileID: 803936002467921267}
   - component: {fileID: 405648646936764873}
   - component: {fileID: 4095540141294285219}
+  - component: {fileID: 895797819}
   - component: {fileID: 895797813}
   - component: {fileID: 8866119257063246074}
-  - component: {fileID: 895797819}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player

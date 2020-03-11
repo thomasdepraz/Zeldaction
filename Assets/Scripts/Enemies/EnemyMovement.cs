@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [Header ("Target")]
     public Transform player;
     private Rigidbody2D enemyRb;
     [HideInInspector] public Vector2 direction;
+    [HideInInspector] public bool canMove = true;
+    [Header ("Movement & Behavior")]
+    [Range (0f, 300f)]
     public float enemySpeed = 150f;
-    public bool canMove = true;
     public float patrolRadius;
+    public float minStopDistance;
     private Vector2 randomPatrolPosition;
     private float latestDirectionChangeTime;
     private readonly float directionChangeTime = 3f;
     private Vector2 patrolCenterPosition;
     private Vector2 targetPosition;
-    public float minStopDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +26,6 @@ public class EnemyMovement : MonoBehaviour
         enemyRb = GetComponent<Rigidbody2D>();
         latestDirectionChangeTime = 0f;
         patrolCenterPosition = transform.position;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void FixedUpdate()
@@ -75,5 +72,6 @@ public class EnemyMovement : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         enemyRb.constraints = RigidbodyConstraints2D.None; //permet à l'ennemi de ne plus être freeze lorsque le joueur sort de son collider
+        //enemyRb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }

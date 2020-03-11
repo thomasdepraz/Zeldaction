@@ -11,51 +11,54 @@ public class PlayerAttack : MonoBehaviour
     public int lightAttackDamage = 40;
     [Range(0f, 150f)]
     public int heavyAttackDamage = 80;
-    [Range(0f, 0.1f)]
-    public float attackRange = 0.5f;
-    public float attackRate = 2f;
-    float nextAttackTime = 0f;
-    public float startTime;
+    private readonly float attackRange = 0.5f;
+    private bool canAttack = true;
+    public float lightAttackCooldown = 0.2f;
+    public float heavyAttackCooldown = 1f;
+    public float channelTime;
 
     [Header("Knockback")]
     [Range(0f, 3f)]
     public float lightKnockbackForce = 1f;
     [Range(0f, 5f)]
     public float heavyKnockbackForce = 2f;
-    float lightKnockbackDuration = 2f;
-    float heavyKnockbackDuration = 4f;
+    [Range(0f, 5f)]
+    public float lightKnockbackDuration = 2f;
+    [Range(0f, 5f)]
+    public float heavyKnockbackDuration = 4f;
+
+    [Header("Enemy Target")]
     public Transform enemyPos;
-
     public LayerMask enemyLayer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= nextAttackTime)
+        if (Input.GetButton("AttackButton"))
         {
-            if (Input.GetButton("AttackButton"))
+            //charge l'attaque
+            channelTime += Time.deltaTime;
+            if (channelTime > 0.3f)
             {
-                //charge l'attaque
-                startTime += Time.deltaTime;
+                GetComponent<PlayerMovement>().playerSpeed = 140f; // ralentit le player quand il canalise l'attaque lourde
             }
-            if (Input.GetButtonUp("AttackButton") && startTime < 0.5f) // si le bouton est pressé moins de 0.5 secondes, fait une attaque rapide
-            {
-                Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration);
-                nextAttackTime = Time.time + 1f / attackRate;
-                startTime = 0;
-            }
-            if (Input.GetButtonUp("AttackButton") && startTime > 0.5f) // si pressé pendant plus de 0.5 secondes, fait uen attaque lourde
-            {
-                Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration);
-                nextAttackTime = Time.time + 1f / attackRate;
-                startTime = 0;
-            }
+        }
+        else
+        {
+            GetComponent<PlayerMovement>().playerSpeed = 200f;
+        }
+
+        if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide
+        {
+            Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration);
+            StartCoroutine(AttackCooldown(lightAttackCooldown));
+            channelTime = 0;
+        }
+        if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
+        {
+            Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration);
+            StartCoroutine(AttackCooldown(heavyAttackCooldown));
+            channelTime = 0;
         }
     }
     void Attack(int attackDamage, float knockbackForce, float knockbackDuration)
@@ -68,11 +71,12 @@ public class PlayerAttack : MonoBehaviour
             {
                 enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
                 StartCoroutine(KnockBackMove(enemy.GetComponent<EnemyMovement>(), knockbackDuration));
-                //enemy.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic; //lui donne un RB dynamic, ce qui lui permet d'être knockedback
                 enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None; //dé-lock sa position
+                //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
                 Knockback(enemy.gameObject, knockbackForce);
                 Debug.Log(attackDamage);
-                Debug.Log(startTime);
+                Debug.Log(channelTime);
             }
         }
     }
@@ -81,18 +85,23 @@ public class PlayerAttack : MonoBehaviour
         Vector2 direction = (Vector2)(enemy.transform.position - gameObject.transform.position); //direction du knockback
         enemy.GetComponent<Rigidbody2D>().velocity = (direction.normalized * force); //applique la direction et la force au knockback au RB de l'ennemi
     }
+    IEnumerator KnockBackMove(EnemyMovement enemy, float knockbackDuration)
+    {
+        enemy.canMove = false;
+        yield return new WaitForSeconds(knockbackDuration);
+        enemy.canMove = true;
+    }
+    IEnumerator AttackCooldown(float attackCooldown)
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
+    }
     void OnDrawGizmosSelected()
     {
         if (lightAttackPoint == null)
             return;
 
         Gizmos.DrawWireSphere(lightAttackPoint.position, attackRange);
-    }
-
-    IEnumerator KnockBackMove(EnemyMovement enemy, float knockbackDuration)
-    {
-        enemy.canMove = false;
-        yield return new WaitForSeconds(knockbackDuration);
-        enemy.canMove = true;
     }
 }

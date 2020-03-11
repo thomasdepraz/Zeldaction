@@ -7,17 +7,24 @@ public class EnemyAttack : MonoBehaviour
     private bool playerIsDetected;
     public int attackDamage = 40;
     private bool coroutineCanStart = true;
-    public bool enemysIsTackling;
-    public float chargeStopDistance;
+    [HideInInspector]public bool enemysIsTackling;
     private Rigidbody2D enemyRb;
+    [Header ("Charge Details")]
+    public float chargeStopDistance;
     public float enemyChargeSpeed;
-    public LayerMask playerLayer;
+    [Range (0f,1f)]
     public float chargeMaxTime;
+    [Range(0f,0.5f)]
     public float chargeRadiusTriggerAttack;
+    [Range(0f,1f)]
     public float prepairTime;
+    [Range(0f,5f)]
     public float stunTime;
 
     private EnemyMovement enemyMovement;
+
+    [Header ("Target")]
+    public LayerMask playerLayer;
     public PlayerHP playerHP;
 
 

@@ -10,20 +10,11 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 direction;
    // public Animator anim; 
     public float playerSpeed = 200f;
-    private float controllerDeadzone = 0.25f;
+    private readonly float controllerDeadzone = 0.25f;
 
     //Player inputs
-    [Header("Player inputs")]
-    [Range(-1f, 1f)]
-    public float horizontalDir;
-    [Range(-1f, 1f)]
-    public float verticalDir;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    private float horizontalDir;
+    private float verticalDir;
 
     // Update is called once per frame
     void Update()

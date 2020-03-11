@@ -17,12 +17,6 @@ public class PlayerHP : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth); // set la barre de vie avec la vie maximale du joueur
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle du joueur
