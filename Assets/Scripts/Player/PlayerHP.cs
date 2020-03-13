@@ -30,6 +30,8 @@ public class PlayerHP : MonoBehaviour
     void Die()
     {
         GetComponent<Collider2D>().enabled = false; // en cas de mort, le collider du joueur est désactivé
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<PlayerAttack>().enabled = false;
         this.enabled = false;
     }
 }
