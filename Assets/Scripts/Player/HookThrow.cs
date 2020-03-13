@@ -111,8 +111,8 @@ public class HookThrow : MonoBehaviour
             }
             else if(hook.transform.parent.GetComponent<Hookable>().isHeavy)//si le truc est lourd
             {
-                //affecter le rb du player
-
+                direction = (hook.transform.position - transform.position);
+                gameObject.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed * 2;
             }
         }
         else
