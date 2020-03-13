@@ -11,7 +11,8 @@ public class PlayerAttack : MonoBehaviour
     public int lightAttackDamage = 1;
     [Range(0f, 5f)]
     public int heavyAttackDamage = 2;
-    private readonly float attackRange = 0.5f;
+    public float lightAttackRange = 0.3f;
+    public float heavyAttackRange = 0.5f;
     private bool canAttack = true;
     public float lightAttackCooldown = 0.2f;
     public float heavyAttackCooldown = 1f;
@@ -49,18 +50,18 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide
         {
-            Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration);
+            Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange);
             StartCoroutine(AttackCooldown(lightAttackCooldown));
             channelTime = 0;
         }
         if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
         {
-            Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration);
+            Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange);
             StartCoroutine(AttackCooldown(heavyAttackCooldown));
             channelTime = 0;
         }
     }
-    void Attack(int attackDamage, float knockbackForce, float knockbackDuration)
+    void Attack(int attackDamage, float knockbackForce, float knockbackDuration, float attackRange)
     {
         //play animation
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(lightAttackPoint.position, attackRange, enemyLayer);
@@ -101,6 +102,7 @@ public class PlayerAttack : MonoBehaviour
         if (lightAttackPoint == null)
             return;
 
-        Gizmos.DrawWireSphere(lightAttackPoint.position, attackRange);
+        Gizmos.DrawWireSphere(lightAttackPoint.position, lightAttackRange);
+        Gizmos.DrawWireSphere(heavyAttackPoint.position, heavyAttackRange);
     }
 }
