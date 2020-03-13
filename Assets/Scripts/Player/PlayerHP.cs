@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerHP : MonoBehaviour
 {
     [Header ("Player Health")]
-    [Range (1,200)]
-    public int maxHealth = 100;
+    [Range (1,20)]
+    public int maxHealth = 10;
     public int currentHealth;
 
     public HealthBar healthBar;

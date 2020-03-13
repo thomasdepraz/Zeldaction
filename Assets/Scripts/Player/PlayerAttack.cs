@@ -7,10 +7,10 @@ public class PlayerAttack : MonoBehaviour
     [Header("Attack Details:")]
     public Transform heavyAttackPoint;
     public Transform lightAttackPoint;
-    [Range(0f, 100f)]
-    public int lightAttackDamage = 40;
-    [Range(0f, 150f)]
-    public int heavyAttackDamage = 80;
+    [Range(0f, 3f)]
+    public int lightAttackDamage = 1;
+    [Range(0f, 5f)]
+    public int heavyAttackDamage = 2;
     private readonly float attackRange = 0.5f;
     private bool canAttack = true;
     public float lightAttackCooldown = 0.2f;

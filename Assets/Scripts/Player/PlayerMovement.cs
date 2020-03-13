@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player variables")]
     public Rigidbody2D playerRb;
     public Vector2 direction;
-   // public Animator anim; 
+    public float headingAngle;
+    public float realAngle;
+    // public Animator anim; 
     public float playerSpeed = 200f;
     private readonly float controllerDeadzone = 0.25f;
 
@@ -16,10 +18,14 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalDir;
     private float verticalDir;
 
+    [Header("Attack Points")]
+    public Transform attackPoint;
+
     // Update is called once per frame
     void Update()
     {
         GetPlayerController();
+        Facing();
     }
 
     // Fixed update
@@ -48,15 +54,43 @@ public class PlayerMovement : MonoBehaviour
         horizontalDir = Input.GetAxis("Horizontal");
         verticalDir = Input.GetAxis("Vertical");
 
-     /*   anim.SetFloat("HorizontalMove", horizontalDir);
-        anim.SetFloat("VerticalMove", verticalDir);*/
+        /*   anim.SetFloat("HorizontalMove", horizontalDir);
+           anim.SetFloat("VerticalMove", verticalDir);*/
 
-        // fait en sorte que l'angle du player soit celui de la dernière direction choisie
         /*   if (direction!= Vector2.zero)
            { 
                playerRb.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction)); c'est cool mais pas utile, à voir.
            }
         */
     }
+    void Facing()
+    {
+        //headingAngle = Mathf.Atan2(verticalDir, horizontalDir)*Mathf.Rad2Deg;
 
+        headingAngle = Vector2.SignedAngle(Vector2.up, direction);
+        attackPoint.localEulerAngles = new Vector3(0.0f, 0.0f, realAngle);
+
+        //changer le realangle que si la longueur du vecteur est supérieure à zéro
+        if (direction.magnitude > 0.2f)
+        {
+            if (headingAngle >= -45f && headingAngle <= 45f)
+            {
+                realAngle = 0f;
+            }
+
+            else if (headingAngle >= 45f && headingAngle <= 135f)
+            {
+                realAngle = 90f;
+            }
+
+            else if (headingAngle >= -135f && headingAngle <= -45f)
+            {
+                realAngle = -90f;
+            }
+            else
+            {
+                realAngle = 180f;
+            }
+        }
+    }
 }

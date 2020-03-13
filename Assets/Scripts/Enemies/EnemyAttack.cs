@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     private bool playerIsDetected;
-    public int attackDamage = 40;
+    [Range (0,5)]
+    public int attackDamage = 2;
     private bool coroutineCanStart = true;
     [HideInInspector]public bool enemysIsTackling;
     private Rigidbody2D enemyRb;
