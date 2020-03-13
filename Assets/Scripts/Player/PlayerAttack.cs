@@ -28,7 +28,6 @@ public class PlayerAttack : MonoBehaviour
     public float heavyKnockbackDuration = 4f;
 
     [Header("Enemy Target")]
-    public Transform enemyPos;
     public LayerMask enemyLayer;
 
     // Update is called once per frame

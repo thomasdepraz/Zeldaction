@@ -55,14 +55,12 @@ public class HookThrow : MonoBehaviour
             isPulling = true;
             
         }
-        if (isThrown && !isHooked) //Quand le hameçon est lancé on vérifie s'il peut se hook
+        if (isThrown) //Quand le hameçon est lancé on vérifie s'il peut se hook
         {
             Hook();
         }
-
      
-
-        if (isPulled && distancePlayerHook <= 1)
+        /*if (isPulled && distancePlayerHook <= 1)
         {
             if (isHooked && !isHeavy)
             {
@@ -76,7 +74,7 @@ public class HookThrow : MonoBehaviour
             isPulled = false;
             isHooked = false;
             isThrown = false;
-        }
+        }*/
 
     }
 
@@ -104,7 +102,18 @@ public class HookThrow : MonoBehaviour
                 isHeavy = false;
             }*/
 
-            //IL SE PASSE DES TRUCS
+            if(hook.transform.parent.GetComponent<Hookable>().isLight)//si le truc est léger
+            {
+                hookRigidBody.simulated = false;
+                hook.transform.parent.GetComponent<Rigidbody2D>().drag = 0f;
+                direction = (transform.position - hook.transform.position);
+                hook.transform.parent.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed * 2;
+            }
+            else if(hook.transform.parent.GetComponent<Hookable>().isHeavy)//si le truc est lourd
+            {
+                //affecter le rb du player
+
+            }
         }
         else
         {
@@ -126,7 +135,12 @@ public class HookThrow : MonoBehaviour
                 hook.transform.SetParent(hookable.gameObject.transform);
                 hookRigidBody.velocity = Vector2.zero;
                 hookRigidBody.simulated = false;
-                //isHooked = true;
+                isHooked = true;
+
+                if(isPulling)
+                {
+                    Pull();
+                }
             }
 
             if(hookable.gameObject.CompareTag("Player") && isPulling)
@@ -136,8 +150,13 @@ public class HookThrow : MonoBehaviour
                 isThrown = false;
                 isPulling = false;
                 playerMovement.canMove = true;
-                //l'objet hook est accroché
-                //ishooked = true
+
+                if (isHooked)
+                {
+                    hook.transform.parent.GetComponent<Rigidbody2D>().drag = 3f;
+                    hook.transform.SetParent(gameObject.transform);
+                    isHooked = false;
+                }
             }
         }
 
