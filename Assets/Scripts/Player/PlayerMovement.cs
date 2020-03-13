@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     // public Animator anim; 
     public float playerSpeed = 200f;
     private readonly float controllerDeadzone = 0.25f;
+    [HideInInspector]public bool canMove = true;
 
     //Player inputs
     private float horizontalDir;
@@ -37,17 +38,19 @@ public class PlayerMovement : MonoBehaviour
     void Movement()
     {
         direction = new Vector2(horizontalDir, verticalDir);
-
-        if (direction.magnitude <= controllerDeadzone) // ajout d'une deadzone --> nice mais on peut le faire dans les settings unity
+        if(canMove)
         {
-            direction = Vector2.zero;
-            playerRb.velocity = Vector2.zero;
-        }
-        else
-        {
-            playerRb.velocity = direction.normalized * playerSpeed * Time.deltaTime;
-        }
+            if (direction.magnitude <= controllerDeadzone) // ajout d'une deadzone --> nice mais on peut le faire dans les settings unity
+            {
+                direction = Vector2.zero;
+                playerRb.velocity = Vector2.zero;
+            }
+            else
+            {
+                playerRb.velocity = direction.normalized * playerSpeed * Time.deltaTime;
+            }
 
+        }
     }
     void GetPlayerController()
     {

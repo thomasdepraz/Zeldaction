@@ -11,16 +11,18 @@ public class HookThrow : MonoBehaviour
     private Rigidbody2D hookRigidBody;
     public GameObject crosshair;
     private PlayerAim playerAim;
+    private PlayerMovement playerMovement;
 
     [Header("Logic")]
-    [Range(0f, 5f)]
+    [Range(0f, 10f)]
     public float speed;
     private Vector3 direction;
-    private bool isThrown;
+    private bool isThrown = false;
     private bool isHooked = false;
     private bool isPulled = false;
+    private bool isPulling = false;
     private bool isHeavy;
-    private Vector3 originPosition;
+
     private float distancePlayerHook;
 
     [Header("Tweak")]
@@ -33,35 +35,32 @@ public class HookThrow : MonoBehaviour
     {
         hookRigidBody = hook.GetComponent<Rigidbody2D>();
         playerAim = gameObject.GetComponent<PlayerAim>();
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        distancePlayerHook = (gameObject.transform.position - hook.transform.position).magnitude;
-
         if(Input.GetButtonDown("Throw") && !isThrown)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
         {
-            originPosition = hook.transform.position;
-            isThrown = true;
+            hookRigidBody.simulated = true;
             Throw();
         }
-
-        if (Input.GetButtonDown("Throw") && isThrown)// si l'hameçon est lancée et qu'on appuie sur R1 on le tire
+        else if (Input.GetButtonDown("Throw") && isThrown && !isPulling)// si l'hameçon est lancée et qu'on appuie sur R1 on le tire
         {
-            isThrown = false;
+            //Le player peut plus bouger
+            playerMovement.canMove = false;
+            playerMovement.playerRb.velocity = Vector2.zero;
             Pull();
+            isPulling = true;
+            
         }
-
-        if(isThrown && !isHooked)
+        if (isThrown && !isHooked) //Quand le hameçon est lancé on vérifie s'il peut se hook
         {
             Hook();
         }
 
-        if(isThrown && distancePlayerHook >= playerAim.maxRange)//Si le hameçon atteint maxRange il s'arrête
-        {
-            hookRigidBody.velocity = Vector2.zero;
-        }
+     
 
         if (isPulled && distancePlayerHook <= 1)
         {
@@ -84,14 +83,15 @@ public class HookThrow : MonoBehaviour
     void Throw()
     {
         direction = (crosshair.transform.position - hook.transform.position).normalized;
-        hookRigidBody.velocity += (Vector2)direction * speed; 
+        hookRigidBody.velocity += (Vector2)direction * speed;
+        isThrown = true;
     }
 
     void Pull()
     {
         if (isHooked)
         {
-            if (GetComponent<Weight>().weight >= transform.parent.GetComponent<Weight>().weight)
+           /* if (GetComponent<Weight>().weight >= transform.parent.GetComponent<Weight>().weight)
             {
                 direction = (hook.transform.position - transform.position).normalized;
                 hookRigidBody.velocity += (Vector2)direction * speed;
@@ -102,14 +102,16 @@ public class HookThrow : MonoBehaviour
                 direction = (transform.position - hook.transform.position).normalized;
                 GetComponent<Rigidbody2D>().velocity += (Vector2)direction * speed;
                 isHeavy = false;
-            }
+            }*/
+
+            //IL SE PASSE DES TRUCS
         }
         else
         {
-            direction = (hook.transform.position - transform.position).normalized;
-            hookRigidBody.velocity += (Vector2)direction * speed;
+            direction = (transform.position - hook.transform.position);
+            hookRigidBody.velocity = Vector2.zero;
+            hookRigidBody.velocity = direction.normalized * speed * 2;
         }
-        isPulled = true;
     }
 
     void Hook()
@@ -117,13 +119,25 @@ public class HookThrow : MonoBehaviour
         Collider2D[] hit = Physics2D.OverlapCircleAll(hook.transform.position, hookDetectionRange);
         foreach (Collider2D hookable in hit)
         {
-            Debug.Log(hookable.gameObject.tag);
             if(hookable.gameObject.CompareTag("Hookable"))
             {
                 //S'accrocher à l'objet
                 hook.transform.position = hookable.gameObject.transform.position;
                 hook.transform.SetParent(hookable.gameObject.transform);
+                hookRigidBody.velocity = Vector2.zero;
+                hookRigidBody.simulated = false;
                 //isHooked = true;
+            }
+
+            if(hookable.gameObject.CompareTag("Player") && isPulling)
+            {
+                hookRigidBody.velocity = Vector2.zero;
+                hookRigidBody.simulated = false;
+                isThrown = false;
+                isPulling = false;
+                playerMovement.canMove = true;
+                //l'objet hook est accroché
+                //ishooked = true
             }
         }
 
