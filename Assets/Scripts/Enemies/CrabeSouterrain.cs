@@ -85,7 +85,8 @@ public class CrabeSouterrain : MonoBehaviour
         yield return new WaitForSeconds(loadAttack);
         if (canGiveDamage == true)
         {            
-            playerHP.TakeDamage(attackDamage);            
+            playerHP.TakeDamage(attackDamage);
+            yield return new WaitForSeconds(stunTime);
         }
     }
 
