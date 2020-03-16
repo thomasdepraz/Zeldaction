@@ -349,12 +349,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ce18d7996b985419ae0e010f24fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHP: {fileID: 4009903355679232015}
   speed: 67.7
+  attackDamage: 7
   detectionDistance: 3
   attackDistance: 0.5
   pinceCrabe: {fileID: 1108550514}
   loadAttack: 3
   loadMovement: 4
+  stunTime: 5
 --- !u!50 &1066814261
 Rigidbody2D:
   serializedVersion: 4
@@ -474,7 +477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &3293102890673663099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -493,6 +496,7 @@ MonoBehaviour:
   maxRange: 1
   distanceToPlayer: 0
   speed: 1
+  range: 4
 --- !u!1 &4009903355679232013
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7781163248621876355}
   - component: {fileID: 5244060117682405503}
+  - component: {fileID: 4009903355679232015}
   - component: {fileID: 4009903355679232014}
   - component: {fileID: 5153496962994431367}
   - component: {fileID: 5264117447448967485}
@@ -530,9 +535,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRb: {fileID: 5153496962994431367}
   direction: {x: 0, y: 0}
+  headingAngle: 0
+  realAngle: 0
   playerSpeed: 200
-  horizontalDir: 0
-  verticalDir: 0
+  canMove: 1
+  attackPoint: {fileID: 0}
+--- !u!114 &4009903355679232015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009903355679232013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6abd192bd54f4947b8e13d23c2c8c00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 10
+  healthBar: {fileID: 0}
 --- !u!50 &5153496962994431367
 Rigidbody2D:
   serializedVersion: 4

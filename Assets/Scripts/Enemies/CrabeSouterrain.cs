@@ -9,12 +9,15 @@ public class CrabeSouterrain : MonoBehaviour
     private Vector2 direction;
 
     private GameObject player;
+    public PlayerHP playerHP;
     private float distanceToPlayer;
 
     
     [Header("Tweaks")]
     [Range(0f, 100F)]
     public float speed;
+    [Range(0, 7)]
+    public int attackDamage = 2;
     [Range(0f, 5f)]
     public float detectionDistance;
     [Range(0f, 5f)]
@@ -25,7 +28,8 @@ public class CrabeSouterrain : MonoBehaviour
     [Header("LoadTime")]
     public float loadAttack;
     public float loadMovement;
-    
+    public float stunTime = 5f;
+
     bool canGiveDamage = false;
     bool canMove = true;
     Coroutine LoadAttaque;
@@ -59,7 +63,7 @@ public class CrabeSouterrain : MonoBehaviour
         }
     }
 
-    private void CrabeAttack()
+    private void CrabeAttack() // Fonction de déclenchement de l'attaque 
     {
         if(distanceToPlayer <= attackDistance)//Condition au déclenchement
         {
@@ -67,22 +71,21 @@ public class CrabeSouterrain : MonoBehaviour
             canMove = false;
             canGiveDamage = true;
             StartCoroutine(LoadAttack());
-            StartCoroutine(LoadMovement());
-            
+            StartCoroutine(LoadMovement());              
         }
-        else
+        else //Annulation du déclenchement
         {            
             canGiveDamage = false;
             StopCoroutine(LoadAttaque);
         }
 
     }
-    IEnumerator LoadAttack()
+    IEnumerator LoadAttack() 
     {
         yield return new WaitForSeconds(loadAttack);
-        if(canGiveDamage == true)
-        {
-            Debug.Log("le PJ prend des dégâts");
+        if (canGiveDamage == true)
+        {            
+            playerHP.TakeDamage(attackDamage);            
         }
     }
 

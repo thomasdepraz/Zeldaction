@@ -41,7 +41,7 @@ public class HookThrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(isThrown); 
+        /*Debug.Log(isThrown);*/ 
         if(Input.GetButtonDown("Throw") && !isThrown && !isHooked)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
         {
             hookRigidBody.simulated = true;
