@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
     [Header ("Target")]
     public Transform player;
     private Rigidbody2D enemyRb;
+
     [HideInInspector] public Vector2 direction;
     [HideInInspector] public bool canMove = true;
+
     [Header ("Movement & Behavior")]
     [Range (0f, 300f)]
     public float enemySpeed = 150f;
     public float patrolRadius;
     public float minStopDistance;
+
     private Vector2 randomPatrolPosition;
     private float latestDirectionChangeTime;
     private readonly float directionChangeTime = 3f;
@@ -38,11 +39,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    /* void followPlayer()
-     {
-         direction = (player.transform.position - transform.position);
-         enemyRb.velocity = direction.normalized * enemySpeed * Time.deltaTime;
-     }*/
     void WanderAround()
     {
         randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;

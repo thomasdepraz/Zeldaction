@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Player;
 
 public class HookThrow : MonoBehaviour
@@ -10,7 +8,6 @@ public class HookThrow : MonoBehaviour
     public GameObject hook;
     private Rigidbody2D hookRigidBody;
     public GameObject crosshair;
-    private PlayerAim playerAim;
     private PlayerMovement playerMovement;
 
     [Header("Logic")]
@@ -19,11 +16,8 @@ public class HookThrow : MonoBehaviour
     private Vector3 direction;
     private bool isThrown = false;
     private bool isHooked = false;
-    private bool isPulled = false;
     private bool isPulling = false;
-    private bool isHeavy;
 
-    private float distancePlayerHook;
 
     [Header("Tweak")]
     [Range(0f, 5f)]
@@ -34,7 +28,6 @@ public class HookThrow : MonoBehaviour
     void Start()
     {
         hookRigidBody = hook.GetComponent<Rigidbody2D>();
-        playerAim = gameObject.GetComponent<PlayerAim>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
 
@@ -60,29 +53,12 @@ public class HookThrow : MonoBehaviour
         {
             Hook();
         }
-     
-        /*if (isPulled && distancePlayerHook <= 1)
-        {
-            if (isHooked && !isHeavy)
-            {
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            }
-            else
-            {
-                hookRigidBody.velocity = Vector2.zero;
-            }
-
-            isPulled = false;
-            isHooked = false;
-            isThrown = false;
-        }*/
-
     }
 
     void Throw()
     {
-        direction = (crosshair.transform.position - hook.transform.position).normalized;
-        hookRigidBody.velocity += (Vector2)direction * speed;
+        direction = (crosshair.transform.position - hook.transform.position).normalized; //direction player-> crosshair
+        hookRigidBody.velocity += (Vector2)direction * speed; //déplacement du hook
         isThrown = true;
     }
 
@@ -90,19 +66,6 @@ public class HookThrow : MonoBehaviour
     {
         if (isHooked)
         {
-           /* if (GetComponent<Weight>().weight >= transform.parent.GetComponent<Weight>().weight)
-            {
-                direction = (hook.transform.position - transform.position).normalized;
-                hookRigidBody.velocity += (Vector2)direction * speed;
-                isHeavy = true;
-            }
-            else
-            {
-                direction = (transform.position - hook.transform.position).normalized;
-                GetComponent<Rigidbody2D>().velocity += (Vector2)direction * speed;
-                isHeavy = false;
-            }*/
-
             if(hook.transform.parent.GetComponent<Hookable>().isLight)//si le truc est léger
             {
                 hookRigidBody.simulated = false;
@@ -116,7 +79,7 @@ public class HookThrow : MonoBehaviour
                 gameObject.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed * 2;//on se déplace vers l'objet
             }
         }
-        else
+        else //Retour de l'hameçon
         {
             direction = (transform.position - hook.transform.position);
             hookRigidBody.velocity = Vector2.zero;
@@ -138,18 +101,15 @@ public class HookThrow : MonoBehaviour
                 hookRigidBody.simulated = false;
                 isHooked = true;
 
-                Debug.Log("Je m'attache à l'objet");
                 if(isPulling)
-                {
                     Pull();
-                }
+
             }
 
             if(hookable.gameObject.CompareTag("Player") && isPulling)
             {
                 if (isHooked)
                 {
-                    Debug.Log("Je m'attache au joueur");
                     hook.transform.parent.GetComponent<Rigidbody2D>().drag = 3f;
                     hook.transform.SetParent(gameObject.transform);
                     isHooked = false;
@@ -162,6 +122,5 @@ public class HookThrow : MonoBehaviour
                 playerMovement.canMove = true;   
             }
         }
-
     }
 }

@@ -1,15 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    [Header("Variables")]
     private bool playerIsDetected;
     [Range (0,5)]
     public int attackDamage = 2;
     private bool coroutineCanStart = true;
     [HideInInspector]public bool enemysIsTackling;
     private Rigidbody2D enemyRb;
+
     [Header ("Charge Details")]
     public float chargeStopDistance;
     public float enemyChargeSpeed;

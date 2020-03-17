@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 direction;
     public float headingAngle;
     public float realAngle;
+
     // public Animator anim; 
     public float playerSpeed = 200f;
     private readonly float controllerDeadzone = 0.25f;
@@ -40,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         direction = new Vector2(horizontalDir, verticalDir);
         if(canMove)
         {
-            if (direction.magnitude <= controllerDeadzone) // ajout d'une deadzone --> nice mais on peut le faire dans les settings unity
+            if (direction.magnitude <= controllerDeadzone)
             {
                 direction = Vector2.zero;
                 playerRb.velocity = Vector2.zero;
@@ -68,8 +67,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void Facing()
     {
-        //headingAngle = Mathf.Atan2(verticalDir, horizontalDir)*Mathf.Rad2Deg;
-
         headingAngle = Vector2.SignedAngle(Vector2.up, direction);
         attackPoint.localEulerAngles = new Vector3(0.0f, 0.0f, realAngle);
 
@@ -77,23 +74,18 @@ public class PlayerMovement : MonoBehaviour
         if (direction.magnitude > 0.2f)
         {
             if (headingAngle >= -45f && headingAngle <= 45f)
-            {
                 realAngle = 0f;
-            }
 
             else if (headingAngle >= 45f && headingAngle <= 135f)
-            {
                 realAngle = 90f;
-            }
 
-            else if (headingAngle >= -135f && headingAngle <= -45f)
-            {
+            
+            else if (headingAngle >= -135f && headingAngle <= -45f)           
                 realAngle = -90f;
-            }
-            else
-            {
+            
+            else            
                 realAngle = 180f;
-            }
+            
         }
     }
 }
