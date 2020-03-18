@@ -8,7 +8,9 @@ public class CrabeSouterrain : MonoBehaviour
     private Vector2 direction;
 
     private GameObject player;
+    public GameObject baseCrab;
     private PlayerHP playerHP;
+    private Hookable hookable;
     private float distanceToPlayer;
 
     
@@ -33,14 +35,13 @@ public class CrabeSouterrain : MonoBehaviour
     bool canMove = true;
     bool canStartCoroutine;
 
-    Coroutine LoadAttaque;
-
     void Start()
     {
         canStartCoroutine = true;
         rb = gameObject.GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerHP = player.GetComponent<PlayerHP>();
+        hookable = gameObject.GetComponent<Hookable>();
     }
 
     void Update()
@@ -89,6 +90,7 @@ public class CrabeSouterrain : MonoBehaviour
         canStartCoroutine = false;//on évite que la coroutine se lance 100 fois
 
         yield return new WaitForSeconds(loadAttack); //préparation de l'attaque
+        hookable.isActive = true;
         if (canGiveDamage == true)//si player en range alors dégats
         {
             Debug.Log("J'ai mis des dégats");
@@ -98,9 +100,17 @@ public class CrabeSouterrain : MonoBehaviour
             Debug.Log("J'ai pas mis les dégats");
 
         yield return new WaitForSeconds(stunTime);//après attaque stun puis peut bouger à nouveau
+        hookable.isActive = false;
         canMove = true;
         canStartCoroutine = true;
     }
 
     // Il manque l'élimination du crabe qui s'effectue avec le pull du crabe via l'hameçon du PJ.
+    public void isPulled()
+    {
+        hookable.isActive = false;
+        Debug.Log("Je sors de terre");
+        GameObject.Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 }

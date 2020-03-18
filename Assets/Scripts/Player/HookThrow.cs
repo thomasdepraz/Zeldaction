@@ -15,8 +15,8 @@ public class HookThrow : MonoBehaviour
     public float speed;
     private Vector3 direction;
     private bool isThrown = false;
-    private bool isHooked = false;
-    private bool isPulling = false;
+    [HideInInspector]public bool isHooked = false;
+    [HideInInspector]public bool isPulling = false;
 
 
     [Header("Tweak")]
@@ -62,9 +62,9 @@ public class HookThrow : MonoBehaviour
         isThrown = true;
     }
 
-    void Pull()
+    public void Pull()
     {
-        if (isHooked)
+        if (isHooked && hook.transform.parent.GetComponent<Hookable>().isActive)
         {
             if(hook.transform.parent.GetComponent<Hookable>().isLight)//si le truc est léger
             {
@@ -77,6 +77,16 @@ public class HookThrow : MonoBehaviour
             {
                 direction = (hook.transform.position - transform.position);
                 gameObject.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed * 2;//on se déplace vers l'objet
+            }
+            else if (hook.transform.parent.GetComponent<Hookable>().isUndergroundCrab)//si le truc est un crab soutterain
+            {
+                hook.transform.parent.GetComponent<CrabeSouterrain>().isPulled();
+                hook.transform.SetParent(gameObject.transform);
+                hookRigidBody.simulated = true;
+
+                direction = (transform.position - hook.transform.position);
+                hookRigidBody.velocity = Vector2.zero;
+                hookRigidBody.velocity = direction.normalized * speed * 2;
             }
         }
         else //Retour de l'hameçon
@@ -94,16 +104,18 @@ public class HookThrow : MonoBehaviour
         {
             if(hookable.gameObject.CompareTag("Hookable") && !isHooked && isThrown)
             {
-                //S'accrocher à l'objet
-                hook.transform.position = hookable.gameObject.transform.position;
-                hook.transform.SetParent(hookable.gameObject.transform);
-                hookRigidBody.velocity = Vector2.zero;
-                hookRigidBody.simulated = false;
-                isHooked = true;
+                if(hookable.gameObject.GetComponent<Hookable>().isActive)
+                {
+                    //S'accrocher à l'objet
+                    hook.transform.position = hookable.gameObject.transform.position;
+                    hook.transform.SetParent(hookable.gameObject.transform);
+                    hookRigidBody.velocity = Vector2.zero;
+                    hookRigidBody.simulated = false;
+                    isHooked = true;
 
-                if(isPulling)
-                    Pull();
-
+                    if (isPulling)
+                        Pull();
+                }  
             }
 
             if(hookable.gameObject.CompareTag("Player") && isPulling)
