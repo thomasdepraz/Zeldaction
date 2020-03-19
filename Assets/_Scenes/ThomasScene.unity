@@ -542,10 +542,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1002179001}
     m_Modifications:
-    - target: {fileID: 24768320, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_TagString
-      value: Hook
-      objectReference: {fileID: 0}
     - target: {fileID: 2833044651291580734, guid: 077e58590ad43d44093a1b80ecf13b9f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -601,40 +597,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2848880388456659535, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 8866119257483132336, guid: 077e58590ad43d44093a1b80ecf13b9f,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932405361658122538, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932405361658122538, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.3122573
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932405361658122538, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.15629876
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932405361658122538, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0024505258
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932405361658122538, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.40028334
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
@@ -655,6 +621,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UndergroundCrab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763688605515822560, guid: da689a906e5794747b4a38d8375e3d5d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2763688605515822619, guid: da689a906e5794747b4a38d8375e3d5d,
         type: 3}

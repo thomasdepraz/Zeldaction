@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float headingAngle;
     public float realAngle;
 
-    // public Animator anim; 
+    public Animator animator; //POUR LES GA
+    public bool isMoving  = false; //POUR LES GA
     public float playerSpeed = 200f;
     private readonly float controllerDeadzone = 0.25f;
     [HideInInspector]public bool canMove = true;
@@ -20,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Attack Points")]
     public Transform attackPoint;
+
+
 
     // Update is called once per frame
     void Update()
@@ -43,10 +46,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 direction = Vector2.zero;
                 playerRb.velocity = Vector2.zero;
+                isMoving = false;
             }
             else
             {
                 playerRb.velocity = direction.normalized * playerSpeed * Time.deltaTime;
+                isMoving = true;
             }
 
         }
@@ -56,14 +61,12 @@ public class PlayerMovement : MonoBehaviour
         horizontalDir = Input.GetAxis("Horizontal");
         verticalDir = Input.GetAxis("Vertical");
 
-        /*   anim.SetFloat("HorizontalMove", horizontalDir);
-           anim.SetFloat("VerticalMove", verticalDir);*/
+        //ANIMATOR POUR LES GA--------------------------------
+           animator.SetFloat("HorizontalMove", horizontalDir);
+           animator.SetFloat("VerticalMove", verticalDir);
 
-        /*   if (direction!= Vector2.zero)
-           { 
-               playerRb.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction)); c'est cool mais pas utile, à voir.
-           }
-        */
+           animator.SetBool("isMoving", isMoving);
+        //----------------------------------------------------
     }
     void Facing()
     {
