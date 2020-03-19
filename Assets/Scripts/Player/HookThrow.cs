@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using Player;
 
 public class HookThrow : MonoBehaviour
@@ -17,11 +18,14 @@ public class HookThrow : MonoBehaviour
     private bool isThrown = false;
     [HideInInspector]public bool isHooked = false;
     [HideInInspector]public bool isPulling = false;
+    private bool canStartCoroutine = true;
 
 
     [Header("Tweak")]
     [Range(0f, 5f)]
     public float hookDetectionRange;
+    [Range(0f, 5f)]
+    public float timeToCancel = 3f;
 
 
     // Start is called before the first frame update
@@ -115,6 +119,9 @@ public class HookThrow : MonoBehaviour
 
                     if (isPulling)
                         Pull();
+
+                    if (canStartCoroutine)
+                        StartCoroutine("HookCancel");
                 }  
             }
 
@@ -134,5 +141,24 @@ public class HookThrow : MonoBehaviour
                 playerMovement.canMove = true;   
             }
         }
+    }
+
+    private IEnumerator HookCancel()
+    {
+        canStartCoroutine = false;
+        yield return new WaitForSeconds(timeToCancel);
+        if(!isPulling && !hook.transform.parent.CompareTag("Player"))
+        {
+            isPulling = true;
+            playerMovement.canMove = false;
+            playerMovement.playerRb.velocity = Vector2.zero;
+            hook.transform.SetParent(gameObject.transform);
+            hookRigidBody.simulated = true;
+
+            direction = (transform.position - hook.transform.position);
+            hookRigidBody.velocity = Vector2.zero;
+            hookRigidBody.velocity = direction.normalized * speed * 2;
+        }
+        canStartCoroutine = true;
     }
 }
