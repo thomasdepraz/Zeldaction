@@ -97,6 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realesedSprite: {fileID: 21300000, guid: bb32fdadb77e7754abe4b0229aa50743, type: 3}
   pressedSprite: {fileID: 21300000, guid: b80573e81bb85644091b00b86381a8ce, type: 3}
+  hitboxLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   isPressed: 0
 --- !u!61 &8981378725365782446
 BoxCollider2D:

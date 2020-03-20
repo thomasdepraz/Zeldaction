@@ -542,6 +542,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1002179001}
     m_Modifications:
+    - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2833044651291580734, guid: 077e58590ad43d44093a1b80ecf13b9f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -601,6 +605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932405361658122538, guid: 077e58590ad43d44093a1b80ecf13b9f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
@@ -841,6 +850,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6272499802043134888, guid: 28b76a2aefb928d479310fcf2e1be07c,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6272499802043134893, guid: 28b76a2aefb928d479310fcf2e1be07c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1019,6 +1033,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HeavyCrate
+      objectReference: {fileID: 0}
+    - target: {fileID: 7487111886351926171, guid: c238313148cc54f46a1c744cc931058f,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c238313148cc54f46a1c744cc931058f, type: 3}
