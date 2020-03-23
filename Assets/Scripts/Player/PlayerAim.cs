@@ -22,6 +22,7 @@ namespace Player
         [HideInInspector] public float distanceToPlayer;
 
         private bool coroutineCanStart = false;
+        public bool isAiming = false;
 
         [Header("Tweak")]
         [Range(1f, 5f)]
@@ -57,6 +58,7 @@ namespace Player
 
                 //on ralentit le joueur       
                 playerMovement.playerSpeed = 100f;
+                isAiming = true;
             }
 
             else if (horizontalAim == 0 && verticalAim == 0)//Si le joystick est à 0,0 alors la visée est désactivée après 1 sec.
@@ -77,6 +79,7 @@ namespace Player
                 aimDirectionPreview.SetActive(false);
                 //on reset la vitesse du joueur
                 playerMovement.playerSpeed = 200f;
+                isAiming = false;
             }
             yield return null;
         }

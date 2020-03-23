@@ -10,6 +10,7 @@ public class HookThrow : MonoBehaviour
     private Rigidbody2D hookRigidBody;
     public GameObject crosshair;
     private PlayerMovement playerMovement;
+    private PlayerAim playerAim;
 
     [Header("Logic")]
     [Range(0f, 10f)]
@@ -33,13 +34,14 @@ public class HookThrow : MonoBehaviour
     {
         hookRigidBody = hook.GetComponent<Rigidbody2D>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
+        playerAim = gameObject.GetComponent<PlayerAim>();
     }
 
     // Update is called once per frame
     void Update()
     {
         /*Debug.Log(isThrown);*/ 
-        if(Input.GetButtonDown("Throw") && !isThrown && !isHooked)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
+        if(Input.GetButtonDown("Throw") && !isThrown && !isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
         {
             hookRigidBody.simulated = true;
             Throw();

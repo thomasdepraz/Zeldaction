@@ -28,9 +28,17 @@ public class PlayerAttack : MonoBehaviour
     [Range(0f, 5f)]
     public float heavyKnockbackDuration = 4f;
 
-    [Header("Enemy Target")]
+    [Header("Layers")]
     public LayerMask enemyLayer;
+    public LayerMask propsLayer;
 
+    private HookThrow hookThrow;
+    private GameObject hook;
+    private void Start()
+    {
+        hook = GameObject.FindGameObjectWithTag("Hook");
+        hookThrow = gameObject.GetComponent<HookThrow>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -43,22 +51,19 @@ public class PlayerAttack : MonoBehaviour
                 GetComponent<PlayerMovement>().playerSpeed = 140f; // ralentit le player quand il canalise l'attaque lourde
             }
         }
-        else
-        {
-            GetComponent<PlayerMovement>().playerSpeed = 200f;
-        }
-
         if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide
         {
             Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange);
             StartCoroutine(AttackCooldown(lightAttackCooldown));
             channelTime = 0;
+            GetComponent<PlayerMovement>().playerSpeed = 200f;
         }
         if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
         {
             Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange);
             StartCoroutine(AttackCooldown(heavyAttackCooldown));
             channelTime = 0;
+            GetComponent<PlayerMovement>().playerSpeed = 200f;
         }
     }
     void Attack(int attackDamage, float knockbackForce, float knockbackDuration, float attackRange)
@@ -77,6 +82,22 @@ public class PlayerAttack : MonoBehaviour
                 Knockback(enemy.gameObject, knockbackForce);
                 Debug.Log(attackDamage);
                 Debug.Log(channelTime);
+            }
+        }
+
+        Collider2D[] hitProps = Physics2D.OverlapCircleAll(lightAttackPoint.position, attackRange, propsLayer);
+        foreach (Collider2D props in hitProps)
+        {
+            if(props.GetType() == typeof(BoxCollider2D))
+            {
+                if(hook.transform.parent.gameObject.name == props.gameObject.name)
+                {
+                    Debug.Log("J'ai tapé");
+                    props.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    hookThrow.isHooked = false;
+                    hookThrow.Pull();
+                }
+                //Knockback(props.gameObject, knockbackForce * 5);
             }
         }
     }

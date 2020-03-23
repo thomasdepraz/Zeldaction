@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7487111886351926149}
   - component: {fileID: 7487111886351926148}
   - component: {fileID: 7487111886351926171}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HeavyCrate
   m_TagString: Hookable
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 15
-  m_LinearDrag: 5
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

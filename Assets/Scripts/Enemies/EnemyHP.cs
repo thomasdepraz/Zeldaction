@@ -25,5 +25,6 @@ public class EnemyHP : MonoBehaviour
         this.enabled = false;
         GetComponent<EnemyMovement>().enabled = false;
         GetComponent<EnemyAttack>().enabled = false;
+        Destroy(gameObject);
     }
 }

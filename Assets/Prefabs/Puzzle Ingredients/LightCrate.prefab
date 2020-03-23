@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6272499802043134894}
   - component: {fileID: 6272499802043134895}
   - component: {fileID: 6272499802043134888}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LightCrate
   m_TagString: Hookable
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 10
-  m_LinearDrag: 5
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
