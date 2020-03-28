@@ -187,8 +187,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472155851}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.67, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.6}
   m_Children: []
   m_Father: {fileID: 439995431}
   m_RootOrder: 0
@@ -268,8 +268,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848910939}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.87, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.46, z: 0}
+  m_LocalScale: {x: 0.61, y: 0.61, z: 1}
   m_Children: []
   m_Father: {fileID: 439995431}
   m_RootOrder: 1
@@ -368,7 +368,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0024505258, y: -0.3122573}
+  m_Offset: {x: 0.0051441193, y: -0.14331722}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -379,7 +379,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.40028334, y: 0.15629876}
+  m_Size: {x: 0.19527817, y: 0.11453819}
   m_EdgeRadius: 0
 --- !u!1 &6424791723635230786
 GameObject:
@@ -543,7 +543,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 3994660645933409499, guid: 9b016992a54cefa468d045feb737fd08,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -609,18 +609,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00021621585, y: 0.00052028894}
+  m_Offset: {x: -0.0059070587, y: -0.0013780594}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.62361485, y: 0.7469001}
+  m_Size: {x: 0.30851364, y: 0.40901756}
   m_EdgeRadius: 0
 --- !u!114 &6998508091290026438
 MonoBehaviour:
@@ -639,6 +639,7 @@ MonoBehaviour:
   crosshairTransform: {fileID: 0}
   maxRange: 1
   distanceToPlayer: 0
+  isAiming: 0
   speed: 1
   range: 4
 --- !u!114 &1560760774

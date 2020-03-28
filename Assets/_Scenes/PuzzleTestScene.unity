@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -185,67 +185,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 24768320, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 439995430, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1472155852, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1472155852, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1472155852, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1472155852, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848910940, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848910940, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 1848910940, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 318178060696333762, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 405648647389303936, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0059070587
-      objectReference: {fileID: 0}
-    - target: {fileID: 405648647389303936, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.30851364
-      objectReference: {fileID: 0}
-    - target: {fileID: 405648647389303936, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.0013780594
-      objectReference: {fileID: 0}
-    - target: {fileID: 405648647389303936, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.40901756
-      objectReference: {fileID: 0}
     - target: {fileID: 2833044651291580734, guid: 077e58590ad43d44093a1b80ecf13b9f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -305,26 +244,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932405361658122538, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.14331722
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932405361658122538, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.11453819
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932405361658122538, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0051441193
-      objectReference: {fileID: 0}
-    - target: {fileID: 8932405361658122538, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.19527817
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
