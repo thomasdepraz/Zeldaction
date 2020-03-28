@@ -97,7 +97,16 @@ public class PlayerAttack : MonoBehaviour
                     hookThrow.isHooked = false;
                     hookThrow.Pull();
                 }
-                //Knockback(props.gameObject, knockbackForce * 5);
+                Knockback(props.gameObject, knockbackForce * 5);
+
+                if(props.CompareTag("Rock"))
+                {
+                    if(attackDamage == lightAttackDamage)
+                        props.gameObject.GetComponent<DestroyableRocks>().LightHit();
+                    else
+                        props.gameObject.GetComponent<DestroyableRocks>().HeavyHit();
+
+                }
             }
         }
     }

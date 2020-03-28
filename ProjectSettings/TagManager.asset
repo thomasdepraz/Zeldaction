@@ -7,6 +7,7 @@ TagManager:
   - Hookable
   - Hitbox
   - Hook
+  - Rock
   layers:
   - Default
   - TransparentFX

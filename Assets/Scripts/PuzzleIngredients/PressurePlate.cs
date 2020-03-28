@@ -7,6 +7,7 @@ public class PressurePlate : MonoBehaviour
     public Sprite realesedSprite;
     public Sprite pressedSprite;
     public LayerMask hitboxLayer;
+    public bool isRigid;
     private SpriteRenderer spr;
     private BoxCollider2D col;
 
@@ -21,15 +22,17 @@ public class PressurePlate : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(col.IsTouchingLayers(hitboxLayer));
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     { 
-        if(collision.gameObject.layer == 10)
+        if(collision.gameObject.layer == 10 && !isRigid)
         {
             isPressed = true;
             spr.sprite = pressedSprite;
         }
+        
+
         
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -40,9 +43,6 @@ public class PressurePlate : MonoBehaviour
         {
             isPressed = false;
             spr.sprite = realesedSprite;
-        }
-        
-        
-        
+        } 
     }
 }
