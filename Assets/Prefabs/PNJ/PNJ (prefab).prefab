@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 0}
   dialogText: {fileID: 0}
-  dialog: HELLO THERE !!!
+  dialog: Tap Text Here !
   dialogActive: 0
   playerInRange: 0
   Button: {fileID: 1823390896}
