@@ -119,12 +119,12 @@ TextureImporter:
       name: corps-idle-sprite sheet_0
       rect:
         serializedVersion: 2
-        x: 23
+        x: 24
         y: 91
         width: 105
         height: 84
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,10 +142,10 @@ TextureImporter:
         serializedVersion: 2
         x: 174
         y: 91
-        width: 105
-        height: 82
+        width: 106
+        height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,27 +153,6 @@ TextureImporter:
       bones: []
       spriteID: fed2077e938e23bf0800000000000000
       internalID: -345958885960438289
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corps-idle-sprite sheet_2
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 162
-        width: 7
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ffd0f89776f5d240800000000000000
-      internalID: 4816026370070077425
       vertices: []
       indices: 
       edges: []
@@ -187,7 +166,7 @@ TextureImporter:
         width: 105
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -208,7 +187,7 @@ TextureImporter:
         width: 105
         height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,7 +208,7 @@ TextureImporter:
         width: 105
         height: 84
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,10 +226,10 @@ TextureImporter:
         serializedVersion: 2
         x: 174
         y: 1
-        width: 105
-        height: 82
+        width: 106
+        height: 83
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -258,27 +237,6 @@ TextureImporter:
       bones: []
       spriteID: 07369da86b2ed6c10800000000000000
       internalID: 2048542679164871536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: corps-idle-sprite sheet_7
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 72
-        width: 7
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dd663f6f0e4fe76f0800000000000000
-      internalID: -684840846260738339
       vertices: []
       indices: 
       edges: []
@@ -292,7 +250,7 @@ TextureImporter:
         width: 105
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -313,7 +271,7 @@ TextureImporter:
         width: 105
         height: 82
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

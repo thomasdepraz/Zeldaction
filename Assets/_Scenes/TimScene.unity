@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 16553278}
   - component: {fileID: 16553277}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Milieu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,9 +555,8 @@ GameObject:
   - component: {fileID: 1379823424}
   - component: {fileID: 1379823423}
   - component: {fileID: 1379823421}
-  - component: {fileID: 1379823422}
   - component: {fileID: 1379823420}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,24 +610,6 @@ MonoBehaviour:
   player: {fileID: 2040316127}
   claw: {fileID: 878203988}
   milieu: {fileID: 16553276}
---- !u!114 &1379823422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1379823419}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bb6a6c4f41b0b745abd50db39680ab6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2040316127}
-  direction: {x: 0, y: 0}
-  canMove: 1
-  enemySpeed: 150
-  patrolRadius: 2
-  minStopDistance: 0.2
 --- !u!114 &1379823423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,6 +1304,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Right Claw
       objectReference: {fileID: 0}
+    - target: {fileID: 7274184512652119323, guid: 8bd353832cd4bf64ab40a846122cd227,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bd353832cd4bf64ab40a846122cd227, type: 3}
 --- !u!1001 &8773055834927455568
@@ -1336,6 +1322,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Left Claw
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773055835268745476, guid: 1eb961eb749a27b4da5176cd4c7f4053,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8773055835268745477, guid: 1eb961eb749a27b4da5176cd4c7f4053,
         type: 3}
