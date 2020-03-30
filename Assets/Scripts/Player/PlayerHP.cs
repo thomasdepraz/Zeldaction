@@ -2,8 +2,8 @@
 
 public class PlayerHP : MonoBehaviour
 {
-    [Header ("Player Health")]
-    [Range (1,20)]
+    [Header("Player Health")]
+    [Range(1, 20)]
     public int maxHealth = 10;
     public int currentHealth;
     public int heal = 2;
@@ -37,7 +37,7 @@ public class PlayerHP : MonoBehaviour
         GetComponent<PlayerAttack>().enabled = false;
         this.enabled = false;
     }
-    void GainLife( int heal)
+    void GainLife(int heal)
     {
         if (Input.GetButtonDown("DebugHeal"))
         {
