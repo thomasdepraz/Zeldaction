@@ -342,6 +342,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &878203988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7896541203086843398, guid: 043a6ae858290144b9e20c185114b5ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 7896541202217060946}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &975335732
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,7 +963,43 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7896541201444906351, guid: 043a6ae858290144b9e20c185114b5ab,
+        type: 3}
+      propertyPath: attackMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896541201444906351, guid: 043a6ae858290144b9e20c185114b5ab,
+        type: 3}
+      propertyPath: attackRange
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896541201444906351, guid: 043a6ae858290144b9e20c185114b5ab,
+        type: 3}
+      propertyPath: leftClaw
+      value: 
+      objectReference: {fileID: 878203988}
+    - target: {fileID: 7896541202333176021, guid: 043a6ae858290144b9e20c185114b5ab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896541202333176021, guid: 043a6ae858290144b9e20c185114b5ab,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896541203086843399, guid: 043a6ae858290144b9e20c185114b5ab,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7896541203086843399, guid: 043a6ae858290144b9e20c185114b5ab,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.57
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7896541201444906350, guid: 043a6ae858290144b9e20c185114b5ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 043a6ae858290144b9e20c185114b5ab, type: 3}
 --- !u!1 &8866119255972768231
 GameObject:
