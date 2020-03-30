@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Claw_Attack : StateMachineBehaviour
 {
-    public float attackRange =  3f;
+    public float attackRange =  2.5f;
     Rigidbody2D rb;
     Transform player;
     //Boss boss;

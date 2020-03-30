@@ -5,32 +5,38 @@ using UnityEngine;
 public class BossAttack : MonoBehaviour
 {
     public int attackDamage = 3;
-    public Vector3 attackOffset;
-    public float attackRange = 0.4f;
+    public float attackRange = 0.3f;
     public LayerMask attackMask;
     public GameObject leftClaw;
-    public bool canTakeDamage = true;
+    public GameObject rightClaw;
+    public bool canDoDamage = true;
     public float bossCD = 1f;
     //public GameObject rightClaw;
 
     public void Attack()
     {
         Vector3 lcpos = leftClaw.transform.position;
-        lcpos += transform.right * attackOffset.x;
-        lcpos += transform.up * attackOffset.y;
+        Vector3 rcpos = rightClaw.transform.position;
 
-        Collider2D colInfo = Physics2D.OverlapCircle(lcpos, attackRange, attackMask);
-        if (colInfo != null && canTakeDamage == true)
+        Collider2D lColInfo = Physics2D.OverlapCircle(lcpos, attackRange, attackMask);
+        Collider2D rColInfo = Physics2D.OverlapCircle(rcpos, attackRange, attackMask);
+
+        if (lColInfo != null && canDoDamage == true)
         {
-            colInfo.GetComponent<PlayerHP>().TakeDamage(attackDamage);
+            lColInfo.GetComponent<PlayerHP>().TakeDamage(attackDamage);
+            StartCoroutine(BossCD());
+        }
+        else if (rColInfo != null && canDoDamage == true)
+        {
+            rColInfo.GetComponent<PlayerHP>().TakeDamage(attackDamage);
             StartCoroutine(BossCD());
         }
     }
         IEnumerator BossCD()
         {
-        canTakeDamage = false;
+        canDoDamage = false;
         yield return new WaitForSeconds(bossCD);
-        canTakeDamage = true;
+        canDoDamage = true;
         }
     void OnDrawGizmosSelected()
     {
