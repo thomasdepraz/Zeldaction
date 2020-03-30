@@ -7,14 +7,12 @@ public class Claw_Attack : StateMachineBehaviour
     public float attackRange =  2.5f;
     Rigidbody2D rb;
     Transform player;
-    //Boss boss;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        rb = animator.GetComponent<Rigidbody2D>();
-        //boss = animator.GetComponent<Boss>();
-        
+        rb = animator.GetComponent<Rigidbody2D>();  
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -23,7 +21,6 @@ public class Claw_Attack : StateMachineBehaviour
         if(Vector2.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
-            Debug.Log("Boss Attaque LOL");
         }
     }
 

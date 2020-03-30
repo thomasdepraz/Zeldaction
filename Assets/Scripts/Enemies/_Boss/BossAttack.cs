@@ -38,17 +38,12 @@ public class BossAttack : MonoBehaviour
         yield return new WaitForSeconds(bossCD);
         canDoDamage = true;
         }
-    void OnDrawGizmosSelected()
+   /* void OnDrawGizmosSelected()
     {
         if (leftClaw.transform == null)
             return;
-        Gizmos.DrawWireSphere(leftClaw.transform.position , attackRange);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        Gizmos.DrawWireSphere(leftClaw.transform.position , attackRange);*/
 
     // Update is called once per frame
     void Update()
