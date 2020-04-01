@@ -1,16 +1,18 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class ArmoredCrab : MonoBehaviour
 {
-    [Header ("Target")]
-    public Transform player;
+    [Header("Target")]
+    private GameObject player;
     private Rigidbody2D enemyRb;
 
     [HideInInspector] public Vector2 direction;
     [HideInInspector] public bool canMove = true;
 
-    [Header ("Movement & Behavior")]
-    [Range (0f, 300f)]
+    [Header("Movement & Behavior")]
+    [Range(0f, 300f)]
     public float enemySpeed = 150f;
     public float patrolRadius;
     public float minStopDistance;
@@ -20,52 +22,48 @@ public class EnemyMovement : MonoBehaviour
     private readonly float directionChangeTime = 3f;
     private Vector2 patrolCenterPosition;
     private Vector2 targetPosition;
-
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         enemyRb = GetComponent<Rigidbody2D>();
+
         latestDirectionChangeTime = 0f;
         patrolCenterPosition = transform.position;
     }
 
-    void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        MoveTowardsTarget();
+        //Si le joueuer n'est pas détécté, l'ennemi patrouille
+        Patrol();
         if (canMove && Time.time - latestDirectionChangeTime > directionChangeTime)
         {
             latestDirectionChangeTime = Time.time;
-            WanderAround();
+            NewPatrolDirection();
         }
+        //Si le joueur est détecté, alors il lui jette ses projectile
+
+        //Si le joueur est suffisament près alors le crabe l'attaque au corps a corps
+
     }
 
-    void WanderAround()
+    void NewPatrolDirection()
     {
         randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;
     }
 
-    void MoveTowardsTarget()
+    void Patrol()
     {
         targetPosition = randomPatrolPosition;
+        
         if (canMove)
         {
             if (Vector2.Distance(transform.position, targetPosition) > minStopDistance)
-            {
                 enemyRb.velocity = (targetPosition - (Vector2)transform.position).normalized * enemySpeed * Time.fixedDeltaTime;
-            }
+            
             else
-            {
                 enemyRb.velocity = Vector2.zero;
-            }
         }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        enemyRb.constraints = RigidbodyConstraints2D.FreezeAll; // lui freeze sa position
-    }
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        enemyRb.constraints = RigidbodyConstraints2D.None; //permet à l'ennemi de ne plus être freeze lorsque le joueur sort de son collider
     }
 }
