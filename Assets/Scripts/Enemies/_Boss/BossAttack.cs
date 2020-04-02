@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class BossAttack : MonoBehaviour
 {
+    [Range(0, 5)]
     public int attackDamage = 3;
-    private float attackRange = 0.45f;
+    private float attackRange = 0.45f; //hitbox des pinces du crabe
+    [HideInInspector]
+    public bool canDoDamage = true;
+    [Range(0, 3)]
+    public float bossCD = 1f; // Délai avant de pouvoir infliger des dmgs à nouveau
+    [Range(0, 10)]
+    public float knockbackforce = 7f;
+    [Range(0, 1)]
+    public float knockbackduration = 0.3f;
+    [Space]
     public LayerMask attackMask;
     public GameObject leftClaw;
     public GameObject rightClaw;
-    public bool canDoDamage = true;
-    public float bossCD = 1f;
-    [Range (0,10)]
-    public float knockbackforce = 7f;
-    [Range (0,1)]
-    public float knockbackduration = 0.3f;
     public GameObject player;
+    void Update()
+    {
+        Attack(knockbackforce, attackRange, knockbackduration, attackDamage, player);
+    }
 
     public void Attack(float knockbackForce, float attackRange, float knockbackDuration, int attackDamage, GameObject player)
     {
@@ -40,7 +48,7 @@ public class BossAttack : MonoBehaviour
             StartCoroutine(BossCD(bossCD));
         }
     }
-   void Knockback(GameObject player, float force)
+    void Knockback(GameObject player, float force)
     {
         Vector2 direction = (Vector2)(player.transform.position - gameObject.transform.position); //direction du knockback
         player.GetComponent<Rigidbody2D>().velocity = (direction.normalized * force); //applique la direction et la force au knockback au RB de l'ennemi
@@ -58,20 +66,5 @@ public class BossAttack : MonoBehaviour
         yield return new WaitForSeconds(bossCD);
         canDoDamage = true;
     }
-    /* void OnDrawGizmosSelected()
-     {
-         if (leftClaw.transform == null)
-             return;
-     }
-         Gizmos.DrawWireSphere(leftClaw.transform.position , attackRange);*/
 
-    // Update is called once per frame
-    void Update()
-    {
-        Attack(knockbackforce, attackRange, knockbackduration, attackDamage, player);
-    }
-    void Start()
-    {
-        // playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-    }
 }

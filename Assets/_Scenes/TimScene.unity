@@ -845,41 +845,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8857848669021489326, guid: 3e225201064362b44a8ed5e2380c8ae3,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2040316127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e225201064362b44a8ed5e2380c8ae3, type: 3}
---- !u!1 &8857848669021489317 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8857848667643520927, guid: 3e225201064362b44a8ed5e2380c8ae3,
-    type: 3}
-  m_PrefabInstance: {fileID: 8857848669021489316}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8857848669021489318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8857848669021489317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf45f735986a8da448feef1cfb07b9e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8857848669021489326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8857848669021489317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3109a235f2a194c9cb1dc2e8e676df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canSummon: 0
-  attackRange: 2.5
-  player: {fileID: 2040316127}
-  timer: 0
-  baseCrab: {fileID: 5930221659852930160, guid: 1dedaf6cb0ea84243aff6198c3982cf3,
-    type: 3}

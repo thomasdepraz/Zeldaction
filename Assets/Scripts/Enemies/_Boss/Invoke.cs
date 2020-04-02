@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Invoke : MonoBehaviour
 {
-    public bool canSummon;
+    [Header ("Distance minimale avant laquelle le boss invoque")]
+    [Range (0,5)]
     public float attackRange = 2.5f;
     private Rigidbody2D rb;
     public Transform player;
-    private float startTimer;
+    [HideInInspector]
+    public float startTimer;
     public float timer;
+    [HideInInspector]
     public GameObject baseCrab;
     private Animator anim;
+    [Header ("Compteur de crabes invoqués actuellement par le boss")]
     public int crabcounter = 0;
     // Start is called before the first frame update
     void Start()
@@ -24,8 +28,8 @@ public class Invoke : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            timer = startTimer += Time.deltaTime;
-        if (Vector2.Distance(player.position, rb.position) >= attackRange && crabcounter<2)
+        timer = startTimer += Time.deltaTime;
+        if (Vector2.Distance(player.position, rb.position) >= attackRange && crabcounter < 2)
         {
             if (timer >= 5f)
             {
@@ -34,19 +38,10 @@ public class Invoke : MonoBehaviour
             }
         }
     }
-    void Summon()
+    void Summon()// est utilisé par l'animator
     {
         Instantiate(baseCrab);
-        baseCrab.transform.position = new Vector2 (transform.position.x, -1f) ;
-        canSummon = false;
-        startTimer = 0f;
+        baseCrab.transform.position = new Vector2(transform.position.x, -1f);
         crabcounter++;
-    }
-    void Crabcounter()
-    {
-        {
-            Debug.Log("Gangnam Style");
-            crabcounter--;
-        }
     }
 }

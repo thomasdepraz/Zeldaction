@@ -5,7 +5,7 @@ public class BossMovement : MonoBehaviour
     private Rigidbody2D bossRb;
     void Start()
     {
-        bossRb = gameObject.GetComponent<Rigidbody2D>();
+        bossRb = GetComponent<Rigidbody2D>();
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
