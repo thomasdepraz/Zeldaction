@@ -2,6 +2,7 @@
 
 public class EnemyHP : MonoBehaviour
 {
+    public bool isDead = false;
     public int maxHealth = 3;
     public int currentHealth;
     // Start is called before the first frame update
@@ -18,13 +19,13 @@ public class EnemyHP : MonoBehaviour
             Die();
         }
     }
-    void Die()
+    public void Die()
     {
         //afficher l'animation et le sprite de mort
         GetComponent<Collider2D>().enabled = false; // en cas de mort, le collider du monstre est désactivé
-        this.enabled = false;
         GetComponent<EnemyMovement>().enabled = false;
         GetComponent<EnemyAttack>().enabled = false;
+        GameObject.Find("Boss").GetComponent<Invoke>().crabcounter--;
         Destroy(gameObject);
     }
 }

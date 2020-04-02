@@ -27,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
         enemyRb = GetComponent<Rigidbody2D>();
         latestDirectionChangeTime = 0f;
         patrolCenterPosition = transform.position;
+        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
     }
 
     void FixedUpdate()

@@ -35,6 +35,7 @@ public class EnemyAttack : MonoBehaviour
     {
         enemyMovement = GetComponent<EnemyMovement>();
         enemyRb = GetComponent<Rigidbody2D>();
+        playerHP = GameObject.FindWithTag("Player").GetComponent<PlayerHP>();
     }
 
     // Update is called once per frame
