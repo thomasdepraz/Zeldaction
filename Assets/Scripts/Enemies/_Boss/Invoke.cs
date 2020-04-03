@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Invoke : MonoBehaviour
 {
-    [Header ("Distance minimale avant laquelle le boss invoque")]
-    [Range (0,5)]
+    [Header("Distance minimale avant laquelle le boss invoque")]
+    [Range(0, 5)]
     public float attackRange = 2.5f;
     private Rigidbody2D rb;
     public Transform player;
@@ -15,7 +15,7 @@ public class Invoke : MonoBehaviour
     [HideInInspector]
     public GameObject baseCrab;
     private Animator anim;
-    [Header ("Compteur de crabes invoqués actuellement par le boss")]
+    [Header("Compteur de crabes invoqués actuellement par le boss")]
     public int crabcounter = 0;
     // Start is called before the first frame update
     void Start()
@@ -34,8 +34,12 @@ public class Invoke : MonoBehaviour
             if (timer >= 5f)
             {
                 anim.SetTrigger("Summon");
-                startTimer = 0f;
+                startTimer = -3f;
             }
+        }
+        else if (Vector2.Distance(player.position, rb.position) <= attackRange)
+        {
+            startTimer = 0f;
         }
     }
     void Summon()// est utilisé par l'animator

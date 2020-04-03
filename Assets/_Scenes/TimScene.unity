@@ -790,6 +790,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8857848667643520996, guid: 3e225201064362b44a8ed5e2380c8ae3,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.024303049
+      objectReference: {fileID: 0}
+    - target: {fileID: 8857848667643520996, guid: 3e225201064362b44a8ed5e2380c8ae3,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5388119
+      objectReference: {fileID: 0}
     - target: {fileID: 8857848667643520999, guid: 3e225201064362b44a8ed5e2380c8ae3,
         type: 3}
       propertyPath: m_LocalPosition.x
