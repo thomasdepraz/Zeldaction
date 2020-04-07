@@ -7,6 +7,8 @@ public class PlayerAttack : MonoBehaviour
     [Header("Attack Details:")]
     public Transform heavyAttackPoint;
     public Transform lightAttackPoint;
+    public Collider2D heavyAttackPointCollider;
+    public Collider2D lightAttackPointCollider;
     [Range(0f, 3f)]
     public int lightAttackDamage = 1;
     [Range(0f, 5f)]
@@ -17,6 +19,8 @@ public class PlayerAttack : MonoBehaviour
     public float lightAttackCooldown = 0.2f;
     public float heavyAttackCooldown = 1f;
     public float channelTime;
+    private ContactFilter2D enemyFilter;
+    private ContactFilter2D propsFilter;
 
     [Header("Knockback")]
     [Range(0f, 3f)]
@@ -34,10 +38,18 @@ public class PlayerAttack : MonoBehaviour
 
     private HookThrow hookThrow;
     private GameObject hook;
+
+    private Animator anim;
     private void Start()
     {
         hook = GameObject.FindGameObjectWithTag("Hook");
         hookThrow = gameObject.GetComponent<HookThrow>();
+        anim = gameObject.GetComponent<Animator>();
+
+        enemyFilter.useLayerMask = true;
+        enemyFilter.layerMask = enemyLayer;
+        propsFilter.useLayerMask = true;
+        propsFilter.layerMask = propsLayer;
     }
     // Update is called once per frame
     void Update()
@@ -53,27 +65,32 @@ public class PlayerAttack : MonoBehaviour
         }
         if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide
         {
-            Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange);
+            anim.SetBool("isAttacking", true);
+
+            Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
             StartCoroutine(AttackCooldown(lightAttackCooldown));
             channelTime = 0;
             GetComponent<PlayerMovement>().playerSpeed = 200f;
         }
         if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
         {
-            Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange);
+            anim.SetBool("isHeavyAttack", true);
+            Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
             StartCoroutine(AttackCooldown(heavyAttackCooldown));
             channelTime = 0;
             GetComponent<PlayerMovement>().playerSpeed = 200f;
         }
     }
-    void Attack(int attackDamage, float knockbackForce, float knockbackDuration, float attackRange)
+    void Attack(int attackDamage, float knockbackForce, float knockbackDuration, float attackRange, Collider2D collider)
     {
-        //play animation
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(lightAttackPoint.position, attackRange, enemyLayer);
+
+        List<Collider2D> hitEnemies = new List<Collider2D>();
+        Physics2D.OverlapCollider(collider, enemyFilter, hitEnemies);
         foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy.GetType() == typeof(BoxCollider2D)) //va prendre en compte uniquement les boxcollider de l'ennemi dans le calcul des dommages
             {
+                Debug.Log(hitEnemies[0].name);
                 enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
                 StartCoroutine(KnockBackMove(enemy.GetComponent<EnemyMovement>(), knockbackDuration));
                 enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None; //dé-lock sa position
@@ -85,12 +102,13 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        Collider2D[] hitProps = Physics2D.OverlapCircleAll(lightAttackPoint.position, attackRange, propsLayer);
+        List<Collider2D> hitProps = new List<Collider2D>();
+        Physics2D.OverlapCollider(collider, propsFilter, hitProps);
         foreach (Collider2D props in hitProps)
         {
             if(props.GetType() == typeof(BoxCollider2D))
             {
-                if(hook.transform.parent.gameObject.name == props.gameObject.name)
+                if (hook.transform.parent.gameObject.name == props.gameObject.name)
                 {
                     Debug.Log("J'ai tapé");
                     props.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -119,13 +137,15 @@ public class PlayerAttack : MonoBehaviour
     {
         enemy.canMove = false;
         yield return new WaitForSeconds(knockbackDuration);
-        enemy.canMove = true;
+        enemy.canMove = true;  
     }
     IEnumerator AttackCooldown(float attackCooldown)
     {
         canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+        anim.SetBool("isAttacking", false);
+        anim.SetBool("isHeavyAttack", false);
     }
     void OnDrawGizmosSelected()
     {

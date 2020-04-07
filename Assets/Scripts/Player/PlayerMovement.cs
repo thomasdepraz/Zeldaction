@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     //Player inputs
     private float horizontalDir;
     private float verticalDir;
+    private float horizontalOrientation;
+    private float verticalOrientation;
 
     [Header("Attack Points")]
     public Transform attackPoint;
@@ -62,10 +64,13 @@ public class PlayerMovement : MonoBehaviour
         verticalDir = Input.GetAxis("Vertical");
 
         //ANIMATOR POUR LES GA--------------------------------
-           animator.SetFloat("HorizontalMove", horizontalDir);
-           animator.SetFloat("VerticalMove", verticalDir);
+        animator.SetFloat("HorizontalMove", horizontalDir);
+        animator.SetFloat("VerticalMove", verticalDir);
 
-           animator.SetBool("isMoving", isMoving);
+        animator.SetFloat("HorizontalOrientation", horizontalOrientation);
+        animator.SetFloat("VerticalOrientation", verticalOrientation);
+
+        animator.SetBool("isMoving", isMoving);
         //----------------------------------------------------
     }
     void Facing()
@@ -77,18 +82,32 @@ public class PlayerMovement : MonoBehaviour
         if (direction.magnitude > 0.2f)
         {
             if (headingAngle >= -45f && headingAngle <= 45f)
+            {
                 realAngle = 0f;
+                horizontalOrientation = 0;
+                verticalOrientation = 1;
+            }
 
             else if (headingAngle >= 45f && headingAngle <= 135f)
+            {
                 realAngle = 90f;
+                horizontalOrientation = -1;
+                verticalOrientation = 0;
+            }
 
-            
-            else if (headingAngle >= -135f && headingAngle <= -45f)           
+            else if (headingAngle >= -135f && headingAngle <= -45f)
+            {
                 realAngle = -90f;
-            
-            else            
+                horizontalOrientation = 1;
+                verticalOrientation = 0;
+            }
+
+            else
+            {
+                horizontalOrientation = 0;
+                verticalOrientation = -1;
                 realAngle = 180f;
-            
+            }    
         }
     }
 }
