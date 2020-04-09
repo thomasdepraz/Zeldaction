@@ -52,6 +52,6 @@ public class PhishSpawn : MonoBehaviour
         yield return new WaitForSeconds(1f);
         dialogBox.SetActive(true);
         dialogText.text = dialog;
-        button.SetActive(true);
+        button.SetActive(true); 
     }
 }
