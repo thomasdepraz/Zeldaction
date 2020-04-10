@@ -27,7 +27,8 @@ public class EnemyAttack : MonoBehaviour
 
     [Header ("Target")]
     public LayerMask playerLayer;
-    public PlayerHP playerHP;
+    private GameObject player;
+    private PlayerHP playerHP;
 
 
     // Start is called before the first frame update
@@ -35,6 +36,8 @@ public class EnemyAttack : MonoBehaviour
     {
         enemyMovement = GetComponent<EnemyMovement>();
         enemyRb = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHP = player.GetComponent<PlayerHP>();
     }
 
     // Update is called once per frame
@@ -61,7 +64,7 @@ public class EnemyAttack : MonoBehaviour
         //play animation (courir sur place)
         yield return new WaitForSeconds(prepairTime);
         float chargeTime = 0f;
-        Vector2 direction = playerHP.transform.position - transform.position;
+        Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
         do
         {
@@ -79,10 +82,5 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(stunTime);
         coroutineCanStart = true;
         enemyMovement.canMove = true;
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(gameObject.transform.position, 2.5f);
-        Gizmos.color = Color.red;
     }
 }
