@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5930221659852930175}
   - component: {fileID: 5930221659852930173}
   - component: {fileID: 5930221659852930172}
-  - component: {fileID: 5930221659852930174}
   - component: {fileID: 7716764970965174984}
   m_Layer: 8
   m_Name: BaseCrab
@@ -179,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bf365595bc4b042bcefbed6131951f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionDistance: 2.41
   attackDamage: 2
   enemysIsTackling: 0
   chargeStopDistance: 0.7
@@ -190,23 +190,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  playerHP: {fileID: 0}
---- !u!58 &5930221659852930174
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930221659852930160}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.5
 --- !u!95 &7716764970965174984
 Animator:
   serializedVersion: 3

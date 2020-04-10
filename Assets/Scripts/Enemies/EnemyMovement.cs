@@ -44,12 +44,20 @@ public class EnemyMovement : MonoBehaviour
             
         }
         Orientation();
+
+        if(enemyRb.velocity == Vector2.zero)
+        {
+            anim.SetBool("isMoving", false);
+        }
+        else
+        {
+            anim.SetBool("isMoving", true);
+        }
     }
 
     void WanderAround()
     {
         randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;
-        anim.SetBool("isMoving", true);
     }
 
     void MoveTowardsTarget()
@@ -66,7 +74,6 @@ public class EnemyMovement : MonoBehaviour
             else
             {
                 enemyRb.velocity = Vector2.zero;
-                anim.SetBool("isMoving", false);
             }
         }
     }
