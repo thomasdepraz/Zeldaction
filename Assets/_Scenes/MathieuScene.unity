@@ -1180,8 +1180,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.14877072, y: 0.14468792, z: 1}
+  m_Center: {x: 0, y: 0.00069480896, z: 0}
 --- !u!4 &1968613574
 Transform:
   m_ObjectHideFlags: 0
@@ -1191,7 +1191,7 @@ Transform:
   m_GameObject: {fileID: 1968613572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.63, y: 3.61, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 12.375, y: 12.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1239,7 +1239,7 @@ SpriteRenderer:
   m_Color: {r: 0.4056604, g: 0.24684052, b: 0.24684052, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 1.98, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -1258,6 +1258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410afd91451631542acd5b072a75bffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1448515118697479849}
   speed: 6.14
   pos1: {fileID: 674565696}
   pos2: {fileID: 1089704394}
@@ -1300,7 +1301,7 @@ GameObject:
   - component: {fileID: 7032971532659043114}
   - component: {fileID: 8003143576110470466}
   - component: {fileID: 1448515118697479850}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1710,7 +1711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7822948425083916450}
   - component: {fileID: 7735419323173123655}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Arrow Direction Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1890,7 +1891,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0029846728, y: 0.0029847622}
@@ -2047,7 +2048,7 @@ GameObject:
   - component: {fileID: 8003143575805045851}
   - component: {fileID: 8003143575805045850}
   - component: {fileID: 8003143577085448951}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2183,7 +2184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8003143576186720062}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2226,7 +2227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8003143577184605141}
   - component: {fileID: 8003143577184605140}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: lightAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2326,7 +2327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8003143577595209541}
   - component: {fileID: 8003143577595209540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: heavyAttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

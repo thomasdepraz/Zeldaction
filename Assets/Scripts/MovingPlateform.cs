@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class MovingPlateform : MonoBehaviour
 {
+    public GameObject player;
+
     public float speed;
     public Transform pos1, pos2;
     public Transform startPos;
 
     Vector3 nextPos;
+
     void Start()
     {
         nextPos = startPos.position;
@@ -36,17 +39,19 @@ public class MovingPlateform : MonoBehaviour
     // Le PJ est parenté par les déplacements de la plateform lorsqu'il se trouve dessus. 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            other.transform.SetParent(this.transform);
+            Debug.Log("dans le radeau");
+            player.transform.parent = gameObject.transform;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            other.transform.SetParent(null);
+            Debug.Log("hors du radeau");
+            player.transform.parent = null;
         }
     }
 }
