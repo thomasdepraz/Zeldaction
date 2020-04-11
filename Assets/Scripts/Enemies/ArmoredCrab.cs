@@ -192,5 +192,20 @@ public class ArmoredCrab : MonoBehaviour
         canAttack = true;
         canShoot = true;
     }
+    public void GetAnimationEvent(string parameter)
+    {
+        if(parameter == "parameter2")
+        {
+            //Do something
+        }
+
+        if(parameter == "parameter3")
+        {
+            //Do something else
+        }
+
+        //...
+    }
+
 
 }
