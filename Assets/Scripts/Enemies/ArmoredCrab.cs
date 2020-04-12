@@ -34,7 +34,8 @@ public class ArmoredCrab : MonoBehaviour
     public GameObject projectile;
     [Range(0f,5f)]
     public float projectileSpeed = 3f;
-    private bool canShoot = true;
+    private bool canShoot = false;
+    private bool canDetect = true;
 
     [Header("MeleeAttack")]
     public Transform attackPoint;
@@ -42,6 +43,8 @@ public class ArmoredCrab : MonoBehaviour
     public float meleeAttackRadius;
     public int meleeAttackDamage;
     private bool canAttack = true;
+
+    private Animator anim;
 
 
 
@@ -54,6 +57,8 @@ public class ArmoredCrab : MonoBehaviour
 
         latestDirectionChangeTime = 0f;
         patrolCenterPosition = transform.position;
+
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -63,10 +68,15 @@ public class ArmoredCrab : MonoBehaviour
         distanceToPlayer = (gameObject.transform.position - player.transform.position).magnitude;
         if (distanceToPlayer < detectionDistance)
         {
+            if(canDetect)
+            { 
+                anim.SetBool("Detected", true);
+            }
             Shoot();
         }
         else
         {
+            anim.SetBool("Detected", false);
             //Si le joueuer n'est pas détécté, l'ennemi patrouille
             Patrol();
             if (canMove && Time.time - latestDirectionChangeTime > directionChangeTime)
@@ -76,7 +86,19 @@ public class ArmoredCrab : MonoBehaviour
             }
         }
 
-        Attack();
+        if(!canMove)
+        {
+            enemyRb.velocity = Vector2.zero;
+        }
+        if(enemyRb.velocity == Vector2.zero)
+        {
+            anim.SetBool("isMoving", false);
+        }
+        else
+        {
+            anim.SetBool("isMoving", true);
+        }
+        //Attack();
     }
 
     void Orientation()
@@ -84,6 +106,9 @@ public class ArmoredCrab : MonoBehaviour
         orientation = player.transform.position - transform.position;
         horizontalOrientation = orientation.normalized.x;
         verticalOrientation = orientation.normalized.y;
+        anim.SetFloat("HorizontalOrientation", horizontalOrientation);
+        anim.SetFloat("VerticalOrientation", verticalOrientation);
+
 
         if (Mathf.Abs(horizontalOrientation) > Mathf.Abs(verticalOrientation))
         {
@@ -116,95 +141,74 @@ public class ArmoredCrab : MonoBehaviour
         if (canMove)
         {
             if (Vector2.Distance(transform.position, targetPosition) > minStopDistance)
+            {
                 enemyRb.velocity = (targetPosition - (Vector2)transform.position).normalized * enemySpeed * Time.fixedDeltaTime;
-            
+                anim.SetFloat("HorizontalMovement", enemyRb.velocity.x);
+                anim.SetFloat("VerticalMovement", enemyRb.velocity.y);
+            }
+
+
             else
                 enemyRb.velocity = Vector2.zero;
         }
-    }
-
-    void MoveToPlayer()
-    {
-        if (Vector2.Distance(transform.position, player.transform.position) > minStopDistance)
-            enemyRb.velocity = (player.transform.position - transform.position).normalized * enemySpeed * Time.fixedDeltaTime;
-
         else
+        {
             enemyRb.velocity = Vector2.zero;
+        }
     }
+
 
     void Shoot()//Lancer cette fonction depuis l'animator
     {
         if (canShoot)
         {
             StartCoroutine("ShootProjectiles");
-            canMove = false;
         }
-    }
-
-    void EnemyCanMove()
-    {
-        canMove = true;
-    }
-
-    void Attack()
-    {
-        
-        
-        Collider2D[] hit = Physics2D.OverlapCircleAll(attackPoint.transform.position, meleeAttackRadius, hitboxLayer);
-        foreach(Collider2D col in hit)
-        {
-            if(col.CompareTag("Player") && canAttack)
-            {
-                player.GetComponent<PlayerHP>().TakeDamage(meleeAttackDamage);
-                StartCoroutine("CanAttack");
-                canAttack = false;
-                canShoot = false;
-            }
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, detectionDistance);
-        Gizmos.color = Color.red;
-
-        Gizmos.DrawWireSphere(attackPoint.transform.position, meleeAttackRadius);
-        Gizmos.color = Color.blue;
     }
 
     private IEnumerator ShootProjectiles()
     {
         canShoot = false;
-          
-        GameObject Projectile = GameObject.Instantiate(projectile, transform.position, Quaternion.identity);
-        Projectile.transform.position = player.transform.position;
         
+        GameObject Projectile = Instantiate(projectile, transform.position, Quaternion.identity);
+        Projectile.transform.position = player.transform.position;
         yield return new WaitForSeconds(1f);//Wait for projectile traveltime
 
         Projectile.GetComponent<ArmoredCrabProjectile>().Explode();//activate Projectile damage
-
-        canShoot = true;
     }
 
-    private IEnumerator CanAttack()
+    private IEnumerator Stun()
     {
-        yield return new WaitForSeconds(3);
-        canAttack = true;
-        canShoot = true;
+        yield return new WaitForSeconds(2);
+        canDetect = true;
+        canMove = true;
     }
+  
     public void GetAnimationEvent(string parameter)
     {
-        if(parameter == "parameter2")
+        if(parameter == "shoot")
         {
-            //Do something
+            canShoot = true;
         }
 
-        if(parameter == "parameter3")
+        if(parameter == "startedShooting")
         {
-            //Do something else
+            canMove = false;
         }
 
-        //...
+        if(parameter == "finishedShooting")
+        {
+            anim.SetBool("isShooting", false);
+            StartCoroutine("Stun");
+        }
+
+        if(parameter == "detected")
+        {
+            anim.SetBool("isShooting", true);
+            anim.SetBool("Detected", false);
+            canDetect = false;
+            Debug.Log("Detected");
+        }
     }
 
 
