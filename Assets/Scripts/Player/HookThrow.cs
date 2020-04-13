@@ -94,6 +94,16 @@ public class HookThrow : MonoBehaviour
                 hookRigidBody.velocity = Vector2.zero;
                 hookRigidBody.velocity = direction.normalized * speed * 2;
             }
+            else if(hook.transform.parent.GetComponent<Hookable>().isArmoredCrab)//si c'est un crabe lourd
+            {
+                GameObject ArmoredCrab = hook.transform.parent.gameObject;
+                GameObject Armor = Instantiate(ArmoredCrab.GetComponent<ArmoredCrab>().armor, ArmoredCrab.transform.position, Quaternion.identity);
+                hook.transform.SetParent(Armor.transform);
+                GameObject Crab = Instantiate(ArmoredCrab.GetComponent<ArmoredCrab>().baseCrab, ArmoredCrab.transform.position, Quaternion.identity);
+                Destroy(ArmoredCrab);//POUR L'INSTANT, Après --> Animation
+
+                Pull();
+            }
         }
         else //Retour de l'hameçon
         {

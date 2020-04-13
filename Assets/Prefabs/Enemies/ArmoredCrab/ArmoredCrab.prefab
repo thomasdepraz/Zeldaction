@@ -150,9 +150,12 @@ GameObject:
   - component: {fileID: 4685871645764180999}
   - component: {fileID: 5640140217539099135}
   - component: {fileID: 4496600482519829618}
+  - component: {fileID: 4598632635142480004}
+  - component: {fileID: 8903307506221565739}
+  - component: {fileID: 3321027744597538869}
   m_Layer: 8
   m_Name: ArmoredCrab
-  m_TagString: Untagged
+  m_TagString: Hookable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,8 +215,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.60465306, g: 0.3987629, b: 0.9716981, a: 1}
+  m_Sprite: {fileID: 2209944365483701691, guid: 4fd4e9d6038337c4abd71f2af5d98a0b,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -262,6 +266,9 @@ MonoBehaviour:
   enemySpeed: 150
   patrolRadius: 3
   minStopDistance: 0.6
+  armor: {fileID: 5616795849894298771, guid: a311e9629bfbfdb4aa4072cc6b24c939, type: 3}
+  baseCrab: {fileID: 5930221659852930160, guid: 1dedaf6cb0ea84243aff6198c3982cf3,
+    type: 3}
   projectile: {fileID: 1244049202564690858, guid: ef2e3cbc5913e094fbb06f9233fe7179,
     type: 3}
   projectileSpeed: 1
@@ -271,3 +278,65 @@ MonoBehaviour:
     m_Bits: 1024
   meleeAttackRadius: 0.1
   meleeAttackDamage: 1
+--- !u!95 &4598632635142480004
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4496600482519829621}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 069919d77501a8e44816f81e11b0eb1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8903307506221565739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4496600482519829621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad97f28b8aff3a4a98f5ee8e244f966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 1
+  isLight: 0
+  isHeavy: 0
+  isUndergroundCrab: 0
+  isArmoredCrab: 1
+--- !u!61 &3321027744597538869
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4496600482519829621}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000014901161, y: 0.0960052}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.1875, y: 0.71875}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6896951, y: 0.34184027}
+  m_EdgeRadius: 0

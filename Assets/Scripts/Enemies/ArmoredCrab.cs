@@ -24,6 +24,8 @@ public class ArmoredCrab : MonoBehaviour
     private readonly float directionChangeTime = 3f;
     private Vector2 patrolCenterPosition;
     private Vector2 targetPosition;
+    public GameObject armor;
+    public GameObject baseCrab;
 
     //Orientation 
     private Vector2 orientation;
