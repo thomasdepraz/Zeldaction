@@ -39,13 +39,6 @@ public class ArmoredCrab : MonoBehaviour
     private bool canShoot = false;
     private bool canDetect = true;
 
-    [Header("MeleeAttack")]
-    public Transform attackPoint;
-    public LayerMask hitboxLayer;
-    public float meleeAttackRadius;
-    public int meleeAttackDamage;
-    private bool canAttack = true;
-
     private Animator anim;
 
 
@@ -109,25 +102,7 @@ public class ArmoredCrab : MonoBehaviour
         horizontalOrientation = orientation.normalized.x;
         verticalOrientation = orientation.normalized.y;
         anim.SetFloat("HorizontalOrientation", horizontalOrientation);
-        anim.SetFloat("VerticalOrientation", verticalOrientation);
-
-
-        if (Mathf.Abs(horizontalOrientation) > Mathf.Abs(verticalOrientation))
-        {
-            if(horizontalOrientation > 0)
-                attackPoint.eulerAngles = new Vector3(0.0f, 0.0f, 0);
-
-            else
-                attackPoint.localEulerAngles = new Vector3(0.0f, 0.0f, 180);     
-        }
-        else
-        {
-            if (verticalOrientation > 0)
-                attackPoint.localEulerAngles = new Vector3(0.0f, 0.0f, 90);
-          
-            else
-                attackPoint.localEulerAngles = new Vector3(0.0f, 0.0f, -90);
-        }                     
+        anim.SetFloat("VerticalOrientation", verticalOrientation);               
     }
 
 

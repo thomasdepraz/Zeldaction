@@ -35,6 +35,8 @@ public class CrabeSouterrain : MonoBehaviour
     bool canMove = true;
     bool canStartCoroutine;
 
+    private Animator anim;
+
     void Start()
     {
         canStartCoroutine = true;
@@ -42,6 +44,7 @@ public class CrabeSouterrain : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerHP = player.GetComponent<PlayerHP>();
         hookable = gameObject.GetComponent<Hookable>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -91,6 +94,7 @@ public class CrabeSouterrain : MonoBehaviour
 
         yield return new WaitForSeconds(loadAttack); //préparation de l'attaque
         hookable.isActive = true;
+        anim.SetBool("isAttacking", true);                         
         if (canGiveDamage == true)//si player en range alors dégats
         {
             Debug.Log("J'ai mis des dégats");
@@ -100,9 +104,8 @@ public class CrabeSouterrain : MonoBehaviour
             Debug.Log("J'ai pas mis les dégats");
 
         yield return new WaitForSeconds(stunTime);//après attaque stun puis peut bouger à nouveau
-        hookable.isActive = false;
-        canMove = true;
-        canStartCoroutine = true;
+        anim.SetBool("isRetracting", true);
+        hookable.isActive = false;   
     }
 
     // Il manque l'élimination du crabe qui s'effectue avec le pull du crabe via l'hameçon du PJ.
@@ -112,5 +115,20 @@ public class CrabeSouterrain : MonoBehaviour
         Debug.Log("Je sors de terre");
         GameObject.Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    public void GetAnimationEvent(string parameter)
+    {
+        if (parameter == "attackEnded")
+        {
+            anim.SetBool("isAttacking", false);
+        }
+
+        if(parameter == "retractEnded")
+        {
+            anim.SetBool("isRetracting", false);
+            canMove = true;
+            canStartCoroutine = true;
+        }
     }
 }

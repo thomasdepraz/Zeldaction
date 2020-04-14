@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2763688605515822566}
   - component: {fileID: 2763688605515822567}
   - component: {fileID: 2763688605515822618}
+  - component: {fileID: 2763688605619096605}
   m_Layer: 8
   m_Name: UndergroundCrab
   m_TagString: Hookable
@@ -75,12 +76,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.735849, g: 0.107600555, b: 0.107600555, a: 1}
+  m_Sprite: {fileID: -6770055530985015815, guid: 88bada04d216ba8469cf6a4869db3b01,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 1.28125, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -135,16 +137,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ce18d7996b985419ae0e010f24fa8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCrab: {fileID: 3545964729225404856, guid: 75678ce9d99604f4086829731d8fd217,
+  baseCrab: {fileID: 5930221659852930160, guid: 1dedaf6cb0ea84243aff6198c3982cf3,
     type: 3}
   speed: 67.7
   attackDamage: 7
   detectionDistance: 3
   attackDistance: 0.5
   pinceCrabe: {fileID: 2763688605903889196}
-  loadAttack: 3
+  loadAttack: 0.2
   loadMovement: 4
-  stunTime: 5
+  stunTime: 2.5
 --- !u!114 &2763688605515822618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +163,26 @@ MonoBehaviour:
   isLight: 0
   isHeavy: 0
   isUndergroundCrab: 1
+  isArmoredCrab: 0
+--- !u!95 &2763688605619096605
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2763688605515822560}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c987464ae6c3d48409d72af8cf5d9c2e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2763688605903889196
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,14 +253,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: deed2cf03d79d4e498c158abb50d5213, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.1764706}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

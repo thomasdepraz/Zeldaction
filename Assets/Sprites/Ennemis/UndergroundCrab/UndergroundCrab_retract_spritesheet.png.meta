@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: 0012694b92ce4134e9a7ae8501541f86
+guid: 7339b0bee26e9cd4890c76ccf513cab3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3152780162462308074
-    second: Ennemi2_idle_spritesheet_v2_0
+      213: 2541744620283298719
+    second: UndergroundCrab_retract_spritesheet_0
   - first:
-      213: -8184355704476542795
-    second: Ennemi2_idle_spritesheet_v2_1
+      213: 6743980906632244671
+    second: UndergroundCrab_retract_spritesheet_1
   - first:
-      213: -265738247868648543
-    second: Ennemi2_idle_spritesheet_v2_2
+      213: -6495481937210817477
+    second: UndergroundCrab_retract_spritesheet_2
+  - first:
+      213: -3412993377966941325
+    second: UndergroundCrab_retract_spritesheet_3
+  - first:
+      213: -6951399505787546746
+    second: UndergroundCrab_retract_spritesheet_4
+  - first:
+      213: -6656805689853848632
+    second: UndergroundCrab_retract_spritesheet_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -54,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ennemi2_idle_spritesheet_v2_0
+      name: UndergroundCrab_retract_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 38
-        height: 38
+        width: 40
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -109,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae6d6768adce0cb20800000000000000
-      internalID: 3152780162462308074
+      spriteID: f930fb1f347164320800000000000000
+      internalID: 2541744620283298719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ennemi2_idle_spritesheet_v2_1
+      name: UndergroundCrab_retract_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 40
         y: 0
-        width: 38
-        height: 38
+        width: 40
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +139,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b8db3f69d35b6e80800000000000000
-      internalID: -8184355704476542795
+      spriteID: fbde4d747ee679d50800000000000000
+      internalID: 6743980906632244671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ennemi2_idle_spritesheet_v2_2
+      name: UndergroundCrab_retract_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 76
+        x: 80
         y: 0
-        width: 38
-        height: 38
+        width: 40
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,8 +160,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a3fd84b878ef4cf0800000000000000
-      internalID: -265738247868648543
+      spriteID: b344597b7996bd5a0800000000000000
+      internalID: -6495481937210817477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UndergroundCrab_retract_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 40
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b15850b9c92a0d0800000000000000
+      internalID: -3412993377966941325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UndergroundCrab_retract_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 40
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68315b5cafaa78f90800000000000000
+      internalID: -6951399505787546746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UndergroundCrab_retract_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 40
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3567d8e764e93a0800000000000000
+      internalID: -6656805689853848632
       vertices: []
       indices: 
       edges: []
