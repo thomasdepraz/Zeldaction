@@ -102,6 +102,7 @@ MonoBehaviour:
   isLight: 1
   isHeavy: 0
   isUndergroundCrab: 0
+  isArmoredCrab: 0
 --- !u!114 &6272499802043134894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   isLightCrate: 1
   isHeavyCrate: 0
   hitbox: {fileID: 6272499802135800087}
+  crateDamage: 1
 --- !u!61 &6272499802043134895
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,7 +139,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 0.9375}
+    oldSize: {x: 0.3125, y: 0.46875}
     newSize: {x: 0.3125, y: 0.46875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

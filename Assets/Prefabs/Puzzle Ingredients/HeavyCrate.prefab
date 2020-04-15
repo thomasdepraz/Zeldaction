@@ -102,6 +102,7 @@ MonoBehaviour:
   isLight: 1
   isHeavy: 0
   isUndergroundCrab: 0
+  isArmoredCrab: 0
 --- !u!114 &7487111886351926149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   isLightCrate: 0
   isHeavyCrate: 1
   hitbox: {fileID: 7487111886854905263}
+  crateDamage: 2
 --- !u!61 &7487111886351926148
 BoxCollider2D:
   m_ObjectHideFlags: 0

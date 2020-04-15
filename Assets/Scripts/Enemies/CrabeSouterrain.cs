@@ -112,9 +112,9 @@ public class CrabeSouterrain : MonoBehaviour
     public void isPulled()
     {
         hookable.isActive = false;
-        Debug.Log("Je sors de terre");
-        GameObject.Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        anim.SetBool("isDead", true);
+        //GameObject.Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
+        
     }
 
     public void GetAnimationEvent(string parameter)
@@ -129,6 +129,11 @@ public class CrabeSouterrain : MonoBehaviour
             anim.SetBool("isRetracting", false);
             canMove = true;
             canStartCoroutine = true;
+        }
+
+        if(parameter == "deathEnded")
+        {
+            Destroy(gameObject);
         }
     }
 }

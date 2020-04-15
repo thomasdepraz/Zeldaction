@@ -97,10 +97,9 @@ public class HookThrow : MonoBehaviour
             else if(hook.transform.parent.GetComponent<Hookable>().isArmoredCrab)//si c'est un crabe lourd
             {
                 GameObject ArmoredCrab = hook.transform.parent.gameObject;
+                ArmoredCrab.GetComponent<ArmoredCrab>().anim.SetBool("isDead", true);
                 GameObject Armor = Instantiate(ArmoredCrab.GetComponent<ArmoredCrab>().armor, ArmoredCrab.transform.position, Quaternion.identity);
                 hook.transform.SetParent(Armor.transform);
-                GameObject Crab = Instantiate(ArmoredCrab.GetComponent<ArmoredCrab>().baseCrab, ArmoredCrab.transform.position, Quaternion.identity);
-                Destroy(ArmoredCrab);//POUR L'INSTANT, Après --> Animation
 
                 Pull();
             }

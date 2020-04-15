@@ -14,10 +14,14 @@ public class Crate : MonoBehaviour
     [Header("Nature")]
     public bool isLightCrate;
     public bool isHeavyCrate;
+    public bool isArmor;
 
     [Header("Elements")]
     public GameObject hitbox;
     private GameObject hook;
+
+    [Header("Tweaks")]
+    public int crateDamage;
 
 
 
@@ -57,11 +61,29 @@ public class Crate : MonoBehaviour
         }    
     }
 
+    void DealDamage(GameObject enemy)
+    {
+        if (Mathf.Abs(rb.velocity.magnitude) > 7)
+        {
+            if(enemy.TryGetComponent<EnemyHP>(out EnemyHP enemyHP))
+            {
+                enemyHP.TakeDamage(crateDamage);
+            }
+
+            if(isLightCrate)
+            {
+                hitbox.SetActive(false);
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                spr.sprite = lightCrateRumble;
+            }
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(!collision.collider.gameObject.CompareTag("Player") && isLightCrate)
+        if(!collision.collider.gameObject.CompareTag("Player"))
         {
-            DestroyCrate();
+            DealDamage(collision.collider.gameObject);
         }
     }
 

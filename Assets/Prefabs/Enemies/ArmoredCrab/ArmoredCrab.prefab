@@ -190,12 +190,7 @@ MonoBehaviour:
   projectile: {fileID: 1244049202564690858, guid: ef2e3cbc5913e094fbb06f9233fe7179,
     type: 3}
   projectileSpeed: 1
-  attackPoint: {fileID: 0}
-  hitboxLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  meleeAttackRadius: 0.1
-  meleeAttackDamage: 1
+  anim: {fileID: 0}
 --- !u!95 &4598632635142480004
 Animator:
   serializedVersion: 3

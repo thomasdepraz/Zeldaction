@@ -39,7 +39,7 @@ public class ArmoredCrab : MonoBehaviour
     private bool canShoot = false;
     private bool canDetect = true;
 
-    private Animator anim;
+    [HideInInspector]public Animator anim;
 
 
 
@@ -185,6 +185,12 @@ public class ArmoredCrab : MonoBehaviour
             anim.SetBool("Detected", false);
             canDetect = false;
             Debug.Log("Detected");
+        }
+
+        if(parameter == "deathEnded")
+        {
+            GameObject Crab = Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 

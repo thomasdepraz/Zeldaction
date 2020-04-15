@@ -48,7 +48,7 @@ public class PressurePlate : MonoBehaviour
 
         if(collision.TryGetComponent(out Crate crate) && isRigid)
         {
-            if(crate.isHeavyCrate)
+            if(crate.isHeavyCrate || crate.isArmor)
                 objectsOnPlate++;
         }
  
@@ -64,7 +64,7 @@ public class PressurePlate : MonoBehaviour
 
         if (collision.gameObject.TryGetComponent(out Crate crate) && isRigid)
         {
-            if (crate.isHeavyCrate)
+            if (crate.isHeavyCrate || crate.isArmor)
                 objectsOnPlate--;
         }           
     }

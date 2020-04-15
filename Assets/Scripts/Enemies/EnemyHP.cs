@@ -4,23 +4,29 @@ public class EnemyHP : MonoBehaviour
 {
     public int maxHealth = 3;
     public int currentHealth;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        anim = gameObject.GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            anim.SetBool("isDead", true);
+        }
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle de l'ennemi
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
     }
-    void Die()
+
+    public void DeathAnim()
     {
-        //afficher l'animation et le sprite de mort
         GetComponent<Collider2D>().enabled = false; // en cas de mort, le collider du monstre est désactivé
         this.enabled = false;
         GetComponent<EnemyMovement>().enabled = false;
