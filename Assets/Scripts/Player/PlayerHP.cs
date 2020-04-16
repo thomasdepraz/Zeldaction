@@ -6,14 +6,14 @@ public class PlayerHP : MonoBehaviour
     [Range (1,20)]
     public int maxHealth = 10;
     public int currentHealth;
-    public int heal = 2;
+    public int heal = 1;
 
     public HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth); // set la barre de vie avec la vie maximale du joueur
+        healthBar.SetHealth(maxHealth); // set la barre de vie avec la vie maximale du joueur
     }
 
     void Update()
@@ -37,11 +37,11 @@ public class PlayerHP : MonoBehaviour
         GetComponent<PlayerAttack>().enabled = false;
         this.enabled = false;
     }
-    void GainLife( int heal)
+    void GainLife(int heal)
     {
         if (Input.GetButtonDown("DebugHeal"))
         {
-            currentHealth += heal;
+            currentHealth -= heal;
             Debug.Log("pharmacy");
             healthBar.SetHealth(currentHealth);
         }

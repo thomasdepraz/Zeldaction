@@ -5,19 +5,16 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public Slider slider;
-    public Gradient gradient;
-    public Image fill;
-    public void SetMaxHealth(int health)
-    {
-        slider.maxValue = health;
-        slider.value = health;
 
-        fill.color = gradient.Evaluate(1f);
+    public Sprite[] healthBarSprites;
+    private Image img;
+
+    private void Start()
+    {
+        img = gameObject.GetComponent<Image>();
     }
     public void SetHealth(int health)
     {
-        slider.value = health;
-        fill.color = gradient.Evaluate(slider.normalizedValue);
+        img.sprite = healthBarSprites[health];
     }
 }
