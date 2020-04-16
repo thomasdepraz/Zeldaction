@@ -120,6 +120,7 @@ MonoBehaviour:
   heavyCrate: {fileID: 21300000, guid: 334d7373f7a96af42a2178b91df80f42, type: 3}
   isLightCrate: 1
   isHeavyCrate: 0
+  isArmor: 0
   hitbox: {fileID: 6272499802135800087}
   crateDamage: 1
 --- !u!61 &6272499802043134895
@@ -135,7 +136,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0056583285, y: 0.00000014901161}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -146,7 +147,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.625, y: 0.9375}
+  m_Size: {x: 0.30813372, y: 0.47351712}
   m_EdgeRadius: 0
 --- !u!50 &6272499802043134888
 Rigidbody2D:
@@ -213,7 +214,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2140379}
+  m_Offset: {x: 0.0028291345, y: -0.11218795}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -224,5 +225,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6136899, y: 0.49059486}
+  m_Size: {x: 0.302482, y: 0.2642619}
   m_EdgeRadius: 0

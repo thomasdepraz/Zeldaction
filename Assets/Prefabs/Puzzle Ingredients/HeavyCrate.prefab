@@ -120,6 +120,7 @@ MonoBehaviour:
   heavyCrate: {fileID: 21300000, guid: 334d7373f7a96af42a2178b91df80f42, type: 3}
   isLightCrate: 0
   isHeavyCrate: 1
+  isArmor: 0
   hitbox: {fileID: 7487111886854905263}
   crateDamage: 2
 --- !u!61 &7487111886351926148

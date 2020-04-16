@@ -50,6 +50,7 @@ public class PlayerAttack : MonoBehaviour
         enemyFilter.layerMask = enemyLayer;
         propsFilter.useLayerMask = true;
         propsFilter.layerMask = propsLayer;
+        propsFilter.useTriggers = true;
     }
     // Update is called once per frame
     void Update()
@@ -106,6 +107,7 @@ public class PlayerAttack : MonoBehaviour
         Physics2D.OverlapCollider(collider, propsFilter, hitProps);
         foreach (Collider2D props in hitProps)
         {
+            Debug.Log(props.gameObject.name);
             if(props.GetType() == typeof(BoxCollider2D))
             {
                 if (hook.transform.parent.gameObject.name == props.gameObject.name)
@@ -117,7 +119,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 Knockback(props.gameObject, knockbackForce * 5);
 
-                if(props.CompareTag("Rock"))
+                if(props.CompareTag("Rock") && hitProps.Count <= 1)
                 {
                     if(attackDamage == lightAttackDamage)
                         props.gameObject.GetComponent<DestroyableRocks>().LightHit();
