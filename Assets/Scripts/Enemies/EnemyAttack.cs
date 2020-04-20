@@ -5,6 +5,8 @@ public class EnemyAttack : MonoBehaviour
 {
     [Header("Variables")]
     private bool playerIsDetected;
+    [Range(0, 5)]
+    public float detectionDistance;
     [Range (0,5)]
     public int attackDamage = 2;
     private bool coroutineCanStart = true;
@@ -27,7 +29,10 @@ public class EnemyAttack : MonoBehaviour
 
     [Header ("Target")]
     public LayerMask playerLayer;
-    public PlayerHP playerHP;
+    private GameObject player;
+    private PlayerHP playerHP;
+
+    private Animator anim;
 
 
     // Start is called before the first frame update
@@ -47,24 +52,28 @@ public class EnemyAttack : MonoBehaviour
         {
             StartCoroutine(Charge());
         }
+
+        if( (player.transform.position - transform.position).magnitude < detectionDistance )
+        {
+            playerIsDetected = true;
+        }
+        else
+        {
+            playerIsDetected = false;
+        }
     }
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        playerIsDetected = true;
-    }
-    void OnTriggerExit2D(Collider2D collider)
-    {
-        playerIsDetected = false;
-    }
+
     IEnumerator Charge()
     {
         coroutineCanStart = false;
+
         enemyMovement.canMove = false;
         enemyRb.velocity = Vector2.zero;
         //play animation (courir sur place)
         yield return new WaitForSeconds(prepairTime);
+        anim.SetBool("isAttacking", true);
         float chargeTime = 0f;
-        Vector2 direction = playerHP.transform.position - transform.position;
+        Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
         do
         {
@@ -79,13 +88,15 @@ public class EnemyAttack : MonoBehaviour
         while (chargeTime < chargeMaxTime && !Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer));
 
         enemyRb.velocity = Vector2.zero;
-        yield return new WaitForSeconds(stunTime);
+        anim.SetBool("isAttacking", false);
+        yield return new WaitForSeconds(stunTime); 
         coroutineCanStart = true;
         enemyMovement.canMove = true;
     }
-    private void OnDrawGizmos()
+
+    void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(gameObject.transform.position, 2.5f);
+        Gizmos.DrawWireSphere(transform.position, detectionDistance);
         Gizmos.color = Color.red;
     }
 }

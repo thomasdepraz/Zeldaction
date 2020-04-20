@@ -44,7 +44,7 @@ public class PlayerHP : MonoBehaviour
     {
         if (Input.GetButtonDown("DebugHeal"))
         {
-            currentHealth -= heal;
+            currentHealth += heal;
             Debug.Log("pharmacy");
             healthBar.SetHealth(currentHealth);
         }

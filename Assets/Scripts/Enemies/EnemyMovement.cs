@@ -2,8 +2,7 @@
 
 public class EnemyMovement : MonoBehaviour
 {
-    [Header ("Target")]
-    public Transform player;
+    private Transform player;
     private Rigidbody2D enemyRb;
 
     [HideInInspector] public Vector2 direction;
@@ -21,14 +20,18 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 patrolCenterPosition;
     private Vector2 targetPosition;
 
+    private Animator anim;
+    private float horizontalOrientation;
+    private float verticalOrientation;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyRb = GetComponent<Rigidbody2D>();
         latestDirectionChangeTime = 0f;
         patrolCenterPosition = transform.position;
         anim = gameObject.GetComponent<Animator>();
-
     }
 
     void FixedUpdate()
@@ -38,7 +41,23 @@ public class EnemyMovement : MonoBehaviour
         {
             latestDirectionChangeTime = Time.time;
             WanderAround();
+            
         }
+        Orientation();
+
+        if(enemyRb.velocity == Vector2.zero)
+        {
+            anim.SetBool("isMoving", false);
+        }
+        else
+        {
+            anim.SetBool("isMoving", true);
+        }
+    }
+
+    void WanderAround()
+    {
+        randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;
     }
 
     void MoveTowardsTarget()
@@ -49,6 +68,8 @@ public class EnemyMovement : MonoBehaviour
             if (Vector2.Distance(transform.position, targetPosition) > minStopDistance)
             {
                 enemyRb.velocity = (targetPosition - (Vector2)transform.position).normalized * enemySpeed * Time.fixedDeltaTime;
+                anim.SetFloat("HorizontalMovement", enemyRb.velocity.x);
+                anim.SetFloat("VerticalMovement", enemyRb.velocity.y);
             }
             else
             {
@@ -56,7 +77,6 @@ public class EnemyMovement : MonoBehaviour
             }
         }
     }
-
 
     void Orientation()
     {
@@ -69,19 +89,13 @@ public class EnemyMovement : MonoBehaviour
         anim.SetFloat("VerticalOrientation", verticalOrientation);
     }
 
-    void WanderAround()
-    {
-        randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;
-
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        enemyRb.constraints = RigidbodyConstraints2D.FreezeAll; // lui freeze sa position
+        if(collision.gameObject.CompareTag("Player"))
+            enemyRb.constraints = RigidbodyConstraints2D.FreezeAll; // lui freeze sa position
     }
     void OnCollisionExit2D(Collision2D collision)
     {
-
         if (collision.gameObject.CompareTag("Player"))
             enemyRb.constraints = RigidbodyConstraints2D.None; //permet à l'ennemi de ne plus être freeze lorsque le joueur sort de son collider
     }
