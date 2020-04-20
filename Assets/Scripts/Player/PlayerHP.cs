@@ -2,8 +2,8 @@
 
 public class PlayerHP : MonoBehaviour
 {
-    [Header ("Player Health")]
-    [Range (1,20)]
+    [Header("Player Health")]
+    [Range(1, 20)]
     public int maxHealth = 10;
     public int currentHealth;
     public int heal = 1;
@@ -41,7 +41,7 @@ public class PlayerHP : MonoBehaviour
     {
         if (Input.GetButtonDown("DebugHeal"))
         {
-            currentHealth -= heal;
+            currentHealth += heal;
             Debug.Log("pharmacy");
             healthBar.SetHealth(currentHealth);
         }
