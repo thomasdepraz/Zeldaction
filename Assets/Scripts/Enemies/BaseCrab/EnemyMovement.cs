@@ -32,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
         latestDirectionChangeTime = 0f;
         patrolCenterPosition = transform.position;
         anim = gameObject.GetComponent<Animator>();
+
     }
 
     void FixedUpdate()
@@ -55,11 +56,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void WanderAround()
-    {
-        randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;
-    }
-
     void MoveTowardsTarget()
     {
         targetPosition = randomPatrolPosition;
@@ -78,6 +74,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+
     void Orientation()
     {
         Vector2 orientation = player.position - gameObject.transform.position;
@@ -89,6 +86,12 @@ public class EnemyMovement : MonoBehaviour
         anim.SetFloat("VerticalOrientation", verticalOrientation);
     }
 
+    void WanderAround()
+    {
+        randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;
+
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
@@ -96,6 +99,7 @@ public class EnemyMovement : MonoBehaviour
     }
     void OnCollisionExit2D(Collision2D collision)
     {
+
         if (collision.gameObject.CompareTag("Player"))
             enemyRb.constraints = RigidbodyConstraints2D.None; //permet à l'ennemi de ne plus être freeze lorsque le joueur sort de son collider
     }
