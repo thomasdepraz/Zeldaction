@@ -4,21 +4,21 @@ public class EnemyHP : MonoBehaviour
 {
     public int maxHealth = 3;
     public int currentHealth;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        anim = gameObject.GetComponent<Animator>();
     }
 
-    public void TakeDamage(int damage)
+    private void Update()
     {
-        currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle de l'ennemi
         if (currentHealth <= 0)
         {
-            Die();
+            anim.SetBool("isDead", true);
         }
     }
-
 
     public void TakeDamage(int damage)
     {
@@ -31,6 +31,7 @@ public class EnemyHP : MonoBehaviour
         this.enabled = false;
         GetComponent<EnemyMovement>().enabled = false;
         GetComponent<EnemyAttack>().enabled = false;
+        Destroy(gameObject);
     }
 
     public void Die()

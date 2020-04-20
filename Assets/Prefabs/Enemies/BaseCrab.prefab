@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 3255201007683300354}
   - component: {fileID: 2481077518902381050}
   - component: {fileID: 3235711094627865920}
-  - component: {fileID: 5930221659852930175}
-  - component: {fileID: 5930221659852930173}
-  - component: {fileID: 5930221659852930172}
   - component: {fileID: 7716764970965174984}
+  - component: {fileID: 5703805335611140616}
+  - component: {fileID: 2501730103344179338}
+  - component: {fileID: 5010756662697377329}
   m_Layer: 8
   m_Name: BaseCrab
   m_TagString: Untagged
@@ -135,61 +135,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.281044, y: 0.19759157}
   m_EdgeRadius: 0
---- !u!114 &5930221659852930175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930221659852930160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20bf8b991e57c804fb94f63ead31941a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  currentHealth: 0
---- !u!114 &5930221659852930173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930221659852930160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bb6a6c4f41b0b745abd50db39680ab6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
-  canMove: 1
-  enemySpeed: 150
-  patrolRadius: 2
-  minStopDistance: 0.2
---- !u!114 &5930221659852930172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930221659852930160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6bf365595bc4b042bcefbed6131951f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionDistance: 2.41
-  attackDamage: 2
-  enemysIsTackling: 0
-  chargeStopDistance: 0.7
-  enemyChargeSpeed: 400
-  chargeMaxTime: 0.5
-  chargeRadiusTriggerAttack: 0.2
-  prepairTime: 0.5
-  stunTime: 2.5
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!95 &7716764970965174984
 Animator:
   serializedVersion: 3
@@ -209,3 +154,58 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5703805335611140616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930221659852930160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e6e8ada5a22c284286c36d45d0fa346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  currentHealth: 0
+--- !u!114 &2501730103344179338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930221659852930160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 048fe2158d64b3a4f93793a8d99434e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0}
+  canMove: 1
+  enemySpeed: 150
+  patrolRadius: 2
+  minStopDistance: 0.2
+--- !u!114 &5010756662697377329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930221659852930160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe42322f23f0e041a2fcf9f197971be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionDistance: 2.4
+  attackDamage: 2
+  enemysIsTackling: 0
+  chargeStopDistance: 0.7
+  enemyChargeSpeed: 400
+  chargeMaxTime: 0.5
+  chargeRadiusTriggerAttack: 0.2
+  prepairTime: 0.5
+  stunTime: 2.5
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
