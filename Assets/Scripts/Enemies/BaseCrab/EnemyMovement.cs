@@ -40,11 +40,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void WanderAround()
-    {
-        randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;
-    }
-
     void MoveTowardsTarget()
     {
         targetPosition = randomPatrolPosition;
@@ -59,7 +54,11 @@ public class EnemyMovement : MonoBehaviour
                 enemyRb.velocity = Vector2.zero;
             }
         }
+    }
 
+    void WanderAround()
+    {
+        randomPatrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
