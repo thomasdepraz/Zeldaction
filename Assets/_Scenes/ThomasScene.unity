@@ -679,6 +679,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 772003cd1e9c25c4d9c2d7856cf56754, type: 3}
+--- !u!114 &1866814937 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 953194571, guid: 772003cd1e9c25c4d9c2d7856cf56754,
+    type: 3}
+  m_PrefabInstance: {fileID: 1866814936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1866814938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 629318488, guid: 772003cd1e9c25c4d9c2d7856cf56754,
+    type: 3}
+  m_PrefabInstance: {fileID: 1866814936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b312a6c5fdb3742bcbd119a42da723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2357318438301750267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -686,6 +710,24 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1002179001}
     m_Modifications:
+    - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
+      propertyPath: damagePortrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 090adcf1e95b95a4991b95b96037c262,
+        type: 3}
+    - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
+      propertyPath: goodPortrait
+      value: 
+      objectReference: {fileID: 21300000, guid: 503814ed101306844abbe0b344c5696b,
+        type: 3}
+    - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 1866814937}
+    - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1866814938}
     - target: {fileID: 318178060696333762, guid: 077e58590ad43d44093a1b80ecf13b9f,
         type: 3}
       propertyPath: m_SortingOrder

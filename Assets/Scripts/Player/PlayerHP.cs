@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class PlayerHP : MonoBehaviour
 
 
     public HealthBar healthBar;
+    public Image portrait;
+    public Sprite goodPortrait;
+    public Sprite damagePortrait;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +32,7 @@ public class PlayerHP : MonoBehaviour
     {
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle du joueur
         healthBar.SetHealth(currentHealth); // met à jour la barre de vie avec la vie actuelle du joueur
-
+        StartCoroutine("portraitSwap");
         if (currentHealth <= 0)
         {
             Die();
@@ -48,5 +53,12 @@ public class PlayerHP : MonoBehaviour
             Debug.Log("pharmacy");
             healthBar.SetHealth(currentHealth);
         }
+    }
+
+    private IEnumerator portraitSwap()
+    {
+        portrait.sprite = damagePortrait;
+        yield return new WaitForSeconds(0.3f);
+        portrait.sprite = goodPortrait;
     }
 }
