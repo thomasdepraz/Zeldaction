@@ -14,6 +14,7 @@ public class PlayerHP : MonoBehaviour
 
     public HealthBar healthBar;
     public Image portrait;
+    public GameObject gameOverUI;
     public Sprite goodPortrait;
     public Sprite damagePortrait;
     // Start is called before the first frame update
@@ -36,6 +37,7 @@ public class PlayerHP : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            gameOverUI.SetActive(true);
         }
     }
     void Die()
