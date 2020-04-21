@@ -10,10 +10,8 @@ public class CameraScale : MonoBehaviour
     public float lens;
 
     private void Start()
-    {
-        
+    {      
         cameraBrain = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CinemachineBrain>();
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,33 +20,13 @@ public class CameraScale : MonoBehaviour
             StartCoroutine("blendCamera");
     }
 
-    private void blendSize()
-    {
-        if(liveVirtualCam.m_Lens.OrthographicSize < lens)
-        {
-            for (float i = liveVirtualCam.m_Lens.OrthographicSize; i <= lens; i += 0.001f)
-            {
-                liveVirtualCam.m_Lens.OrthographicSize = i;
-            }
-        }
-
-        else
-        {
-            for (float i = liveVirtualCam.m_Lens.OrthographicSize; i >= lens; i -= 0.001f)
-            {
-                Debug.Log(i);
-                liveVirtualCam.m_Lens.OrthographicSize = i;
-            }
-        }
-    }
-
     private IEnumerator blendCamera()
     {
         if (liveVirtualCam.m_Lens.OrthographicSize < lens)
         {
             while(liveVirtualCam.m_Lens.OrthographicSize < lens)
             {
-                liveVirtualCam.m_Lens.OrthographicSize += 0.01f;
+                liveVirtualCam.m_Lens.OrthographicSize += 0.02f;
                 yield return new WaitForSeconds(0.01f);
             }
         }
@@ -57,7 +35,7 @@ public class CameraScale : MonoBehaviour
         {
             while (liveVirtualCam.m_Lens.OrthographicSize > lens)
             {
-                liveVirtualCam.m_Lens.OrthographicSize -= 0.01f;
+                liveVirtualCam.m_Lens.OrthographicSize -= 0.02f;
                 yield return new WaitForSeconds(0.01f);
             }
         }
