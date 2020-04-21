@@ -84,6 +84,7 @@ public class HookThrow : MonoBehaviour
             }
             else if(hook.transform.parent.GetComponent<Hookable>().isHeavy)//si le truc est lourd
             {
+                Physics2D.IgnoreLayerCollision(11, 14, true);
                 direction = (hook.transform.position - transform.position);
                 gameObject.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed * 2;//on se déplace vers l'objet
             }
@@ -146,6 +147,7 @@ public class HookThrow : MonoBehaviour
                     hook.transform.parent.GetComponent<Rigidbody2D>().drag = 3f;
                     hook.transform.SetParent(gameObject.transform);
                     isHooked = false;
+                    Physics2D.IgnoreLayerCollision(11, 14, false);
                 }
 
                 hookRigidBody.velocity = Vector2.zero;

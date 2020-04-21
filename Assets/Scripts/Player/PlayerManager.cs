@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject hook;
     public GameObject aimDirectionPreview;
 
-    [SerializeField] public static bool hasHook;
+    [SerializeField] public static bool hasHook = false;
     // Start is called before the first frame update
     void Start()
     {

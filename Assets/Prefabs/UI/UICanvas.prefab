@@ -336,7 +336,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2064548419839073169}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2625463030462814111}
+        m_MethodName: Options
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3964277178378331493
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,7 +772,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8059359867317261417}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2625463030462814111}
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7790100383682571053
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +797,7 @@ GameObject:
   - component: {fileID: 4012458859318530506}
   - component: {fileID: 371375823374064979}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -974,7 +996,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1272573955597746969}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2625463030462814111}
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8745817041954531269
 GameObject:
   m_ObjectHideFlags: 0

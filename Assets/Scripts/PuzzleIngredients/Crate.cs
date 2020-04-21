@@ -44,21 +44,13 @@ public class Crate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hook.transform.parent.name == gameObject.name)
-            hitbox.SetActive(false);
-        else
-            hitbox.SetActive(true);   
-    }
-
-
-    void DestroyCrate()
-    {      
-        if(Mathf.Abs(rb.velocity.magnitude) > 7)
+        if(PlayerManager.hasHook)
         {
-            hitbox.SetActive(false);
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            spr.sprite = lightCrateRumble;
-        }    
+            if (hook.transform.parent.name == gameObject.name)
+                hitbox.SetActive(false);
+            else
+                hitbox.SetActive(true);   
+        }
     }
 
     void DealDamage(GameObject enemy)
