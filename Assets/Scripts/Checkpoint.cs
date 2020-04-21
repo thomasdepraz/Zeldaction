@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerManager.lastCheckpoint = gameObject;
+        if (collision.gameObject.CompareTag("Player"))
+            PlayerManager.lastCheckpoint = gameObject;
     }
 }
