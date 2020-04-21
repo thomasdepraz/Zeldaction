@@ -40,24 +40,27 @@ public class HookThrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*Debug.Log(isThrown);*/ 
-        if(Input.GetButtonDown("Throw") && !isThrown && !isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
+
+        if(PlayerManager.hasHook)
         {
-            hookRigidBody.simulated = true;
-            Throw();
-        }
-        else if (Input.GetButtonDown("Throw") && isThrown && !isPulling)// si l'hameçon est lancée et qu'on appuie sur R1 on le tire
-        {
-            //Le player peut plus bouger
-            playerMovement.canMove = false;
-            playerMovement.playerRb.velocity = Vector2.zero;
-            Pull();
-            isPulling = true;
+            if(Input.GetButtonDown("Throw") && !isThrown && !isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
+            {
+                hookRigidBody.simulated = true;
+                Throw();
+            }
+            else if (Input.GetButtonDown("Throw") && isThrown && !isPulling)// si l'hameçon est lancée et qu'on appuie sur R1 on le tire
+            {
+                //Le player peut plus bouger
+                playerMovement.canMove = false;
+                playerMovement.playerRb.velocity = Vector2.zero;
+                Pull();
+                isPulling = true;
             
-        }
-        if (isThrown) //Quand le hameçon est lancé on vérifie s'il peut se hook
-        {
-            Hook();
+            }
+            if (isThrown) //Quand le hameçon est lancé on vérifie s'il peut se hook
+            {
+                Hook();
+            }
         }
     }
 

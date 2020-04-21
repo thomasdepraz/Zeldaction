@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -567,6 +567,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7790100383682571053, guid: 772003cd1e9c25c4d9c2d7856cf56754,
+        type: 3}
+      propertyPath: m_Name
+      value: Hook
+      objectReference: {fileID: 0}
     - target: {fileID: 8745817041954531269, guid: 772003cd1e9c25c4d9c2d7856cf56754,
         type: 3}
       propertyPath: m_Name
@@ -711,38 +716,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 1002179001}
     m_Modifications:
     - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: damagePortrait
+      propertyPath: healthBar
       value: 
-      objectReference: {fileID: 21300000, guid: 090adcf1e95b95a4991b95b96037c262,
-        type: 3}
-    - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: goodPortrait
-      value: 
-      objectReference: {fileID: 21300000, guid: 503814ed101306844abbe0b344c5696b,
-        type: 3}
+      objectReference: {fileID: 1866814938}
     - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
       propertyPath: portrait
       value: 
       objectReference: {fileID: 1866814937}
-    - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1866814938}
-    - target: {fileID: 318178060696333762, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 318178060696333762, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_RenderingLayerMask
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 318178060696333762, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2833044651291580734, guid: 077e58590ad43d44093a1b80ecf13b9f,
         type: 3}
       propertyPath: m_LocalPosition.x
