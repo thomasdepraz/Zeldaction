@@ -610,7 +610,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -8160174667524380158, guid: 9b016992a54cefa468d045feb737fd08,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -723,6 +723,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hook: {fileID: 24768320}
   crosshair: {fileID: 6424791723635230786}
+  hookAvailable: {fileID: 21300000, guid: 85bb43b4b969fbb4984e417dd4a1e7c6, type: 3}
+  hookUnavailable: {fileID: 21300000, guid: 45a048a8210d4a849b77afd3381a83bf, type: 3}
+  hookUI: {fileID: 0}
   speed: 10
   isHooked: 0
   isPulling: 0
@@ -789,16 +792,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8866119257483132336}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6abd192bd54f4947b8e13d23c2c8c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
-  currentHealth: 0
+  currentHealth: 10
   heal: 2
   healthBar: {fileID: 0}
   portrait: {fileID: 0}
+  gameOverUI: {fileID: 0}
   goodPortrait: {fileID: 21300000, guid: 503814ed101306844abbe0b344c5696b, type: 3}
   damagePortrait: {fileID: 21300000, guid: 090adcf1e95b95a4991b95b96037c262, type: 3}
 --- !u!114 &3482555150041985630

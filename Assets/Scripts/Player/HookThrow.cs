@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Player;
+using UnityEngine.UI;
 
 public class HookThrow : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class HookThrow : MonoBehaviour
     public GameObject crosshair;
     private PlayerMovement playerMovement;
     private PlayerAim playerAim;
+    public Sprite hookAvailable;
+    public Sprite hookUnavailable;
+    public Image hookUI;
 
     [Header("Logic")]
     [Range(0f, 10f)]
@@ -69,6 +73,7 @@ public class HookThrow : MonoBehaviour
         direction = (crosshair.transform.position - hook.transform.position).normalized; //direction player-> crosshair
         hookRigidBody.velocity += (Vector2)direction * speed; //déplacement du hook
         isThrown = true;
+        hookUI.sprite = hookUnavailable;
     }
 
     public void Pull()
@@ -154,7 +159,8 @@ public class HookThrow : MonoBehaviour
                 hookRigidBody.simulated = false;
                 isThrown = false;
                 isPulling = false;
-                playerMovement.canMove = true;   
+                playerMovement.canMove = true;
+                hookUI.sprite = hookAvailable;
             }
         }
     }
