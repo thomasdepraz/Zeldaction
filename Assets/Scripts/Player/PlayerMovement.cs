@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -24,14 +25,36 @@ public class PlayerMovement : MonoBehaviour
     [Header("Attack Points")]
     public Transform attackPoint;
 
+    //Particle System
+    public GameObject particles;
+    public ParticleSystem.MainModule stepParticlesMain;
+    public Tilemap groundTiles;
+    private Color stepParticleColor;
+    private bool getColor = false;
 
+    private void Start()
+    {
+        stepParticlesMain = particles.GetComponent<ParticleSystem>().main;
+       
+    }
 
     // Update is called once per frame
     void Update()
     {
         GetPlayerController();
         Facing();
+
+        if(particles.activeSelf)
+        {
+            Vector3 tileToPlayer = transform.position - groundTiles.gameObject.transform.position;
+            Sprite currentSprite = groundTiles.GetSprite(Vector3Int.FloorToInt(tileToPlayer));
+            Texture2D texture = currentSprite.texture;
+            stepParticleColor = texture.GetPixel((int)currentSprite.pivot.x, (int)currentSprite.pivot.y);
+            Debug.Log(texture.GetPixel((int)currentSprite.pivot.x, (int)currentSprite.pivot.y));
+            stepParticlesMain.startColor = stepParticleColor;
+        }
     }
+
 
     // Fixed update
     void FixedUpdate()
@@ -49,11 +72,13 @@ public class PlayerMovement : MonoBehaviour
                 direction = Vector2.zero;
                 playerRb.velocity = Vector2.zero;
                 isMoving = false;
+                particles.SetActive(false);
             }
             else
             {
                 playerRb.velocity = direction.normalized * playerSpeed * Time.deltaTime;
                 isMoving = true;
+                particles.SetActive(true);
             }
 
         }
