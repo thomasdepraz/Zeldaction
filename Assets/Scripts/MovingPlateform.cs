@@ -6,34 +6,42 @@ public class MovingPlateform : MonoBehaviour
 {
     public GameObject player;
 
+    [Range(0f, 5f)]
     public float speed;
-    public Transform pos1, pos2;
-    public Transform startPos;
+    public Transform[] position;
+    private int index = 0;
 
     Vector3 nextPos;
 
     void Start()
     {
-        nextPos = startPos.position;
+        nextPos = position[index].position;
     }
 
     void Update()
-    {       
-        if(transform.position == pos1.position)
+    {
+        if(index < position.Length)
         {
-            nextPos = pos2.position;
-        }
-        if(transform.position == pos2.position)
-        {
-            nextPos = pos1.position;
-        }
+            if (transform.position == nextPos)
+            {
+                index++;
+                nextPos = position[index].position;
+            }
 
-        transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+        }
+        else
+        {
+            index = -1;
+        }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(pos1.position, pos2.position);
+        for(int i=0; i < position.Length -1; i++)
+        {
+            Gizmos.DrawLine(position[i].position, position[i + 1].position);
+        }
     }
 
     // Le PJ est parenté par les déplacements de la plateform lorsqu'il se trouve dessus. 
