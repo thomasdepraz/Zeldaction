@@ -14,7 +14,7 @@ public class BossMovement : MonoBehaviour
     private float latestDirectionChangeTime;
     private readonly float directionChangeTime = 3f;
     private Vector2 patrolCenterPosition;
-    private Vector2 targetPosition;
+    public Vector2 targetPosition;
 
     void Start()
     {

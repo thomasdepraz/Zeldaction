@@ -581,37 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b312a6c5fdb3742bcbd119a42da723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 1721421567}
-  gradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0.14431219, b: 0, a: 1}
-    key1: {r: 0.98611116, g: 1, b: 0, a: 1}
-    key2: {r: 0.09620416, g: 1, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 21823
-    ctime1: 43646
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  fill: {fileID: 975335734}
+  healthBarSprites: []
 --- !u!114 &1721421567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -773,7 +743,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 397760089}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &8857848669021489316
+--- !u!1001 &5530557835618232842
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -789,16 +759,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857848667643520996, guid: 3e225201064362b44a8ed5e2380c8ae3,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.024303049
-      objectReference: {fileID: 0}
-    - target: {fileID: 8857848667643520996, guid: 3e225201064362b44a8ed5e2380c8ae3,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.5388119
       objectReference: {fileID: 0}
     - target: {fileID: 8857848667643520999, guid: 3e225201064362b44a8ed5e2380c8ae3,
         type: 3}
