@@ -7,7 +7,7 @@ public class PlayerHP : MonoBehaviour
 
     [Header ("Player Health")]
     [Range (1,20)]
-    public int maxHealth = 10;
+    public int maxHealth = 20;
     public int currentHealth;
     public int heal = 1;
 
@@ -32,7 +32,14 @@ public class PlayerHP : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle du joueur
-        healthBar.SetHealth(currentHealth); // met à jour la barre de vie avec la vie actuelle du joueur
+        if(currentHealth>=0)
+        {
+            healthBar.SetHealth(currentHealth); // met à jour la barre de vie avec la vie actuelle du joueur
+        }
+        else
+        {
+            healthBar.SetHealth(0);
+        }
         StartCoroutine("portraitSwap");
         if (currentHealth <= 0)
         {
@@ -47,9 +54,6 @@ public class PlayerHP : MonoBehaviour
         GetComponent<PlayerAttack>().enabled = false;
         this.enabled = false;
         */
-
-        
-
     }
     void GainLife(int heal)
     {
