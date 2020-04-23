@@ -98,6 +98,7 @@ public class EnemyMovement : MonoBehaviour
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-            enemyRb.constraints = RigidbodyConstraints2D.None; //permet à l'ennemi de ne plus être freeze lorsque le joueur sort de son collider
+            enemyRb.constraints &= ~RigidbodyConstraints2D.FreezePositionX; //permet à l'ennemi de ne plus être freeze lorsque le joueur sort de son collider
+                enemyRb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
     }
 }

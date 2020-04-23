@@ -94,7 +94,9 @@ public class PlayerAttack : MonoBehaviour
                 Debug.Log(hitEnemies[0].name);
                 enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
                 StartCoroutine(KnockBackMove(enemy.GetComponent<EnemyMovement>(), knockbackDuration));
-                enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None; //dé-lock sa position
+                enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+                enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+                //dé-lock sa position
                 //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 
                 Knockback(enemy.gameObject, knockbackForce);
