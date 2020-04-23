@@ -41,7 +41,8 @@ public class EnemyMovement : MonoBehaviour
         {
             latestDirectionChangeTime = Time.time;
             WanderAround();
-            
+            anim.SetBool("isMoving", true);
+            Debug.Log("il bouge");
         }
         Orientation();
 

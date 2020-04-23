@@ -28,11 +28,10 @@ public class BossMovement : MonoBehaviour
     {
         if (Vector2.Distance(player.position, bossRb.position) >= 2.5f && canMove == true)
         {
-            Debug.Log("toutafé");
             Patrol();
             StartCoroutine(MoveTimer());
         }
-        else if (Vector2.Distance(player.position, bossRb.position) <= 3f)
+        else if (Vector2.Distance(player.position, bossRb.position) <= 3.5f)
         {
             bossRb.velocity = Vector2.zero;
         }

@@ -7,27 +7,27 @@ public class EnemyAttack : MonoBehaviour
     private bool playerIsDetected;
     [Range(0, 5)]
     public float detectionDistance;
-    [Range (0,5)]
+    [Range(0, 5)]
     public int attackDamage = 2;
     private bool coroutineCanStart = true;
-    [HideInInspector]public bool enemysIsTackling;
+    [HideInInspector] public bool enemysIsTackling;
     private Rigidbody2D enemyRb;
 
-    [Header ("Charge Details")]
+    [Header("Charge Details")]
     public float chargeStopDistance;
     public float enemyChargeSpeed;
-    [Range (0f,1f)]
+    [Range(0f, 1f)]
     public float chargeMaxTime;
-    [Range(0f,0.5f)]
+    [Range(0f, 0.5f)]
     public float chargeRadiusTriggerAttack;
-    [Range(0f,1f)]
+    [Range(0f, 1f)]
     public float prepairTime;
-    [Range(0f,5f)]
+    [Range(0f, 5f)]
     public float stunTime;
 
     private EnemyMovement enemyMovement;
 
-    [Header ("Target")]
+    [Header("Target")]
     public LayerMask playerLayer;
     private GameObject player;
     private PlayerHP playerHP;
@@ -53,7 +53,7 @@ public class EnemyAttack : MonoBehaviour
             StartCoroutine(Charge());
         }
 
-        if( (player.transform.position - transform.position).magnitude < detectionDistance )
+        if ((player.transform.position - transform.position).magnitude < detectionDistance)
         {
             playerIsDetected = true;
         }
@@ -82,15 +82,16 @@ public class EnemyAttack : MonoBehaviour
             yield return new WaitForFixedUpdate();
             if (Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer))
             {
-                playerHP.TakeDamage(attackDamage);
+                Debug.Log("Hello there");
                 anim.SetBool("isAttacking", false);
+                playerHP.TakeDamage(attackDamage);
             }
         }
         while (chargeTime < chargeMaxTime && !Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer));
 
         enemyRb.velocity = Vector2.zero;
         anim.SetBool("isAttacking", false);
-        yield return new WaitForSeconds(stunTime); 
+        yield return new WaitForSeconds(stunTime);
         coroutineCanStart = true;
         enemyMovement.canMove = true;
     }
@@ -99,5 +100,6 @@ public class EnemyAttack : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, detectionDistance);
         Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, chargeRadiusTriggerAttack);
     }
 }
