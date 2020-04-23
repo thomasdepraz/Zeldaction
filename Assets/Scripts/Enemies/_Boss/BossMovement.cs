@@ -32,10 +32,14 @@ public class BossMovement : MonoBehaviour
             Patrol();
             StartCoroutine(MoveTimer());
         }
+        else if (Vector2.Distance(player.position, bossRb.position) <= 3f)
+        {
+            bossRb.velocity = Vector2.zero;
+        }
     }
     void Patrol()
     {
-        Vector2 target = new Vector2(Random.Range(-40.0f, 40.0f), patrolCenterPosition.y);
+        Vector2 target = new Vector2(Random.Range(-5.0f, 5.0f), patrolCenterPosition.y);
         Vector2 direction = target - (Vector2)transform.position;
         bossRb.velocity = direction.normalized * bossSpeed * Time.fixedDeltaTime;
     }
@@ -46,7 +50,6 @@ public class BossMovement : MonoBehaviour
         yield return new WaitForSeconds(2f);
         canMove = true;
     }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         bossRb.constraints = RigidbodyConstraints2D.FreezeAll;

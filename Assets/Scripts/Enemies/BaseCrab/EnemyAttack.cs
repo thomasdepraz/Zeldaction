@@ -83,6 +83,7 @@ public class EnemyAttack : MonoBehaviour
             if (Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer))
             {
                 playerHP.TakeDamage(attackDamage);
+                anim.SetBool("isAttacking", false);
             }
         }
         while (chargeTime < chargeMaxTime && !Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer));

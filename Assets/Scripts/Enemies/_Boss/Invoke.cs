@@ -34,6 +34,7 @@ public class Invoke : MonoBehaviour
             if (timer >= 5f)
             {
                 anim.SetTrigger("Summon");
+                StartCoroutine(StopMoving());
                 startTimer = -3f;
             }
         }
@@ -47,5 +48,11 @@ public class Invoke : MonoBehaviour
         Instantiate(baseCrab);
         baseCrab.transform.position = new Vector2(transform.position.x, -1f);
         crabcounter++;
+    }
+    IEnumerator StopMoving()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        yield return new WaitForSeconds(2f);
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 }
