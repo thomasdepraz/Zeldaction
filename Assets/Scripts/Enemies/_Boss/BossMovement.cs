@@ -1,55 +1,52 @@
 ﻿using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class BossMovement : MonoBehaviour
 {
     private Rigidbody2D bossRb;
-    [HideInInspector] public bool canMove = true;
+    [HideInInspector] public bool canMove;
     [Header("Movement & Behavior")]
     [Range(0f, 300f)]
     public float bossSpeed = 150f;
     public float patrolRadius;
     public float minStopDistance;
 
-    private Vector2 patrolPosition;
-    private float latestDirectionChangeTime;
-    private readonly float directionChangeTime = 3f;
     private Vector2 patrolCenterPosition;
     public Vector2 targetPosition;
+    Transform player;
+    public Animator anim;
 
     void Start()
     {
         bossRb = GetComponent<Rigidbody2D>();
-        latestDirectionChangeTime = 0f;
         patrolCenterPosition = transform.position;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        canMove = true;
     }
     void FixedUpdate()
     {
-        MoveTowardsTarget();
-        if (canMove && Time.time - latestDirectionChangeTime > directionChangeTime)
+        if (Vector2.Distance(player.position, bossRb.position) >= 2.5f && canMove == true)
         {
-            latestDirectionChangeTime = Time.time;
+            Debug.Log("toutafé");
             Patrol();
+            StartCoroutine(MoveTimer());
         }
     }
     void Patrol()
     {
-        patrolPosition = patrolCenterPosition + new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)) * patrolRadius;
+        Vector2 target = new Vector2(Random.Range(-40.0f, 40.0f), patrolCenterPosition.y);
+        Vector2 direction = target - (Vector2)transform.position;
+        bossRb.velocity = direction.normalized * bossSpeed * Time.fixedDeltaTime;
     }
-    void MoveTowardsTarget()
-    {
-        if (canMove)
-        {
-            if (Vector2.Distance(transform.position, targetPosition) > minStopDistance)
-            {
-                bossRb.velocity = (patrolPosition - (Vector2)transform.position).normalized * bossSpeed * Time.fixedDeltaTime;
-            }
-            else
-            {
-                bossRb.velocity = Vector2.zero;
-            }
-        }
 
+    IEnumerator MoveTimer()
+    {
+        canMove = false;
+        yield return new WaitForSeconds(2f);
+        canMove = true;
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         bossRb.constraints = RigidbodyConstraints2D.FreezeAll;
