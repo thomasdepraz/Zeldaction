@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
             Sprite currentSprite = groundTiles.GetSprite(Vector3Int.FloorToInt(tileToPlayer));
             Texture2D texture = currentSprite.texture;
             stepParticleColor = texture.GetPixel((int)currentSprite.pivot.x, (int)currentSprite.pivot.y);
-            Debug.Log(texture.GetPixel((int)currentSprite.pivot.x, (int)currentSprite.pivot.y));
+
             stepParticlesMain.startColor = stepParticleColor;
         }
     }
