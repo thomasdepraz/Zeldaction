@@ -14,6 +14,7 @@ public class Invoke : MonoBehaviour
     public float timer;
     [HideInInspector]
     public GameObject baseCrab;
+    public GameObject armoredCrab;
     private Animator anim;
     [Header("Compteur de crabes invoqués actuellement par le boss")]
     public int crabcounter = 0;
@@ -31,10 +32,15 @@ public class Invoke : MonoBehaviour
         timer = startTimer += Time.deltaTime;
         if (Vector2.Distance(player.position, rb.position) >= attackRange && crabcounter < 2)
         {
-            if (timer >= 5f)
+            /*if (timer >= 5f) // && phase 1
             {
-                anim.SetTrigger("Summon");
+                anim.SetTrigger("Summon_Phase1");
                 StartCoroutine(StopMoving());
+                startTimer = -3f;
+            }*/
+            if (timer >= 5f) // && phase 2
+            {
+                anim.SetTrigger("Summon_Phase2");
                 startTimer = -3f;
             }
         }
@@ -43,10 +49,16 @@ public class Invoke : MonoBehaviour
             startTimer = 0f;
         }
     }
-    void Summon()// est utilisé par l'animator
+    void Summon_Phase1()// est utilisé par l'animator
     {
         Instantiate(baseCrab);
         baseCrab.transform.position = new Vector2(transform.position.x, -1f);
+        crabcounter++;
+    }
+    void Summon_Phase2()
+    {
+        Instantiate(armoredCrab);
+        armoredCrab.transform.position = new Vector2(transform.position.x, -1f);
         crabcounter++;
     }
     IEnumerator StopMoving()

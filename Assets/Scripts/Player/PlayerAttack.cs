@@ -21,6 +21,7 @@ public class PlayerAttack : MonoBehaviour
     public float channelTime;
     private ContactFilter2D enemyFilter;
     private ContactFilter2D propsFilter;
+    private ContactFilter2D bossFilter;
 
     [Header("Knockback")]
     [Range(0f, 3f)]
@@ -35,6 +36,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Layers")]
     public LayerMask enemyLayer;
     public LayerMask propsLayer;
+    public LayerMask bossLayer;
 
     private HookThrow hookThrow;
     private GameObject hook;
@@ -51,6 +53,8 @@ public class PlayerAttack : MonoBehaviour
         propsFilter.useLayerMask = true;
         propsFilter.layerMask = propsLayer;
         propsFilter.useTriggers = true;
+        bossFilter.useLayerMask = true;
+        bossFilter.layerMask = bossLayer;
     }
     // Update is called once per frame
     void Update()
@@ -100,6 +104,19 @@ public class PlayerAttack : MonoBehaviour
                 //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 
                 Knockback(enemy.gameObject, knockbackForce);
+                Debug.Log(attackDamage);
+                Debug.Log(channelTime);
+            }
+        }
+
+        List<Collider2D> hitBoss = new List<Collider2D>();
+        Physics2D.OverlapCollider(collider, bossFilter, hitBoss);
+        foreach (Collider2D boss in hitBoss)
+        {
+            if (boss.GetType() == typeof(BoxCollider2D)) //va prendre en compte uniquement les boxcollider de l'ennemi dans le calcul des dommages
+            {
+                Debug.Log(hitBoss[0].name);
+                boss.GetComponent<BossHP>().TakeDamage(attackDamage);
                 Debug.Log(attackDamage);
                 Debug.Log(channelTime);
             }
