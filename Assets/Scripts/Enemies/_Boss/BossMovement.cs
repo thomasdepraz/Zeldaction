@@ -15,7 +15,6 @@ public class BossMovement : MonoBehaviour
     private Vector2 patrolCenterPosition;
     public Vector2 targetPosition;
     Transform player;
-    public Animator anim;
 
     void Start()
     {

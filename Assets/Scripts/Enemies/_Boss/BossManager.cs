@@ -5,10 +5,11 @@ using UnityEngine;
 public class BossManager : MonoBehaviour
 {
     public Animator anim;
+    public bool Phase1 = true;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -18,7 +19,9 @@ public class BossManager : MonoBehaviour
     }
     public void Phase2()
     {
-        Debug.Log("ntm");
         anim.SetTrigger("Go_Phase2");
+        Phase1 = false;
+        gameObject.GetComponent<BossMovement>().enabled = false;
+        gameObject.GetComponent<BossAttack>().enabled = false;
     }
 }

@@ -18,7 +18,6 @@ public class BossHP : MonoBehaviour
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle de l'ennemi
         if (currentHealth <= 0)
         {
-            Debug.Log("im lost");
             gameObject.GetComponent<BossManager>().Phase2();
         }
     }

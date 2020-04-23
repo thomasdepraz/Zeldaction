@@ -32,13 +32,13 @@ public class Invoke : MonoBehaviour
         timer = startTimer += Time.deltaTime;
         if (Vector2.Distance(player.position, rb.position) >= attackRange && crabcounter < 2)
         {
-            /*if (timer >= 5f) // && phase 1
+            if (timer >= 5f && GetComponent<BossManager>().Phase1 == true) // && phase 1
             {
                 anim.SetTrigger("Summon_Phase1");
                 StartCoroutine(StopMoving());
                 startTimer = -3f;
-            }*/
-            if (timer >= 5f) // && phase 2
+            }
+            else if (timer >= 5f && GetComponent<BossManager>().Phase1 == false) // && phase 2
             {
                 anim.SetTrigger("Summon_Phase2");
                 startTimer = -3f;
