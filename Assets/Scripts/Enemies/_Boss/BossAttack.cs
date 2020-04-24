@@ -6,7 +6,7 @@ public class BossAttack : MonoBehaviour
 {
     [Range(0, 5)]
     public int attackDamage = 3;
-    private float attackRange = 0.45f; //hitbox des pinces du crabe
+    private float attackRange = 0.47f; //hitbox des pinces du crabe
     [HideInInspector]
     public bool canDoDamage = true;
     [Range(0, 3)]

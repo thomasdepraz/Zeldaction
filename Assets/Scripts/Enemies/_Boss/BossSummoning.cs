@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Invoke : MonoBehaviour
+public class BossSummoning : MonoBehaviour
 {
+    public static BossSummoning Instance;
     [Header("Distance minimale avant laquelle le boss invoque")]
     [Range(0, 5)]
     public float attackRange = 2.5f;
@@ -19,6 +20,10 @@ public class Invoke : MonoBehaviour
     [Header("Compteur de crabes invoqués actuellement par le boss")]
     public int crabcounter = 0;
     // Start is called before the first frame update
+    void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         startTimer = 0f;
@@ -32,15 +37,15 @@ public class Invoke : MonoBehaviour
         timer = startTimer += Time.deltaTime;
         if (Vector2.Distance(player.position, rb.position) >= attackRange && crabcounter < 2)
         {
-            if (timer >= 5f && GetComponent<BossManager>().Phase1 == true) // && phase 1
+            if (timer >= 5f && GetComponent<BossManager>().isPhase1 == true) // && phase 1
             {
-                anim.SetTrigger("Summon_Phase1");
+                anim.SetTrigger("SummonPhase1");
                 StartCoroutine(StopMoving());
                 startTimer = -3f;
             }
-            else if (timer >= 5f && GetComponent<BossManager>().Phase1 == false) // && phase 2
+            else if (timer >= 5f && GetComponent<BossManager>().isPhase2 == true && crabcounter <2) // && phase 2
             {
-                anim.SetTrigger("Summon_Phase2");
+                anim.SetTrigger("SummonPhase2");
                 startTimer = -3f;
             }
         }
@@ -49,13 +54,13 @@ public class Invoke : MonoBehaviour
             startTimer = 0f;
         }
     }
-    void Summon_Phase1()// est utilisé par l'animator
+    void SummonPhase1()// est utilisé par l'animator
     {
         Instantiate(baseCrab);
         baseCrab.transform.position = new Vector2(transform.position.x, -1f);
         crabcounter++;
     }
-    void Summon_Phase2()
+    void SummonPhase2()
     {
         Instantiate(armoredCrab);
         armoredCrab.transform.position = new Vector2(transform.position.x, -1f);
