@@ -23,6 +23,7 @@ public class EnemyHP : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle de l'ennemi
+        StartCoroutine(DamageFB());
         if (currentHealth <= 0)
         {
             anim.SetBool("isDead", true);
@@ -54,6 +55,12 @@ public class EnemyHP : MonoBehaviour
         crabcd = false;
         yield return new WaitForSeconds(0.2f);
         crabcd = true;
+    }
+    IEnumerator DamageFB()
+    {
+        GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<SpriteRenderer>().color = Color.white;
     }
     /*public void Die()
     {

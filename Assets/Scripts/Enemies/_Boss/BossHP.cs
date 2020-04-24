@@ -12,7 +12,6 @@ public class BossHP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         isPhase1 = GetComponent<BossManager>().isPhase1;
         //isPhase2 = GetComponent<BossManager>().isPhase2;
@@ -35,7 +34,7 @@ public class BossHP : MonoBehaviour
     IEnumerator DamageFB ()
     {
         GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
