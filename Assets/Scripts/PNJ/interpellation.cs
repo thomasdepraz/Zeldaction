@@ -29,6 +29,9 @@ public class interpellation : MonoBehaviour
     public string dialog;
     public bool dialogActive;
 
+    //Time to Trigger DialogBox
+    public float WaitToTrigger;
+
     //Feedback
     public GameObject interrogationPoint;
     void Start()
@@ -89,7 +92,7 @@ public class interpellation : MonoBehaviour
         playerCam.gameObject.SetActive(false);
         transitionCam.gameObject.SetActive(true);
         pnj.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(WaitToTrigger);
         dialogBox.SetActive(true);
         dialogText.text = dialog;
     }
