@@ -27,7 +27,7 @@ public class PhishSpawn : MonoBehaviour
 
     private void Update()
     {
-        if (dialogBox.activeInHierarchy && Input.GetButtonDown("interact"))
+        if (dialogBox.activeInHierarchy && Input.GetButtonDown("interact") && phish.activeSelf)
         {
             dialogBox.SetActive(false);
             movement.canMove = true;

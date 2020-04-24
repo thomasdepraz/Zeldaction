@@ -4,18 +4,33 @@ using UnityEngine;
 
 public class MovingPlateform : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
 
     [Range(0f, 5f)]
-    public float speed;
+    public float maxSpeed;
+    private float speed;
     public Transform[] position;
     private int index = 0;
 
     Vector3 nextPos;
 
+    public bool firstRaft = false;
+    private bool startedMoving = false;
+    private bool onRaft = false;
+    public GameObject pillar;
+
     void Start()
     {
         nextPos = position[index].position;
+        player = GameObject.FindGameObjectWithTag("Player");
+        if(firstRaft)
+        {
+            speed = 0;
+        }
+        else
+        {
+            speed = maxSpeed;
+        }
     }
 
     void Update()
@@ -34,6 +49,18 @@ public class MovingPlateform : MonoBehaviour
         {
             index = -1;
         }
+
+        if(pillar.transform.childCount > 0 && !onRaft)
+        {
+            speed = 0;
+        }
+        else
+        {
+            if(startedMoving)
+            {
+                speed = maxSpeed;     
+            }
+        }
     }
 
     private void OnDrawGizmos()
@@ -49,8 +76,13 @@ public class MovingPlateform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("dans le radeau");
             player.transform.parent = gameObject.transform;
+            if(firstRaft)
+            {
+                speed = maxSpeed;
+                startedMoving = true;
+            }
+            onRaft = true;
         }
     }
 
@@ -58,8 +90,8 @@ public class MovingPlateform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("hors du radeau");
             player.transform.parent = null;
         }
+        onRaft = false;
     }
 }

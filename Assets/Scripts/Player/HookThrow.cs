@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using Player;
 using UnityEngine.UI;
 
@@ -24,7 +25,7 @@ public class HookThrow : MonoBehaviour
     [HideInInspector]public bool isHooked = false;
     [HideInInspector]public bool isPulling = false;
     private bool canStartCoroutine = true;
-
+    private ContactFilter2D hookableFilter;
 
     [Header("Tweak")]
     [Range(0f, 5f)]
@@ -33,12 +34,19 @@ public class HookThrow : MonoBehaviour
     public float timeToCancel = 3f;
 
 
+    private bool movePlayerToTarget = false;
+    private Rigidbody2D playerRb;
+
+
     // Start is called before the first frame update
     void Start()
     {
         hookRigidBody = hook.GetComponent<Rigidbody2D>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
         playerAim = gameObject.GetComponent<PlayerAim>();
+        playerRb = gameObject.GetComponent<Rigidbody2D>();
+
+        hookableFilter.useTriggers = true;
     }
 
     // Update is called once per frame
@@ -65,6 +73,7 @@ public class HookThrow : MonoBehaviour
             {
                 Hook();
             }
+
         }
     }
 
@@ -91,7 +100,7 @@ public class HookThrow : MonoBehaviour
             {
                 Physics2D.IgnoreLayerCollision(10, 14, true);
                 direction = (hook.transform.position - transform.position);
-                gameObject.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed * 2;//on se déplace vers l'objet
+                playerRb.velocity = direction.normalized * speed * 2;
             }
             else if (hook.transform.parent.GetComponent<Hookable>().isUndergroundCrab)//si le truc est un crab soutterain
             {
@@ -123,8 +132,9 @@ public class HookThrow : MonoBehaviour
 
     void Hook()
     {
-        Collider2D[] hit = Physics2D.OverlapCircleAll(hook.transform.position, hookDetectionRange);
-        foreach (Collider2D hookable in hit)
+        List<Collider2D> hitHookables = new List<Collider2D>();
+        Physics2D.OverlapCollider(hook.GetComponent<BoxCollider2D>(),hookableFilter, hitHookables);
+        foreach (Collider2D hookable in hitHookables)
         {
             if(hookable.gameObject.CompareTag("Hookable") && !isHooked && isThrown)
             {
@@ -145,7 +155,7 @@ public class HookThrow : MonoBehaviour
                 }  
             }
 
-            if(hookable.gameObject.CompareTag("Player") && isPulling)
+            if(hookable.gameObject.CompareTag("Player") && isPulling && hookable.GetType() == typeof(CircleCollider2D))
             {
                 if (isHooked)
                 {
@@ -157,6 +167,7 @@ public class HookThrow : MonoBehaviour
 
                 hookRigidBody.velocity = Vector2.zero;
                 hookRigidBody.simulated = false;
+                hook.transform.position = gameObject.transform.position;//POUR L'INSTANT, après la MAIN
                 isThrown = false;
                 isPulling = false;
                 playerMovement.canMove = true;
@@ -182,5 +193,10 @@ public class HookThrow : MonoBehaviour
             hookRigidBody.velocity = direction.normalized * speed * 2;
         }
         canStartCoroutine = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(hook.transform.position, hookDetectionRange);
     }
 }
