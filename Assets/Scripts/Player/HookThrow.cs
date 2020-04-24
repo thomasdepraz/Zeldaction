@@ -9,6 +9,7 @@ public class HookThrow : MonoBehaviour
 
     [Header("Elements")]
     private GameObject player;
+    public GameObject hitbox;
     public GameObject hook;
     private Rigidbody2D hookRigidBody;
     public GameObject crosshair;
@@ -26,6 +27,7 @@ public class HookThrow : MonoBehaviour
     [HideInInspector]public bool isHooked = false;
     [HideInInspector]public bool isPulling = false;
     private bool canStartCoroutine = true;
+    private bool canStartCoroutineHitbox = true;
     private ContactFilter2D hookableFilter;
 
     [Header("Tweak")]
@@ -177,9 +179,9 @@ public class HookThrow : MonoBehaviour
             hookRigidBody.velocity = Vector2.zero;
             hookRigidBody.simulated = false;
             hook.transform.position = gameObject.transform.position;//POUR L'INSTANT, après la MAIN
+            //START COROUTINE
             isThrown = false;
             isPulling = false;
-            playerMovement.canMove = true;
             hookUI.sprite = hookAvailable;
         }
     }
@@ -201,6 +203,16 @@ public class HookThrow : MonoBehaviour
             hookRigidBody.velocity = direction.normalized * speed * 2;
         }
         canStartCoroutine = true;
+    }
+
+    private IEnumerator HitBoxOff()
+    {
+        canStartCoroutineHitbox = false;
+        hitbox.SetActive(false);
+        yield return new WaitForSeconds(0.3f);
+        hitbox.SetActive(true);
+        playerMovement.canMove = true;
+        canStartCoroutineHitbox = true;
     }
 
     private void OnDrawGizmos()
