@@ -414,7 +414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121037652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.021, z: 0}
+  m_LocalPosition: {x: 0, y: -0.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8559690646452986288}
@@ -762,8 +762,9 @@ MonoBehaviour:
   speed: 10
   isHooked: 0
   isPulling: 0
-  hookDetectionRange: 0.2
+  hookDetectionRange: 0.5
   timeToCancel: 3
+  hookRange: 13
 --- !u!114 &1047864228299761715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,6 +788,7 @@ MonoBehaviour:
   attackPoint: {fileID: 439995431}
   particles: {fileID: 8559690646452986291}
   groundTiles: {fileID: 0}
+  test: {fileID: -5156071665602884866, guid: 48553c918c401554086b4f49d32158ba, type: 3}
 --- !u!114 &397760091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,6 +822,9 @@ MonoBehaviour:
   propsLayer:
     serializedVersion: 2
     m_Bits: 4096
+  bossLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2040316119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -890,12 +895,22 @@ PrefabInstance:
     - target: {fileID: 8559690646053794397, guid: 62f60721f23d71f4c9935a9c966d50b2,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8559690646053794398, guid: 62f60721f23d71f4c9935a9c966d50b2,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559690646053794399, guid: 62f60721f23d71f4c9935a9c966d50b2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559690646053794399, guid: 62f60721f23d71f4c9935a9c966d50b2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8559690646964439328, guid: 62f60721f23d71f4c9935a9c966d50b2,
         type: 3}
@@ -910,7 +925,7 @@ PrefabInstance:
     - target: {fileID: 8559690646964439328, guid: 62f60721f23d71f4c9935a9c966d50b2,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8559690646964439329, guid: 62f60721f23d71f4c9935a9c966d50b2,
         type: 3}
@@ -965,6 +980,21 @@ PrefabInstance:
     - target: {fileID: 8559690646964439329, guid: 62f60721f23d71f4c9935a9c966d50b2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559690646964439329, guid: 62f60721f23d71f4c9935a9c966d50b2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559690646964439329, guid: 62f60721f23d71f4c9935a9c966d50b2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8559690646964439329, guid: 62f60721f23d71f4c9935a9c966d50b2,
+        type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8559690646964439330, guid: 62f60721f23d71f4c9935a9c966d50b2,
