@@ -9,8 +9,8 @@ public class interpellation : MonoBehaviour
     //PNJ
     public GameObject pnj;
     public Transform exitPosition;
-    private bool isExit = false;
-    private bool dialogIsFinish = false;
+    bool isExit = false;
+    bool dialogIsFinish = false;
     public float speed;
     public float stoppingDistance;
 
@@ -40,7 +40,7 @@ public class interpellation : MonoBehaviour
 
     void Update()
     {
-        if (pnj.activeInHierarchy)
+        if (pnj.activeInHierarchy && dialogIsFinish == false)
         {
             if (Vector2.Distance(pnj.transform.position, startTarget.transform.position) >= stoppingDistance)
             {
@@ -53,7 +53,7 @@ public class interpellation : MonoBehaviour
             playerCam.gameObject.SetActive(true);
             transitionCam.gameObject.SetActive(false);
             dialogBox.SetActive(false);
-                       
+            dialogIsFinish = true;           
         }
 
         if (dialogIsFinish == true)
