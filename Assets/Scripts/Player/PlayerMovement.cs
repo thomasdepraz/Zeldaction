@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public Tilemap groundTiles;
     private Color stepParticleColor;
     private bool getColor = false;
+    public Sprite test;
 
     private void Start()
     {
@@ -44,14 +45,18 @@ public class PlayerMovement : MonoBehaviour
         GetPlayerController();
         Facing();
 
-        if(particles.activeSelf)
+        if(particles.activeSelf && groundTiles!=null)
         {
             Vector3 tileToPlayer = transform.position - groundTiles.gameObject.transform.position;
             Sprite currentSprite = groundTiles.GetSprite(Vector3Int.FloorToInt(tileToPlayer));
-            Texture2D texture = currentSprite.texture;
-            stepParticleColor = texture.GetPixel((int)currentSprite.pivot.x, (int)currentSprite.pivot.y);
-
-            stepParticlesMain.startColor = stepParticleColor;
+            if(currentSprite != null)
+            {
+                Texture2D texture = test.texture;
+                Debug.Log(texture.GetPixel(0, 0));
+                stepParticleColor = texture.GetPixel(0, 0);
+                stepParticleColor.a = 1;
+                stepParticlesMain.startColor = stepParticleColor;
+            }
         }
     }
 

@@ -8,6 +8,7 @@ public class HookThrow : MonoBehaviour
 {
 
     [Header("Elements")]
+    private GameObject player;
     public GameObject hook;
     private Rigidbody2D hookRigidBody;
     public GameObject crosshair;
@@ -32,19 +33,20 @@ public class HookThrow : MonoBehaviour
     public float hookDetectionRange;
     [Range(0f, 5f)]
     public float timeToCancel = 3f;
+    [Range(0f, 15f)]
+    public float hookRange;
 
-
-    private bool movePlayerToTarget = false;
     private Rigidbody2D playerRb;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        player = gameObject;
         hookRigidBody = hook.GetComponent<Rigidbody2D>();
-        playerMovement = gameObject.GetComponent<PlayerMovement>();
-        playerAim = gameObject.GetComponent<PlayerAim>();
-        playerRb = gameObject.GetComponent<Rigidbody2D>();
+        playerMovement = player.GetComponent<PlayerMovement>();
+        playerAim = player.GetComponent<PlayerAim>();
+        playerRb = player.GetComponent<Rigidbody2D>();
 
         hookableFilter.useTriggers = true;
     }
@@ -52,7 +54,6 @@ public class HookThrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if(PlayerManager.hasHook)
         {
             if(Input.GetButtonDown("Throw") && !isThrown && !isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
@@ -74,6 +75,13 @@ public class HookThrow : MonoBehaviour
                 Hook();
             }
 
+            if((player.transform.position - hook.transform.position).sqrMagnitude > hookRange && isThrown)
+            {
+                playerMovement.canMove = false;
+                playerMovement.playerRb.velocity = Vector2.zero;
+                Pull();
+                isPulling = true;
+            }
         }
     }
 
@@ -154,25 +162,25 @@ public class HookThrow : MonoBehaviour
                         StartCoroutine("HookCancel");
                 }  
             }
+        }
 
-            if(hookable.gameObject.CompareTag("Player") && isPulling && hookable.GetType() == typeof(CircleCollider2D))
+        if(isPulling &&  (player.transform.position - hook.transform.position).magnitude < hookDetectionRange)
+        {
+            if (isHooked)
             {
-                if (isHooked)
-                {
-                    hook.transform.parent.GetComponent<Rigidbody2D>().drag = 3f;
-                    hook.transform.SetParent(gameObject.transform);
-                    isHooked = false;
-                    Physics2D.IgnoreLayerCollision(10, 14, false);
-                }
-
-                hookRigidBody.velocity = Vector2.zero;
-                hookRigidBody.simulated = false;
-                hook.transform.position = gameObject.transform.position;//POUR L'INSTANT, après la MAIN
-                isThrown = false;
-                isPulling = false;
-                playerMovement.canMove = true;
-                hookUI.sprite = hookAvailable;
+                hook.transform.parent.GetComponent<Rigidbody2D>().drag = 3f; //FAIRE AUTREMENT POUR LE DRAG
+                hook.transform.SetParent(gameObject.transform);
+                isHooked = false;
+                Physics2D.IgnoreLayerCollision(10, 14, false);
             }
+
+            hookRigidBody.velocity = Vector2.zero;
+            hookRigidBody.simulated = false;
+            hook.transform.position = gameObject.transform.position;//POUR L'INSTANT, après la MAIN
+            isThrown = false;
+            isPulling = false;
+            playerMovement.canMove = true;
+            hookUI.sprite = hookAvailable;
         }
     }
 
