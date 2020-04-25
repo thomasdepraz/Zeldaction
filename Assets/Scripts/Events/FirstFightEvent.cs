@@ -33,6 +33,7 @@ public class FirstFightEvent : MonoBehaviour
     public string dialog;
     public bool dialogActive;
     public bool dialogIsFinish = false;
+    private bool startedDialog = false;
 
     //Time to Trigger DialogBox
     public float WaitToTrigger;
@@ -66,7 +67,7 @@ public class FirstFightEvent : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (dialogBox.activeSelf && Input.GetButtonDown("interact"))
+        if (dialogBox.activeInHierarchy && Input.GetButtonDown("interact"))
         {
             dialogIsFinish = true;
         }           
@@ -74,7 +75,7 @@ public class FirstFightEvent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !startedDialog)
         {
             movement.canMove = false;
             movement.playerRb.velocity = Vector2.zero;
@@ -84,6 +85,7 @@ public class FirstFightEvent : MonoBehaviour
 
     IEnumerator Interpellation()
     {
+        startedDialog = true;
         yield return new WaitForSeconds(1f);
         playerCam.gameObject.SetActive(false);
         transitionCam.gameObject.SetActive(true);
