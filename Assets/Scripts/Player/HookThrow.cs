@@ -176,10 +176,11 @@ public class HookThrow : MonoBehaviour
                 Physics2D.IgnoreLayerCollision(10, 14, false);
             }
 
+            playerRb.velocity = Vector2.zero;
             hookRigidBody.velocity = Vector2.zero;
             hookRigidBody.simulated = false;
             hook.transform.position = gameObject.transform.position;//POUR L'INSTANT, après la MAIN
-            //START COROUTINE
+            StartCoroutine("HitBoxOff");
             isThrown = false;
             isPulling = false;
             hookUI.sprite = hookAvailable;
@@ -208,9 +209,9 @@ public class HookThrow : MonoBehaviour
     private IEnumerator HitBoxOff()
     {
         canStartCoroutineHitbox = false;
-        hitbox.SetActive(false);
+        Physics2D.IgnoreLayerCollision(10, 10, true);
         yield return new WaitForSeconds(0.3f);
-        hitbox.SetActive(true);
+        Physics2D.IgnoreLayerCollision(10, 10, false);
         playerMovement.canMove = true;
         canStartCoroutineHitbox = true;
     }

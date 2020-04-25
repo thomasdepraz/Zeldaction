@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem.MainModule stepParticlesMain;
     public Tilemap groundTiles;
     private Color stepParticleColor;
-    private bool getColor = false;
     public Sprite test;
 
     private void Start()

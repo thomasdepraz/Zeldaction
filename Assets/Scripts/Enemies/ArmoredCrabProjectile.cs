@@ -6,12 +6,14 @@ public class ArmoredCrabProjectile : MonoBehaviour
 {
 
     [Header("Elements")]
-    public Rigidbody2D projectileRb;
-    public CircleCollider2D col;
+    public Animator anim;
 
     [Header("Logic")]
     public int projectileDamage;
-    public LayerMask hitBoxLayer;
+
+    [Header("Tweaks")]
+    [Range(0,5)]
+    public float explodeRange;
 
 
     private GameObject player;
@@ -32,21 +34,28 @@ public class ArmoredCrabProjectile : MonoBehaviour
     public void Explode()
     {
         //Lancer l'anim d'explo
-        Collider2D[] hit = Physics2D.OverlapCircleAll(transform.position, col.radius, hitBoxLayer);
-        foreach (Collider2D col in hit)
+        if ((player.transform.position - gameObject.transform.position).magnitude <= explodeRange)
         {
-            if (col.CompareTag("Player"))
-            {
-                player.GetComponent<PlayerHP>().TakeDamage(projectileDamage);
-            }
-        }
-
-        Destroy(gameObject);//POUR l'INSTANT, après détruire depuis l'anim
+            player.GetComponent<PlayerHP>().TakeDamage(projectileDamage);
+        }     
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, col.radius);
+        Gizmos.DrawWireSphere(transform.position, explodeRange);
         Gizmos.color = Color.red;
+    }
+
+    public void GetAnimationEvent(string parameter)
+    {
+        if(parameter == "explode")
+        {
+            anim.SetBool("Explode", true);
+            Explode();
+        }
+        if(parameter =="endExplosion")
+        {
+            Destroy(gameObject);//POUR l'INSTANT, après détruire depuis l'anim
+        }
     }
 }
