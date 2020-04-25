@@ -12,6 +12,9 @@ public class CombatEvent : MonoBehaviour
     private BoxCollider2D fightTrigger;
     public GameObject arenaCollider;
 
+    [Header("Objects to activate")]
+    public GameObject[] objects;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,13 @@ public class CombatEvent : MonoBehaviour
             combatStarted = false;
             combatEnded = true;
             arenaCollider.SetActive(false);
+            if (objects != null)
+            {
+                for (int i = 0; i < objects.Length; i++)
+                {
+                    objects[i].SetActive(true);
+                }
+            }
         }
     }
 
