@@ -53,23 +53,23 @@ public class FirstFightEvent : MonoBehaviour
             pnj3.transform.position = Vector3.MoveTowards(pnj3.transform.position, enterPosition03.position, speed * Time.deltaTime);
         }
 
-        if (dialogBox.activeInHierarchy && Input.GetButtonDown("interact") && pnj.activeSelf)
+        if (dialogIsFinish && pnj.activeSelf)
         {
             playerCam.gameObject.SetActive(true);
             transitionCam.gameObject.SetActive(false);
-            dialogBox.SetActive(false);
+            fight.combatStarted = true;
             movement.canMove = true;
+            dialogBox.SetActive(false);
             pnj.SetActive(false);
             pnj2.SetActive(false);
             pnj3.SetActive(false);
-            fight.combatStarted = true;
-            dialogIsFinish = true;
-        }
-
-        if (dialogIsFinish == true)
-        {
             Destroy(gameObject);
         }
+
+        if (dialogBox.activeSelf && Input.GetButtonDown("interact"))
+        {
+            dialogIsFinish = true;
+        }           
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -77,13 +77,14 @@ public class FirstFightEvent : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             movement.canMove = false;
+            movement.playerRb.velocity = Vector2.zero;
             StartCoroutine(Interpellation());
         }
     }
 
     IEnumerator Interpellation()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         playerCam.gameObject.SetActive(false);
         transitionCam.gameObject.SetActive(true);
         pnj.SetActive(true);
