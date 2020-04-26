@@ -54,6 +54,7 @@ public class BossMovement : MonoBehaviour
     }
     void OnCollisionExit2D(Collision2D collision)
     {
-        bossRb.constraints = RigidbodyConstraints2D.None;
+        bossRb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+        bossRb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
     }
 }

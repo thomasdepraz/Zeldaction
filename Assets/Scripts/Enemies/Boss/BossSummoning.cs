@@ -70,6 +70,7 @@ public class BossSummoning : MonoBehaviour
     {
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         yield return new WaitForSeconds(2f);
-        rb.constraints = RigidbodyConstraints2D.None;
+        rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+        rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
     }
 }

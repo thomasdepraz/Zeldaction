@@ -287,12 +287,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &988625593 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 988625593, guid: 3e225201064362b44a8ed5e2380c8ae3,
-    type: 3}
-  m_PrefabInstance: {fileID: 5530557835618232842}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1055986173 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4725509546354924142, guid: e6011674fe45f4e47a4f63cf56c08e93,
@@ -659,14 +653,6 @@ PrefabInstance:
       propertyPath: waypoint2
       value: 
       objectReference: {fileID: 1055986173}
-    - target: {fileID: 510300650, guid: 3e225201064362b44a8ed5e2380c8ae3, type: 3}
-      propertyPath: stone
-      value: 
-      objectReference: {fileID: 988625593}
-    - target: {fileID: 988625593, guid: 3e225201064362b44a8ed5e2380c8ae3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8857848667643520921, guid: 3e225201064362b44a8ed5e2380c8ae3,
         type: 3}
       propertyPath: player
