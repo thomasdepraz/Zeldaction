@@ -55,8 +55,10 @@ public class DialogSystem : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.transform;
         playerMovement = player.GetComponent<PlayerMovement>();
-
-        fight = combatEvent.GetComponent<CombatEvent>();
+        if(fight!= null)
+        {
+            fight = combatEvent.GetComponent<CombatEvent>();
+        }
     }
 
     void Update()
@@ -92,6 +94,7 @@ public class DialogSystem : MonoBehaviour
                 eventCam.gameObject.SetActive(false);
                 dialogBox.SetActive(false);
                 dialogIsFinished = true;
+                startMove = false;
             }
 
             if(dialogIsFinished)
