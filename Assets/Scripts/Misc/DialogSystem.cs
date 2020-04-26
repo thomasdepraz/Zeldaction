@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
@@ -42,8 +41,9 @@ public class DialogSystem : MonoBehaviour
     private bool startMove;
     private bool dialogIsFinished;
 
-    [Header("Objects to activate (forced dialog only)")]
+    [Header("Objects to activate / deactivate(forced dialog only)")]
     public GameObject[] objects;
+    public GameObject[] deactivateObjects;
 
     //Player
     private GameObject player;
@@ -109,6 +109,13 @@ public class DialogSystem : MonoBehaviour
                     for(int i =0;i < objects.Length; i++)
                     {
                         objects[i].SetActive(true);
+                    }
+                }
+                if (deactivateObjects != null)
+                {
+                    for (int i = 0; i < objects.Length; i++)
+                    {
+                        deactivateObjects[i].SetActive(false);
                     }
                 }
                 Destroy(gameObject); //POUR L'INSTANT
