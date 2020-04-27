@@ -50,12 +50,13 @@ public class DialogSystem : MonoBehaviour
     private Transform playerTransform;
     private PlayerMovement playerMovement;
 
+    
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerTransform = player.transform;
         playerMovement = player.GetComponent<PlayerMovement>();
-        if(fight!= null)
+        if(combatEvent != null)
         {
             fight = combatEvent.GetComponent<CombatEvent>();
         }
