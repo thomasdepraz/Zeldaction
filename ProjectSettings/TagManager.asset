@@ -9,6 +9,7 @@ TagManager:
   - Hook
   - Rock
   - Event
+  - Phish
   layers:
   - Default
   - TransparentFX

@@ -6,13 +6,14 @@ public class PhishMovement : MonoBehaviour
 {
     public float speed;
     public float stoppingDistance;
-    private bool canMove = true;
+    public bool canMove;
 
     private Transform target;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        canMove = true;
     }
         
     void Update()
