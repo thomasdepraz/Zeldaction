@@ -82,7 +82,6 @@ public class EnemyAttack : MonoBehaviour
             yield return new WaitForFixedUpdate();
             if (Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer))
             {
-                Debug.Log("Hello there");
                 anim.SetBool("isAttacking", false);
                 playerHP.TakeDamage(attackDamage);
             }
