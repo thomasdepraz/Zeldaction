@@ -21,6 +21,7 @@ public class DialogSystem : MonoBehaviour
     public Transform npcTarget;
     public Transform npcExitTarget;
     public GameObject interrogationPoint;
+    public float speed;
 
     [Header("Combat Event")]
     public GameObject[] enemiesPlaceHolders;
@@ -85,7 +86,8 @@ public class DialogSystem : MonoBehaviour
             if(startMove && npc.transform.position != npcTarget.position)
             {
                 //make npc move to npcTarget
-                npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcTarget.position, 1 * Time.deltaTime);
+                npc.SetActive(true);
+                npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcTarget.position, speed * Time.deltaTime);
             }
             
             if(eventStarted && npc.transform.position == npcTarget.position && Input.GetButtonDown("interact"))
@@ -101,7 +103,7 @@ public class DialogSystem : MonoBehaviour
             if(dialogIsFinished)
             {
                 //make npcmoveto exit pos
-                npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcExitTarget.position, 1 * Time.deltaTime);
+                npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcExitTarget.position, speed * Time.deltaTime);
             }
 
             if(npc.transform.position == npcExitTarget.position && dialogIsFinished)
@@ -117,7 +119,7 @@ public class DialogSystem : MonoBehaviour
                 }
                 if (deactivateObjects != null)
                 {
-                    for (int i = 0; i < objects.Length; i++)
+                    for (int i = 0; i < deactivateObjects.Length; i++)
                     {
                         deactivateObjects[i].SetActive(false);
                     }
