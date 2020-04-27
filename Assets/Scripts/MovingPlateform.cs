@@ -4,36 +4,71 @@ using UnityEngine;
 
 public class MovingPlateform : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
 
-    public float speed;
-    public Transform pos1, pos2;
-    public Transform startPos;
+    [Range(0f, 5f)]
+    public float maxSpeed;
+    private float speed;
+    public Transform[] position;
+    private int index = 0;
 
     Vector3 nextPos;
 
+    public bool firstRaft = false;
+    private bool startedMoving = false;
+    private bool onRaft = false;
+    public GameObject pillar;
+
     void Start()
     {
-        nextPos = startPos.position;
+        nextPos = position[index].position;
+        player = GameObject.FindGameObjectWithTag("Player");
+        if(firstRaft)
+        {
+            speed = 0;
+        }
+        else
+        {
+            speed = maxSpeed;
+        }
     }
 
     void Update()
-    {       
-        if(transform.position == pos1.position)
+    {
+        if(index < position.Length)
         {
-            nextPos = pos2.position;
+            if (transform.position == nextPos)
+            {
+                index++;
+                nextPos = position[index].position;
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
         }
-        if(transform.position == pos2.position)
+        else
         {
-            nextPos = pos1.position;
+            index = -1;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+        if(pillar.transform.childCount > 0 && !onRaft)
+        {
+            speed = 0;
+        }
+        else
+        {
+            if(startedMoving)
+            {
+                speed = maxSpeed;     
+            }
+        }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(pos1.position, pos2.position);
+        for(int i=0; i < position.Length -1; i++)
+        {
+            Gizmos.DrawLine(position[i].position, position[i + 1].position);
+        }
     }
 
     // Le PJ est parenté par les déplacements de la plateform lorsqu'il se trouve dessus. 
@@ -41,8 +76,13 @@ public class MovingPlateform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("dans le radeau");
             player.transform.parent = gameObject.transform;
+            if(firstRaft)
+            {
+                speed = maxSpeed;
+                startedMoving = true;
+            }
+            onRaft = true;
         }
     }
 
@@ -50,8 +90,8 @@ public class MovingPlateform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("hors du radeau");
             player.transform.parent = null;
         }
+        onRaft = false;
     }
 }

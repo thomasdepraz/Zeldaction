@@ -37,7 +37,10 @@ namespace Player
 
         void Update()
         {
-            Aim();
+            if(PlayerManager.hasHook)
+            {
+                Aim();
+            }
         }
 
         private void Aim()

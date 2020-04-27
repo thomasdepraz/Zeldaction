@@ -8,8 +8,8 @@ public class EnemyMovement : MonoBehaviour
     [HideInInspector] public Vector2 direction;
     [HideInInspector] public bool canMove = true;
 
-    [Header ("Movement & Behavior")]
-    [Range (0f, 300f)]
+    [Header("Movement & Behavior")]
+    [Range(0f, 300f)]
     public float enemySpeed = 150f;
     public float patrolRadius;
     public float minStopDistance;
@@ -41,11 +41,12 @@ public class EnemyMovement : MonoBehaviour
         {
             latestDirectionChangeTime = Time.time;
             WanderAround();
-            
+            anim.SetBool("isMoving", true);
+            Debug.Log("il bouge");
         }
         Orientation();
 
-        if(enemyRb.velocity == Vector2.zero)
+        if (enemyRb.velocity == Vector2.zero)
         {
             anim.SetBool("isMoving", false);
         }
@@ -91,12 +92,19 @@ public class EnemyMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
             enemyRb.constraints = RigidbodyConstraints2D.FreezeAll; // lui freeze sa position
+        if (collision.gameObject.layer == 8)
+        {
+            enemyRb.velocity = Vector2.zero;
+        }
     }
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-            enemyRb.constraints = RigidbodyConstraints2D.None; //permet à l'ennemi de ne plus être freeze lorsque le joueur sort de son collider
+        {
+            enemyRb.constraints &= ~RigidbodyConstraints2D.FreezePositionX; //permet à l'ennemi de ne plus être freeze lorsque le joueur sort de son collider
+            enemyRb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+        }
     }
 }

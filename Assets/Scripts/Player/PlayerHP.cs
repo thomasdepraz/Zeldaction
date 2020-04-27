@@ -1,16 +1,22 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
 
     [Header ("Player Health")]
     [Range (1,20)]
-    public int maxHealth = 10;
+    public int maxHealth = 20;
     public int currentHealth;
     public int heal = 1;
 
 
     public HealthBar healthBar;
+    public Image portrait;
+    public GameObject gameOverUI;
+    public Sprite goodPortrait;
+    public Sprite damagePortrait;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,19 +32,28 @@ public class PlayerHP : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle du joueur
-        healthBar.SetHealth(currentHealth); // met à jour la barre de vie avec la vie actuelle du joueur
-
+        if(currentHealth>=0)
+        {
+            healthBar.SetHealth(currentHealth); // met à jour la barre de vie avec la vie actuelle du joueur
+        }
+        else
+        {
+            healthBar.SetHealth(0);
+        }
+        StartCoroutine("portraitSwap");
         if (currentHealth <= 0)
         {
             Die();
+            gameOverUI.SetActive(true);
         }
     }
     void Die()
     {
-        GetComponent<Collider2D>().enabled = false; // en cas de mort, le collider du joueur est désactivé
+        /*GetComponent<Collider2D>().enabled = false; // en cas de mort, le collider du joueur est désactivé
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<PlayerAttack>().enabled = false;
         this.enabled = false;
+        */
     }
     void GainLife(int heal)
     {
@@ -48,5 +63,12 @@ public class PlayerHP : MonoBehaviour
             Debug.Log("pharmacy");
             healthBar.SetHealth(currentHealth);
         }
+    }
+
+    private IEnumerator portraitSwap()
+    {
+        portrait.sprite = damagePortrait;
+        yield return new WaitForSeconds(0.3f);
+        portrait.sprite = goodPortrait;
     }
 }

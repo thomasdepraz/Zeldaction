@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 334d7373f7a96af42a2178b91df80f42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4a76887143761a4f923f4f12c2e8eb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ff6defd73ea524d951a2212bd83409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightCrate: {fileID: 21300000, guid: 48cf547074fbbef46bcf61b4ede426f8, type: 3}
-  lightCrateRumble: {fileID: 21300000, guid: efc4352b0d1bdf7428da67e8bb6a4818, type: 3}
-  heavyCrate: {fileID: 21300000, guid: 334d7373f7a96af42a2178b91df80f42, type: 3}
+  lightCrate: {fileID: 21300000, guid: 512d52dc15f92a84791953eac33eaa0c, type: 3}
+  lightCrateRumble: {fileID: 21300000, guid: b9cc2bd4ba741994bb474d017fe47c88, type: 3}
+  heavyCrate: {fileID: 21300000, guid: c4a76887143761a4f923f4f12c2e8eb3, type: 3}
   isLightCrate: 0
   isHeavyCrate: 1
   isArmor: 0
@@ -136,18 +136,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0025553703, y: 0}
+  m_Offset: {x: -0.001689434, y: -0.0021224022}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.3125, y: 0.46875}
+    oldSize: {x: 0.375, y: 0.46875}
     newSize: {x: 0.3125, y: 0.46875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31834602, y: 0.47240782}
+  m_Size: {x: 0.3735304, y: 0.468163}
   m_EdgeRadius: 0
 --- !u!50 &7487111886351926171
 Rigidbody2D:
@@ -214,7 +214,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0012776852, y: -0.10798657}
+  m_Offset: {x: -0.00021624565, y: -0.10798657}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -225,5 +225,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3147025, y: 0.25293803}
+  m_Size: {x: 0.37200975, y: 0.25293803}
   m_EdgeRadius: 0
