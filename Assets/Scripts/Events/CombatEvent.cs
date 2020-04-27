@@ -53,7 +53,7 @@ public class CombatEvent : MonoBehaviour
             }
             if (deactivateObjects != null)
             {
-                for (int i = 0; i < objects.Length; i++)
+                for (int i = 0; i < deactivateObjects.Length; i++)
                 {
                     deactivateObjects[i].SetActive(false);
                 }
