@@ -130,6 +130,7 @@ public class DialogSystem : MonoBehaviour
             //make enemies move to target positions
             if(startMove)
             {
+                Debug.Log("Hallo?");
                 for (int i = 0; i < enemiesPlaceHolders.Length; i++)
                 {
                     enemiesPlaceHolders[i].transform.position = Vector3.MoveTowards(enemiesPlaceHolders[i].transform.position, enemiesTargetPos[i].position, 1 * Time.deltaTime);
@@ -138,6 +139,8 @@ public class DialogSystem : MonoBehaviour
                 if(Input.GetButtonDown("interact") && eventStarted)
                 {
                     dialogIsFinished = true;
+                    Debug.Log("dialogISfINISH");
+                    startMove = false;
                 }
             }
 
