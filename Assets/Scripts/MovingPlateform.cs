@@ -15,9 +15,11 @@ public class MovingPlateform : MonoBehaviour
     Vector3 nextPos;
 
     public bool firstRaft = false;
+    public bool isNoPillarRaft = false;
     private bool startedMoving = false;
     private bool onRaft = false;
     public GameObject pillar;
+    public GameObject col;
 
     void Start()
     {
@@ -35,37 +37,60 @@ public class MovingPlateform : MonoBehaviour
 
     void Update()
     {
-        if(index < position.Length)
+        if(!isNoPillarRaft)
         {
-            if (transform.position == nextPos)
+            if (index <= position.Length - 1)
             {
-                index++;
-                nextPos = position[index].position;
+                if (transform.position == nextPos)
+                {
+                    index++;
+                    nextPos = position[index].position;
+                }
+
+                transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+            }
+            else
+            {
+                index = -1;
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
-        }
-        else
-        {
-            index = -1;
+            if (pillar.transform.childCount > 0 && !onRaft)
+            {
+                speed = 0;
+            }
+            else
+            {
+                if (startedMoving)
+                {
+                    speed = maxSpeed;
+                }
+            }
         }
 
-        if(pillar.transform.childCount > 0 && !onRaft)
+        if(isNoPillarRaft)
         {
-            speed = 0;
-        }
-        else
-        {
-            if(startedMoving)
+            if (index <= position.Length - 1 && onRaft)
             {
-                speed = maxSpeed;     
+                if (transform.position == nextPos)
+                {
+                    Debug.Log(index + " " + position.Length);
+                    index++; 
+                    nextPos = position[index].position;
+                }
+
+                transform.position = Vector3.MoveTowards(transform.position, nextPos, maxSpeed * Time.deltaTime);
+            }
+
+            if(index == position.Length)
+            {
+                
             }
         }
     }
 
     private void OnDrawGizmos()
     {
-        for(int i=0; i < position.Length -1; i++)
+        for(int i=0; i < position.Length - 1; i++)
         {
             Gizmos.DrawLine(position[i].position, position[i + 1].position);
         }
