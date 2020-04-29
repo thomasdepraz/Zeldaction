@@ -121,29 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &88590623 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8745817041954531269, guid: 772003cd1e9c25c4d9c2d7856cf56754,
-    type: 3}
-  m_PrefabInstance: {fileID: 1951381785}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &88590624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88590623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cad97f28b8aff3a4a98f5ee8e244f966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 0
-  isLight: 0
-  isHeavy: 0
-  isUndergroundCrab: 0
-  isArmoredCrab: 0
 --- !u!95 &139756245 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8328145872692738987, guid: ef2e3cbc5913e094fbb06f9233fe7179,
@@ -231,26 +208,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 397760091, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: bossLayer.m_Bits
-      value: 8192
-      objectReference: {fileID: 0}
     - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1951381788}
     - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: portrait
+      value: 
+      objectReference: {fileID: 1951381786}
     - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 1951381787}
-    - target: {fileID: 2040316119, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
-      propertyPath: portrait
-      value: 
-      objectReference: {fileID: 1951381786}
     - target: {fileID: 2833044651291580734, guid: 077e58590ad43d44093a1b80ecf13b9f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,11 +280,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8866119257483132336, guid: 077e58590ad43d44093a1b80ecf13b9f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 077e58590ad43d44093a1b80ecf13b9f, type: 3}
 --- !u!1001 &511929046
@@ -325,16 +289,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1955169874327639379, guid: 1aca0f4c8d9616846a67d682fc72331b,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.085662484
-      objectReference: {fileID: 0}
-    - target: {fileID: 1955169874327639379, guid: 1aca0f4c8d9616846a67d682fc72331b,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.15867504
-      objectReference: {fileID: 0}
     - target: {fileID: 7534280475071901267, guid: 1aca0f4c8d9616846a67d682fc72331b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -397,44 +351,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aca0f4c8d9616846a67d682fc72331b, type: 3}
---- !u!1 &511929047 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7534280475071901276, guid: 1aca0f4c8d9616846a67d682fc72331b,
-    type: 3}
-  m_PrefabInstance: {fileID: 511929046}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &511929048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511929047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c13c979ea2a99343af9cf77e6cf7eaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  currentHealth: 0
-  anim: {fileID: 0}
---- !u!114 &511929049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511929047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cad97f28b8aff3a4a98f5ee8e244f966, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 0
-  isLight: 1
-  isHeavy: 0
-  isUndergroundCrab: 0
-  isArmoredCrab: 0
 --- !u!1 &521218459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7756799053129034515, guid: b68080ed221a2d54496eebb6b255cd7a,
