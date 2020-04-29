@@ -754,6 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba19a499937626143968fc01832c7d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitbox: {fileID: 0}
   hook: {fileID: 24768320}
   crosshair: {fileID: 6424791723635230786}
   hookAvailable: {fileID: 21300000, guid: 85bb43b4b969fbb4984e417dd4a1e7c6, type: 3}
@@ -824,7 +825,10 @@ MonoBehaviour:
     m_Bits: 4096
   bossLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
+  bossLegLayer:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!114 &2040316119
 MonoBehaviour:
   m_ObjectHideFlags: 0

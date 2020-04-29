@@ -8,6 +8,7 @@ public class BossManager : MonoBehaviour
     public bool isPhase1 = true;
     public bool isPhase2 = false;
     public bool isPhase3 = false;
+    public bool canThrow = true;
     public GameObject plate1;
     public GameObject plate2;
     private GameObject Plate1;
@@ -26,10 +27,14 @@ public class BossManager : MonoBehaviour
     {
         if (isPhase2 == true)
         {
-            if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed)
+            if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed || isPhase3==true)
             {
                 Phase3();
             }
+        }
+        if (isPhase3 == true && canThrow == true)
+        {
+            anim.SetTrigger("Throw");
         }
     }
     public void Phase2()
@@ -44,6 +49,8 @@ public class BossManager : MonoBehaviour
     }
     public void Phase3()
     {
+        Destroy(plate1);
+        Destroy(plate2);
         stone.SetActive(true);
         anim.SetTrigger("GoPhase3"); // intégrer l'animation de transition de phase
         isPhase3 = true;
