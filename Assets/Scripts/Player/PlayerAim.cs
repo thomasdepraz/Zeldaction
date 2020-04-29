@@ -9,6 +9,7 @@ namespace Player
         [Header("Elements")]
         public GameObject crosshair;
         public GameObject aimDirectionPreview;
+        private SpriteRenderer crosshairRenderer;
         [HideInInspector] public Transform crosshairTransform;
         private PlayerMovement playerMovement;
 
@@ -33,6 +34,8 @@ namespace Player
         void Start()
         {
             playerMovement = gameObject.GetComponent<PlayerMovement>();
+            crosshairRenderer = aimDirectionPreview.GetComponent<SpriteRenderer>();
+
         }
 
         void Update()
@@ -40,6 +43,15 @@ namespace Player
             if(PlayerManager.hasHook)
             {
                 Aim();
+            }
+
+            if(!isAiming)
+            {
+                crosshairRenderer.enabled = false;
+            }
+            else
+            {
+                crosshairRenderer.enabled = true;
             }
         }
 

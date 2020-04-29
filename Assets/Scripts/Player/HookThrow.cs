@@ -11,6 +11,7 @@ public class HookThrow : MonoBehaviour
     private GameObject player;
     public GameObject hitbox;
     public GameObject hook;
+    private SpriteRenderer hookSpr;
     private Rigidbody2D hookRigidBody;
     public GameObject crosshair;
     private PlayerMovement playerMovement;
@@ -49,6 +50,7 @@ public class HookThrow : MonoBehaviour
         playerMovement = player.GetComponent<PlayerMovement>();
         playerAim = player.GetComponent<PlayerAim>();
         playerRb = player.GetComponent<Rigidbody2D>();
+        hookSpr = hook.GetComponent<SpriteRenderer>();
 
         hookableFilter.useTriggers = true;
     }
@@ -83,6 +85,15 @@ public class HookThrow : MonoBehaviour
                 playerMovement.playerRb.velocity = Vector2.zero;
                 Pull();
                 isPulling = true;
+            }
+
+            if(playerAim.isAiming)
+            {
+                hookSpr.enabled = true;
+            }
+            else if(!playerAim.isAiming)
+            {
+                hookSpr.enabled = false;
             }
         }
     }
