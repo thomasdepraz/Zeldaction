@@ -59,31 +59,34 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("AttackButton"))
+        if(PlayerManager.canAttack)
         {
-            //charge l'attaque
-            channelTime += Time.deltaTime;
-            if (channelTime > 0.3f)
+            if (Input.GetButton("AttackButton"))
             {
-                GetComponent<PlayerMovement>().playerSpeed = 140f; // ralentit le player quand il canalise l'attaque lourde
+                //charge l'attaque
+                channelTime += Time.deltaTime;
+                if (channelTime > 0.3f)
+                {
+                    GetComponent<PlayerMovement>().playerSpeed = 140f; // ralentit le player quand il canalise l'attaque lourde
+                }
             }
-        }
-        if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide
-        {
-            anim.SetBool("isAttacking", true);
+            if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide
+            {
+                anim.SetBool("isAttacking", true);
 
-            Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
-            StartCoroutine(AttackCooldown(lightAttackCooldown));
-            channelTime = 0;
-            GetComponent<PlayerMovement>().playerSpeed = 200f;
-        }
-        if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
-        {
-            anim.SetBool("isHeavyAttack", true);
-            Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
-            StartCoroutine(AttackCooldown(heavyAttackCooldown));
-            channelTime = 0;
-            GetComponent<PlayerMovement>().playerSpeed = 200f;
+                Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
+                StartCoroutine(AttackCooldown(lightAttackCooldown));
+                channelTime = 0;
+                GetComponent<PlayerMovement>().playerSpeed = 200f;
+            }
+            if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
+            {
+                anim.SetBool("isHeavyAttack", true);
+                Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
+                StartCoroutine(AttackCooldown(heavyAttackCooldown));
+                channelTime = 0;
+                GetComponent<PlayerMovement>().playerSpeed = 200f;
+            }
         }
     }
     void Attack(int attackDamage, float knockbackForce, float knockbackDuration, float attackRange, Collider2D collider)

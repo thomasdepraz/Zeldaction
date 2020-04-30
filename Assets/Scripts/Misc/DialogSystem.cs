@@ -77,6 +77,20 @@ public class DialogSystem : MonoBehaviour
                 {
                     dialogBox.SetActive(true);
                     dialogText.text = dialog;
+                    if (objects != null)
+                    {
+                        for (int i = 0; i < objects.Length; i++)
+                        {
+                            objects[i].SetActive(true);
+                        }
+                    }
+                    if (deactivateObjects != null)
+                    {
+                        for (int i = 0; i < deactivateObjects.Length; i++)
+                        {
+                            deactivateObjects[i].SetActive(false);
+                        }
+                    }
                 }
             }
         }
@@ -110,6 +124,10 @@ public class DialogSystem : MonoBehaviour
             {
                 //destroy when exit reached
                 playerMovement.canMove = true;
+                if(gameObject.name == "Phish Interpellation 01_B")
+                {
+                    PlayerManager.canAttack = true;
+                }
                 if(objects != null)
                 {
                     for(int i =0;i < objects.Length; i++)
