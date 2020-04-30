@@ -135,7 +135,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 Knockback(props.gameObject, knockbackForce * 5);
 
-                if(props.CompareTag("Rock") && hitProps.Count <= 1)
+                if(props.CompareTag("Rock"))
                 {
                     if(attackDamage == lightAttackDamage)
                         props.gameObject.GetComponent<DestroyableRocks>().LightHit();
