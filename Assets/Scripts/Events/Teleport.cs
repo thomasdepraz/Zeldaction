@@ -8,7 +8,7 @@ public class Teleport : MonoBehaviour
     public Transform targetPosition;
     public GameObject transitionPanel;
     private Animator anim;
-    [HideInInspector] public bool teleport;
+    [HideInInspector] public static bool teleport;
 
     void Start()
     {
@@ -21,15 +21,20 @@ public class Teleport : MonoBehaviour
     {
         if(teleport)
         {
-            transitionPanel.SetActive(true);
-            anim.SetBool("teleport", true);
+            Teleportation();
         }
     }
-
+        
     public void Teleportation()
     {
         player.transform.position = targetPosition.position;
-        anim.SetBool("teleport", false);
         teleport = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        transitionPanel.SetActive(true);
+        anim.SetBool("teleport", false);
+        anim.SetBool("teleport", true);
     }
 }
