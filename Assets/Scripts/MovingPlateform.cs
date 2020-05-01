@@ -15,11 +15,12 @@ public class MovingPlateform : MonoBehaviour
     Vector3 nextPos;
 
     public bool firstRaft = false;
-    public bool isNoPillarRaft = false;
     private bool startedMoving = false;
     private bool onRaft = false;
     public GameObject pillar;
     public GameObject col;
+    public GameObject particles;
+    
 
     void Start()
     {
@@ -32,60 +33,41 @@ public class MovingPlateform : MonoBehaviour
         else
         {
             speed = maxSpeed;
+            particles.SetActive(true);
         }
     }
 
     void Update()
     {
-        if(!isNoPillarRaft)
+        
+        if (index <= position.Length - 1)
         {
-            if (index <= position.Length - 1)
+            if (transform.position == nextPos)
             {
-                if (transform.position == nextPos)
-                {
-                    index++;
-                    nextPos = position[index].position;
-                }
-
-                transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
-            }
-            else
-            {
-                index = -1;
+                index++;
+                nextPos = position[index].position;
             }
 
-            if (pillar.transform.childCount > 0 && !onRaft)
-            {
-                speed = 0;
-            }
-            else
-            {
-                if (startedMoving)
-                {
-                    speed = maxSpeed;
-                }
-            }
+            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+        }
+        else
+        {
+            index = -1;
         }
 
-        if(isNoPillarRaft)
+        if (pillar.transform.childCount > 0 && !onRaft)
         {
-            if (index <= position.Length - 1 && onRaft)
+            speed = 0;
+        }
+        else
+        {
+            if (startedMoving)
             {
-                if (transform.position == nextPos)
-                {
-                    Debug.Log(index + " " + position.Length);
-                    index++; 
-                    nextPos = position[index].position;
-                }
-
-                transform.position = Vector3.MoveTowards(transform.position, nextPos, maxSpeed * Time.deltaTime);
-            }
-
-            if(index == position.Length)
-            {
-                
+                speed = maxSpeed;
             }
         }
+        
+
     }
 
     private void OnDrawGizmos()
@@ -106,6 +88,7 @@ public class MovingPlateform : MonoBehaviour
             {
                 speed = maxSpeed;
                 startedMoving = true;
+                particles.SetActive(true);
             }
             onRaft = true;
         }
