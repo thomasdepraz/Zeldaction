@@ -19,7 +19,6 @@ public class BossLegProjectile : MonoBehaviour
 
     private GameObject player;
     public GameObject boss;
-    public GameObject leg;
 
 
     // Start is called before the first frame update
@@ -71,8 +70,7 @@ public class BossLegProjectile : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
-                Instantiate(leg, transform.position, Quaternion.identity);
+                gameObject.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
     }
