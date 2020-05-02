@@ -9,6 +9,7 @@ public class CrabeSouterrain : MonoBehaviour
 
     private GameObject player;
     public GameObject baseCrab;
+    public GameObject particles;
     private PlayerHP playerHP;
     private Hookable hookable;
     private float distanceToPlayer;
@@ -62,10 +63,12 @@ public class CrabeSouterrain : MonoBehaviour
         {
             direction = player.transform.position - gameObject.transform.position;
             rb.velocity = direction.normalized * speed * Time.deltaTime;
+            particles.SetActive(true);
         }
         else
         {
-            rb.velocity = Vector2.zero;            
+            rb.velocity = Vector2.zero;
+            particles.SetActive(false);
         }
     }
 
