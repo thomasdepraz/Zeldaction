@@ -148,6 +148,7 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   anim: {fileID: 1749873991727021219}
+  broken: {fileID: 4028932399421089620, guid: 63fe0ca4356b87e4db03fadd1303c71a, type: 3}
 --- !u!114 &511929049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,8 +199,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335e3991e86f2e84abe30cc8654e200d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasHit: 0
+  Missed: 0
   anim: {fileID: 1749873991727021219}
   projectileDamage: 2
   strikeRange: 0.3
   boss: {fileID: 8857848667643520927, guid: 3e225201064362b44a8ed5e2380c8ae3, type: 3}
+  canRecall: 0
+  startTimer: 0
+  timer: 0
+  hasHit: 0

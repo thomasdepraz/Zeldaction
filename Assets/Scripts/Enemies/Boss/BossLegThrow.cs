@@ -11,33 +11,37 @@ public class BossLegThrow : MonoBehaviour
     public bool canThrow;
     public bool canRecall;
     public Animator anim;
-    public bool hasHit = false;
+    public bool hasHit;
+    public int LegCounter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         canThrow = GetComponent<BossManager>().canThrow;
+        canRecall = false;
+        hasHit = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canThrow == true)
+        if (canThrow == true && LegCounter < 3)
         {
             anim.SetTrigger("Throw");
             canThrow = false;
         }
-        if (canRecall == true)
-        {
-            anim.SetTrigger("Recall");
-        }
+
         if (hasHit == true)
         {
-            anim.SetBool("Hit", true);
+            anim.SetTrigger("Hit");
+            canRecall = true;
+            hasHit = false;
         }
-        else
+
+        if (canRecall == true)
         {
-            anim.SetBool("Hit", false);
+            anim.SetTrigger("canRecall");
+            canRecall = false;
         }
     }
     void Throw()
@@ -46,18 +50,26 @@ public class BossLegThrow : MonoBehaviour
         Projectile.transform.position = player.transform.position;
         LeftLeg.SetActive(false);
         RightLeg.SetActive(false);
+        LegCounter++;
     }
     // désactiver le game object et instancier un projectile qui ressemble au gameobject
     void Recall()
     {
         // play recall animation
+        anim.ResetTrigger("canRecall");
         LeftLeg.SetActive(true);
         RightLeg.SetActive(true);
         StartCoroutine(ThrowCD());
+        canRecall = false;
+        LegCounter--;
     }
     public IEnumerator ThrowCD() // a utiliser dans l'animator en tant qu'animation event
     {
         yield return new WaitForSeconds(4f);
         canThrow = true;
     }
+    /*if (
+     dans le start du projectile, il est présent depuis plus de 5 secondes
+     une fois cassé, il est envoyé dans un collider autre que sur le boss, ou est présent depuis plus de 10 secondes
+ */ 
 }

@@ -9,6 +9,7 @@ public class LegHP : MonoBehaviour
     public int currentHealth;
     SpriteRenderer sr;
     public Animator anim;
+    public Sprite broken;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +23,10 @@ public class LegHP : MonoBehaviour
         StartCoroutine(DamageFB());
         if (currentHealth <= 0)
         {
-            anim.SetTrigger("Broken");
+            sr.sprite = broken;
+            GetComponent<Animator>().enabled = false;
             GetComponent<Hookable>().isActive = true;
+            GetComponent<BossLegProjectile>().startTimer = 10;
         }
     }
     IEnumerator DamageFB()

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BossLegProjectile : MonoBehaviour
 {
-    public bool hasHit;
 
     [Header("Elements")]
     public Animator anim;
@@ -18,13 +17,19 @@ public class BossLegProjectile : MonoBehaviour
 
 
     private GameObject player;
-    public GameObject boss;
+    public float startTimer;
+    public float timer;
+    private bool legHit;
+    public bool Missed;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        legHit = false;
+        Missed = false;
     }
 
     // Update is called once per frame
@@ -38,14 +43,9 @@ public class BossLegProjectile : MonoBehaviour
         //Lancer l'anim d'explo
         if ((player.transform.position - gameObject.transform.position).magnitude <= strikeRange)
         {
+            GameObject.Find("Boss").GetComponent<BossLegThrow>().hasHit = true;
             player.GetComponent<PlayerHP>().TakeDamage(projectileDamage);
-            boss.GetComponent<BossLegThrow>().hasHit = true;
-        }
-        
-        else
-        {
-            hasHit = false;
-            boss.GetComponent<BossLegThrow>().hasHit = false;
+            legHit = true;
         }
     }
 
@@ -64,15 +64,16 @@ public class BossLegProjectile : MonoBehaviour
         }
         if (parameter == "endExplosion")
         {
-            if (boss.GetComponent<BossLegThrow>().hasHit == true)
+            if (legHit == true)
             {
                 Destroy(gameObject);
             }
             else
             {
                 gameObject.GetComponent<BoxCollider2D>().enabled = true;
+                startTimer = 0f;
+                Missed = true;
             }
         }
     }
 }
-//a voir comment rework le getanimation event
