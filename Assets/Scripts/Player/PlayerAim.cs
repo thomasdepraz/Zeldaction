@@ -12,6 +12,8 @@ namespace Player
         private SpriteRenderer crosshairRenderer;
         [HideInInspector] public Transform crosshairTransform;
         private PlayerMovement playerMovement;
+        public HookThrow hookThrow;
+        public GameObject hook;
 
         [Header("Logic")]
         [Range(0f, 10f)]
@@ -70,6 +72,10 @@ namespace Player
                 aimDirectionPreview.SetActive(true); // ajout Tim: active le gameobject arrow
                 aimDirectionPreview.transform.position = (Vector3)transform.position + direction.normalized * range; //The float is the distance from the player
                 aimDirectionPreview.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction));
+                if(!hookThrow.isThrown)
+                {
+                    hook.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction));
+                }
 
                 //on ralentit le joueur       
                 playerMovement.playerSpeed = 100f;

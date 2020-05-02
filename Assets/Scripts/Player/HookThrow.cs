@@ -9,7 +9,6 @@ public class HookThrow : MonoBehaviour
 
     [Header("Elements")]
     private GameObject player;
-    public GameObject hitbox;
     public GameObject hook;
     private SpriteRenderer hookSpr;
     private Rigidbody2D hookRigidBody;
@@ -19,12 +18,13 @@ public class HookThrow : MonoBehaviour
     public Sprite hookAvailable;
     public Sprite hookUnavailable;
     public Image hookUI;
+    public LineRenderer hookLine;
 
     [Header("Logic")]
     [Range(0f, 10f)]
     public float speed;
     private Vector3 direction;
-    private bool isThrown = false;
+    [HideInInspector] public bool isThrown = false;
     [HideInInspector]public bool isHooked = false;
     [HideInInspector]public bool isPulling = false;
     private bool canStartCoroutine = true;
@@ -72,11 +72,14 @@ public class HookThrow : MonoBehaviour
                 playerMovement.playerRb.velocity = Vector2.zero;
                 Pull();
                 isPulling = true;
-            
+                
+
             }
             if (isThrown) //Quand le hameçon est lancé on vérifie s'il peut se hook
             {
                 Hook();
+                hookLine.SetPosition(0, transform.position);
+                hookLine.SetPosition(1, hook.transform.position);
             }
 
             if((player.transform.position - hook.transform.position).sqrMagnitude > hookRange && isThrown)
