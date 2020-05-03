@@ -15,6 +15,10 @@ public class DialogSystem : MonoBehaviour
     public Text dialogText;
     public string dialog;
     public GameObject button; //USE ONLY FOR NON-FORCED DIALOG
+    public Text dialogName;
+    public string npcName;
+    public Image portraitUI;
+    public Sprite portrait;
 
     [Header("Forced-Dialog Elements")]
     public GameObject npc;
@@ -60,7 +64,7 @@ public class DialogSystem : MonoBehaviour
         if(combatEvent != null)
         {
             fight = combatEvent.GetComponent<CombatEvent>();
-        }
+        }        
     }
 
     void Update()
@@ -75,6 +79,8 @@ public class DialogSystem : MonoBehaviour
                 }
                 else
                 {
+                    portraitUI.sprite = portrait;
+                    dialogName.text = npcName;
                     dialogBox.SetActive(true);
                     dialogText.text = dialog;
                     if (objects != null)
@@ -231,6 +237,8 @@ public class DialogSystem : MonoBehaviour
         eventCam.gameObject.SetActive(true);
         startMove = true;
         yield return new WaitForSeconds(transitionTime);
+        portraitUI.sprite = portrait;
+        dialogName.text = npcName;
         dialogBox.SetActive(true);
         dialogText.text = dialog;
         eventStarted = true;
