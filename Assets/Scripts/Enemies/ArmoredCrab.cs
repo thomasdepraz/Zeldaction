@@ -25,6 +25,7 @@ public class ArmoredCrab : MonoBehaviour
     private Vector2 targetPosition;
     public GameObject armor;
     public GameObject baseCrab;
+    public GameObject loot;
 
     //Orientation 
     private Vector2 orientation;
@@ -190,6 +191,11 @@ public class ArmoredCrab : MonoBehaviour
         if(parameter == "deathEnded")
         {
             GameObject Crab = Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
+            float stat = Random.Range(0, 1);
+            if (stat < 0.4)
+            {
+                GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }

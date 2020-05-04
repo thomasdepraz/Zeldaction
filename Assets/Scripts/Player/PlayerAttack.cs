@@ -77,7 +77,7 @@ public class PlayerAttack : MonoBehaviour
                 Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
                 StartCoroutine(AttackCooldown(lightAttackCooldown));
                 channelTime = 0;
-                GetComponent<PlayerMovement>().playerSpeed = 200f;
+                GetComponent<PlayerMovement>().playerSpeed = 150f;
             }
             if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
             {
@@ -85,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
                 Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
                 StartCoroutine(AttackCooldown(heavyAttackCooldown));
                 channelTime = 0;
-                GetComponent<PlayerMovement>().playerSpeed = 200f;
+                GetComponent<PlayerMovement>().playerSpeed = 150f;
             }
         }
     }

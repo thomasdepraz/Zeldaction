@@ -10,6 +10,7 @@ public class CrabeSouterrain : MonoBehaviour
     private GameObject player;
     public GameObject baseCrab;
     public GameObject particles;
+    public GameObject loot;
     private PlayerHP playerHP;
     private Hookable hookable;
     private float distanceToPlayer;
@@ -116,7 +117,7 @@ public class CrabeSouterrain : MonoBehaviour
     {
         hookable.isActive = false;
         anim.SetBool("isDead", true);
-        //GameObject.Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
+
         
     }
 
@@ -136,6 +137,12 @@ public class CrabeSouterrain : MonoBehaviour
 
         if(parameter == "deathEnded")
         {
+            float stat = Random.Range(0, 1);
+            if(stat < 0.6)
+            {
+                GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
+            }
+            //GameObject.Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

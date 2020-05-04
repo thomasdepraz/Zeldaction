@@ -78,7 +78,7 @@ namespace Player
                 }
 
                 //on ralentit le joueur       
-                playerMovement.playerSpeed = 100f;
+                playerMovement.playerSpeed = 145f;
                 isAiming = true;
             }
 
@@ -99,7 +99,7 @@ namespace Player
             {
                 aimDirectionPreview.SetActive(false);
                 //on reset la vitesse du joueur
-                playerMovement.playerSpeed = 200f;
+                playerMovement.playerSpeed = 150f;
                 isAiming = false;
             }
             yield return null;
