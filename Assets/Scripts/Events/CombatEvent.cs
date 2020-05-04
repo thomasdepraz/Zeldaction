@@ -79,7 +79,7 @@ public class CombatEvent : MonoBehaviour
         {
             if (enemies[i] != null)
             {
-                enemies[i].SetActive(false);
+                enemies[i].SetActive(false); 
             }
         }
         combatStarted = false;

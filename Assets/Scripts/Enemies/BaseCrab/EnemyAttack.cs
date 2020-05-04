@@ -38,6 +38,7 @@ public class EnemyAttack : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerHP = player.GetComponent<PlayerHP>();
+        StopAllCoroutines();
     }
 
     // Start is called before the first frame update

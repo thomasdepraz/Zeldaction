@@ -43,20 +43,11 @@ public class PlayerHP : MonoBehaviour
         StartCoroutine("portraitSwap");
         if (currentHealth <= 0)
         {
-            Die();
             //gameOverUI.SetActive(true);
             gameObject.transform.position = PlayerManager.lastCheckpoint.transform.position;
             PlayerManager.lastCheckpoint.GetComponent<Checkpoint>().ResetFight();
             gameObject.GetComponent<PlayerHP>().TakeDamage(-gameObject.GetComponent<PlayerHP>().maxHealth);         
         }
-    }
-    void Die()
-    {
-        /*GetComponent<Collider2D>().enabled = false; // en cas de mort, le collider du joueur est désactivé
-        GetComponent<PlayerMovement>().enabled = false;
-        GetComponent<PlayerAttack>().enabled = false;
-        this.enabled = false;
-        */
     }
     void GainLife(int heal)
     {

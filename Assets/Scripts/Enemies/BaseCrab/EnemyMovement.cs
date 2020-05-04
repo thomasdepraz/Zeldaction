@@ -27,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
     private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        StopAllCoroutines();
     }
     // Start is called before the first frame update
     void Start()
