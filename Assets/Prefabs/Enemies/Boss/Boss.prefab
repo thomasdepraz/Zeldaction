@@ -1023,6 +1023,7 @@ MonoBehaviour:
   isPhase2: 0
   isPhase3: 0
   canThrow: 1
+  isFinished: 0
   plate1: {fileID: 4507741904577099383, guid: 792a94dea37756b4086378084c62a29f, type: 3}
   plate2: {fileID: 8524229651622343830, guid: 470a8416e9cfbf046bb845e208fdab58, type: 3}
   waypoint1: {fileID: 0}
@@ -1047,6 +1048,7 @@ MonoBehaviour:
   RightLeg: {fileID: 448213325}
   canThrow: 0
   canRecall: 0
+  isInjured: 0
   anim: {fileID: 8857848667643520992}
   hasHit: 0
   LegCounter: 0

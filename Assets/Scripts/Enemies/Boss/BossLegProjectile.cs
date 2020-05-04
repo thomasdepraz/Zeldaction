@@ -68,7 +68,7 @@ public class BossLegProjectile : MonoBehaviour
         //Lancer l'anim d'explo
         if ((player.transform.position - gameObject.transform.position).magnitude <= strikeRange)
         {
-            GameObject.Find("Boss").GetComponent<BossLegThrow>().hasHit = true;
+            BossLegThrow.Instance.hasHit = true;
             player.GetComponent<PlayerHP>().TakeDamage(projectileDamage);
             LegHit = true;
         }
@@ -91,8 +91,8 @@ public class BossLegProjectile : MonoBehaviour
         {
             if (LegHit == true)
             {
-                Destroy(gameObject);
                 BossLegThrow.Instance.LegCounter--;
+                Destroy(gameObject);
             }
             else
             {
@@ -109,8 +109,17 @@ public class BossLegProjectile : MonoBehaviour
 
         if (ColInfo != null)
         {
-            Debug.Log("T'as mourru le boss");
-            Destroy(gameObject);
+            if (BossLegThrow.Instance.isInjured == false)
+            {
+                BossLegThrow.Instance.isInjured = true;
+                BossLegThrow.Instance.canRecall = true;
+                BossLegThrow.Instance.LegCounter--;
+                Destroy(gameObject);
+            }
+            else
+            {
+                // déclencher l'animation de mort
+            }
         }
     }
 }

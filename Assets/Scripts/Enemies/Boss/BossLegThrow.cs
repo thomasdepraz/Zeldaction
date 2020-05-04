@@ -12,7 +12,7 @@ public class BossLegThrow : MonoBehaviour
     private bool isImpair; //0 = left leg, 1 = right leg
     public bool canThrow;
     public bool canRecall;
-    private bool isInjured;
+    public bool isInjured;
     public Animator anim;
     public bool hasHit;
     public int LegCounter;
@@ -48,25 +48,36 @@ public class BossLegThrow : MonoBehaviour
                 canThrow = false;
                 StartCoroutine(ThrowCD());
             }
+
+            if (canRecall == true && LegCounter == 2)
+            {
+                anim.SetTrigger("canRecall");
+                canRecall = false;
+            }
+
         }
-        /*else if (isInjured == true)
+        else if (isInjured == true)
         {
             if (canThrow == true && LegCounter < 1)
             {
                 if (isImpair == false)
                 {
-                    LeftLeg.SetActive(false);
+                    anim.SetBool("isImpair", false);
                 }
                 else if (isImpair == true)
                 {
-                    RightLeg.SetActive(false);
+                    anim.SetBool("isImpair", true);
                 }
                 anim.SetTrigger("Throw");
                 canThrow = false;
-                LegCounter++;
                 StartCoroutine(ThrowCD());
             }
-        }*/
+            if (canRecall == true && LegCounter == 1)
+            {
+                anim.SetTrigger("canRecall");
+                canRecall = false;
+            }
+        }
 
 
         if (hasHit == true)
@@ -76,11 +87,6 @@ public class BossLegThrow : MonoBehaviour
             hasHit = false;
         }
 
-        if (canRecall == true)
-        {
-            anim.SetTrigger("canRecall");
-            canRecall = false;
-        }
     }
     void Throw()
     {
@@ -100,15 +106,32 @@ public class BossLegThrow : MonoBehaviour
                 isImpair = false;
             }
         }
+        else
+        {
+            if (isImpair == false)
+            {
+                LeftLeg.SetActive(false);
+            }
+            else
+            {
+                RightLeg.SetActive(false);
+            }
+        }
         anim.ResetTrigger("Throw");
     }
     // désactiver le game object et instancier un projectile qui ressemble au gameobject
-    void Recall()
+   public void Recall()
     {
         // play recall animation
         anim.ResetTrigger("canRecall");
-        LeftLeg.SetActive(true);
-        RightLeg.SetActive(true);
+        if (isImpair == false)
+        {
+            LeftLeg.SetActive(true);
+        }
+        else
+        {
+            RightLeg.SetActive(true);
+        }
         StartCoroutine(ThrowCD());
         canRecall = false;
     }
