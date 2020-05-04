@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossLegThrow : MonoBehaviour
 {
+    public static BossLegThrow Instance;
     public GameObject player;
     public GameObject projectileLeg;
     public GameObject LeftLeg;
@@ -14,6 +15,10 @@ public class BossLegThrow : MonoBehaviour
     public bool hasHit;
     public int LegCounter = 0;
 
+    void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +66,6 @@ public class BossLegThrow : MonoBehaviour
         RightLeg.SetActive(true);
         StartCoroutine(ThrowCD());
         canRecall = false;
-        LegCounter--;
     }
     public IEnumerator ThrowCD() // a utiliser dans l'animator en tant qu'animation event
     {

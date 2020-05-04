@@ -19,8 +19,13 @@ public class BossLegProjectile : MonoBehaviour
     private GameObject player;
     public float startTimer;
     public float timer;
-    private bool legHit;
-    public bool Missed;
+    public float brokenTimer;
+    private bool LegHit;
+    private bool Missed;
+    public bool Broken;
+    public LayerMask bossMask;
+    private float attackRange = 0.47f;
+
 
 
 
@@ -28,14 +33,34 @@ public class BossLegProjectile : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        legHit = false;
+        LegHit = false;
         Missed = false;
+        Broken = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Missed == true)
+        {
+            if (Broken == false)
+            {
+                timer = startTimer += Time.deltaTime;
+            }
+            else
+            {
+                timer = brokenTimer += Time.deltaTime;
+            }
 
+            if (timer >= 10f)
+            {
+                Destroy(gameObject);
+                BossLegThrow.Instance.LegCounter--;
+                GameObject.Find("Boss").GetComponent<BossLegThrow>().canRecall = true;
+            }
+
+        }
+        LegAttack(attackRange);
     }
 
     public void Explode()
@@ -45,7 +70,7 @@ public class BossLegProjectile : MonoBehaviour
         {
             GameObject.Find("Boss").GetComponent<BossLegThrow>().hasHit = true;
             player.GetComponent<PlayerHP>().TakeDamage(projectileDamage);
-            legHit = true;
+            LegHit = true;
         }
     }
 
@@ -64,9 +89,10 @@ public class BossLegProjectile : MonoBehaviour
         }
         if (parameter == "endExplosion")
         {
-            if (legHit == true)
+            if (LegHit == true)
             {
                 Destroy(gameObject);
+                BossLegThrow.Instance.LegCounter--;
             }
             else
             {
@@ -74,6 +100,16 @@ public class BossLegProjectile : MonoBehaviour
                 startTimer = 0f;
                 Missed = true;
             }
+        }
+    }
+    public void LegAttack(float attackRange)
+    {
+        Vector3 pos = transform.position;
+        Collider2D ColInfo = Physics2D.OverlapCircle(pos, attackRange, bossMask);
+
+        if (ColInfo != null)
+        {
+            Debug.Log("T'as mourru le boss");
         }
     }
 }

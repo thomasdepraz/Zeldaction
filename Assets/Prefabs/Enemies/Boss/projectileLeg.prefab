@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 9155352580342257437}
   m_Layer: 15
   m_Name: projectileLeg
-  m_TagString: Untagged
+  m_TagString: Hookable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.085662484}
@@ -148,7 +148,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   anim: {fileID: 1749873991727021219}
-  broken: {fileID: 4028932399421089620, guid: 63fe0ca4356b87e4db03fadd1303c71a, type: 3}
+  BrokenLegSprite: {fileID: 4028932399421089620, guid: 63fe0ca4356b87e4db03fadd1303c71a,
+    type: 3}
 --- !u!114 &511929049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +187,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!114 &9155352580342257437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,12 +200,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335e3991e86f2e84abe30cc8654e200d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Missed: 0
   anim: {fileID: 1749873991727021219}
   projectileDamage: 2
   strikeRange: 0.3
-  boss: {fileID: 8857848667643520927, guid: 3e225201064362b44a8ed5e2380c8ae3, type: 3}
-  canRecall: 0
   startTimer: 0
   timer: 0
-  hasHit: 0
+  brokenTimer: 0
+  Broken: 0
+  bossMask:
+    serializedVersion: 2
+    m_Bits: 8192

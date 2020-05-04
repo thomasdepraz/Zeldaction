@@ -977,7 +977,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8857848667643520927}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba3109a235f2a194c9cb1dc2e8e676df, type: 3}
   m_Name: 
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  projectileLeg: {fileID: 1244049202564690858, guid: 9bc1249c90b09de49b54bfa14e6938c1,
+  projectileLeg: {fileID: 7534280475071901276, guid: 1aca0f4c8d9616846a67d682fc72331b,
     type: 3}
   LeftLeg: {fileID: 531942624}
   RightLeg: {fileID: 448213325}
@@ -1049,6 +1049,7 @@ MonoBehaviour:
   canRecall: 0
   anim: {fileID: 8857848667643520992}
   hasHit: 0
+  LegCounter: 0
 --- !u!1 &8857848668152732912
 GameObject:
   m_ObjectHideFlags: 0

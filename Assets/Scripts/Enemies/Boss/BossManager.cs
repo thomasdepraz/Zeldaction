@@ -9,6 +9,7 @@ public class BossManager : MonoBehaviour
     public bool isPhase2 = false;
     public bool isPhase3 = false;
     public bool canThrow = true;
+    public bool isFinished = false;
     public GameObject plate1;
     public GameObject plate2;
     private GameObject Plate1;
