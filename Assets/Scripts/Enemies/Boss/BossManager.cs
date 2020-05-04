@@ -8,7 +8,7 @@ public class BossManager : MonoBehaviour
     public bool isPhase1 = true;
     public bool isPhase2 = false;
     public bool isPhase3 = false;
-    public bool canThrow = true;
+    public bool canThrow;
     public bool isFinished = false;
     public GameObject plate1;
     public GameObject plate2;
@@ -28,14 +28,14 @@ public class BossManager : MonoBehaviour
     {
         if (isPhase2 == true)
         {
-            if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed || isPhase3==true)
+            if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed || isPhase3 == true)
             {
                 Phase3();
             }
         }
-        if (isPhase3 == true && canThrow == true)
+        else if (isPhase3 == true)
         {
-            anim.SetTrigger("Throw");
+            GetComponent<BossLegThrow>().enabled = true;
         }
     }
     public void Phase2()

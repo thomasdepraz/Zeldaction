@@ -110,6 +110,7 @@ public class BossLegProjectile : MonoBehaviour
         if (ColInfo != null)
         {
             Debug.Log("T'as mourru le boss");
+            Destroy(gameObject);
         }
     }
 }

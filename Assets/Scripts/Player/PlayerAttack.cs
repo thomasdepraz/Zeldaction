@@ -82,7 +82,7 @@ public class PlayerAttack : MonoBehaviour
             channelTime = 0;
             GetComponent<PlayerMovement>().playerSpeed = 200f;
         }
-        if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
+        else if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
         {
             anim.SetBool("isHeavyAttack", true);
             Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
