@@ -33,7 +33,11 @@ public class CombatEvent : MonoBehaviour
         {
             for (int i = 0; i < enemies.Length; i++)
             {
-                enemies[i].SetActive(true);
+                if(enemies[i] != null)
+                {
+                    enemies[i].SetActive(true);
+
+                }
             }
 
             arenaCollider.SetActive(true);
@@ -67,5 +71,18 @@ public class CombatEvent : MonoBehaviour
         {
             combatStarted = true;
         }
+    }
+
+    public void DeactivateEnemies()
+    {
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            if (enemies[i] != null)
+            {
+                enemies[i].SetActive(false);
+            }
+        }
+        combatStarted = false;
+        spawnedEnemies = false;
     }
 }

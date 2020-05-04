@@ -44,7 +44,10 @@ public class PlayerHP : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
-            gameOverUI.SetActive(true);
+            //gameOverUI.SetActive(true);
+            gameObject.transform.position = PlayerManager.lastCheckpoint.transform.position;
+            PlayerManager.lastCheckpoint.GetComponent<Checkpoint>().ResetFight();
+            gameObject.GetComponent<PlayerHP>().TakeDamage(-gameObject.GetComponent<PlayerHP>().maxHealth);         
         }
     }
     void Die()

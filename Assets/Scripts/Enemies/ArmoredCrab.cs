@@ -44,7 +44,10 @@ public class ArmoredCrab : MonoBehaviour
 
 
     // Start is called before the first frame update
-
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");

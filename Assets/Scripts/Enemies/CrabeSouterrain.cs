@@ -38,7 +38,11 @@ public class CrabeSouterrain : MonoBehaviour
     bool canStartCoroutine;
 
     private Animator anim;
-
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHP = player.GetComponent<PlayerHP>();
+    }
     void Start()
     {
         canStartCoroutine = true;

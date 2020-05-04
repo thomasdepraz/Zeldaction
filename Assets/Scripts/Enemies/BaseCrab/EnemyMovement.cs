@@ -24,6 +24,10 @@ public class EnemyMovement : MonoBehaviour
     private float horizontalOrientation;
     private float verticalOrientation;
 
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
     // Start is called before the first frame update
     void Start()
     {

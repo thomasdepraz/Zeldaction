@@ -34,6 +34,11 @@ public class EnemyAttack : MonoBehaviour
 
     private Animator anim;
 
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHP = player.GetComponent<PlayerHP>();
+    }
 
     // Start is called before the first frame update
     void Start()
