@@ -7,6 +7,7 @@ public class EnemyHP : MonoBehaviour
     public int currentHealth;
     private Animator anim;
     private bool crabcd;
+    public GameObject loot;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +47,11 @@ public class EnemyHP : MonoBehaviour
                 BossSummoning.Instance.startTimer = 0f;// [...] c'est pcq je ne savais pas comment lier les variables déclarées en public avec un objet qui n'est pas dans la scène. je me tate à mettre ces deux lignes dans un if.
             }
 
+        }
+        float stat = Random.Range(0, 1);
+        if (stat < 0.3)
+        {
+            GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
     }

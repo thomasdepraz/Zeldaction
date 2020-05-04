@@ -9,6 +9,8 @@ public class DestroyableRocks : MonoBehaviour
     public int currentSpriteIndex;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider;
+    public GameObject loot;
+    private bool looted =false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +26,18 @@ public class DestroyableRocks : MonoBehaviour
     {
         if(spriteRenderer.sprite == RockSprites[3])
         {
-            boxCollider.enabled = false;   
+            boxCollider.enabled = false;
+            if (!looted)
+            {
+                float stat = Random.Range(0, 1);
+                if (stat < 0.8)
+                {
+                    GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
+                }
+                looted = true;
+            }
         }
     }
-
     public void LightHit()
     {
         currentSpriteIndex++;
@@ -37,5 +47,6 @@ public class DestroyableRocks : MonoBehaviour
     public void HeavyHit()
     {
         spriteRenderer.sprite = RockSprites[3];
+        
     }
 }

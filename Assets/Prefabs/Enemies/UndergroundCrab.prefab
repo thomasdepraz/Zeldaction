@@ -141,6 +141,7 @@ MonoBehaviour:
   baseCrab: {fileID: 5930221659852930160, guid: 1dedaf6cb0ea84243aff6198c3982cf3,
     type: 3}
   particles: {fileID: 5371721442844170769}
+  loot: {fileID: 6135825320653908896, guid: a0f134617c070e543882177898724c0e, type: 3}
   speed: 67.7
   attackDamage: 7
   detectionDistance: 3

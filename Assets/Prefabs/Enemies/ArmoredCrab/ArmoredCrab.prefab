@@ -187,6 +187,7 @@ MonoBehaviour:
   armor: {fileID: 5616795849894298771, guid: a311e9629bfbfdb4aa4072cc6b24c939, type: 3}
   baseCrab: {fileID: 5930221659852930160, guid: 1dedaf6cb0ea84243aff6198c3982cf3,
     type: 3}
+  loot: {fileID: 6135825320653908896, guid: a0f134617c070e543882177898724c0e, type: 3}
   projectile: {fileID: 1244049202564690858, guid: ef2e3cbc5913e094fbb06f9233fe7179,
     type: 3}
   projectileSpeed: 1

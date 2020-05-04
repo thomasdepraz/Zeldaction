@@ -128,6 +128,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2d77cab527d58164e80846472d83382f, type: 3}
   - {fileID: 21300000, guid: 08f16dc4a1c85c54f82a8577596d1712, type: 3}
   currentSpriteIndex: 0
+  loot: {fileID: 6135825320653908896, guid: a0f134617c070e543882177898724c0e, type: 3}
 --- !u!50 &2830296750401433876
 Rigidbody2D:
   serializedVersion: 4
