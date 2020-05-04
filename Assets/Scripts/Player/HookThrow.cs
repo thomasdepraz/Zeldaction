@@ -30,6 +30,7 @@ public class HookThrow : MonoBehaviour
     private bool canStartCoroutine = true;
     private bool canStartCoroutineHitbox = true;
     private ContactFilter2D hookableFilter;
+    private float objectDrag; 
 
     [Header("Tweak")]
     [Range(0f, 5f)]
@@ -170,6 +171,7 @@ public class HookThrow : MonoBehaviour
                     hookRigidBody.velocity = Vector2.zero;
                     hookRigidBody.simulated = false;
                     isHooked = true;
+                    objectDrag = hook.transform.parent.GetComponent<Rigidbody2D>().drag;
 
                     if (isPulling)
                         Pull();
@@ -184,7 +186,7 @@ public class HookThrow : MonoBehaviour
         {
             if (isHooked)
             {
-                hook.transform.parent.GetComponent<Rigidbody2D>().drag = 3f; //FAIRE AUTREMENT POUR LE DRAG
+                hook.transform.parent.GetComponent<Rigidbody2D>().drag = objectDrag; //FAIRE AUTREMENT POUR LE DRAG
                 hook.transform.SetParent(gameObject.transform);
                 isHooked = false;
                 Physics2D.IgnoreLayerCollision(10, 14, false);

@@ -27,6 +27,7 @@ public class DestroyableRocks : MonoBehaviour
         if(spriteRenderer.sprite == RockSprites[3])
         {
             boxCollider.enabled = false;
+            spriteRenderer.sortingOrder = -1;
             if (!looted)
             {
                 float stat = Random.Range(0, 1);
