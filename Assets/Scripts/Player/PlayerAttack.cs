@@ -39,12 +39,11 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask bossLayer;
 
     private HookThrow hookThrow;
-    private GameObject hook;
+    public GameObject hook;
 
     private Animator anim;
     private void Start()
     {
-        hook = GameObject.FindGameObjectWithTag("Hook");
         hookThrow = gameObject.GetComponent<HookThrow>();
         anim = gameObject.GetComponent<Animator>();
 
