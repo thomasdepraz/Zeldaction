@@ -25,6 +25,7 @@ public class BossLegProjectile : MonoBehaviour
     public bool Broken;
     public LayerMask bossMask;
     private float attackRange = 0.47f;
+    public SpriteRenderer sr;
 
 
 
@@ -33,6 +34,7 @@ public class BossLegProjectile : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        sr = BossLegThrow.Instance.sr;
         LegHit = false;
         Missed = false;
         Broken = false;
@@ -47,16 +49,27 @@ public class BossLegProjectile : MonoBehaviour
             {
                 timer = startTimer += Time.deltaTime;
             }
-            else
+            else if (Broken == true)
             {
                 timer = brokenTimer += Time.deltaTime;
             }
 
-            if (timer >= 10f)
+            if (BossLegThrow.Instance.isInjured == false)
             {
-                Destroy(gameObject);
-                BossLegThrow.Instance.LegCounter--;
-                GameObject.Find("Boss").GetComponent<BossLegThrow>().canRecall = true;
+                if (timer >= 8f)
+                {
+                    BossLegThrow.Instance.canRecall = true;
+                    BossLegThrow.Instance.timer = true;
+                }
+            }
+
+            else if (BossLegThrow.Instance.isInjured == true)
+            {
+                if (timer >= 3f)
+                {
+                    BossLegThrow.Instance.canRecall = true;
+                    BossLegThrow.Instance.timer = true;
+                }
             }
 
         }
@@ -91,9 +104,10 @@ public class BossLegProjectile : MonoBehaviour
         {
             if (LegHit == true)
             {
-                BossLegThrow.Instance.LegCounter--;
-                Destroy(gameObject);
+                BossLegThrow.Instance.canRecall = true;
+                GetComponent<SpriteRenderer>().enabled = false;
             }
+
             else
             {
                 gameObject.GetComponent<BoxCollider2D>().enabled = true;
@@ -112,14 +126,29 @@ public class BossLegProjectile : MonoBehaviour
             if (BossLegThrow.Instance.isInjured == false)
             {
                 BossLegThrow.Instance.isInjured = true;
-                BossLegThrow.Instance.canRecall = true;
-                BossLegThrow.Instance.LegCounter--;
-                Destroy(gameObject);
+                StartCoroutine(DamageFB());
+                GetComponent<SpriteRenderer>().enabled = false;
             }
             else
             {
                 // déclencher l'animation de mort
             }
+        }
+    }
+    public IEnumerator DamageFB()
+    {
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.white;
+        GameObject[] legs = GameObject.FindGameObjectsWithTag("Hookable");
+        foreach (GameObject projectileLeg in legs)
+        {
+            GameObject.Destroy(projectileLeg);
+            BossLegThrow.Instance.LegCounter--;
         }
     }
 }

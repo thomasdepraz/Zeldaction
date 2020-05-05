@@ -1052,6 +1052,7 @@ MonoBehaviour:
   anim: {fileID: 8857848667643520992}
   hasHit: 0
   LegCounter: 0
+  timer: 0
 --- !u!1 &8857848668152732912
 GameObject:
   m_ObjectHideFlags: 0

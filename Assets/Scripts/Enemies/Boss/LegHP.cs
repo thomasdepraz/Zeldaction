@@ -26,12 +26,12 @@ public class LegHP : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            sr.sprite = BrokenLegSprite;
-            GetComponent<Animator>().enabled = false;
+            anim.SetTrigger("Broken");
             GetComponent<Hookable>().isActive = true;
             GetComponent<BossLegProjectile>().Broken = true;
         }
     }
+
     IEnumerator DamageFB()
     {
         sr.color = Color.red;

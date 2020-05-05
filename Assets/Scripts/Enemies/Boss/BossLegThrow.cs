@@ -16,6 +16,8 @@ public class BossLegThrow : MonoBehaviour
     public Animator anim;
     public bool hasHit;
     public int LegCounter;
+    public bool timer;
+    public SpriteRenderer sr;
 
     void Awake()
     {
@@ -27,6 +29,7 @@ public class BossLegThrow : MonoBehaviour
         canThrow = GetComponent<BossManager>().canThrow;
         canRecall = false;
         hasHit = false;
+        timer = false;
     }
 
     // Update is called once per frame
@@ -34,7 +37,15 @@ public class BossLegThrow : MonoBehaviour
     {
         if (isInjured == false)
         {
-            if (canThrow == true && LegCounter < 2)
+            if (LegCounter == 2 && timer == true)
+            {
+                canRecall = true;
+                //timer = false;
+                anim.SetTrigger("canRecall");
+                canRecall = false;
+            }
+
+            else if (canThrow == true && LegCounter < 2)
             {
                 if (isImpair == false)
                 {
@@ -46,16 +57,11 @@ public class BossLegThrow : MonoBehaviour
                 }
                 anim.SetTrigger("Throw");
                 canThrow = false;
+                timer = false;
                 StartCoroutine(ThrowCD());
             }
-
-            if (canRecall == true && LegCounter == 2)
-            {
-                anim.SetTrigger("canRecall");
-                canRecall = false;
-            }
-
         }
+
         else if (isInjured == true)
         {
             if (canThrow == true && LegCounter < 1)
@@ -72,6 +78,7 @@ public class BossLegThrow : MonoBehaviour
                 canThrow = false;
                 StartCoroutine(ThrowCD());
             }
+
             if (canRecall == true && LegCounter == 1)
             {
                 anim.SetTrigger("canRecall");
@@ -119,29 +126,25 @@ public class BossLegThrow : MonoBehaviour
         }
         anim.ResetTrigger("Throw");
     }
-    // désactiver le game object et instancier un projectile qui ressemble au gameobject
-   public void Recall()
+
+    public void Recall()
     {
-        // play recall animation
+        GameObject[] legs = GameObject.FindGameObjectsWithTag("Hookable");
+        foreach (GameObject projectileLeg in legs)
+        {
+            GameObject.Destroy(projectileLeg);
+            LegCounter--;
+        }
+
         anim.ResetTrigger("canRecall");
-        if (isImpair == false)
-        {
-            LeftLeg.SetActive(true);
-        }
-        else
-        {
-            RightLeg.SetActive(true);
-        }
+        LeftLeg.SetActive(true);
+        RightLeg.SetActive(true);
         StartCoroutine(ThrowCD());
         canRecall = false;
     }
     public IEnumerator ThrowCD() // a utiliser dans l'animator en tant qu'animation event
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         canThrow = true;
     }
-    /*if (
-     dans le start du projectile, il est présent depuis plus de 5 secondes
-     une fois cassé, il est envoyé dans un collider autre que sur le boss, ou est présent depuis plus de 10 secondes
- */
 }
