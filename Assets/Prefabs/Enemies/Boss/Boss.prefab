@@ -960,7 +960,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8857848667643520927}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf45f735986a8da448feef1cfb07b9e3, type: 3}
   m_Name: 
@@ -977,7 +977,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8857848667643520927}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba3109a235f2a194c9cb1dc2e8e676df, type: 3}
   m_Name: 
@@ -1053,6 +1053,7 @@ MonoBehaviour:
   hasHit: 0
   LegCounter: 0
   timer: 0
+  sr: {fileID: 8857848667643520998}
 --- !u!1 &8857848668152732912
 GameObject:
   m_ObjectHideFlags: 0

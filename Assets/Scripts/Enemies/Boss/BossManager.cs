@@ -20,7 +20,7 @@ public class BossManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        isPhase1 = true;
     }
 
     // Update is called once per frame
@@ -28,14 +28,10 @@ public class BossManager : MonoBehaviour
     {
         if (isPhase2 == true)
         {
-            if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed || isPhase3 == true)
+            if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed)
             {
                 Phase3();
             }
-        }
-        else if (isPhase3 == true)
-        {
-            GetComponent<BossLegThrow>().enabled = true;
         }
     }
     public void Phase2()
@@ -50,10 +46,12 @@ public class BossManager : MonoBehaviour
     }
     public void Phase3()
     {
-        Destroy(plate1);
-        Destroy(plate2);
+        Destroy(Plate1);
+        Destroy(Plate2);
         stone.SetActive(true);
         anim.SetTrigger("GoPhase3"); // intégrer l'animation de transition de phase
+        GetComponent<BossSummoning>().enabled = false;
+        GetComponent<BossLegThrow>().enabled = true;
         isPhase3 = true;
         isPhase2 = false;
     }
