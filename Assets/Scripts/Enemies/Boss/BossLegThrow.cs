@@ -89,6 +89,12 @@ public class BossLegThrow : MonoBehaviour
 
         if (hasHit == true)
         {
+            GameObject[] legs = GameObject.FindGameObjectsWithTag("Hookable");
+            foreach (GameObject projectileLeg in legs)
+            {
+                GameObject.Destroy(projectileLeg);
+                LegCounter--;
+            }
             anim.SetTrigger("Hit");
             canRecall = true;
             hasHit = false;
@@ -97,7 +103,6 @@ public class BossLegThrow : MonoBehaviour
     }
     void Throw()
     {
-        LegCounter++;
         GameObject Projectile = Instantiate(projectileLeg, transform.position, Quaternion.identity);
         Projectile.transform.position = player.transform.position;
         if (isInjured == false)
@@ -106,11 +111,13 @@ public class BossLegThrow : MonoBehaviour
             {
                 LeftLeg.SetActive(false);
                 isImpair = true;
+                LegCounter++;
             }
             else
             {
                 RightLeg.SetActive(false);
                 isImpair = false;
+                LegCounter++;
             }
         }
         else
@@ -118,10 +125,12 @@ public class BossLegThrow : MonoBehaviour
             if (isImpair == false)
             {
                 LeftLeg.SetActive(false);
+                LegCounter++;
             }
             else
             {
                 RightLeg.SetActive(false);
+                LegCounter++;
             }
         }
         anim.ResetTrigger("Throw");
@@ -144,7 +153,7 @@ public class BossLegThrow : MonoBehaviour
     }
     public IEnumerator ThrowCD() // a utiliser dans l'animator en tant qu'animation event
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         canThrow = true;
     }
 }

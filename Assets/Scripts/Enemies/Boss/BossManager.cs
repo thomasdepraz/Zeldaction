@@ -49,6 +49,11 @@ public class BossManager : MonoBehaviour
         Destroy(Plate1);
         Destroy(Plate2);
         stone.SetActive(true);
+        GameObject[] monster = GameObject.FindGameObjectsWithTag("Hookable");
+        foreach (GameObject Monsters in monster)
+        {
+            GameObject.Destroy(Monsters);
+        }
         anim.SetTrigger("GoPhase3"); // intégrer l'animation de transition de phase
         GetComponent<BossSummoning>().enabled = false;
         GetComponent<BossLegThrow>().enabled = true;
