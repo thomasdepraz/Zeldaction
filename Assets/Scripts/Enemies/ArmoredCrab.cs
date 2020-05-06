@@ -40,6 +40,7 @@ public class ArmoredCrab : MonoBehaviour
     private bool canDetect = true;
 
     [HideInInspector]public Animator anim;
+    public ArmoredCrabAudioManager audioManager;
 
 
 
@@ -152,6 +153,7 @@ public class ArmoredCrab : MonoBehaviour
         
         GameObject Projectile = Instantiate(projectile, transform.position, Quaternion.identity);
         Projectile.transform.position = player.transform.position;
+        audioManager.PlayClip(audioManager.lightAttack, 1);
         yield return null;
         //yield return new WaitForSeconds(1f);//Wait for projectile traveltime
 
