@@ -8,12 +8,18 @@ public class EnemyHP : MonoBehaviour
     private Animator anim;
     private bool crabcd;
     public GameObject loot;
+
+    public Material damageMaterial;
+    private Material defaultMaterial;
+
+    public ParticleSystem hitParticle;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         anim = gameObject.GetComponent<Animator>();
         crabcd = true;
+        defaultMaterial = GetComponent<SpriteRenderer>().material;
     }
 
     private void Update()
@@ -23,6 +29,7 @@ public class EnemyHP : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        hitParticle.Play();
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle de l'ennemi
         StartCoroutine(DamageFB());
         if (currentHealth <= 0)
@@ -48,8 +55,8 @@ public class EnemyHP : MonoBehaviour
             }
 
         }
-        float stat = Random.Range(0, 1);
-        if (stat < 0.3)
+        float stat = Random.Range(0f, 1f);
+        if (stat < 0.3f)
         {
             GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
         }
@@ -64,17 +71,8 @@ public class EnemyHP : MonoBehaviour
     }
     IEnumerator DamageFB()
     {
-        GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        GetComponent<SpriteRenderer>().color = Color.white;
+        GetComponent<SpriteRenderer>().material = damageMaterial;
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<SpriteRenderer>().material = defaultMaterial;
     }
-    /*public void Die()
-    {
-        //afficher l'animation et le sprite de mort
-        Debug.Log("Bruh");
-        GameObject.Find("Boss").GetComponent<Invoke>().crabcounter--; //sert à compter le nombre de crabes invoqués par le boss et à reset le time de spawn, si j'ai du utilisé Gameobject.Find [...]
-        GameObject.Find("Boss").GetComponent<Invoke>().startTimer = 0f;// [...] c'est pcq je ne savais pas comment lier les variables déclarées en public avec un objet qui n'est pas dans la scène. je me tate à mettre ces deux lignes dans un if.
-
-        Destroy(gameObject);
-    }*/
 }

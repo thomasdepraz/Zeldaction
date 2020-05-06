@@ -9,9 +9,13 @@ public class Door : MonoBehaviour
     private PressurePlate plate;
     private BoxCollider2D col;
     public bool stayOpen;
+    private SpriteRenderer rend;
+    public Sprite closedDoor;
+    public Sprite openDoor;
     // Start is called before the first frame update
     void Start()
     {
+        rend = GetComponent<SpriteRenderer>();
         if(linkedPlate != null)
         {
             plate = linkedPlate.GetComponent<PressurePlate>();
@@ -27,13 +31,13 @@ public class Door : MonoBehaviour
             if (plate.isPressed)
             {
                 col.enabled = false;
-                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                rend.sprite = openDoor;
             }
             else
             {
                 if(!stayOpen)
                 {
-                    gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                    rend.sprite = closedDoor;
                     col.enabled = true;
                 }
             }
@@ -48,7 +52,7 @@ public class Door : MonoBehaviour
                     if(!stayOpen)
                     {
                         col.enabled = true;
-                        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                        rend.sprite = closedDoor;
                     }
                     break;
                 }
@@ -56,7 +60,7 @@ public class Door : MonoBehaviour
                 if(linkedPlates[i] == linkedPlates[linkedPlates.Length - 1])
                 {
                     col.enabled = false;
-                    gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                    rend.sprite = openDoor;
                 }
             }
         }

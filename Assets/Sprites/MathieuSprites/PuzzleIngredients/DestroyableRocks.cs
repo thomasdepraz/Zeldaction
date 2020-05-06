@@ -11,6 +11,7 @@ public class DestroyableRocks : MonoBehaviour
     private BoxCollider2D boxCollider;
     public GameObject loot;
     private bool looted =false;
+    public ParticleSystem hitParticle;
 
     // Start is called before the first frame update
     void Start()
@@ -43,11 +44,13 @@ public class DestroyableRocks : MonoBehaviour
     {
         currentSpriteIndex++;
         spriteRenderer.sprite = RockSprites[currentSpriteIndex];
+        hitParticle.Play();
     }
 
     public void HeavyHit()
     {
         spriteRenderer.sprite = RockSprites[3];
-        
+        hitParticle.Play();
+
     }
 }

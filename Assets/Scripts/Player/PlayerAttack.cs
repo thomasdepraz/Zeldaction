@@ -161,8 +161,21 @@ public class PlayerAttack : MonoBehaviour
         canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
-        anim.SetBool("isAttacking", false);
-        anim.SetBool("isHeavyAttack", false);
+        
+    }
+
+    public void GetAnimationEvent(string parameter)
+    {
+        if(parameter == "HAEnded")
+        {
+            anim.SetBool("isAttacking", false);
+            anim.SetBool("isHeavyAttack", false);
+        }
+
+        if (parameter == "LAEnded")
+        {
+            anim.SetBool("isAttacking", false);
+        }
     }
     void OnDrawGizmosSelected()
     {
