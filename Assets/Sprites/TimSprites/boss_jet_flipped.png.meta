@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 4d265708319f3ba48bb0e1cd623e78a3
+guid: 0413838f585e17048b44272b1374933e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5801541793120942192
-    second: grossecible_spritesheet_0
+      213: 3774351714376471592
+    second: boss_jet_flipped_0
   - first:
-      213: 3948464544423526671
-    second: grossecible_spritesheet_1
+      213: -666848720323584103
+    second: boss_jet_flipped_1
+  - first:
+      213: 8960914099548861371
+    second: boss_jet_flipped_2
+  - first:
+      213: 6925052335600136570
+    second: boss_jet_flipped_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -92,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grossecible_spritesheet_0
+      name: boss_jet_flipped_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 36
-        height: 17
+        width: 93
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -106,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0787e80e587338050800000000000000
-      internalID: 5801541793120942192
+      spriteID: 824dbc803e0316430800000000000000
+      internalID: 3774351714376471592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grossecible_spritesheet_1
+      name: boss_jet_flipped_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 93
         y: 0
-        width: 36
-        height: 17
+        width: 93
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +133,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f01c6925593cbc630800000000000000
-      internalID: 3948464544423526671
+      spriteID: 99f503a3f90eeb6f0800000000000000
+      internalID: -666848720323584103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_jet_flipped_2
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 0
+        width: 93
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb3366685ef8b5c70800000000000000
+      internalID: 8960914099548861371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_jet_flipped_3
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 0
+        width: 93
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a717f62a86aba1060800000000000000
+      internalID: 6925052335600136570
       vertices: []
       indices: 
       edges: []
