@@ -109,8 +109,6 @@ public class PlayerAttack : MonoBehaviour
                 //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 
                 Knockback(enemy.gameObject, knockbackForce);
-                Debug.Log(attackDamage);
-                Debug.Log(channelTime);
             }
         }
 
@@ -136,7 +134,6 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (hook.transform.parent.gameObject.name == props.gameObject.name)
                 {
-                    Debug.Log("J'ai tapé");
                     props.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                     hookThrow.isHooked = false;
                     hookThrow.Pull();

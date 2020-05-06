@@ -125,7 +125,6 @@ public class BossLegProjectile : MonoBehaviour
         {
             if (BossLegThrow.Instance.isInjured == false)
             {
-                BossLegThrow.Instance.isInjured = true;
                 StartCoroutine(DamageFB());
                 GetComponent<SpriteRenderer>().enabled = false;
             }
@@ -149,8 +148,12 @@ public class BossLegProjectile : MonoBehaviour
         GameObject[] legs = GameObject.FindGameObjectsWithTag("Hookable");
         foreach (GameObject projectileLeg in legs)
         {
-            GameObject.Destroy(projectileLeg);
             BossLegThrow.Instance.LegCounter--;
+            GameObject.Destroy(projectileLeg);
+            if (BossLegThrow.Instance.isInjured == false)
+            {
+                BossLegThrow.Instance.isInjured = true;
+            }
         }
     }
 }
