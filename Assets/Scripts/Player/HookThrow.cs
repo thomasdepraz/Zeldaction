@@ -21,6 +21,7 @@ public class HookThrow : MonoBehaviour
     public Image hookUI;
     public LineRenderer hookLine;
     public BoxCollider2D playerHitBox;
+    public PlayerAudioManager playerAudio;
 
     [Header("Logic")]
     [Range(0f, 10f)]
@@ -193,6 +194,7 @@ public class HookThrow : MonoBehaviour
                     if(hookable.gameObject.GetComponent<Hookable>().isActive)
                     {
                         //S'accrocher à l'objet
+                        playerAudio.PlayClip(playerAudio.onHook, 1);
                         hook.transform.position = hookable.gameObject.transform.position;
                         hook.transform.SetParent(hookable.gameObject.transform);
                         hookRigidBody.velocity = Vector2.zero;
