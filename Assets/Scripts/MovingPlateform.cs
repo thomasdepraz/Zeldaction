@@ -70,13 +70,7 @@ public class MovingPlateform : MonoBehaviour
 
     }
 
-    private void OnDrawGizmos()
-    {
-        for(int i=0; i < position.Length - 1; i++)
-        {
-            Gizmos.DrawLine(position[i].position, position[i + 1].position);
-        }
-    }
+ 
 
     // Le PJ est parenté par les déplacements de la plateform lorsqu'il se trouve dessus. 
     private void OnTriggerEnter2D(Collider2D other)

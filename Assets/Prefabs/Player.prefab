@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &24768321
 Transform:
   m_ObjectHideFlags: 0
@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: 8932405361658122538}
   m_Layer: 10
   m_Name: HitBox
-  m_TagString: Player
+  m_TagString: Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -942,6 +942,7 @@ MonoBehaviour:
   hookUnavailable: {fileID: 21300000, guid: 45a048a8210d4a849b77afd3381a83bf, type: 3}
   hookUI: {fileID: 0}
   hookLine: {fileID: 5753250433848562502}
+  playerHitBox: {fileID: 8932405361658122538}
   speed: 10
   isThrown: 0
   isHooked: 0
@@ -1009,6 +1010,7 @@ MonoBehaviour:
   bossLayer:
     serializedVersion: 2
     m_Bits: 0
+  hook: {fileID: 24768320}
 --- !u!114 &2040316119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,6 +1031,7 @@ MonoBehaviour:
   gameOverUI: {fileID: 0}
   goodPortrait: {fileID: 21300000, guid: 503814ed101306844abbe0b344c5696b, type: 3}
   damagePortrait: {fileID: 21300000, guid: 090adcf1e95b95a4991b95b96037c262, type: 3}
+  damageMaterial: {fileID: 0}
 --- !u!114 &3482555150041985630
 MonoBehaviour:
   m_ObjectHideFlags: 0

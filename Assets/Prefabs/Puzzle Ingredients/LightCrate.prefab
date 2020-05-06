@@ -168,7 +168,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &6272499802135800087
 GameObject:
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6272499802135800080}
   - component: {fileID: 6272499802135800081}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
