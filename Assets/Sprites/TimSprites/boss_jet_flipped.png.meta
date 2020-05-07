@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 8be7858a68984ad44a8b626cffe8ad90
+guid: 0413838f585e17048b44272b1374933e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6537504299444327105
-    second: fx_boss_0
+      213: 3774351714376471592
+    second: boss_jet_flipped_0
   - first:
-      213: -8434671410886789461
-    second: fx_boss_1
+      213: -666848720323584103
+    second: boss_jet_flipped_1
   - first:
-      213: 9088838469596970422
-    second: fx_boss_2
+      213: 8960914099548861371
+    second: boss_jet_flipped_2
   - first:
-      213: -7448341379413711265
-    second: fx_boss_3
-  - first:
-      213: -5825611587885698878
-    second: fx_boss_4
+      213: 6925052335600136570
+    second: boss_jet_flipped_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -101,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fx_boss_0
+      name: boss_jet_flipped_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 11
-        height: 31
+        width: 93
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,20 +112,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3d28021a7e1645a0800000000000000
-      internalID: -6537504299444327105
+      spriteID: 824dbc803e0316430800000000000000
+      internalID: 3774351714376471592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fx_boss_1
+      name: boss_jet_flipped_1
       rect:
         serializedVersion: 2
-        x: 14
+        x: 93
         y: 0
-        width: 15
-        height: 31
+        width: 93
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,20 +133,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba633f46a0702fa80800000000000000
-      internalID: -8434671410886789461
+      spriteID: 99f503a3f90eeb6f0800000000000000
+      internalID: -666848720323584103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fx_boss_2
+      name: boss_jet_flipped_2
       rect:
         serializedVersion: 2
-        x: 30
+        x: 186
         y: 0
-        width: 15
-        height: 31
+        width: 93
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,20 +154,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bd7b31fe6a022e70800000000000000
-      internalID: 9088838469596970422
+      spriteID: bb3366685ef8b5c70800000000000000
+      internalID: 8960914099548861371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fx_boss_3
+      name: boss_jet_flipped_3
       rect:
         serializedVersion: 2
-        x: 46
+        x: 282
         y: 0
-        width: 15
-        height: 31
+        width: 93
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,29 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f56e33a7afc22a890800000000000000
-      internalID: -7448341379413711265
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fx_boss_4
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 0
-        width: 15
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c07ca05025472fa0800000000000000
-      internalID: -5825611587885698878
+      spriteID: a717f62a86aba1060800000000000000
+      internalID: 6925052335600136570
       vertices: []
       indices: 
       edges: []

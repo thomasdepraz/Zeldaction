@@ -16,7 +16,8 @@ public class BossSummoning : MonoBehaviour
     [HideInInspector]
     public GameObject baseCrab;
     public GameObject armoredCrab;
-    private Animator anim;
+    [HideInInspector]
+    public Animator anim;
     [Header("Compteur de crabes invoqués actuellement par le boss")]
     public int crabcounter = 0;
     // Start is called before the first frame update

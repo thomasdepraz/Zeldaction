@@ -1,22 +1,13 @@
 fileFormatVersion: 2
-guid: 8be7858a68984ad44a8b626cffe8ad90
+guid: 7b961e0b5a75f144a90bedd9e0c3ea6c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6537504299444327105
-    second: fx_boss_0
+      213: -4288418896349288678
+    second: Lagrossecible_sprite_0
   - first:
-      213: -8434671410886789461
-    second: fx_boss_1
-  - first:
-      213: 9088838469596970422
-    second: fx_boss_2
-  - first:
-      213: -7448341379413711265
-    second: fx_boss_3
-  - first:
-      213: -5825611587885698878
-    second: fx_boss_4
+      213: 2492443654326128675
+    second: Lagrossecible_sprite_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -101,13 +92,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fx_boss_0
+      name: Lagrossecible_sprite_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 11
-        height: 31
+        width: 116
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,20 +106,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3d28021a7e1645a0800000000000000
-      internalID: -6537504299444327105
+      spriteID: a17270b1cb97c74c0800000000000000
+      internalID: -4288418896349288678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fx_boss_1
+      name: Lagrossecible_sprite_1
       rect:
         serializedVersion: 2
-        x: 14
+        x: 124
         y: 0
-        width: 15
-        height: 31
+        width: 117
+        height: 62
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,71 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba633f46a0702fa80800000000000000
-      internalID: -8434671410886789461
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fx_boss_2
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 0
-        width: 15
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6bd7b31fe6a022e70800000000000000
-      internalID: 9088838469596970422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fx_boss_3
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 0
-        width: 15
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f56e33a7afc22a890800000000000000
-      internalID: -7448341379413711265
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fx_boss_4
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 0
-        width: 15
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c07ca05025472fa0800000000000000
-      internalID: -5825611587885698878
+      spriteID: 32019ce4c40f69220800000000000000
+      internalID: 2492443654326128675
       vertices: []
       indices: 
       edges: []
