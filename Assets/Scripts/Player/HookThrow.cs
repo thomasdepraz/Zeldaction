@@ -22,6 +22,7 @@ public class HookThrow : MonoBehaviour
     public LineRenderer hookLine;
     public BoxCollider2D playerHitBox;
     public PlayerAudioManager playerAudio;
+    public ParticleSystem hookHitParticle;
 
     [Header("Logic")]
     [Range(0f, 10f)]
@@ -102,6 +103,7 @@ public class HookThrow : MonoBehaviour
             {
                 if(hookRigidBody.GetContacts(hookContacts) >= 1 && hook.transform.parent == gameObject.transform)
                 {
+                    hookHitParticle.Play();
                     Pull();
                 }
                 
