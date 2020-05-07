@@ -44,13 +44,7 @@ public class Crate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerManager.hasHook)
-        {
-            if (hook.transform.parent.name == gameObject.name)
-                hitbox.SetActive(false);
-            else
-                hitbox.SetActive(true);   
-        }
+      
     }
 
     void DealDamage(GameObject enemy)
@@ -75,7 +69,7 @@ public class Crate : MonoBehaviour
     {
         if(!collision.collider.gameObject.CompareTag("Player"))
         {
-            DealDamage(collision.collider.gameObject);
+            //DealDamage(collision.collider.gameObject);
         }
     }
 

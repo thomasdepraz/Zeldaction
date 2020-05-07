@@ -33,6 +33,7 @@ public class EnemyAttack : MonoBehaviour
     private PlayerHP playerHP;
 
     private Animator anim;
+    public BaseCrabAudioManager audioManager;
 
     private void OnEnable()
     {
@@ -75,12 +76,15 @@ public class EnemyAttack : MonoBehaviour
 
         enemyMovement.canMove = false;
         enemyRb.velocity = Vector2.zero;
-        //play animation (courir sur place)
+        //activer particule
         yield return new WaitForSeconds(prepairTime);
+        //desactiver particule
         anim.SetBool("isAttacking", true);
+        audioManager.PlayClip(audioManager.chargeAttack, 1);
         float chargeTime = 0f;
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
+
         do
         {
             chargeTime += Time.fixedDeltaTime;
@@ -88,17 +92,23 @@ public class EnemyAttack : MonoBehaviour
             yield return new WaitForFixedUpdate();
             if (Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer))
             {
-                anim.SetBool("isAttacking", false);
                 playerHP.TakeDamage(attackDamage);
             }
         }
         while (chargeTime < chargeMaxTime && !Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer));
 
         enemyRb.velocity = Vector2.zero;
-        anim.SetBool("isAttacking", false);
+
         yield return new WaitForSeconds(stunTime);
-        coroutineCanStart = true;
         enemyMovement.canMove = true;
+        coroutineCanStart = true;
+    }
+    public void GetAnimationEvent(string parameter)
+    {
+        if(parameter == "attackEnded")
+        {
+            anim.SetBool("isAttacking", false);
+        }
     }
 
     void OnDrawGizmosSelected()

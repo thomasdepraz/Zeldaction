@@ -22,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     private ContactFilter2D enemyFilter;
     private ContactFilter2D propsFilter;
     private ContactFilter2D bossFilter;
+    private ContactFilter2D bossLegFilter;
 
     [Header("Knockback")]
     [Range(0f, 3f)]
@@ -37,11 +38,13 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask enemyLayer;
     public LayerMask propsLayer;
     public LayerMask bossLayer;
+    public LayerMask bossLegLayer;
 
     private HookThrow hookThrow;
     public GameObject hook;
 
     private Animator anim;
+    public PlayerAudioManager playerAudio;
     private void Start()
     {
         hookThrow = gameObject.GetComponent<HookThrow>();
@@ -54,6 +57,9 @@ public class PlayerAttack : MonoBehaviour
         propsFilter.useTriggers = true;
         bossFilter.useLayerMask = true;
         bossFilter.layerMask = bossLayer;
+        bossLegFilter.useLayerMask = true;
+        bossLegFilter.layerMask = bossLegLayer;
+        bossLegFilter.useTriggers = true;
     }
     // Update is called once per frame
     void Update()
@@ -74,6 +80,7 @@ public class PlayerAttack : MonoBehaviour
                 anim.SetBool("isAttacking", true);
 
                 Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
+                playerAudio.PlayClip(playerAudio.lightAttack, 1);
                 StartCoroutine(AttackCooldown(lightAttackCooldown));
                 channelTime = 0;
                 GetComponent<PlayerMovement>().playerSpeed = 150f;
@@ -82,6 +89,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 anim.SetBool("isHeavyAttack", true);
                 Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
+                playerAudio.PlayClip(playerAudio.heavyAttack, 1);
                 StartCoroutine(AttackCooldown(heavyAttackCooldown));
                 channelTime = 0;
                 GetComponent<PlayerMovement>().playerSpeed = 150f;
@@ -123,11 +131,10 @@ public class PlayerAttack : MonoBehaviour
         foreach (Collider2D props in hitProps)
         {
             Debug.Log(props.gameObject.name);
-            if(props.GetType() == typeof(BoxCollider2D))
+            if (props.GetType() == typeof(BoxCollider2D))
             {
                 if (hook.transform.parent.gameObject.name == props.gameObject.name)
                 {
-                    Debug.Log("J'ai tapé");
                     props.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                     hookThrow.isHooked = false;
                     hookThrow.Pull();
@@ -136,7 +143,7 @@ public class PlayerAttack : MonoBehaviour
 
                 if(props.CompareTag("Rock"))
                 {
-                    if(attackDamage == lightAttackDamage)
+                    if (attackDamage == lightAttackDamage)
                         props.gameObject.GetComponent<DestroyableRocks>().LightHit();
                     else
                         props.gameObject.GetComponent<DestroyableRocks>().HeavyHit();
@@ -144,7 +151,18 @@ public class PlayerAttack : MonoBehaviour
                 }
             }
         }
+        List<Collider2D> hitBossLeg = new List<Collider2D>();
+        Physics2D.OverlapCollider(collider, bossLegFilter, hitBossLeg);
+        foreach (Collider2D bossLeg in hitBossLeg)
+        {
+            Debug.Log(bossLeg.gameObject.name);
+            if (bossLeg.GetType() == typeof(BoxCollider2D))
+            {
+                bossLeg.GetComponent<LegHP>().TakeDamage(attackDamage);
+            }
+        }
     }
+
     void Knockback(GameObject enemy, float force)
     {
         Vector2 direction = (Vector2)(enemy.transform.position - gameObject.transform.position); //direction du knockback
@@ -154,15 +172,28 @@ public class PlayerAttack : MonoBehaviour
     {
         enemy.canMove = false;
         yield return new WaitForSeconds(knockbackDuration);
-        enemy.canMove = true;  
+        enemy.canMove = true;
     }
     IEnumerator AttackCooldown(float attackCooldown)
     {
         canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
-        anim.SetBool("isAttacking", false);
-        anim.SetBool("isHeavyAttack", false);
+        
+    }
+
+    public void GetAnimationEvent(string parameter)
+    {
+        if(parameter == "HAEnded")
+        {
+            anim.SetBool("isAttacking", false);
+            anim.SetBool("isHeavyAttack", false);
+        }
+
+        if (parameter == "LAEnded")
+        {
+            anim.SetBool("isAttacking", false);
+        }
     }
     void OnDrawGizmosSelected()
     {
