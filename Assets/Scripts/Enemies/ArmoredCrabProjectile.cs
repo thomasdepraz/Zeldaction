@@ -5,6 +5,7 @@ public class ArmoredCrabProjectile : MonoBehaviour
 
     [Header("Elements")]
     public Animator anim;
+    public AudioSource audioSource;
 
     [Header("Logic")]
     public int projectileDamage;
@@ -50,6 +51,7 @@ public class ArmoredCrabProjectile : MonoBehaviour
         {
             anim.SetBool("Explode", true);
             Explode();
+            audioSource.Play();
         }
         if(parameter =="endExplosion")
         {

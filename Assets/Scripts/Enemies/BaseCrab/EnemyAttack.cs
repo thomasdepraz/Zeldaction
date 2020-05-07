@@ -33,6 +33,7 @@ public class EnemyAttack : MonoBehaviour
     private PlayerHP playerHP;
 
     private Animator anim;
+    public BaseCrabAudioManager audioManager;
 
     private void OnEnable()
     {
@@ -79,7 +80,7 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(prepairTime);
         //desactiver particule
         anim.SetBool("isAttacking", true);
-
+        audioManager.PlayClip(audioManager.chargeAttack, 1);
         float chargeTime = 0f;
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();

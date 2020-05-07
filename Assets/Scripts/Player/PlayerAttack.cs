@@ -42,6 +42,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject hook;
 
     private Animator anim;
+    public PlayerAudioManager playerAudio;
     private void Start()
     {
         hookThrow = gameObject.GetComponent<HookThrow>();
@@ -74,6 +75,7 @@ public class PlayerAttack : MonoBehaviour
                 anim.SetBool("isAttacking", true);
 
                 Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
+                playerAudio.PlayClip(playerAudio.lightAttack, 1);
                 StartCoroutine(AttackCooldown(lightAttackCooldown));
                 channelTime = 0;
                 GetComponent<PlayerMovement>().playerSpeed = 150f;
@@ -82,6 +84,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 anim.SetBool("isHeavyAttack", true);
                 Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
+                playerAudio.PlayClip(playerAudio.heavyAttack, 1);
                 StartCoroutine(AttackCooldown(heavyAttackCooldown));
                 channelTime = 0;
                 GetComponent<PlayerMovement>().playerSpeed = 150f;

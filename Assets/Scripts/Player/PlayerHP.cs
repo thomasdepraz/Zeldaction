@@ -20,6 +20,7 @@ public class PlayerHP : MonoBehaviour
     public Sprite damagePortrait;
     public Material damageMaterial;
     private Material defaultMaterial;
+    public PlayerAudioManager playerAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,14 @@ public class PlayerHP : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        if(damage> 0)
+        {
+            //play hit sound
+        }
+        else
+        {
+            playerAudio.PlayClip(playerAudio.lifeUp, 1);
+        }
         GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.up);
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle du joueur
         if(currentHealth>=0)
