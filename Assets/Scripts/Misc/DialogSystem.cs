@@ -19,6 +19,7 @@ public class DialogSystem : MonoBehaviour
     public string npcName;
     public Image portraitUI;
     public Sprite portrait;
+    public Animator anim;
 
     [Header("Forced-Dialog Elements")]
     public GameObject npc;
@@ -64,13 +65,15 @@ public class DialogSystem : MonoBehaviour
         if(combatEvent != null)
         {
             fight = combatEvent.GetComponent<CombatEvent>();
-        }        
+        }
     }
 
     void Update()
     {
         if(playerInRange & isDialog)//THIS IS DIALOGUE CODE
         {
+            anim.SetFloat("hOrientation", player.transform.position.x - npc.transform.position.x);
+            anim.SetFloat("vOrientation", player.transform.position.y - npc.transform.position.y);
             if (Input.GetButtonDown("interact"))
             {
                 if (dialogBox.activeInHierarchy)
@@ -106,6 +109,9 @@ public class DialogSystem : MonoBehaviour
             if(startMove && npc.transform.position != npcTarget.position)
             {
                 //make npc move to npcTarget
+                anim.SetBool("isMoving", true);
+                anim.SetFloat("hOrientation", npcTarget.position.x - npc.transform.position.x);
+                anim.SetFloat("vOrientation", npcTarget.position.y - npc.transform.position.y);
                 npc.SetActive(true);
                 npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcTarget.position, speed * Time.deltaTime);
             }
@@ -118,11 +124,17 @@ public class DialogSystem : MonoBehaviour
                 dialogBox.SetActive(false);
                 dialogIsFinished = true;
                 startMove = false;
+                anim.SetBool("isMoving", false);
+                anim.SetFloat("hOrientation", player.transform.position.x - npc.transform.position.x);
+                anim.SetFloat("vOrientation", player.transform.position.y - npc.transform.position.y);
             }
 
             if(dialogIsFinished)
             {
                 //make npcmoveto exit pos
+                anim.SetBool("isMoving", true);
+                anim.SetFloat("hOrientation", npcExitTarget.position.x - npc.transform.position.x);
+                anim.SetFloat("vOrientation", npcExitTarget.position.y - npc.transform.position.y);
                 npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcExitTarget.position, speed * Time.deltaTime);
             }
 
