@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6272499802135800080}
   - component: {fileID: 6272499802135800081}
-  m_Layer: 15
+  m_Layer: 10
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0028291345, y: -0.11218795}
+  m_Offset: {x: 0.00020086765, y: -0.08984864}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -225,5 +225,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.302482, y: 0.2642619}
+  m_Size: {x: 0.30773854, y: 0.21958327}
   m_EdgeRadius: 0
