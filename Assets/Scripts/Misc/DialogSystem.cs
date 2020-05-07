@@ -15,12 +15,17 @@ public class DialogSystem : MonoBehaviour
     public Text dialogText;
     public string dialog;
     public GameObject button; //USE ONLY FOR NON-FORCED DIALOG
+    public Text dialogName;
+    public string npcName;
+    public Image portraitUI;
+    public Sprite portrait;
 
     [Header("Forced-Dialog Elements")]
     public GameObject npc;
     public Transform npcTarget;
     public Transform npcExitTarget;
     public GameObject interrogationPoint;
+    public float speed;
 
     [Header("Combat Event")]
     public GameObject[] enemiesPlaceHolders;
@@ -59,7 +64,7 @@ public class DialogSystem : MonoBehaviour
         if(combatEvent != null)
         {
             fight = combatEvent.GetComponent<CombatEvent>();
-        }
+        }        
     }
 
     void Update()
@@ -74,8 +79,24 @@ public class DialogSystem : MonoBehaviour
                 }
                 else
                 {
+                    portraitUI.sprite = portrait;
+                    dialogName.text = npcName;
                     dialogBox.SetActive(true);
                     dialogText.text = dialog;
+                    if (objects != null)
+                    {
+                        for (int i = 0; i < objects.Length; i++)
+                        {
+                            objects[i].SetActive(true);
+                        }
+                    }
+                    if (deactivateObjects != null)
+                    {
+                        for (int i = 0; i < deactivateObjects.Length; i++)
+                        {
+                            deactivateObjects[i].SetActive(false);
+                        }
+                    }
                 }
             }
         }
@@ -85,7 +106,8 @@ public class DialogSystem : MonoBehaviour
             if(startMove && npc.transform.position != npcTarget.position)
             {
                 //make npc move to npcTarget
-                npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcTarget.position, 1 * Time.deltaTime);
+                npc.SetActive(true);
+                npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcTarget.position, speed * Time.deltaTime);
             }
             
             if(eventStarted && npc.transform.position == npcTarget.position && Input.GetButtonDown("interact"))
@@ -101,13 +123,17 @@ public class DialogSystem : MonoBehaviour
             if(dialogIsFinished)
             {
                 //make npcmoveto exit pos
-                npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcExitTarget.position, 1 * Time.deltaTime);
+                npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcExitTarget.position, speed * Time.deltaTime);
             }
 
             if(npc.transform.position == npcExitTarget.position && dialogIsFinished)
             {
                 //destroy when exit reached
                 playerMovement.canMove = true;
+                if(gameObject.name == "Phish Interpellation 01_B")
+                {
+                    PlayerManager.canAttack = true;
+                }
                 if(objects != null)
                 {
                     for(int i =0;i < objects.Length; i++)
@@ -117,7 +143,7 @@ public class DialogSystem : MonoBehaviour
                 }
                 if (deactivateObjects != null)
                 {
-                    for (int i = 0; i < objects.Length; i++)
+                    for (int i = 0; i < deactivateObjects.Length; i++)
                     {
                         deactivateObjects[i].SetActive(false);
                     }
@@ -131,7 +157,6 @@ public class DialogSystem : MonoBehaviour
             //make enemies move to target positions
             if(startMove)
             {
-                Debug.Log("Hallo?");
                 for (int i = 0; i < enemiesPlaceHolders.Length; i++)
                 {
                     enemiesPlaceHolders[i].transform.position = Vector3.MoveTowards(enemiesPlaceHolders[i].transform.position, enemiesTargetPos[i].position, 1 * Time.deltaTime);
@@ -140,7 +165,6 @@ public class DialogSystem : MonoBehaviour
                 if(Input.GetButtonDown("interact") && eventStarted)
                 {
                     dialogIsFinished = true;
-                    Debug.Log("dialogISfINISH");
                     startMove = false;
                 }
             }
@@ -213,6 +237,8 @@ public class DialogSystem : MonoBehaviour
         eventCam.gameObject.SetActive(true);
         startMove = true;
         yield return new WaitForSeconds(transitionTime);
+        portraitUI.sprite = portrait;
+        dialogName.text = npcName;
         dialogBox.SetActive(true);
         dialogText.text = dialog;
         eventStarted = true;

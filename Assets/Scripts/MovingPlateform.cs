@@ -18,6 +18,9 @@ public class MovingPlateform : MonoBehaviour
     private bool startedMoving = false;
     private bool onRaft = false;
     public GameObject pillar;
+    public GameObject col;
+    public GameObject particles;
+    
 
     void Start()
     {
@@ -30,12 +33,14 @@ public class MovingPlateform : MonoBehaviour
         else
         {
             speed = maxSpeed;
+            particles.SetActive(true);
         }
     }
 
     void Update()
     {
-        if(index < position.Length)
+        
+        if (index <= position.Length - 1)
         {
             if (transform.position == nextPos)
             {
@@ -50,26 +55,22 @@ public class MovingPlateform : MonoBehaviour
             index = -1;
         }
 
-        if(pillar.transform.childCount > 0 && !onRaft)
+        if (pillar.transform.childCount > 0 && !onRaft)
         {
             speed = 0;
         }
         else
         {
-            if(startedMoving)
+            if (startedMoving)
             {
-                speed = maxSpeed;     
+                speed = maxSpeed;
             }
         }
+        
+
     }
 
-    private void OnDrawGizmos()
-    {
-        for(int i=0; i < position.Length -1; i++)
-        {
-            Gizmos.DrawLine(position[i].position, position[i + 1].position);
-        }
-    }
+ 
 
     // Le PJ est parenté par les déplacements de la plateform lorsqu'il se trouve dessus. 
     private void OnTriggerEnter2D(Collider2D other)
@@ -81,6 +82,7 @@ public class MovingPlateform : MonoBehaviour
             {
                 speed = maxSpeed;
                 startedMoving = true;
+                particles.SetActive(true);
             }
             onRaft = true;
         }

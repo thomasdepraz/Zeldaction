@@ -1,0 +1,3103 @@
+fileFormatVersion: 2
+guid: 3496078734b95c746863660f48e1d1d3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7927652074908104611
+    second: "TileSet_PierreInt\xE9rieuresV5_0"
+  - first:
+      213: 5787589570158680430
+    second: "TileSet_PierreInt\xE9rieuresV5_1"
+  - first:
+      213: 4204351445652656247
+    second: "TileSet_PierreInt\xE9rieuresV5_2"
+  - first:
+      213: -6095015987671942349
+    second: "TileSet_PierreInt\xE9rieuresV5_3"
+  - first:
+      213: 2271397829803122970
+    second: "TileSet_PierreInt\xE9rieuresV5_4"
+  - first:
+      213: -5042224715824315399
+    second: "TileSet_PierreInt\xE9rieuresV5_5"
+  - first:
+      213: -398413302569407499
+    second: "TileSet_PierreInt\xE9rieuresV5_6"
+  - first:
+      213: 6568446619752721573
+    second: "TileSet_PierreInt\xE9rieuresV5_7"
+  - first:
+      213: 3904259855746841715
+    second: "TileSet_PierreInt\xE9rieuresV5_8"
+  - first:
+      213: -7624130519824115138
+    second: "TileSet_PierreInt\xE9rieuresV5_9"
+  - first:
+      213: 8496696062356776262
+    second: "TileSet_PierreInt\xE9rieuresV5_10"
+  - first:
+      213: -4077991780842450724
+    second: "TileSet_PierreInt\xE9rieuresV5_11"
+  - first:
+      213: -2905572481316086090
+    second: "TileSet_PierreInt\xE9rieuresV5_12"
+  - first:
+      213: 8720716203389481896
+    second: "TileSet_PierreInt\xE9rieuresV5_13"
+  - first:
+      213: -2368673786348556633
+    second: "TileSet_PierreInt\xE9rieuresV5_14"
+  - first:
+      213: 9031319782504789434
+    second: "TileSet_PierreInt\xE9rieuresV5_15"
+  - first:
+      213: 2102828625965568701
+    second: "TileSet_PierreInt\xE9rieuresV5_16"
+  - first:
+      213: 3114289597590799026
+    second: "TileSet_PierreInt\xE9rieuresV5_17"
+  - first:
+      213: -1712712076613807619
+    second: "TileSet_PierreInt\xE9rieuresV5_18"
+  - first:
+      213: 7215578677344673877
+    second: "TileSet_PierreInt\xE9rieuresV5_19"
+  - first:
+      213: -3683655742448636613
+    second: "TileSet_PierreInt\xE9rieuresV5_20"
+  - first:
+      213: -622208611527577127
+    second: "TileSet_PierreInt\xE9rieuresV5_21"
+  - first:
+      213: -7266588982280886340
+    second: "TileSet_PierreInt\xE9rieuresV5_22"
+  - first:
+      213: 3726018406334026044
+    second: "TileSet_PierreInt\xE9rieuresV5_23"
+  - first:
+      213: -6500034718819474402
+    second: "TileSet_PierreInt\xE9rieuresV5_24"
+  - first:
+      213: -3422948136047424859
+    second: "TileSet_PierreInt\xE9rieuresV5_25"
+  - first:
+      213: 8177643071692418596
+    second: "TileSet_PierreInt\xE9rieuresV5_26"
+  - first:
+      213: -8541292659458570616
+    second: "TileSet_PierreInt\xE9rieuresV5_27"
+  - first:
+      213: -5908612421863958605
+    second: "TileSet_PierreInt\xE9rieuresV5_28"
+  - first:
+      213: 7644542925232869215
+    second: "TileSet_PierreInt\xE9rieuresV5_29"
+  - first:
+      213: 7222551520603156414
+    second: "TileSet_PierreInt\xE9rieuresV5_30"
+  - first:
+      213: 5430890490401275815
+    second: "TileSet_PierreInt\xE9rieuresV5_31"
+  - first:
+      213: 2645244853618046981
+    second: "TileSet_PierreInt\xE9rieuresV5_32"
+  - first:
+      213: 4085329667282067227
+    second: "TileSet_PierreInt\xE9rieuresV5_33"
+  - first:
+      213: 7690784992062530732
+    second: "TileSet_PierreInt\xE9rieuresV5_34"
+  - first:
+      213: -8338451028956200839
+    second: "TileSet_PierreInt\xE9rieuresV5_35"
+  - first:
+      213: -8539299247897042689
+    second: "TileSet_PierreInt\xE9rieuresV5_36"
+  - first:
+      213: 2189518009269501389
+    second: "TileSet_PierreInt\xE9rieuresV5_37"
+  - first:
+      213: -6506964929459679668
+    second: "TileSet_PierreInt\xE9rieuresV5_38"
+  - first:
+      213: 5608410707163786903
+    second: "TileSet_PierreInt\xE9rieuresV5_39"
+  - first:
+      213: -1531572618091419365
+    second: "TileSet_PierreInt\xE9rieuresV5_40"
+  - first:
+      213: 8162452747880673081
+    second: "TileSet_PierreInt\xE9rieuresV5_41"
+  - first:
+      213: 2479112528667892304
+    second: "TileSet_PierreInt\xE9rieuresV5_42"
+  - first:
+      213: -6321320614927119455
+    second: "TileSet_PierreInt\xE9rieuresV5_43"
+  - first:
+      213: 4149933768695665306
+    second: "TileSet_PierreInt\xE9rieuresV5_44"
+  - first:
+      213: 8136518532110479264
+    second: "TileSet_PierreInt\xE9rieuresV5_45"
+  - first:
+      213: -3105080809872892227
+    second: "TileSet_PierreInt\xE9rieuresV5_46"
+  - first:
+      213: -5014588748262449455
+    second: "TileSet_PierreInt\xE9rieuresV5_47"
+  - first:
+      213: -1341199770088502117
+    second: "TileSet_PierreInt\xE9rieuresV5_48"
+  - first:
+      213: -5549393385725062604
+    second: "TileSet_PierreInt\xE9rieuresV5_49"
+  - first:
+      213: 2235521832240738155
+    second: "TileSet_PierreInt\xE9rieuresV5_50"
+  - first:
+      213: -4877264687245798661
+    second: "TileSet_PierreInt\xE9rieuresV5_51"
+  - first:
+      213: -4463957352339686530
+    second: "TileSet_PierreInt\xE9rieuresV5_52"
+  - first:
+      213: -2715706509788258670
+    second: "TileSet_PierreInt\xE9rieuresV5_53"
+  - first:
+      213: -1395351786686610201
+    second: "TileSet_PierreInt\xE9rieuresV5_54"
+  - first:
+      213: -8495427210679478485
+    second: "TileSet_PierreInt\xE9rieuresV5_55"
+  - first:
+      213: 5105065685410192906
+    second: "TileSet_PierreInt\xE9rieuresV5_56"
+  - first:
+      213: 5874016310554883771
+    second: "TileSet_PierreInt\xE9rieuresV5_57"
+  - first:
+      213: -5754128392060642
+    second: "TileSet_PierreInt\xE9rieuresV5_58"
+  - first:
+      213: 7315373924104479665
+    second: "TileSet_PierreInt\xE9rieuresV5_59"
+  - first:
+      213: -2939963069950722049
+    second: "TileSet_PierreInt\xE9rieuresV5_60"
+  - first:
+      213: -7003405315431299861
+    second: "TileSet_PierreInt\xE9rieuresV5_61"
+  - first:
+      213: 3609721904955856038
+    second: "TileSet_PierreInt\xE9rieuresV5_62"
+  - first:
+      213: -7935496002534367324
+    second: "TileSet_PierreInt\xE9rieuresV5_63"
+  - first:
+      213: -801442804582316301
+    second: "TileSet_PierreInt\xE9rieuresV5_64"
+  - first:
+      213: -1240890660513657368
+    second: "TileSet_PierreInt\xE9rieuresV5_65"
+  - first:
+      213: 9176031718749909465
+    second: "TileSet_PierreInt\xE9rieuresV5_66"
+  - first:
+      213: 3601768630953696877
+    second: "TileSet_PierreInt\xE9rieuresV5_67"
+  - first:
+      213: -2696911016211763085
+    second: "TileSet_PierreInt\xE9rieuresV5_68"
+  - first:
+      213: -6641313057378055841
+    second: "TileSet_PierreInt\xE9rieuresV5_69"
+  - first:
+      213: 6378302865153571063
+    second: "TileSet_PierreInt\xE9rieuresV5_70"
+  - first:
+      213: -681656438495037574
+    second: "TileSet_PierreInt\xE9rieuresV5_71"
+  - first:
+      213: -8313646889306433750
+    second: "TileSet_PierreInt\xE9rieuresV5_72"
+  - first:
+      213: -5706387353635016465
+    second: "TileSet_PierreInt\xE9rieuresV5_73"
+  - first:
+      213: -3088038647594440533
+    second: "TileSet_PierreInt\xE9rieuresV5_74"
+  - first:
+      213: -6892600304753142654
+    second: "TileSet_PierreInt\xE9rieuresV5_75"
+  - first:
+      213: 6947990443370618358
+    second: "TileSet_PierreInt\xE9rieuresV5_76"
+  - first:
+      213: 1879130660378492241
+    second: "TileSet_PierreInt\xE9rieuresV5_77"
+  - first:
+      213: -1875571333079739888
+    second: "TileSet_PierreInt\xE9rieuresV5_78"
+  - first:
+      213: -1731661941420092401
+    second: "TileSet_PierreInt\xE9rieuresV5_79"
+  - first:
+      213: 5946424157529239113
+    second: "TileSet_PierreInt\xE9rieuresV5_80"
+  - first:
+      213: 8951322911604610013
+    second: "TileSet_PierreInt\xE9rieuresV5_81"
+  - first:
+      213: 5731029014084917250
+    second: "TileSet_PierreInt\xE9rieuresV5_82"
+  - first:
+      213: 317580419682362228
+    second: "TileSet_PierreInt\xE9rieuresV5_83"
+  - first:
+      213: 1090860162497511909
+    second: "TileSet_PierreInt\xE9rieuresV5_84"
+  - first:
+      213: -4719743006430949903
+    second: "TileSet_PierreInt\xE9rieuresV5_85"
+  - first:
+      213: -8075618968649195681
+    second: "TileSet_PierreInt\xE9rieuresV5_86"
+  - first:
+      213: -2329443833739694384
+    second: "TileSet_PierreInt\xE9rieuresV5_87"
+  - first:
+      213: 377164754439271605
+    second: "TileSet_PierreInt\xE9rieuresV5_88"
+  - first:
+      213: -2977316667460696473
+    second: "TileSet_PierreInt\xE9rieuresV5_89"
+  - first:
+      213: 7795710933154983458
+    second: "TileSet_PierreInt\xE9rieuresV5_90"
+  - first:
+      213: 6310097081952526905
+    second: "TileSet_PierreInt\xE9rieuresV5_91"
+  - first:
+      213: -1685023871628874950
+    second: "TileSet_PierreInt\xE9rieuresV5_92"
+  - first:
+      213: -5639009670969148355
+    second: "TileSet_PierreInt\xE9rieuresV5_93"
+  - first:
+      213: 4137228687375965535
+    second: "TileSet_PierreInt\xE9rieuresV5_94"
+  - first:
+      213: -4059575483994790181
+    second: "TileSet_PierreInt\xE9rieuresV5_95"
+  - first:
+      213: -7605792872821976350
+    second: "TileSet_PierreInt\xE9rieuresV5_96"
+  - first:
+      213: -1275870676211964005
+    second: "TileSet_PierreInt\xE9rieuresV5_97"
+  - first:
+      213: 589171890640583061
+    second: "TileSet_PierreInt\xE9rieuresV5_98"
+  - first:
+      213: -8848184437390578410
+    second: "TileSet_PierreInt\xE9rieuresV5_99"
+  - first:
+      213: -9101896741214487352
+    second: "TileSet_PierreInt\xE9rieuresV5_100"
+  - first:
+      213: -2396171448030968289
+    second: "TileSet_PierreInt\xE9rieuresV5_101"
+  - first:
+      213: -2391471451328265314
+    second: "TileSet_PierreInt\xE9rieuresV5_102"
+  - first:
+      213: 316120119713758656
+    second: "TileSet_PierreInt\xE9rieuresV5_103"
+  - first:
+      213: 2276610473444166331
+    second: "TileSet_PierreInt\xE9rieuresV5_104"
+  - first:
+      213: 2502201397054806213
+    second: "TileSet_PierreInt\xE9rieuresV5_105"
+  - first:
+      213: -8992542116090275330
+    second: "TileSet_PierreInt\xE9rieuresV5_106"
+  - first:
+      213: -4369743086736338276
+    second: "TileSet_PierreInt\xE9rieuresV5_107"
+  - first:
+      213: -1765938912099354755
+    second: "TileSet_PierreInt\xE9rieuresV5_108"
+  - first:
+      213: 396695549777891892
+    second: "TileSet_PierreInt\xE9rieuresV5_109"
+  - first:
+      213: -7599617458970954561
+    second: "TileSet_PierreInt\xE9rieuresV5_110"
+  - first:
+      213: -7758896566020272711
+    second: "TileSet_PierreInt\xE9rieuresV5_111"
+  - first:
+      213: 8931780756891937913
+    second: "TileSet_PierreInt\xE9rieuresV5_112"
+  - first:
+      213: -5996968895945522131
+    second: "TileSet_PierreInt\xE9rieuresV5_113"
+  - first:
+      213: -8366655235060459802
+    second: "TileSet_PierreInt\xE9rieuresV5_114"
+  - first:
+      213: -449408780243728439
+    second: "TileSet_PierreInt\xE9rieuresV5_115"
+  - first:
+      213: 3492276894123388366
+    second: "TileSet_PierreInt\xE9rieuresV5_116"
+  - first:
+      213: -5985483602734589310
+    second: "TileSet_PierreInt\xE9rieuresV5_117"
+  - first:
+      213: 6461935782816855675
+    second: "TileSet_PierreInt\xE9rieuresV5_118"
+  - first:
+      213: -748731869860622631
+    second: "TileSet_PierreInt\xE9rieuresV5_119"
+  - first:
+      213: -4486177212266496790
+    second: "TileSet_PierreInt\xE9rieuresV5_120"
+  - first:
+      213: 1865091351665317003
+    second: "TileSet_PierreInt\xE9rieuresV5_121"
+  - first:
+      213: 1920978297836291313
+    second: "TileSet_PierreInt\xE9rieuresV5_122"
+  - first:
+      213: -2977703591374825551
+    second: "TileSet_PierreInt\xE9rieuresV5_123"
+  - first:
+      213: -6709734303958025200
+    second: "TileSet_PierreInt\xE9rieuresV5_124"
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_0"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a739c34f8da40e60800000000000000
+      internalID: 7927652074908104611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_1"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e695013dc06a15050800000000000000
+      internalID: 5787589570158680430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_2"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 770d60d3d5bd85a30800000000000000
+      internalID: 4204351445652656247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_3"
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33bbc7280472a6ba0800000000000000
+      internalID: -6095015987671942349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_4"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a112205ba40a58f10800000000000000
+      internalID: 2271397829803122970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_5"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f3c897f55b660ab0800000000000000
+      internalID: -5042224715824315399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_6"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb6f82563d887af0800000000000000
+      internalID: -398413302569407499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_7"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ace978466fc72b50800000000000000
+      internalID: 6568446619752721573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_8"
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37cbb9437a7be2630800000000000000
+      internalID: 3904259855746841715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_9"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a5ba4cfa5a13690800000000000000
+      internalID: -7624130519824115138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_10"
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6456c312d045ae570800000000000000
+      internalID: 8496696062356776262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_11"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 352
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd05ce9d4101867c0800000000000000
+      internalID: -4077991780842450724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_12"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be110ef8355da7d0800000000000000
+      internalID: -2905572481316086090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_13"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3f502ce25360970800000000000000
+      internalID: 8720716203389481896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_14"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae2ae7bdb7c02fd0800000000000000
+      internalID: -2368673786348556633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_15"
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab5f7210e71b55d70800000000000000
+      internalID: 9031319782504789434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_16"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db2533a7e7fbe2d10800000000000000
+      internalID: 2102828625965568701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_17"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2081883ed283b20800000000000000
+      internalID: 3114289597590799026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_18"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df199eec0793b38e0800000000000000
+      internalID: -1712712076613807619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_19"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5502308c392e22460800000000000000
+      internalID: 7215578677344673877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_20"
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3d658c7e9601ecc0800000000000000
+      internalID: -3683655742448636613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_21"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1b5bd70987d57f0800000000000000
+      internalID: -622208611527577127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_22"
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb7616612d3e72b90800000000000000
+      internalID: -7266588982280886340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_23"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c315b10dff975b330800000000000000
+      internalID: 3726018406334026044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_24"
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e142f05acdc3bc5a0800000000000000
+      internalID: -6500034718819474402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_25"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aace4a4ece3f70d0800000000000000
+      internalID: -3422948136047424859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_26"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42e2924fb03dc7170800000000000000
+      internalID: 8177643071692418596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_27"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8860256749b377980800000000000000
+      internalID: -8541292659458570616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_28"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b79657be44600ea0800000000000000
+      internalID: -5908612421863958605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_29"
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f0bb8b94fd61a60800000000000000
+      internalID: 7644542925232869215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_30"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf228d5758ab3460800000000000000
+      internalID: 7222551520603156414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_31"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af3a6e70266e5b40800000000000000
+      internalID: 5430890490401275815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_32"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50875d3ed2cc5b420800000000000000
+      internalID: 2645244853618046981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_33"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1f56b8ffa102b830800000000000000
+      internalID: 4085329667282067227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_34"
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4eac7e3382bba60800000000000000
+      internalID: 7690784992062530732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_35"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 970431ad7fed74c80800000000000000
+      internalID: -8338451028956200839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_36"
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff02652c3905e7980800000000000000
+      internalID: -8539299247897042689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_37"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 288
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd34d3670bb26e10800000000000000
+      internalID: 2189518009269501389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_38"
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e81ad3fdd92b5a0800000000000000
+      internalID: -6506964929459679668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_39"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79eaef2d2d315dd40800000000000000
+      internalID: 5608410707163786903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_40"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1922f681d2cebae0800000000000000
+      internalID: -1531572618091419365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_41"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93fa655178bd64170800000000000000
+      internalID: 8162452747880673081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_42"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a587db5b3976220800000000000000
+      internalID: 2479112528667892304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_43"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab4aeb74682648a0800000000000000
+      internalID: -6321320614927119455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_44"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92d08c76c6879930800000000000000
+      internalID: 4149933768695665306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_45"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0afe3deee78bae070800000000000000
+      internalID: 8136518532110479264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_46"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbed4a0747988e4d0800000000000000
+      internalID: -3105080809872892227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_47"
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de55251a1a986ab0800000000000000
+      internalID: -5014588748262449455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_48"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c0a034ae9136de0800000000000000
+      internalID: -1341199770088502117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_49"
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43294fc1e189cf2b0800000000000000
+      internalID: -5549393385725062604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_50"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6fe65a134b260f10800000000000000
+      internalID: 2235521832240738155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_51"
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf258299b99705cb0800000000000000
+      internalID: -4877264687245798661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_52"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7bbc496076dc02c0800000000000000
+      internalID: -4463957352339686530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_53"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29edad9515fdf4ad0800000000000000
+      internalID: -2715706509788258670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_54"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e486d161f6b2ace0800000000000000
+      internalID: -1395351786686610201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_55"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27134c66fd2a1a80800000000000000
+      internalID: -8495427210679478485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_56"
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0e19ed6136d8d640800000000000000
+      internalID: 5105065685410192906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_57"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6797b66b2b48150800000000000000
+      internalID: 5874016310554883771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_58"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11033596ae8beff0800000000000000
+      internalID: -5754128392060642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_59"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b3276153dd658560800000000000000
+      internalID: 7315373924104479665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_60"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffff1da1a272337d0800000000000000
+      internalID: -2939963069950722049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_61"
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be482a3a8f7eece90800000000000000
+      internalID: -7003405315431299861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_62"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a417da82fe481230800000000000000
+      internalID: 3609721904955856038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_63"
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af18640e647fd190800000000000000
+      internalID: -7935496002534367324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_64"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f60415f304b0e4f0800000000000000
+      internalID: -801442804582316301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_65"
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8edcbfec48877cee0800000000000000
+      internalID: -1240890660513657368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_66"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d13ec34b30d75f70800000000000000
+      internalID: 9176031718749909465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_67"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ed323ac7d0cf130800000000000000
+      internalID: 3601768630953696877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_68"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3703cd738b5a29ad0800000000000000
+      internalID: -2696911016211763085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_69"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5941d426f055d3a0800000000000000
+      internalID: -6641313057378055841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_70"
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8b55389a8448850800000000000000
+      internalID: 6378302865153571063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_71"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7735aca4154a86f0800000000000000
+      internalID: -681656438495037574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_72"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a27dbd6a33eff9c80800000000000000
+      internalID: -8313646889306433750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_73"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe0bdc38fe6dec0b0800000000000000
+      internalID: -5706387353635016465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_74"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8a47d06351525d0800000000000000
+      internalID: -3088038647594440533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_75"
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28490789a809850a0800000000000000
+      internalID: -6892600304753142654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_76"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fd1ae70f783c6060800000000000000
+      internalID: 6947990443370618358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_77"
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15db76a2163041a10800000000000000
+      internalID: 1879130660378492241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_78"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01250ec4fc1a8f5e0800000000000000
+      internalID: -1875571333079739888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_79"
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04979693a6e7f7e0800000000000000
+      internalID: -1731661941420092401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_80"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ee4590441f58250800000000000000
+      internalID: 5946424157529239113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_81"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd3120013cc793c70800000000000000
+      internalID: 8951322911604610013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_82"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2081df52684b88f40800000000000000
+      internalID: 5731029014084917250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_83"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47369c685b5486400800000000000000
+      internalID: 317580419682362228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_84"
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e10a45c983832f00800000000000000
+      internalID: 1090860162497511909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_85"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd8c8eedba108eb0800000000000000
+      internalID: -4719743006430949903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_86"
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f1240a553adef80800000000000000
+      internalID: -8075618968649195681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_87"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dea8b5dc272cafd0800000000000000
+      internalID: -2329443833739694384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_88"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b4762a8855fb3500800000000000000
+      internalID: 377164754439271605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_89"
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766c724f3427ea6d0800000000000000
+      internalID: -2977316667460696473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_90"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ee45e4acdef2c60800000000000000
+      internalID: 7795710933154983458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_91"
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 932620c1dd7f19750800000000000000
+      internalID: 6310097081952526905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_92"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3be18567b79d98e0800000000000000
+      internalID: -1685023871628874950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_93"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c34ecb4963eb1b0800000000000000
+      internalID: -5639009670969148355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_94"
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d999932936a6930800000000000000
+      internalID: 4137228687375965535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_95"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd62b991b9d79a7c0800000000000000
+      internalID: -4059575483994790181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_96"
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e29f3cedabc27690800000000000000
+      internalID: -7605792872821976350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_97"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b976c0d31623b4ee0800000000000000
+      internalID: -1275870676211964005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_98"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599f64586b82d2800800000000000000
+      internalID: 589171890640583061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_99"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61de136422fe43580800000000000000
+      internalID: -8848184437390578410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_100"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ccff9543219fa180800000000000000
+      internalID: -9101896741214487352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_101"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f164e2373c61fbed0800000000000000
+      internalID: -2396171448030968289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_102"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e934715b269cfced0800000000000000
+      internalID: -2391471451328265314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_103"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cd74e1f295136400800000000000000
+      internalID: 316120119713758656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_104"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbac291e925289f10800000000000000
+      internalID: 2276610473444166331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_105"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c810f3d9ea99b220800000000000000
+      internalID: 2502201397054806213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_106"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef913b60792143380800000000000000
+      internalID: -8992542116090275330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_107"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c929c5380dd8b53c0800000000000000
+      internalID: -4369743086736338276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_108"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7737417aef1e77e0800000000000000
+      internalID: -1765938912099354755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_109"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4325d703088518500800000000000000
+      internalID: 396695549777891892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_110"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb4fd218f2cb88690800000000000000
+      internalID: -7599617458970954561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_111"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd0d5d7eacd25490800000000000000
+      internalID: -7758896566020272711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_112"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ca63a964f04fb70800000000000000
+      internalID: 8931780756891937913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_113"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24c91cff8c76cca0800000000000000
+      internalID: -5996968895945522131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_114"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e61f04646ba3eb80800000000000000
+      internalID: -8366655235060459802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_115"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c781ae681163c9f0800000000000000
+      internalID: -449408780243728439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_116"
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd6783155f077030800000000000000
+      internalID: 3492276894123388366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_117"
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28a5412306a4feca0800000000000000
+      internalID: -5985483602734589310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_118"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b763f209b586da950800000000000000
+      internalID: 6461935782816855675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_119"
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de81f0d458fb95f0800000000000000
+      internalID: -748731869860622631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_120"
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aec376f1895edb1c0800000000000000
+      internalID: -4486177212266496790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_121"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b841aa1e3b222e910800000000000000
+      internalID: 1865091351665317003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_122"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f444c7859fa8aa10800000000000000
+      internalID: 1920978297836291313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_123"
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7d2b53c521da6d0800000000000000
+      internalID: -2977703591374825551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "TileSet_PierreInt\xE9rieuresV5_124"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01c3453433c32e2a0800000000000000
+      internalID: -6709734303958025200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

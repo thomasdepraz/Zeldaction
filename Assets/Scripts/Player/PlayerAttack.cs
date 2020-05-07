@@ -39,12 +39,12 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask bossLayer;
 
     private HookThrow hookThrow;
-    private GameObject hook;
+    public GameObject hook;
 
     private Animator anim;
+    public PlayerAudioManager playerAudio;
     private void Start()
     {
-        hook = GameObject.FindGameObjectWithTag("Hook");
         hookThrow = gameObject.GetComponent<HookThrow>();
         anim = gameObject.GetComponent<Animator>();
 
@@ -59,31 +59,36 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("AttackButton"))
+        if(PlayerManager.canAttack)
         {
-            //charge l'attaque
-            channelTime += Time.deltaTime;
-            if (channelTime > 0.3f)
+            if (Input.GetButton("AttackButton"))
             {
-                GetComponent<PlayerMovement>().playerSpeed = 140f; // ralentit le player quand il canalise l'attaque lourde
+                //charge l'attaque
+                channelTime += Time.deltaTime;
+                if (channelTime > 0.3f)
+                {
+                    GetComponent<PlayerMovement>().playerSpeed = 140f; // ralentit le player quand il canalise l'attaque lourde
+                }
             }
-        }
-        if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide
-        {
-            anim.SetBool("isAttacking", true);
+            if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide
+            {
+                anim.SetBool("isAttacking", true);
 
-            Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
-            StartCoroutine(AttackCooldown(lightAttackCooldown));
-            channelTime = 0;
-            GetComponent<PlayerMovement>().playerSpeed = 200f;
-        }
-        if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
-        {
-            anim.SetBool("isHeavyAttack", true);
-            Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
-            StartCoroutine(AttackCooldown(heavyAttackCooldown));
-            channelTime = 0;
-            GetComponent<PlayerMovement>().playerSpeed = 200f;
+                Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
+                playerAudio.PlayClip(playerAudio.lightAttack, 1);
+                StartCoroutine(AttackCooldown(lightAttackCooldown));
+                channelTime = 0;
+                GetComponent<PlayerMovement>().playerSpeed = 150f;
+            }
+            if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
+            {
+                anim.SetBool("isHeavyAttack", true);
+                Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
+                playerAudio.PlayClip(playerAudio.heavyAttack, 1);
+                StartCoroutine(AttackCooldown(heavyAttackCooldown));
+                channelTime = 0;
+                GetComponent<PlayerMovement>().playerSpeed = 150f;
+            }
         }
     }
     void Attack(int attackDamage, float knockbackForce, float knockbackDuration, float attackRange, Collider2D collider)
@@ -95,7 +100,6 @@ public class PlayerAttack : MonoBehaviour
         {
             if (enemy.GetType() == typeof(BoxCollider2D)) //va prendre en compte uniquement les boxcollider de l'ennemi dans le calcul des dommages
             {
-                Debug.Log(hitEnemies[0].name);
                 enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
                 StartCoroutine(KnockBackMove(enemy.GetComponent<EnemyMovement>(), knockbackDuration));
                 enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
@@ -104,8 +108,6 @@ public class PlayerAttack : MonoBehaviour
                 //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 
                 Knockback(enemy.gameObject, knockbackForce);
-                Debug.Log(attackDamage);
-                Debug.Log(channelTime);
             }
         }
 
@@ -115,10 +117,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (boss.GetType() == typeof(BoxCollider2D)) //va prendre en compte uniquement les boxcollider de l'ennemi dans le calcul des dommages
             {
-                Debug.Log(hitBoss[0].name);
                 boss.GetComponent<BossHP>().TakeDamage(attackDamage);
-                Debug.Log(attackDamage);
-                Debug.Log(channelTime);
             }
         }
 
@@ -138,7 +137,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 Knockback(props.gameObject, knockbackForce * 5);
 
-                if(props.CompareTag("Rock") && hitProps.Count <= 1)
+                if(props.CompareTag("Rock"))
                 {
                     if(attackDamage == lightAttackDamage)
                         props.gameObject.GetComponent<DestroyableRocks>().LightHit();
@@ -165,8 +164,21 @@ public class PlayerAttack : MonoBehaviour
         canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
-        anim.SetBool("isAttacking", false);
-        anim.SetBool("isHeavyAttack", false);
+        
+    }
+
+    public void GetAnimationEvent(string parameter)
+    {
+        if(parameter == "HAEnded")
+        {
+            anim.SetBool("isAttacking", false);
+            anim.SetBool("isHeavyAttack", false);
+        }
+
+        if (parameter == "LAEnded")
+        {
+            anim.SetBool("isAttacking", false);
+        }
     }
     void OnDrawGizmosSelected()
     {

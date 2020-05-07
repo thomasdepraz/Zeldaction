@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 512d52dc15f92a84791953eac33eaa0c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83755e0ef4bc60f4ea6b84ee086f8cdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.3125, y: 0.46875}
+  m_Size: {x: 0.4375, y: 0.59375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ff6defd73ea524d951a2212bd83409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightCrate: {fileID: 21300000, guid: 512d52dc15f92a84791953eac33eaa0c, type: 3}
+  lightCrate: {fileID: 21300000, guid: 83755e0ef4bc60f4ea6b84ee086f8cdd, type: 3}
   lightCrateRumble: {fileID: 21300000, guid: b9cc2bd4ba741994bb474d017fe47c88, type: 3}
-  heavyCrate: {fileID: 21300000, guid: c4a76887143761a4f923f4f12c2e8eb3, type: 3}
+  heavyCrate: {fileID: 21300000, guid: 3e236092fcc6c5d4e9955662390b9110, type: 3}
   isLightCrate: 1
   isHeavyCrate: 0
   isArmor: 0
@@ -140,8 +140,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.3125, y: 0.46875}
-    newSize: {x: 0.3125, y: 0.46875}
+    oldSize: {x: 0.4375, y: 0.59375}
+    newSize: {x: 0.4375, y: 0.59375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -168,7 +168,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &6272499802135800087
 GameObject:
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6272499802135800080}
   - component: {fileID: 6272499802135800081}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

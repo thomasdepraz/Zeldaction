@@ -25,6 +25,7 @@ public class ArmoredCrab : MonoBehaviour
     private Vector2 targetPosition;
     public GameObject armor;
     public GameObject baseCrab;
+    public GameObject loot;
 
     //Orientation 
     private Vector2 orientation;
@@ -39,11 +40,15 @@ public class ArmoredCrab : MonoBehaviour
     private bool canDetect = true;
 
     [HideInInspector]public Animator anim;
+    public ArmoredCrabAudioManager audioManager;
 
 
 
     // Start is called before the first frame update
-
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -148,6 +153,7 @@ public class ArmoredCrab : MonoBehaviour
         
         GameObject Projectile = Instantiate(projectile, transform.position, Quaternion.identity);
         Projectile.transform.position = player.transform.position;
+        audioManager.PlayClip(audioManager.lightAttack, 1);
         yield return null;
         //yield return new WaitForSeconds(1f);//Wait for projectile traveltime
 
@@ -190,6 +196,11 @@ public class ArmoredCrab : MonoBehaviour
         if(parameter == "deathEnded")
         {
             GameObject Crab = Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
+            float stat = Random.Range(0, 1);
+            if (stat < 0.4)
+            {
+                GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }

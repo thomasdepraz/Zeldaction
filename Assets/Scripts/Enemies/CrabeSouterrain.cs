@@ -9,6 +9,8 @@ public class CrabeSouterrain : MonoBehaviour
 
     private GameObject player;
     public GameObject baseCrab;
+    public GameObject particles;
+    public GameObject loot;
     private PlayerHP playerHP;
     private Hookable hookable;
     private float distanceToPlayer;
@@ -36,7 +38,11 @@ public class CrabeSouterrain : MonoBehaviour
     bool canStartCoroutine;
 
     private Animator anim;
-
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHP = player.GetComponent<PlayerHP>();
+    }
     void Start()
     {
         canStartCoroutine = true;
@@ -62,10 +68,12 @@ public class CrabeSouterrain : MonoBehaviour
         {
             direction = player.transform.position - gameObject.transform.position;
             rb.velocity = direction.normalized * speed * Time.deltaTime;
+            particles.SetActive(true);
         }
         else
         {
-            rb.velocity = Vector2.zero;            
+            rb.velocity = Vector2.zero;
+            particles.SetActive(false);
         }
     }
 
@@ -113,7 +121,7 @@ public class CrabeSouterrain : MonoBehaviour
     {
         hookable.isActive = false;
         anim.SetBool("isDead", true);
-        //GameObject.Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
+
         
     }
 
@@ -133,6 +141,12 @@ public class CrabeSouterrain : MonoBehaviour
 
         if(parameter == "deathEnded")
         {
+            float stat = Random.Range(0, 1);
+            if(stat < 0.6)
+            {
+                GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
+            }
+            //GameObject.Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

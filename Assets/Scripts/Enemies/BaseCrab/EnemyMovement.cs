@@ -24,6 +24,11 @@ public class EnemyMovement : MonoBehaviour
     private float horizontalOrientation;
     private float verticalOrientation;
 
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        StopAllCoroutines();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +47,6 @@ public class EnemyMovement : MonoBehaviour
             latestDirectionChangeTime = Time.time;
             WanderAround();
             anim.SetBool("isMoving", true);
-            Debug.Log("il bouge");
         }
         Orientation();
 

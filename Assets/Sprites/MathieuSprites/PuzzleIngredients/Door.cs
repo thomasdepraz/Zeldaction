@@ -5,27 +5,64 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public GameObject linkedPlate;
+    public GameObject[] linkedPlates;
     private PressurePlate plate;
     private BoxCollider2D col;
+    public bool stayOpen;
+    private SpriteRenderer rend;
+    public Sprite closedDoor;
+    public Sprite openDoor;
     // Start is called before the first frame update
     void Start()
     {
-        plate = linkedPlate.GetComponent<PressurePlate>();
-        col = gameObject.GetComponent<BoxCollider2D>();
+        rend = GetComponent<SpriteRenderer>();
+        if(linkedPlate != null)
+        {
+            plate = linkedPlate.GetComponent<PressurePlate>();
+        }
+            col = gameObject.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (plate.isPressed)
+        if(linkedPlate != null)
         {
-            col.enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            if (plate.isPressed)
+            {
+                col.enabled = false;
+                rend.sprite = openDoor;
+            }
+            else
+            {
+                if(!stayOpen)
+                {
+                    rend.sprite = closedDoor;
+                    col.enabled = true;
+                }
+            }
         }
-        else
+
+        if(linkedPlates != null)
         {
-            col.enabled = true;
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            for(int i = 0; i <= linkedPlates.Length-1; i++ )
+            {
+                if (!linkedPlates[i].GetComponent<PressurePlate>().isPressed)
+                {
+                    if(!stayOpen)
+                    {
+                        col.enabled = true;
+                        rend.sprite = closedDoor;
+                    }
+                    break;
+                }
+
+                if(linkedPlates[i] == linkedPlates[linkedPlates.Length - 1])
+                {
+                    col.enabled = false;
+                    rend.sprite = openDoor;
+                }
+            }
         }
     }
 }

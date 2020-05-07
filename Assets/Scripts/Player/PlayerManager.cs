@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -9,6 +7,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject aimDirectionPreview;
 
     [SerializeField] public static bool hasHook = true;
+    [SerializeField] public static bool canAttack = true;
     [SerializeField] public static GameObject lastCheckpoint;
     // Start is called before the first frame update
 

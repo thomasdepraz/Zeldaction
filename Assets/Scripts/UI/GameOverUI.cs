@@ -5,15 +5,23 @@ public class GameOverUI : MonoBehaviour
 {
     public GameObject gameOverUI;
     private GameObject player;
+    public bool reset;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        if(reset == true)
+        {
+            Retry();
+            reset = false;
+        }
     }
+
     public void Retry()
     {
         gameOverUI.SetActive(false);
         player.transform.position = PlayerManager.lastCheckpoint.transform.position;
+        PlayerManager.lastCheckpoint.GetComponent<Checkpoint>().ResetFight();
         player.GetComponent<PlayerHP>().currentHealth = player.GetComponent<PlayerHP>().maxHealth;//reset la vie du joueur
     }
 
