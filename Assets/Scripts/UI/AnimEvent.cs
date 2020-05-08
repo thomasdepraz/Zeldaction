@@ -11,5 +11,10 @@ public class AnimEvent : MonoBehaviour
         {
             Teleport.teleport = true;
         }
+
+        if(parameter == "loadDungeon")
+        {
+            LoadDungeonScene.loadDungeon = true;
+        }
     }
 }
