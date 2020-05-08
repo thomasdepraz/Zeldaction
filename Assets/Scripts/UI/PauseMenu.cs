@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
 
     public GameObject pauseMenu;
+    public GameObject gameOverPanel;
     private bool isPaused;
+    public EventSystem eventSystem;
+    public GameObject pauseButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,23 +19,28 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if(!gameOverPanel.activeSelf)
         {
-            if (!isPaused)
+            if (Input.GetKeyDown(KeyCode.A))
             {
-                Pause();
+                if (!isPaused)
+                {
+                    Pause();
 
-            }
-            else
-            {
-                Resume();
+                }
+                else
+                {
+                    Resume();
 
-            }
-        }        
+                }
+            }        
+        }
     }
 
     public void Pause()
     {
+        eventSystem.firstSelectedGameObject = pauseButton;
+        eventSystem.SetSelectedGameObject(pauseButton);
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
         isPaused = true;

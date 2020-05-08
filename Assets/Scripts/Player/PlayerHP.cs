@@ -1,6 +1,7 @@
 ﻿using Cinemachine;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
@@ -21,6 +22,8 @@ public class PlayerHP : MonoBehaviour
     public Material damageMaterial;
     private Material defaultMaterial;
     public PlayerAudioManager playerAudio;
+    public EventSystem eventSystem;
+    public GameObject retryButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,10 +61,10 @@ public class PlayerHP : MonoBehaviour
         StartCoroutine("DamageFB");
         if (currentHealth <= 0)
         {
-            //gameOverUI.SetActive(true);
-            gameObject.transform.position = PlayerManager.lastCheckpoint.transform.position;
-            PlayerManager.lastCheckpoint.GetComponent<Checkpoint>().ResetFight();
-            gameObject.GetComponent<PlayerHP>().TakeDamage(-gameObject.GetComponent<PlayerHP>().maxHealth);         
+            eventSystem.firstSelectedGameObject = retryButton;
+            eventSystem.SetSelectedGameObject(retryButton);
+            gameOverUI.SetActive(true);
+            Time.timeScale = 0f;       
         }
     }
     void GainLife(int heal)

@@ -28,7 +28,6 @@ public class Checkpoint : MonoBehaviour
 
     public void ResetFight()
     {
-        //cEvent.arenaCollider.SetActive(false); //on désactive le collider de l'arène
         Physics2D.IgnoreLayerCollision(10, 16, true);
         cEvent.DeactivateEnemies();
     }

@@ -19,10 +19,11 @@ public class GameOverUI : MonoBehaviour
 
     public void Retry()
     {
-        gameOverUI.SetActive(false);
         player.transform.position = PlayerManager.lastCheckpoint.transform.position;
         PlayerManager.lastCheckpoint.GetComponent<Checkpoint>().ResetFight();
         player.GetComponent<PlayerHP>().currentHealth = player.GetComponent<PlayerHP>().maxHealth;//reset la vie du joueur
+        Time.timeScale = 1f;
+        gameOverUI.SetActive(false);
     }
 
     public void MainMenu()
