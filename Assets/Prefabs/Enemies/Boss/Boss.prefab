@@ -797,7 +797,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8857848667643520927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.45, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 8857848668152732913}
@@ -1029,7 +1029,10 @@ MonoBehaviour:
   plate2: {fileID: 8524229651622343830, guid: 470a8416e9cfbf046bb845e208fdab58, type: 3}
   waypoint1: {fileID: 0}
   waypoint2: {fileID: 0}
+  WaypointBoss: {fileID: 0}
   stone: {fileID: 988625593}
+  playerCam: {fileID: 0}
+  bossCam: {fileID: 0}
 --- !u!114 &612397333
 MonoBehaviour:
   m_ObjectHideFlags: 0

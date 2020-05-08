@@ -66,6 +66,7 @@ public class BossManager : MonoBehaviour
         Destroy(Plate1);
         Destroy(Plate2);
         stone.SetActive(true);
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
         GameObject[] monster = GameObject.FindGameObjectsWithTag("Hookable");
         foreach (GameObject Monsters in monster)
         {
