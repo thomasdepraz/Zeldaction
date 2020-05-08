@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 
 public class ArmoredCrabProjectile : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class ArmoredCrabProjectile : MonoBehaviour
 
 
     private GameObject player;
+    public CinemachineImpulseSource impulseSource;
 
 
     // Start is called before the first frame update
@@ -52,6 +54,7 @@ public class ArmoredCrabProjectile : MonoBehaviour
             anim.SetBool("Explode", true);
             Explode();
             audioSource.Play();
+            impulseSource.GenerateImpulse(Vector3.up);
         }
         if(parameter =="endExplosion")
         {
