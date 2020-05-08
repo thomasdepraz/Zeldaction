@@ -20,6 +20,7 @@ public class BossSummoning : MonoBehaviour
     public Animator anim;
     [Header("Compteur de crabes invoqués actuellement par le boss")]
     public int crabcounter = 0;
+    public GameObject Waypoint0;
     // Start is called before the first frame update
     void Awake()
     {
@@ -57,14 +58,14 @@ public class BossSummoning : MonoBehaviour
     }
     void SummonPhase1()// est utilisé par l'animator
     {
-        Instantiate(baseCrab);
-        baseCrab.transform.position = new Vector2(transform.position.x, -1f);
+        Instantiate(baseCrab, Waypoint0.transform.position, transform.rotation);
+        baseCrab.transform.position = new Vector2(transform.position.x, transform.position.y -1f);
         crabcounter++;
     }
     void SummonPhase2()
     {
-        Instantiate(armoredCrab);
         armoredCrab.transform.position = new Vector2(transform.position.x, -1f);
+        Instantiate(armoredCrab);
         crabcounter++;
     }
     IEnumerator StopMoving()
