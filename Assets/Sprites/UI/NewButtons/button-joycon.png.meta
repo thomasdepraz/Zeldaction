@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: -2345465720212432065
     second: button-joycon_0
+  - first:
+      213: 7085084415278301849
+    second: button-joycon_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 19, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -81,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,9 +98,9 @@ TextureImporter:
       name: button-joycon_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 37
+        width: 19
         height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -108,6 +111,27 @@ TextureImporter:
       bones: []
       spriteID: f3bd1e1ba5b337fd0800000000000000
       internalID: -2345465720212432065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: button-joycon_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 992c150ccb6435260800000000000000
+      internalID: 7085084415278301849
       vertices: []
       indices: 
       edges: []
