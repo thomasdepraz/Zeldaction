@@ -9,6 +9,7 @@ public class PressurePlate : MonoBehaviour
     public LayerMask hitboxLayer;
     private SpriteRenderer spr;
     private BoxCollider2D col;
+    public PropsAudioManager audioManager;
 
 
     public bool isPressed;
@@ -26,12 +27,14 @@ public class PressurePlate : MonoBehaviour
     {
         if(objectsOnPlate >= objectsNeeded && isRigid)
         {
+            //audioManager.PlayClip(audioManager.onPressurePlate,1);
             isPressed = true;
             spr.sprite = pressedSprite;
         }
 
         else if(objectsOnPlate < objectsNeeded && isRigid)
         {
+            //audioManager.PlayClip(audioManager.onPressurePlate, 1);
             isPressed = false;
             spr.sprite = realesedSprite;
         }
@@ -39,8 +42,9 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     { 
-        if(collision.gameObject.layer == 10 && !isRigid)
+        if(collision.gameObject.layer == 10 && !isRigid && !isPressed)
         {
+            audioManager.PlayClip(audioManager.onPressurePlate, 1);
             isPressed = true;
             spr.sprite = pressedSprite;
         }
@@ -56,8 +60,9 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     { 
-        if(!col.IsTouchingLayers(hitboxLayer) && !isRigid)
+        if(!col.IsTouchingLayers(hitboxLayer) && !isRigid && isPressed)
         {
+            audioManager.PlayClip(audioManager.onPressurePlate, 1);
             isPressed = false;
             spr.sprite = realesedSprite;
         }

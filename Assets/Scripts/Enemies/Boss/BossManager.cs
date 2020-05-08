@@ -8,6 +8,8 @@ public class BossManager : MonoBehaviour
     public bool isPhase1 = true;
     public bool isPhase2 = false;
     public bool isPhase3 = false;
+    public bool canThrow;
+    public bool isFinished = false;
     public GameObject plate1;
     public GameObject plate2;
     private GameObject Plate1;
@@ -18,7 +20,7 @@ public class BossManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        isPhase1 = true;
     }
 
     // Update is called once per frame
@@ -44,8 +46,17 @@ public class BossManager : MonoBehaviour
     }
     public void Phase3()
     {
+        Destroy(Plate1);
+        Destroy(Plate2);
         stone.SetActive(true);
+        GameObject[] monster = GameObject.FindGameObjectsWithTag("Hookable");
+        foreach (GameObject Monsters in monster)
+        {
+            GameObject.Destroy(Monsters);
+        }
         anim.SetTrigger("GoPhase3"); // intégrer l'animation de transition de phase
+        GetComponent<BossSummoning>().enabled = false;
+        GetComponent<BossLegThrow>().enabled = true;
         isPhase3 = true;
         isPhase2 = false;
     }

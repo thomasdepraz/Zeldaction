@@ -12,6 +12,7 @@ public class DestroyableRocks : MonoBehaviour
     public GameObject loot;
     private bool looted =false;
     public ParticleSystem hitParticle;
+    public PropsAudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +32,9 @@ public class DestroyableRocks : MonoBehaviour
             spriteRenderer.sortingOrder = -1;
             if (!looted)
             {
-                float stat = Random.Range(0, 1);
-                if (stat < 0.8)
+                audioManager.PlayClip(audioManager.breakRock, 1);
+                float stat = Random.Range(0f, 1f);
+                if (stat < 0.7)
                 {
                     GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
                 }
@@ -45,12 +47,12 @@ public class DestroyableRocks : MonoBehaviour
         currentSpriteIndex++;
         spriteRenderer.sprite = RockSprites[currentSpriteIndex];
         hitParticle.Play();
+        audioManager.PlayClip(audioManager.hitRock, 1);
     }
 
     public void HeavyHit()
     {
         spriteRenderer.sprite = RockSprites[3];
         hitParticle.Play();
-
     }
 }

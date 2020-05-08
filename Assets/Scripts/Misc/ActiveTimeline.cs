@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ActiveTimeline : MonoBehaviour
 {
-    public GameObject timeline;
-    public GameObject destroyableObjects;
+    public GameObject animFeedbacks;
     bool inRange  = false;
 
     private void Update()
     {
-        if (inRange == true && destroyableObjects != null)
+        if (inRange == true)
         {
-            timeline.SetActive(true);
+            animFeedbacks.SetActive(true);
         }
     }
 
@@ -26,7 +25,7 @@ public class ActiveTimeline : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (timeline.activeInHierarchy)
+        if (animFeedbacks.activeInHierarchy)
         {
             Destroy(gameObject);
         }
