@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1157985093806837242}
   - component: {fileID: 4682724537948393585}
-  - component: {fileID: 2778476465983380137}
+  - component: {fileID: 5824404124121626316}
   m_Layer: 0
   m_Name: Buisson 4
   m_TagString: Untagged
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5658387634218753937}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.425417, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2778476465983380137
-BoxCollider2D:
+--- !u!60 &5824404124121626316
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005870819, y: -0.055650473}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.50606024, y: 0.3371802}
@@ -105,6 +105,21 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.75494957, y: 0.49271822}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.27633667, y: -0.072395325}
+      - {x: 0.27505493, y: 0.020713806}
+      - {x: 0.24316406, y: 0.09183121}
+      - {x: 0.19007874, y: 0.14303589}
+      - {x: 0.09365845, y: 0.17364502}
+      - {x: -0.10054016, y: 0.18172455}
+      - {x: -0.24816895, y: 0.107933044}
+      - {x: -0.36120605, y: -0.010025024}
+      - {x: -0.355011, y: -0.08639908}
+      - {x: -0.29449463, y: -0.12714005}
+      - {x: -0.19229126, y: -0.09283447}
+      - {x: -0.0128479, y: -0.27568054}
+      - {x: 0.07218933, y: -0.21516037}
+      - {x: 0.18009949, y: -0.17948532}
+      - {x: 0.44592285, y: -0.22249222}
+      - {x: 0.43659973, y: -0.14885712}

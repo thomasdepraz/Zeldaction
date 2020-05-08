@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2327183526924762440}
   - component: {fileID: 8378358341263139068}
-  - component: {fileID: 2690348782542219241}
+  - component: {fileID: 3555359759382225695}
   m_Layer: 0
   m_Name: Tente A jaune
   m_TagString: Untagged
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2690348782542219241
-BoxCollider2D:
+--- !u!60 &3555359759382225695
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0805428, y: -0.24528956}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.53670377, y: 0.49172866}
@@ -105,6 +105,24 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.0962, y: 0.6369004}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.1215366, y: -0.119877815}
+      - {x: 0.8715366, y: 0.098872185}
+      - {x: 0.7873688, y: 0.22453499}
+      - {x: 0.67759705, y: 0.3872242}
+      - {x: 0.52604675, y: 0.40618515}
+      - {x: 0.29426575, y: 0.3866577}
+      - {x: -0.2305603, y: 0.33883476}
+      - {x: -0.60232544, y: 0.32027435}
+      - {x: -0.8874512, y: 0.3476429}
+      - {x: -1.3115082, y: 0.33930779}
+      - {x: -1.4167328, y: 0.25190353}
+      - {x: -1.3159634, y: 0.098872185}
+      - {x: -1.2126617, y: -0.16135406}
+      - {x: -0.9722134, y: -0.46362782}
+      - {x: -0.9365082, y: -0.6658058}
+      - {x: -0.15971339, y: -0.7136278}
+      - {x: 0.3090366, y: -0.6823778}
+      - {x: 0.8090366, y: -0.5261278}
+      - {x: 1.1215366, y: -0.30737782}

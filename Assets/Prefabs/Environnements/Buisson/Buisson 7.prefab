@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5743523940429832356}
   - component: {fileID: 2086604483194310082}
-  - component: {fileID: 4079706028102897715}
+  - component: {fileID: 5784745450713662812}
   m_Layer: 0
   m_Name: Buisson 7
   m_TagString: Untagged
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4079706028102897715
-BoxCollider2D:
+--- !u!60 &5784745450713662812
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.029838562, y: -0.07414913}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.3998491, y: 0.38191086}
@@ -105,6 +105,24 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.82352257, y: 0.6821985}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.27023315, y: 0.12541771}
+      - {x: 0.17829895, y: 0.19387627}
+      - {x: 0.012451172, y: 0.21236229}
+      - {x: -0.100631714, y: 0.18354607}
+      - {x: -0.15522766, y: 0.17089844}
+      - {x: -0.26119995, y: 0.15449142}
+      - {x: -0.3408661, y: 0.15747261}
+      - {x: -0.43721008, y: 0.12213898}
+      - {x: -0.4267578, y: 0.032938004}
+      - {x: -0.33872986, y: -0.039705276}
+      - {x: -0.25338745, y: -0.13188171}
+      - {x: -0.14297485, y: -0.25310326}
+      - {x: -0.029754639, y: -0.29652596}
+      - {x: 0.072631836, y: -0.20168114}
+      - {x: 0.26000977, y: -0.26579666}
+      - {x: 0.35514832, y: -0.1071167}
+      - {x: 0.52819824, y: -0.04735565}
+      - {x: 0.51960754, y: 0.0072193146}
+      - {x: 0.3899994, y: 0.08504677}
