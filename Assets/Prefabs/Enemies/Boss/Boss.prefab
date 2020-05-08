@@ -599,7 +599,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645968096729116891}
   m_LocalRotation: {x: 0, y: 0, z: 0.42261827, w: 0.9063079}
-  m_LocalPosition: {x: 0.57, y: -0.04, z: 0}
+  m_LocalPosition: {x: 0.57, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8857848667643520999}
@@ -788,7 +788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8857848667643520999
 Transform:
   m_ObjectHideFlags: 0
@@ -982,7 +982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3109a235f2a194c9cb1dc2e8e676df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2.5
+  attackRange: 2
   player: {fileID: 0}
   startTimer: 0
   timer: 0
@@ -992,6 +992,7 @@ MonoBehaviour:
     type: 3}
   anim: {fileID: 0}
   crabcounter: 0
+  Waypoint0: {fileID: 0}
 --- !u!114 &510300641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,7 +1081,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8857848668152732912}
   m_LocalRotation: {x: 0, y: 0, z: -0.42261827, w: 0.9063079}
-  m_LocalPosition: {x: -0.57, y: -0.04, z: 0}
+  m_LocalPosition: {x: -0.57, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8857848667643520999}
