@@ -66,6 +66,12 @@ public class DialogSystem : MonoBehaviour
         {
             fight = combatEvent.GetComponent<CombatEvent>();
         }
+
+        if(npc ==null)
+        {
+            npc = gameObject;
+            npcTarget = npc.transform;
+        }
     }
 
     void Update()
