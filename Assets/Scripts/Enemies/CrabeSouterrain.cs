@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Cinemachine;
+using System.Collections;
 using UnityEngine;
 
 public class CrabeSouterrain : MonoBehaviour
@@ -14,6 +15,7 @@ public class CrabeSouterrain : MonoBehaviour
     private PlayerHP playerHP;
     private Hookable hookable;
     private float distanceToPlayer;
+    public CinemachineImpulseSource impulseSource;
 
     
     [Header("Tweaks")]
@@ -103,13 +105,6 @@ public class CrabeSouterrain : MonoBehaviour
         yield return new WaitForSeconds(loadAttack); //préparation de l'attaque
         hookable.isActive = true;
         anim.SetBool("isAttacking", true);                         
-        if (canGiveDamage == true)//si player en range alors dégats
-        {
-            Debug.Log("J'ai mis des dégats");
-            playerHP.TakeDamage(attackDamage);
-        }
-        else
-            Debug.Log("J'ai pas mis les dégats");
 
         yield return new WaitForSeconds(stunTime);//après attaque stun puis peut bouger à nouveau
         anim.SetBool("isRetracting", true);
@@ -127,6 +122,14 @@ public class CrabeSouterrain : MonoBehaviour
 
     public void GetAnimationEvent(string parameter)
     {
+        if(parameter == "attack")
+        {
+            if (canGiveDamage == true)//si player en range alors dégats
+            {
+                impulseSource.GenerateImpulse(Vector3.up);
+                playerHP.TakeDamage(attackDamage);
+            }
+        }
         if (parameter == "attackEnded")
         {
             anim.SetBool("isAttacking", false);

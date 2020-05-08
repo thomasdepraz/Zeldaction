@@ -41,6 +41,7 @@ public class CombatEvent : MonoBehaviour
             }
 
             arenaCollider.SetActive(true);
+            Physics2D.IgnoreLayerCollision(10, 16, false);
             spawnedEnemies = true;
         }
         if(gameObject.transform.childCount == 0 && combatStarted)
@@ -67,9 +68,12 @@ public class CombatEvent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(fightTrigger!=null)
+        if(collision.gameObject.CompareTag("Player"))
         {
-            combatStarted = true;
+            if(fightTrigger!=null)
+            {
+                combatStarted = true;
+            }
         }
     }
 
@@ -79,7 +83,7 @@ public class CombatEvent : MonoBehaviour
         {
             if (enemies[i] != null)
             {
-                enemies[i].SetActive(false); 
+                //enemies[i].SetActive(false); 
             }
         }
         combatStarted = false;
