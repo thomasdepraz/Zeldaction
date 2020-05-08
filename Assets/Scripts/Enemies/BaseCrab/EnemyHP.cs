@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Cinemachine;
 
 public class EnemyHP : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class EnemyHP : MonoBehaviour
     private Material defaultMaterial;
 
     public ParticleSystem hitParticle;
+    public CinemachineImpulseSource impulseSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class EnemyHP : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hitParticle.Play();
+        impulseSource.GenerateImpulse(Vector3.up);
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle de l'ennemi
         StartCoroutine(DamageFB());
         if (currentHealth <= 0)

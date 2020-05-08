@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 5703805335611140616}
   - component: {fileID: 2501730103344179338}
   - component: {fileID: 5010756662697377329}
+  - component: {fileID: 1826523282532648684}
   m_Layer: 8
   m_Name: BaseCrab
   m_TagString: Untagged
@@ -316,6 +317,7 @@ MonoBehaviour:
   loot: {fileID: 6135825320653908896, guid: a0f134617c070e543882177898724c0e, type: 3}
   damageMaterial: {fileID: 2100000, guid: 0193e928e75afe44fa72a94f8a4a638e, type: 3}
   hitParticle: {fileID: 1796707588023139258}
+  impulseSource: {fileID: 1826523282532648684}
 --- !u!114 &2501730103344179338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +360,47 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   audioManager: {fileID: 8450841925209230702}
+--- !u!114 &1826523282532648684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930221659852930160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: 50124cd7f1a2aab4bba4273354c7c4f2, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
 --- !u!1001 &7079176718578800661
 PrefabInstance:
   m_ObjectHideFlags: 0
