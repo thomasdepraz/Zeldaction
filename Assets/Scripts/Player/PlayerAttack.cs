@@ -81,18 +81,22 @@ public class PlayerAttack : MonoBehaviour
 
                 Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
                 playerAudio.PlayClip(playerAudio.lightAttack, 1);
-                StartCoroutine(AttackCooldown(lightAttackCooldown));
+                //StartCoroutine(AttackCooldown(lightAttackCooldown));
+                StartCoroutine("resetAttack");
                 channelTime = 0;
                 GetComponent<PlayerMovement>().playerSpeed = 150f;
+                canAttack = false;
             }
             if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime > 1f) // si pressé pendant plus de 1 secondes, fait uen attaque lourde
             {
                 anim.SetBool("isHeavyAttack", true);
                 Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
                 playerAudio.PlayClip(playerAudio.heavyAttack, 1);
-                StartCoroutine(AttackCooldown(heavyAttackCooldown));
+                //StartCoroutine(AttackCooldown(heavyAttackCooldown));
+                StartCoroutine("resetAttack");
                 channelTime = 0;
                 GetComponent<PlayerMovement>().playerSpeed = 150f;
+                canAttack = false;
             }
         }
     }
@@ -186,13 +190,16 @@ public class PlayerAttack : MonoBehaviour
     {
         if(parameter == "HAEnded")
         {
-            anim.SetBool("isAttacking", false);
-            anim.SetBool("isHeavyAttack", false);
+            //anim.SetBool("isAttacking", false);
+            //anim.SetBool("isHeavyAttack", false);
+            //canAttack = true;
         }
 
         if (parameter == "LAEnded")
         {
-            anim.SetBool("isAttacking", false);
+            //anim.SetBool("isAttacking", false);
+            //anim.SetBool("isHeavyAttack", false);
+            //canAttack = true;
         }
     }
     void OnDrawGizmosSelected()
@@ -202,5 +209,13 @@ public class PlayerAttack : MonoBehaviour
 
         Gizmos.DrawWireSphere(lightAttackPoint.position, lightAttackRange);
         Gizmos.DrawWireSphere(heavyAttackPoint.position, heavyAttackRange);
+    }
+    
+    private IEnumerator resetAttack()
+    {
+        yield return new WaitForSeconds(0.4f);
+        canAttack = true;
+        anim.SetBool("isAttacking", false);
+        anim.SetBool("isHeavyAttack", false);
     }
 }
