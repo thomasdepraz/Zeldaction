@@ -66,16 +66,16 @@ public class BossManager : MonoBehaviour
     {
         Destroy(Plate1);
         Destroy(Plate2);
-        Anchor.GetComponent<BrokenAnchor>().enabled = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         GameObject[] monster = GameObject.FindGameObjectsWithTag("Hookable");
+        GetComponent<BossSummoning>().enabled = false;
         foreach (GameObject Monsters in monster)
         {
             GameObject.Destroy(Monsters);
         }
         anim.SetTrigger("GoPhase3"); // intégrer l'animation de transition de phase
-        GetComponent<BossSummoning>().enabled = false;
         GetComponent<BossLegThrow>().enabled = true;
+        Anchor.GetComponent<BrokenAnchor>().enabled = true;
         isPhase3 = true;
         isPhase2 = false;
     }
