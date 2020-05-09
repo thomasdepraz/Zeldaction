@@ -69,7 +69,7 @@ public class Crate : MonoBehaviour
     {
         if(!collision.collider.gameObject.CompareTag("Player"))
         {
-            //DealDamage(collision.collider.gameObject);
+            DealDamage(collision.collider.gameObject);
         }
     }
 
