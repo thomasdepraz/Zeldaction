@@ -139,7 +139,7 @@ public class HookThrow : MonoBehaviour
         isPulling = true;
         playerMovement.canMove = false;
         playerMovement.playerRb.velocity = Vector2.zero;
-        Physics2D.IgnoreLayerCollision(10, 15, true);
+        Physics2D.IgnoreLayerCollision(10, 10, true);
         if (isHooked && hook.transform.parent.GetComponent<Hookable>().isActive)
         {
             if(hook.transform.parent.GetComponent<Hookable>().isLight)//si le truc est léger
@@ -171,7 +171,7 @@ public class HookThrow : MonoBehaviour
                 ArmoredCrab.GetComponent<ArmoredCrab>().anim.SetBool("isDead", true);
                 GameObject Armor = Instantiate(ArmoredCrab.GetComponent<ArmoredCrab>().armor, ArmoredCrab.transform.position, Quaternion.identity);
                 hook.transform.SetParent(Armor.transform);
-
+                objectDrag = Armor.GetComponent<Rigidbody2D>().drag;
                 Pull();
             }
         }
@@ -278,7 +278,7 @@ public class HookThrow : MonoBehaviour
     {
         canStartCoroutineHitbox = false;
         yield return new WaitForSeconds(0.3f);
-        Physics2D.IgnoreLayerCollision(10, 15, false);
+        Physics2D.IgnoreLayerCollision(10, 10, false);
         playerMovement.canMove = true;
         canStartCoroutineHitbox = true;
     }
