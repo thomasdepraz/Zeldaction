@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 490251390051351808}
   - component: {fileID: 1390565822189001752}
-  - component: {fileID: 554291780430503547}
+  - component: {fileID: 8832441596637766704}
   m_Layer: 0
   m_Name: Tente C rose
   m_TagString: Untagged
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &554291780430503547
-BoxCollider2D:
+--- !u!60 &8832441596637766704
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.022541165, y: -0.20214534}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.52670187, y: 0.50137854}
@@ -105,6 +105,34 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.0937703, y: 1.1274176}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.1984406, y: 0.027700424}
+      - {x: 1.3344421, y: 0.08723068}
+      - {x: 1.2557678, y: 0.2091484}
+      - {x: 0.56321716, y: 0.46982193}
+      - {x: 0.14794922, y: 0.6332245}
+      - {x: -0.26437378, y: 0.71398926}
+      - {x: -0.44000244, y: 0.71718407}
+      - {x: -0.55166626, y: 0.6405964}
+      - {x: -0.60020447, y: 0.52228165}
+      - {x: -0.6959076, y: 0.45820618}
+      - {x: -0.9437256, y: 0.34526253}
+      - {x: -1.0552826, y: 0.01508522}
+      - {x: -1.3688202, y: -0.20481873}
+      - {x: -1.5223999, y: -0.32914543}
+      - {x: -1.5163422, y: -0.44401932}
+      - {x: -1.3570099, y: -0.52269363}
+      - {x: -1.1391449, y: -0.56505775}
+      - {x: -0.8206024, y: -0.63261986}
+      - {x: -0.4717865, y: -0.70513344}
+      - {x: 0.008850098, y: -0.8069172}
+      - {x: 0.26896667, y: -0.86237335}
+      - {x: 0.6419983, y: -0.8805294}
+      - {x: 0.89694214, y: -0.9742813}
+      - {x: 0.9785919, y: -0.8764591}
+      - {x: 0.87571716, y: -0.6314106}
+      - {x: 0.98139954, y: -0.4479313}
+      - {x: 1.179184, y: -0.34619713}
+      - {x: 1.1821136, y: -0.25064468}
+      - {x: 1.0904083, y: -0.09212875}
