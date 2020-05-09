@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
     {
         if(!gameOverPanel.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetButtonDown("StartButton"))
             {
                 if (!isPaused)
                 {

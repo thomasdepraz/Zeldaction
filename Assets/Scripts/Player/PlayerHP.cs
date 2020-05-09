@@ -33,13 +33,9 @@ public class PlayerHP : MonoBehaviour
         defaultMaterial = GetComponent<SpriteRenderer>().material;
     }
 
-    void Update()
-    {
-        GainLife(heal);
-    }
     public void TakeDamage(int damage)
     {
-        if(damage> 0)
+        if (damage > 0)
         {
             //play hit sound
         }
@@ -49,7 +45,7 @@ public class PlayerHP : MonoBehaviour
         }
         GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.up);
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle du joueur
-        if(currentHealth>=0)
+        if (currentHealth >= 0)
         {
             healthBar.SetHealth(currentHealth); // met à jour la barre de vie avec la vie actuelle du joueur
         }
@@ -64,16 +60,7 @@ public class PlayerHP : MonoBehaviour
             eventSystem.firstSelectedGameObject = retryButton;
             eventSystem.SetSelectedGameObject(retryButton);
             gameOverUI.SetActive(true);
-            Time.timeScale = 0f;       
-        }
-    }
-    void GainLife(int heal)
-    {
-        if (Input.GetButtonDown("DebugHeal"))
-        {
-           // currentHealth += heal;
-            //Debug.Log("pharmacy");
-            //healthBar.SetHealth(currentHealth);
+            Time.timeScale = 0f;
         }
     }
 
