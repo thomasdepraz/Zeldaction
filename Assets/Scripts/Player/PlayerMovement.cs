@@ -57,6 +57,11 @@ public class PlayerMovement : MonoBehaviour
                 stepParticlesMain.startColor = stepParticleColor;
             }
         }
+
+        if(playerRb.drag != 0)
+        {
+            playerRb.drag = 0;
+        }
     }
 
 
