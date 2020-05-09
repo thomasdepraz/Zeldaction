@@ -9,6 +9,7 @@ public class CombatEvent : MonoBehaviour
     private bool spawnedEnemies = false;
     private BoxCollider2D fightTrigger;
     public GameObject arenaCollider;
+    public bool isCombatDialog;
 
     [Header("Objects to activate / deactivate")]
     public GameObject[] objects;
@@ -49,6 +50,7 @@ public class CombatEvent : MonoBehaviour
             combatStarted = false;
             combatEnded = true;
             arenaCollider.SetActive(false);
+            Debug.Log("Activation");
             if (objects != null)
             {
                 for (int i = 0; i < objects.Length; i++)
@@ -70,7 +72,7 @@ public class CombatEvent : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            if(fightTrigger!=null)
+            if(fightTrigger!=null && !isCombatDialog)
             {
                 combatStarted = true;
             }
@@ -79,12 +81,9 @@ public class CombatEvent : MonoBehaviour
 
     public void DeactivateEnemies()
     {
-        for (int i = 0; i < enemies.Length; i++)
+        if(isCombatDialog)
         {
-            if (enemies[i] != null)
-            {
-                //enemies[i].SetActive(false); 
-            }
+            isCombatDialog = false;
         }
         combatStarted = false;
         spawnedEnemies = false;

@@ -39,7 +39,6 @@ public class AmbiantSoundManager : MonoBehaviour
 
         while (audioSource.volume < 1)
         {
-            Debug.Log("Allo2");
             yield return new WaitForSeconds(0.1f);
             audioSource.volume += 0.1f;
         }
