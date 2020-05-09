@@ -21,6 +21,7 @@ public class Claw_Attack : StateMachineBehaviour
         if(Vector2.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 

@@ -11,6 +11,7 @@ public class BossMovement : MonoBehaviour
     public float bossSpeed = 150f;
     public float patrolRadius;
     public float minStopDistance;
+    public Animator anim;
 
     private Vector2 patrolCenterPosition;
     public Vector2 targetPosition;
@@ -29,10 +30,12 @@ public class BossMovement : MonoBehaviour
         {
             Patrol();
             StartCoroutine(MoveTimer());
+            anim.SetBool("isRunning", true);
         }
         else if (Vector2.Distance(player.position, bossRb.position) <= 3.5f)
         {
             bossRb.velocity = Vector2.zero;
+            anim.SetBool("isRunning", false);
         }
     }
     void Patrol()

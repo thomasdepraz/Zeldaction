@@ -41,8 +41,9 @@ public class BossSummoning : MonoBehaviour
         {
             if (timer >= 5f && GetComponent<BossManager>().isPhase1 == true) // && phase 1
             {
+                //StartCoroutine(StopMoving());
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 anim.SetTrigger("SummonPhase1");
-                StartCoroutine(StopMoving());
                 startTimer = -3f;
             }
             else if (timer >= 5f && GetComponent<BossManager>().isPhase2 == true && crabcounter <2) // && phase 2
@@ -66,10 +67,16 @@ public class BossSummoning : MonoBehaviour
         Instantiate(armoredCrab, Waypoint0.transform.position, transform.rotation);
         crabcounter++;
     }
-    IEnumerator StopMoving()
+   /* IEnumerator StopMoving()
     {
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
+        rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+        rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+    }*/
+    public void canMove()
+    {
+        GetComponent<BossMovement>().canMove = true;
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
     }
