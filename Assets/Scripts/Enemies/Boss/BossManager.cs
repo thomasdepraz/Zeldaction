@@ -23,6 +23,8 @@ public class BossManager : MonoBehaviour
     public GameObject playerCam;
     public GameObject bossCam;
     private SpriteRenderer sr;
+    public static bool deadBoss = false;
+    public GameObject winUI;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,12 @@ public class BossManager : MonoBehaviour
             {
                 Phase3();
             }
+        }
+
+        if(deadBoss)
+        {
+            winUI.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
     public void Phase2()

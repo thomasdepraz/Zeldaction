@@ -132,6 +132,7 @@ public class BossLegProjectile : MonoBehaviour
             {
                 StartCoroutine(DamageFB());
                 GetComponent<SpriteRenderer>().enabled = false;
+                BossManager.deadBoss = true;
                 // déclencher l'animation de mort
             }
         }

@@ -19,12 +19,20 @@ public class GameOverUI : MonoBehaviour
 
     public void Retry()
     {
-        player.transform.position = PlayerManager.lastCheckpoint.transform.position;
-        PlayerManager.lastCheckpoint.GetComponent<Checkpoint>().ResetFight();
-        player.GetComponent<PlayerHP>().currentHealth = 0;
-        player.GetComponent<PlayerHP>().TakeDamage(-player.GetComponent<PlayerHP>().maxHealth);//reset la vie du joueur
-        Time.timeScale = 1f;
-        gameOverUI.SetActive(false);
+        if(SceneManager.GetActiveScene().name != "DungeonScene")
+        {
+            player.transform.position = PlayerManager.lastCheckpoint.transform.position;
+            PlayerManager.lastCheckpoint.GetComponent<Checkpoint>().ResetFight();
+            player.GetComponent<PlayerHP>().currentHealth = 0;
+            player.GetComponent<PlayerHP>().TakeDamage(-player.GetComponent<PlayerHP>().maxHealth);//reset la vie du joueur
+            Time.timeScale = 1f;
+            gameOverUI.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("DungeonScene");
+        }
     }
 
     public void MainMenu()

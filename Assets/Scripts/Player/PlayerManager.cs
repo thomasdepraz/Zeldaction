@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class PlayerManager : MonoBehaviour
         {
             hook.SetActive(true);
             aimDirectionPreview.SetActive(true);
+        }
+        if(SceneManager.GetActiveScene().name == "DungeonScene")
+        {
+            hasHook = true;
+            canAttack = true;
         }
     }
     void Start()
