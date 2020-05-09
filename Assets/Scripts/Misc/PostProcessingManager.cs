@@ -44,11 +44,13 @@ public class PostProcessingManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        StartCoroutine(VignetteTransition(vignette.intensity.value, vignetteIntensity, vignette, true));
-        StartCoroutine(VignetteTransition(vignette.smoothness.value, vignetteSmoothness, vignette, false));
-        StartCoroutine(BloomTransition(bloom.intensity.value, bloomIntensity, bloom, true));
-        StartCoroutine(BloomTransition(bloom.scatter.value, bloomScatter, bloom, false));
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(VignetteTransition(vignette.intensity.value, vignetteIntensity, vignette, true));
+            StartCoroutine(VignetteTransition(vignette.smoothness.value, vignetteSmoothness, vignette, false));
+            StartCoroutine(BloomTransition(bloom.intensity.value, bloomIntensity, bloom, true));
+            StartCoroutine(BloomTransition(bloom.scatter.value, bloomScatter, bloom, false));
+        }
     }
 
     private IEnumerator VignetteTransition(float defaultValue, float targetValue, Vignette vgn, bool isIntensity)

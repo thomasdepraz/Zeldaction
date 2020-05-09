@@ -18,16 +18,17 @@ public class BossManager : MonoBehaviour
     public GameObject waypoint1;
     public GameObject waypoint2;
     public GameObject WaypointBoss;
-    public GameObject stone;
+    public GameObject Anchor;
     private float bossSpeed = 15f;
-    private Rigidbody2D rb;
     public GameObject playerCam;
     public GameObject bossCam;
+    private SpriteRenderer sr;
+
     // Start is called before the first frame update
     void Start()
     {
         isPhase1 = true;
-        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -65,7 +66,8 @@ public class BossManager : MonoBehaviour
     {
         Destroy(Plate1);
         Destroy(Plate2);
-        stone.SetActive(true);
+        Anchor.GetComponent<BrokenAnchor>().enabled = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
         GameObject[] monster = GameObject.FindGameObjectsWithTag("Hookable");
         foreach (GameObject Monsters in monster)
         {
@@ -76,5 +78,19 @@ public class BossManager : MonoBehaviour
         GetComponent<BossLegThrow>().enabled = true;
         isPhase3 = true;
         isPhase2 = false;
+    }
+    public void AnchorFB()
+    {
+        StartCoroutine(AnchorDamageFB());
+    }
+    IEnumerator AnchorDamageFB()
+    {
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sr.color = Color.white;
     }
 }

@@ -21,7 +21,8 @@ public class GameOverUI : MonoBehaviour
     {
         player.transform.position = PlayerManager.lastCheckpoint.transform.position;
         PlayerManager.lastCheckpoint.GetComponent<Checkpoint>().ResetFight();
-        player.GetComponent<PlayerHP>().currentHealth = player.GetComponent<PlayerHP>().maxHealth;//reset la vie du joueur
+        player.GetComponent<PlayerHP>().currentHealth = 0;
+        player.GetComponent<PlayerHP>().TakeDamage(-player.GetComponent<PlayerHP>().maxHealth);//reset la vie du joueur
         Time.timeScale = 1f;
         gameOverUI.SetActive(false);
     }

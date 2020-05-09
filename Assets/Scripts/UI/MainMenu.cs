@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour
     
     public void Play()
     {
-        SceneManager.LoadScene("Level-Design_MathieuScene");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void Options()

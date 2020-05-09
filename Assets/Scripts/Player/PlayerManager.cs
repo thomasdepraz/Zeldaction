@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject aimDirectionPreview;
 
     [SerializeField] public static bool hasHook = false;
-    [SerializeField] public static bool canAttack = false;
+    [SerializeField] public static bool canAttack =false;
     [SerializeField] public static GameObject lastCheckpoint;
     // Start is called before the first frame update
 

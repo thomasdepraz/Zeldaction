@@ -8,11 +8,13 @@ public class BossHP : MonoBehaviour
     public int maxHealth = 10;
     public int currentHealth;
     bool isPhase1;
+    private SpriteRenderer sr;
     //bool isPhase2;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        sr = GetComponent<SpriteRenderer>();
         isPhase1 = GetComponent<BossManager>().isPhase1;
         //isPhase2 = GetComponent<BossManager>().isPhase2;
     }
@@ -33,8 +35,8 @@ public class BossHP : MonoBehaviour
     }
     IEnumerator DamageFB()
     {
-        GetComponent<SpriteRenderer>().color = Color.red;
+        sr.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        GetComponent<SpriteRenderer>().color = Color.white;
+        sr.color = Color.white;
     }
 }
