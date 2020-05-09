@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432621005}
   - component: {fileID: 1432621004}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: RaftCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
