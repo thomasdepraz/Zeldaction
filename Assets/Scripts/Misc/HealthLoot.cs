@@ -18,7 +18,7 @@ public class HealthLoot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag(playerTag))
+        if(collision.gameObject.CompareTag(playerTag) && gameObject.transform.childCount == 2)
         {
             if(playerHP.currentHealth < playerHP.maxHealth - healValue)
             {
