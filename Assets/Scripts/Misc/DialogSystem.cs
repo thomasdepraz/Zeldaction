@@ -46,6 +46,7 @@ public class DialogSystem : MonoBehaviour
     private bool eventStarted;
     private bool startMove;
     private bool dialogIsFinished;
+    private bool isTalking;
 
     [Header("Objects to activate / deactivate(forced dialog only)")]
     public GameObject[] objects;
@@ -91,7 +92,11 @@ public class DialogSystem : MonoBehaviour
                     portraitUI.sprite = portrait;
                     dialogName.text = npcName;
                     dialogBox.SetActive(true);
-                    dialogText.text = dialog;
+                    //dialogText.text = dialog;
+                    if(!isTalking)
+                    {
+                        StartCoroutine(TypeSentence(dialog));
+                    }
                     if (objects != null)
                     {
                         for (int i = 0; i < objects.Length; i++)
@@ -122,7 +127,7 @@ public class DialogSystem : MonoBehaviour
                 npc.transform.position = Vector3.MoveTowards(npc.transform.position, npcTarget.position, speed * Time.deltaTime);
             }
             
-            if(eventStarted && npc.transform.position == npcTarget.position && Input.GetButtonDown("interact"))
+            if(eventStarted && npc.transform.position == npcTarget.position && Input.GetButtonDown("interact") && !isTalking)
             {
                 //deactivate dialogBox + swapcamera
                 playerCam.gameObject.SetActive(true);
@@ -258,7 +263,22 @@ public class DialogSystem : MonoBehaviour
         portraitUI.sprite = portrait;
         dialogName.text = npcName;
         dialogBox.SetActive(true);
-        dialogText.text = dialog;
+        //dialogText.text = dialog;
+        StartCoroutine(TypeSentence(dialog));
         eventStarted = true;
+    }
+    IEnumerator TypeSentence(string sentence) // pour écrire la phrase au fur et à mesure
+    {
+
+        dialogText.text = "";
+        isTalking = true;
+        foreach (char letter in sentence.ToCharArray())
+        {
+
+            dialogText.text += letter;
+            yield return new WaitForSeconds(0.025f);
+
+        }
+        isTalking = false;
     }
 }
