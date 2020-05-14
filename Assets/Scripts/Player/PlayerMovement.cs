@@ -62,6 +62,11 @@ public class PlayerMovement : MonoBehaviour
         {
             playerRb.drag = 0;
         }
+
+        if(playerRb.velocity == Vector2.zero)
+        {
+            animator.SetBool("isMoving", false);
+        }
     }
 
 

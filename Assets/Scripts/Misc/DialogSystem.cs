@@ -276,7 +276,7 @@ public class DialogSystem : MonoBehaviour
         {
 
             dialogText.text += letter;
-            yield return new WaitForSeconds(0.025f);
+            yield return new WaitForSeconds(0.015f);
 
         }
         isTalking = false;

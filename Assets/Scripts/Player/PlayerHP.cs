@@ -24,6 +24,7 @@ public class PlayerHP : MonoBehaviour
     public PlayerAudioManager playerAudio;
     public EventSystem eventSystem;
     public GameObject retryButton;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,8 @@ public class PlayerHP : MonoBehaviour
 
         healthBar.SetHealth(maxHealth); // set la barre de vie avec la vie maximale du joueur
         defaultMaterial = GetComponent<SpriteRenderer>().material;
+
+        anim = GetComponent<Animator>();
     }
 
     public void TakeDamage(int damage)
@@ -57,10 +60,7 @@ public class PlayerHP : MonoBehaviour
         StartCoroutine("DamageFB");
         if (currentHealth <= 0)
         {
-            eventSystem.firstSelectedGameObject = retryButton;
-            eventSystem.SetSelectedGameObject(retryButton);
-            gameOverUI.SetActive(true);
-            Time.timeScale = 0f;
+            anim.SetBool("isDead", true);
         }
     }
 
@@ -76,5 +76,15 @@ public class PlayerHP : MonoBehaviour
         GetComponent<SpriteRenderer>().material = damageMaterial;
         yield return new WaitForSeconds(0.2f);
         GetComponent<SpriteRenderer>().material = defaultMaterial;
+    }
+
+    public void DeathUI()
+    {
+        eventSystem.firstSelectedGameObject = retryButton;
+        eventSystem.SetSelectedGameObject(retryButton);
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
+
+        anim.SetBool("isDead", false);
     }
 }

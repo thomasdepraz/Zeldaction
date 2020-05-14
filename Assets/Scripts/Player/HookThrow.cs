@@ -36,6 +36,7 @@ public class HookThrow : MonoBehaviour
     private ContactFilter2D hookableFilter;
     private float objectDrag;
     private ContactPoint2D[] hookContacts = new ContactPoint2D[10];
+    private ContactPoint2D[] playerContacts = new ContactPoint2D[10];
     private bool canStartUnhook = true;
     private bool canHook = true;
 
@@ -66,9 +67,22 @@ public class HookThrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!hookUI.gameObject.activeSelf)
+        {
+            if(!PlayerManager.hasHook)
+            {
+                hookUI.gameObject.SetActive(false);
+            }
+            else
+            {
+                hookUI.gameObject.SetActive(true);
+            }
+        }
+
         if(PlayerManager.hasHook)
         {
-            if(Input.GetButtonDown("Throw") && !isThrown && !isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
+            
+            if (Input.GetButtonDown("Throw") && !isThrown && !isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
             {
                 hook.GetComponent<BoxCollider2D>().isTrigger = false;
                 hookRigidBody.simulated = true;
@@ -139,7 +153,10 @@ public class HookThrow : MonoBehaviour
         isPulling = true;
         playerMovement.canMove = false;
         playerMovement.playerRb.velocity = Vector2.zero;
-        Physics2D.IgnoreLayerCollision(10, 10, true);
+        if (playerRb.GetContacts(playerContacts) == 0)
+        {
+            Physics2D.IgnoreLayerCollision(10, 10, true);
+        }
         if (isHooked && hook.transform.parent.GetComponent<Hookable>().isActive)
         {
             if(hook.transform.parent.GetComponent<Hookable>().isLight)//si le truc est léger
