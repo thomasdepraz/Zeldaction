@@ -80,11 +80,11 @@ public class PlayerHP : MonoBehaviour
 
     public void DeathUI()
     {
+        gameOverUI.SetActive(true);
         eventSystem.firstSelectedGameObject = retryButton;
         eventSystem.SetSelectedGameObject(retryButton);
-        gameOverUI.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
 
-        anim.SetBool("isDead", false);
+        //anim.SetBool("isDead", false);
     }
 }

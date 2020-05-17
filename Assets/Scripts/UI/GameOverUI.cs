@@ -5,7 +5,9 @@ public class GameOverUI : MonoBehaviour
 {
     public GameObject gameOverUI;
     private GameObject player;
+    public Animator anim;
     public bool reset;
+
 
     private void Start()
     {
@@ -17,6 +19,13 @@ public class GameOverUI : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(gameOverUI.activeSelf)
+        {
+            anim.SetBool("GameOverUI", true);
+        }
+    }
     public void Retry()
     {
         if(SceneManager.GetActiveScene().name != "DungeonScene")
