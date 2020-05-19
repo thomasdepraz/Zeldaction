@@ -48,6 +48,7 @@ public class GameOverUI : MonoBehaviour
             PlayerManager.useHook = true;
             anim.SetBool("GameOverUI", false);
             gameOverUI.SetActive(false);
+            player.GetComponent<PlayerHP>().anim.SetBool("isDead", false);
         }
         else
         {

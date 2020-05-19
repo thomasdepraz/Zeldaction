@@ -22,7 +22,7 @@ public class PlayerHP : MonoBehaviour
     public Material damageMaterial;
     private Material defaultMaterial;
     public PlayerAudioManager playerAudio;
-    private Animator anim;
+    [HideInInspector] public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,7 +80,6 @@ public class PlayerHP : MonoBehaviour
     {
         gameOverUI.SetActive(true);
         GameOverUI.startAnim = true;
-        anim.SetBool("isDead", false);
         PlayerManager.canAttack = false;
         PlayerManager.canMove = false;
         PlayerManager.useHook = false;
