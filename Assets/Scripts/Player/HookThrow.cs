@@ -79,7 +79,7 @@ public class HookThrow : MonoBehaviour
             }
         }
 
-        if(PlayerManager.hasHook)
+        if(PlayerManager.hasHook && PlayerManager.useHook)
         {
             
             if (Input.GetButtonDown("Throw") && !isThrown && !isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
