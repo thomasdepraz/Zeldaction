@@ -80,4 +80,8 @@ public class BossSummoning : MonoBehaviour
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
     }
+    public void cannotMove()
+    {
+        GetComponent<BossMovement>().canMove = false;
+    }
 }
