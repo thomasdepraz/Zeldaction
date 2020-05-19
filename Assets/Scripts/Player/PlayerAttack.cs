@@ -24,6 +24,8 @@ public class PlayerAttack : MonoBehaviour
     private ContactFilter2D bossFilter;
     private ContactFilter2D bossLegFilter;
 
+    private EnemyHP enemyHP;
+
     [Header("Knockback")]
     [Range(0f, 3f)]
     public float lightKnockbackForce = 1f;
@@ -109,14 +111,18 @@ public class PlayerAttack : MonoBehaviour
         {
             if (enemy.GetType() == typeof(BoxCollider2D)) //va prendre en compte uniquement les boxcollider de l'ennemi dans le calcul des dommages
             {
-                enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
-                StartCoroutine(KnockBackMove(enemy.GetComponent<EnemyMovement>(), knockbackDuration));
-                enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
-                enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
-                //dé-lock sa position
-                //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                if (enemy.TryGetComponent<EnemyHP>(out enemyHP))
+                {
+                    enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
 
-                Knockback(enemy.gameObject, knockbackForce);
+                    StartCoroutine(KnockBackMove(enemy.GetComponent<EnemyMovement>(), knockbackDuration));
+                    enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+                    enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+                    //dé-lock sa position
+                    //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+                    Knockback(enemy.gameObject, knockbackForce);
+                }
             }
         }
 
