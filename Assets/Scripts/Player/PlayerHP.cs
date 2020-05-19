@@ -22,8 +22,6 @@ public class PlayerHP : MonoBehaviour
     public Material damageMaterial;
     private Material defaultMaterial;
     public PlayerAudioManager playerAudio;
-    public EventSystem eventSystem;
-    public GameObject retryButton;
     private Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -81,10 +79,10 @@ public class PlayerHP : MonoBehaviour
     public void DeathUI()
     {
         gameOverUI.SetActive(true);
-        eventSystem.firstSelectedGameObject = retryButton;
-        eventSystem.SetSelectedGameObject(retryButton);
-        //Time.timeScale = 0f;
+        GameOverUI.startAnim = true;
+        anim.SetBool("isDead", false);
+        //player peut pas bouger + pas attaquer + pas lancer le hook
+        
 
-        //anim.SetBool("isDead", false);
     }
 }

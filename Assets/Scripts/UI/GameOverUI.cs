@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameOverUI : MonoBehaviour
 {
     public GameObject gameOverUI;
     private GameObject player;
     public Animator anim;
+    private EventSystem eventSystem;
+    public GameObject retryButton;
     public bool reset;
+    public static bool startAnim = false;
+     
 
 
     private void Start()
@@ -17,15 +22,18 @@ public class GameOverUI : MonoBehaviour
             Retry();
             reset = false;
         }
+        eventSystem = EventSystem.current;
     }
 
     private void Update()
     {
-        if(gameOverUI.activeSelf)
+        if(startAnim)
         {
             anim.SetBool("GameOverUI", true);
+            startAnim = false;
         }
     }
+
     public void Retry()
     {
         if(SceneManager.GetActiveScene().name != "DungeonScene")
@@ -48,4 +56,11 @@ public class GameOverUI : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenuScene");
     }
+
+    public void getUIButtons() //AnimEvent
+    {
+        eventSystem.firstSelectedGameObject = retryButton;
+        eventSystem.SetSelectedGameObject(retryButton);
+    }
+
 }

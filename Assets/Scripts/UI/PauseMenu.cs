@@ -8,12 +8,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject gameOverPanel;
     private bool isPaused;
-    public EventSystem eventSystem;
+    private EventSystem eventSystem;
     public GameObject pauseButton;
     // Start is called before the first frame update
     void Start()
     {
-        
+        eventSystem = EventSystem.current;
     }
 
     // Update is called once per frame
