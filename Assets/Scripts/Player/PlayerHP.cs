@@ -81,8 +81,8 @@ public class PlayerHP : MonoBehaviour
         gameOverUI.SetActive(true);
         GameOverUI.startAnim = true;
         anim.SetBool("isDead", false);
-        //player peut pas bouger + pas attaquer + pas lancer le hook
-        
-
+        PlayerManager.canAttack = false;
+        PlayerManager.canMove = false;
+        PlayerManager.useHook = false;
     }
 }

@@ -43,6 +43,10 @@ public class GameOverUI : MonoBehaviour
             player.GetComponent<PlayerHP>().currentHealth = 0;
             player.GetComponent<PlayerHP>().TakeDamage(-player.GetComponent<PlayerHP>().maxHealth);//reset la vie du joueur
             Time.timeScale = 1f;
+            PlayerManager.canAttack = true;
+            PlayerManager.canMove = true;
+            PlayerManager.useHook = true;
+            anim.SetBool("GameOverUI", false);
             gameOverUI.SetActive(false);
         }
         else

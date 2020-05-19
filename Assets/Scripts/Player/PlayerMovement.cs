@@ -73,7 +73,10 @@ public class PlayerMovement : MonoBehaviour
     // Fixed update
     void FixedUpdate()
     {
-        Movement();
+        if(PlayerManager.canMove)
+        {
+            Movement();
+        }
     }
 
     void Movement()
