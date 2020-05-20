@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
@@ -6,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     //Player 
     [Header("Player variables")]
     public Rigidbody2D playerRb;
+    public PlayerAudioManager playerAudio;
     public Vector2 direction;
     public float headingAngle;
     public float realAngle;
@@ -35,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         stepParticlesMain = particles.GetComponent<ParticleSystem>().main;
-       
+        StartCoroutine(StepSounds());
     }
 
     // Update is called once per frame
@@ -151,5 +153,15 @@ public class PlayerMovement : MonoBehaviour
                 realAngle = 180f;
             }    
         }
+    }
+
+    private IEnumerator StepSounds()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if(isMoving)
+        {
+            playerAudio.PlayClip(playerAudio.step, 1, playerAudio.steps);
+        }
+        StartCoroutine(StepSounds());
     }
 }

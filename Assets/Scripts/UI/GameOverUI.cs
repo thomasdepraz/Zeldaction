@@ -39,9 +39,9 @@ public class GameOverUI : MonoBehaviour
         if(SceneManager.GetActiveScene().name != "DungeonScene")
         {
             player.transform.position = PlayerManager.lastCheckpoint.transform.position;
-            PlayerManager.canAttack = false;
-            PlayerManager.canMove = false;
-            PlayerManager.useHook = false;
+            PlayerManager.canAttack = true;
+            PlayerManager.canMove = true;
+            PlayerManager.useHook = true;
             PlayerManager.lastCheckpoint.GetComponent<Checkpoint>().ResetFight();
             player.GetComponent<PlayerHP>().currentHealth = 0;
             player.GetComponent<PlayerHP>().TakeDamage(-player.GetComponent<PlayerHP>().maxHealth);//reset la vie du joueur

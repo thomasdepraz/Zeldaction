@@ -44,7 +44,7 @@ public class PressurePlate : MonoBehaviour
     { 
         if(collision.gameObject.layer == 10 && !isRigid && !isPressed)
         {
-            audioManager.PlayClip(audioManager.onPressurePlate, 1);
+            audioManager.PlayClip(audioManager.onPressurePlate, 1, audioManager.plates);
             isPressed = true;
             spr.sprite = pressedSprite;
         }
@@ -53,7 +53,14 @@ public class PressurePlate : MonoBehaviour
         if(collision.TryGetComponent(out Crate crate) && isRigid)
         {
             if(crate.isHeavyCrate || crate.isArmor)
+            {
                 objectsOnPlate++;
+            }
+
+            if(objectsOnPlate == objectsNeeded)
+            {
+                audioManager.PlayClip(audioManager.onPressurePlate, 1, audioManager.plates);
+            }
         }
  
     }
@@ -62,15 +69,22 @@ public class PressurePlate : MonoBehaviour
     { 
         if(!col.IsTouchingLayers(hitboxLayer) && !isRigid && isPressed)
         {
-            audioManager.PlayClip(audioManager.onPressurePlate, 1);
+            audioManager.PlayClip(audioManager.onPressurePlate, 1, audioManager.plates);
             isPressed = false;
             spr.sprite = realesedSprite;
         }
 
         if (collision.gameObject.TryGetComponent(out Crate crate) && isRigid)
         {
+            if (objectsOnPlate == objectsNeeded)
+            {
+                audioManager.PlayClip(audioManager.onPressurePlate, 1, audioManager.plates);
+            }
             if (crate.isHeavyCrate || crate.isArmor)
+            {
                 objectsOnPlate--;
-        }           
+            }
+        }
+
     }
 }

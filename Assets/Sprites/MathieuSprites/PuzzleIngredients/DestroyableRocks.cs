@@ -32,7 +32,7 @@ public class DestroyableRocks : MonoBehaviour
             spriteRenderer.sortingOrder = -1;
             if (!looted)
             {
-                audioManager.PlayClip(audioManager.breakRock, 1);
+                audioManager.PlayClip(audioManager.breakRock, 1, audioManager.rocks);
                 float stat = Random.Range(0f, 1f);
                 if (stat < 0.7)
                 {
@@ -47,7 +47,7 @@ public class DestroyableRocks : MonoBehaviour
         currentSpriteIndex++;
         spriteRenderer.sprite = RockSprites[currentSpriteIndex];
         hitParticle.Play();
-        audioManager.PlayClip(audioManager.hitRock, 1);
+        audioManager.PlayClip(audioManager.hitRock, 1, audioManager.rocks);
     }
 
     public void HeavyHit()

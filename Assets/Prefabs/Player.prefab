@@ -565,10 +565,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundSource: {fileID: 4944783409226922221}
-  lightAttack: {fileID: 8300000, guid: b3919e62beb21ca4789372f1b5c81003, type: 3}
-  heavyAttack: {fileID: 8300000, guid: b3919e62beb21ca4789372f1b5c81003, type: 3}
-  lifeUp: {fileID: 8300000, guid: 5afe582fbc90dbb47899ff0405e78291, type: 3}
-  onHook: {fileID: 8300000, guid: bf9164de9b5c797449800aeb9df2acd3, type: 3}
+  steps: {fileID: 8114471268320187371, guid: a7820b350957f8e46983a1d065160595, type: 2}
+  life: {fileID: -6709427060195822376, guid: a7820b350957f8e46983a1d065160595, type: 2}
+  hook: {fileID: 3541271626731184821, guid: a7820b350957f8e46983a1d065160595, type: 2}
+  attack: {fileID: 1339207400571146820, guid: a7820b350957f8e46983a1d065160595, type: 2}
+  misc: {fileID: 9036594663879284631, guid: a7820b350957f8e46983a1d065160595, type: 2}
+  step: {fileID: 8300000, guid: 1e2cd52d98a699840a461918b68987c0, type: 3}
+  onHit: {fileID: 8300000, guid: d05f365668500b6408f740a759a63580, type: 3}
+  lifeUp: {fileID: 8300000, guid: 8df38df94d116a644ab98a7dc0cf9ee2, type: 3}
+  death: {fileID: 8300000, guid: 4a423c17a99463f4faf8428df98494d9, type: 3}
+  lightAttack: {fileID: 8300000, guid: 95bd47c3b0af1ec45b22f7327cc053a4, type: 3}
+  heavyAttack: {fileID: 8300000, guid: 07ec1dd06c50bae4691f5390b1339ae1, type: 3}
+  onHook: {fileID: 8300000, guid: 8715633f0b65f2542bf361622bdef34a, type: 3}
+  hookThrow: {fileID: 8300000, guid: a84c3fd5e8234a246bccd1553fde403b, type: 3}
+  hookPull: {fileID: 8300000, guid: cdb7f2ce6ff6b38499d6dce374006512, type: 3}
+  heavyAttackLoad: {fileID: 8300000, guid: 059ae420383bafb439dc9e544b972f37, type: 3}
 --- !u!82 &4944783409226922221
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1114,6 +1125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRb: {fileID: 803936002081425466}
+  playerAudio: {fileID: 555975858761487253}
   direction: {x: 0, y: 0}
   headingAngle: 0
   realAngle: 0
@@ -1188,8 +1200,7 @@ MonoBehaviour:
   damagePortrait: {fileID: 21300000, guid: 090adcf1e95b95a4991b95b96037c262, type: 3}
   damageMaterial: {fileID: 2100000, guid: 0193e928e75afe44fa72a94f8a4a638e, type: 3}
   playerAudio: {fileID: 555975858761487253}
-  eventSystem: {fileID: 0}
-  retryButton: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &3482555150041985630
 MonoBehaviour:
   m_ObjectHideFlags: 0

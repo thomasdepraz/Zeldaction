@@ -146,6 +146,7 @@ public class HookThrow : MonoBehaviour
         storedVelocity = hookRigidBody.velocity;
         isThrown = true;
         hookUI.sprite = hookUnavailable;
+        playerAudio.PlayClip(playerAudio.hookThrow, 1, playerAudio.hook);
     }
 
     public void Pull()
@@ -197,6 +198,7 @@ public class HookThrow : MonoBehaviour
             direction = (transform.position - hook.transform.position);
             hookRigidBody.velocity = Vector2.zero;
             hookRigidBody.velocity = direction.normalized * speed * 2;
+            playerAudio.PlayClipNat(playerAudio.hookPull, 1, playerAudio.hook);
         }
     }
 
@@ -271,6 +273,7 @@ public class HookThrow : MonoBehaviour
             direction = (transform.position - hook.transform.position);
             hookRigidBody.velocity = Vector2.zero;
             hookRigidBody.velocity = direction.normalized * speed * 2;
+            playerAudio.PlayClipNat(playerAudio.hookPull, 1, playerAudio.hook);
         }
         canStartCoroutine = true;
     }
