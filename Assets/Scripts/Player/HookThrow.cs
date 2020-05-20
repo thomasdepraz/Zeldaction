@@ -213,7 +213,7 @@ public class HookThrow : MonoBehaviour
                     if(hookable.gameObject.GetComponent<Hookable>().isActive)
                     {
                         //S'accrocher à l'objet
-                        playerAudio.PlayClip(playerAudio.onHook, 1);
+                        playerAudio.PlayClip(playerAudio.onHook, 1, playerAudio.hook);
                         hook.transform.position = hookable.gameObject.transform.position;
                         hook.transform.SetParent(hookable.gameObject.transform);
                         hookRigidBody.velocity = Vector2.zero;
