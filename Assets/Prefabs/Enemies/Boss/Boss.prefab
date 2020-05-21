@@ -1063,8 +1063,9 @@ MonoBehaviour:
   waypoint2: {fileID: 0}
   WaypointBoss: {fileID: 0}
   Anchor: {fileID: 0}
-  playerCam: {fileID: 0}
-  bossCam: {fileID: 0}
+  phase1Cam: {fileID: 0}
+  phase2Cam: {fileID: 0}
+  winUI: {fileID: 0}
 --- !u!114 &612397333
 MonoBehaviour:
   m_ObjectHideFlags: 0

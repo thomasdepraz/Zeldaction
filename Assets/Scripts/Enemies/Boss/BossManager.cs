@@ -19,8 +19,8 @@ public class BossManager : MonoBehaviour
     public GameObject WaypointBoss;
     public GameObject Anchor;
     private float bossSpeed = 15f;
-    public GameObject playerCam;
-    public GameObject bossCam;
+    public GameObject phase1Cam;
+    public GameObject phase2Cam;
     private SpriteRenderer sr;
     public static bool deadBoss = false;
     public GameObject winUI;
@@ -60,8 +60,8 @@ public class BossManager : MonoBehaviour
         anim.SetTrigger("GoPhase2"); // intégrer l'animation de déplacement du Boss vers sa plateforme
         isPhase1 = false;
         isPhase2 = true;
-        playerCam.SetActive(false);
-        bossCam.SetActive(true);
+        phase1Cam.SetActive(false);
+        phase2Cam.SetActive(true);
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.GetComponent<BossAttack>().enabled = false;
         Plate1 = Instantiate(plate1, waypoint1.transform.position, Quaternion.identity);

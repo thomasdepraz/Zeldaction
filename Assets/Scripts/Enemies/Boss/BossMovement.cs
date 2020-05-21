@@ -22,7 +22,7 @@ public class BossMovement : MonoBehaviour
         bossRb = GetComponent<Rigidbody2D>();
         patrolCenterPosition = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        canMove = true;
+        canMove = false;
     }
     void FixedUpdate()
     {
