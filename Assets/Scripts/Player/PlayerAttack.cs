@@ -82,7 +82,7 @@ public class PlayerAttack : MonoBehaviour
                 anim.SetBool("isAttacking", true);
 
                 Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
-                playerAudio.PlayClip(playerAudio.lightAttack, 1, playerAudio.attack);
+                playerAudio.PlayClip(playerAudio.soundSource, playerAudio.lightAttack, 1, playerAudio.attack);
                 //StartCoroutine(AttackCooldown(lightAttackCooldown));
                 StartCoroutine("resetAttack");
                 channelTime = 0;
@@ -93,7 +93,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 anim.SetBool("isHeavyAttack", true);
                 Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
-                playerAudio.PlayClip(playerAudio.heavyAttack, 1, playerAudio.attack);
+                playerAudio.PlayClip(playerAudio.soundSource, playerAudio.heavyAttack, 1, playerAudio.attack);
                 //StartCoroutine(AttackCooldown(heavyAttackCooldown));
                 StartCoroutine("resetAttack");
                 channelTime = 0;

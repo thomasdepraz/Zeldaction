@@ -157,10 +157,10 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator StepSounds()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         if(isMoving)
         {
-            playerAudio.PlayClip(playerAudio.step, 1, playerAudio.steps);
+            playerAudio.PlayClip(playerAudio.stepSoundSource ,playerAudio.step, 1, playerAudio.steps);
         }
         StartCoroutine(StepSounds());
     }

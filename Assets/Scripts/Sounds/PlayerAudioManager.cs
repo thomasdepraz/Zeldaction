@@ -5,6 +5,8 @@ public class PlayerAudioManager : MonoBehaviour
 {
 
     public AudioSource soundSource;
+    public AudioSource stepSoundSource;
+    public AudioSource hookSoundSource;
 
     //Audio mixer Groups
     public AudioMixerGroup steps;
@@ -30,28 +32,21 @@ public class PlayerAudioManager : MonoBehaviour
     public AudioClip heavyAttackLoad;
 
 
-    public void PlayClip(AudioClip clip, float volume, AudioMixerGroup mixer)
+    public void PlayClip(AudioSource source, AudioClip clip, float volume, AudioMixerGroup mixer)
     {
         float pitch = Random.Range(0.8f, 1.2f);
-        soundSource.outputAudioMixerGroup = mixer;
-        soundSource.pitch = pitch;
-        soundSource.volume = volume;
-        soundSource.clip = clip;
-        soundSource.Play();
+        source.outputAudioMixerGroup = mixer;
+        source.pitch = pitch;
+        source.volume = volume;
+        source.clip = clip;
+        source.Play();
     }
 
-    public void PlayClipNat(AudioClip clip, float volume, AudioMixerGroup mixer)
+    public void PlayClipNat(AudioSource source, AudioClip clip, float volume, AudioMixerGroup mixer)
     {
-        soundSource.outputAudioMixerGroup = mixer;
-        soundSource.volume = volume;
-        soundSource.clip = clip;
-        soundSource.Play();
-    }
-    public void PlayClipDelay(AudioClip clip, float delay)
-    {
-        float pitch = Random.Range(0.8f, 1.2f);
-        soundSource.pitch = pitch;
-        soundSource.clip = clip;
-        soundSource.PlayDelayed(delay);
+        source.outputAudioMixerGroup = mixer;
+        source.volume = volume;
+        source.clip = clip;
+        source.Play();
     }
 }

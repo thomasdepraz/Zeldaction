@@ -40,12 +40,12 @@ public class PlayerHP : MonoBehaviour
         {
             if(currentHealth > 0)
             {
-                playerAudio.PlayClip(playerAudio.onHit, 1, playerAudio.life);
+                playerAudio.PlayClip(playerAudio.soundSource, playerAudio.onHit, 1, playerAudio.life);
             }
         }
         else
         {
-            playerAudio.PlayClip(playerAudio.lifeUp, 1, playerAudio.life);
+            playerAudio.PlayClip(playerAudio.soundSource, playerAudio.lifeUp, 1, playerAudio.life);
         }
 
         GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.up);//screenshake
@@ -66,7 +66,7 @@ public class PlayerHP : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            playerAudio.PlayClip(playerAudio.death, 1, playerAudio.life);
+            playerAudio.PlayClip(playerAudio.soundSource, playerAudio.death, 1, playerAudio.life);
             anim.SetBool("isDead", true);
         }
     }

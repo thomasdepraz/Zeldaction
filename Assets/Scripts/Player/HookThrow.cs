@@ -146,7 +146,7 @@ public class HookThrow : MonoBehaviour
         storedVelocity = hookRigidBody.velocity;
         isThrown = true;
         hookUI.sprite = hookUnavailable;
-        playerAudio.PlayClip(playerAudio.hookThrow, 1, playerAudio.hook);
+        playerAudio.PlayClip(playerAudio.hookSoundSource, playerAudio.hookThrow, 1, playerAudio.hook);
     }
 
     public void Pull()
@@ -198,7 +198,7 @@ public class HookThrow : MonoBehaviour
             direction = (transform.position - hook.transform.position);
             hookRigidBody.velocity = Vector2.zero;
             hookRigidBody.velocity = direction.normalized * speed * 2;
-            playerAudio.PlayClipNat(playerAudio.hookPull, 1, playerAudio.hook);
+            playerAudio.PlayClipNat(playerAudio.hookSoundSource, playerAudio.hookPull, 1, playerAudio.hook);
         }
     }
 
@@ -215,7 +215,7 @@ public class HookThrow : MonoBehaviour
                     if(hookable.gameObject.GetComponent<Hookable>().isActive)
                     {
                         //S'accrocher à l'objet
-                        playerAudio.PlayClip(playerAudio.onHook, 1, playerAudio.hook);
+                        playerAudio.PlayClip(playerAudio.hookSoundSource, playerAudio.onHook, 1, playerAudio.hook);
                         hook.transform.position = hookable.gameObject.transform.position;
                         hook.transform.SetParent(hookable.gameObject.transform);
                         hookRigidBody.velocity = Vector2.zero;
@@ -273,7 +273,7 @@ public class HookThrow : MonoBehaviour
             direction = (transform.position - hook.transform.position);
             hookRigidBody.velocity = Vector2.zero;
             hookRigidBody.velocity = direction.normalized * speed * 2;
-            playerAudio.PlayClipNat(playerAudio.hookPull, 1, playerAudio.hook);
+            playerAudio.PlayClipNat(playerAudio.hookSoundSource,playerAudio.hookPull, 1, playerAudio.hook);
         }
         canStartCoroutine = true;
     }
