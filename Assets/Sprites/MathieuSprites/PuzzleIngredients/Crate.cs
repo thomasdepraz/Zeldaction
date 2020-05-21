@@ -19,6 +19,8 @@ public class Crate : MonoBehaviour
     [Header("Elements")]
     public GameObject hitbox;
     private GameObject hook;
+    public PropsAudioManager audioManager;
+    private bool isMoving;
 
     [Header("Tweaks")]
     public int crateDamage;
@@ -44,7 +46,40 @@ public class Crate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        if(rb.velocity.magnitude > 0.5)
+        {
+            isMoving = true; 
+        }
+        else
+        {
+            isMoving = false;
+            if(audioManager.soundSource.clip != null)
+            {
+                if(audioManager.soundSource.clip != audioManager.lightCratebreak && audioManager.soundSource.isPlaying)
+                {
+                    audioManager.soundSource.Stop();
+                }
+            }
+            
+        }
+
+        if(isMoving)
+        {
+            if(isLightCrate)
+            {
+                if(!audioManager.soundSource.isPlaying)
+                {
+                    audioManager.PlayAndLoop(audioManager.lightCrateMove, 1, audioManager.crate);
+                }
+            }
+            else
+            {
+                if (!audioManager.soundSource.isPlaying)
+                {
+                    audioManager.PlayAndLoop(audioManager.heavyCrateMove, 1, audioManager.crate);
+                }
+            }
+        }
     }
 
     void DealDamage(GameObject enemy)
@@ -61,6 +96,8 @@ public class Crate : MonoBehaviour
                 hitbox.SetActive(false);
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 spr.sprite = lightCrateRumble;
+                spr.sortingOrder = -2;
+                audioManager.PlayClipNat(audioManager.lightCratebreak, 1, audioManager.crate);
             }
         }
     }

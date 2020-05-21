@@ -22,7 +22,7 @@ public class PlayerHP : MonoBehaviour
     public Material damageMaterial;
     private Material defaultMaterial;
     public PlayerAudioManager playerAudio;
-    private Animator anim;
+    [HideInInspector] public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,14 +38,20 @@ public class PlayerHP : MonoBehaviour
     {
         if (damage > 0)
         {
-            //play hit sound
+            if(currentHealth > 0)
+            {
+                playerAudio.PlayClip(playerAudio.soundSource, playerAudio.onHit, 1, playerAudio.life);
+            }
         }
         else
         {
-            playerAudio.PlayClip(playerAudio.lifeUp, 1);
+            playerAudio.PlayClip(playerAudio.soundSource, playerAudio.lifeUp, 1, playerAudio.life);
         }
-        GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.up);
+
+        GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.up);//screenshake
+
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle du joueur
+
         if (currentHealth >= 0)
         {
             healthBar.SetHealth(currentHealth); // met à jour la barre de vie avec la vie actuelle du joueur
@@ -54,10 +60,13 @@ public class PlayerHP : MonoBehaviour
         {
             healthBar.SetHealth(0);
         }
-        StartCoroutine("portraitSwap");
-        StartCoroutine("DamageFB");
+
+        StartCoroutine("portraitSwap");//damaged portrait
+        StartCoroutine("DamageFB");//damage FX
+
         if (currentHealth <= 0)
         {
+            playerAudio.PlayClip(playerAudio.soundSource, playerAudio.death, 1, playerAudio.life);
             anim.SetBool("isDead", true);
         }
     }
@@ -80,9 +89,8 @@ public class PlayerHP : MonoBehaviour
     {
         gameOverUI.SetActive(true);
         GameOverUI.startAnim = true;
-        anim.SetBool("isDead", false);
-        //player peut pas bouger + pas attaquer + pas lancer le hook
-        
-
+        PlayerManager.canAttack = false;
+        PlayerManager.canMove = false;
+        PlayerManager.useHook = false;
     }
 }

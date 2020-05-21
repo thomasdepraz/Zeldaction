@@ -41,8 +41,7 @@ AudioSource:
   m_GameObject: {fileID: 569123733384439455}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 4414387205583231907, guid: c1735c874ee5afd419a44902eb4f7f60,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -142,10 +141,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundSource: {fileID: 4214161031179689595}
-  hitRock: {fileID: 0}
-  breakRock: {fileID: 0}
-  onPressurePlate: {fileID: 8300000, guid: 147f782af74b68c48aed785abbbd6512, type: 3}
-  openDoor: {fileID: 0}
+  rocks: {fileID: -7310514793605743111, guid: 852ec1fae1bb7274f82ddf6e5896264f, type: 2}
+  plates: {fileID: 2699289821833024796, guid: 852ec1fae1bb7274f82ddf6e5896264f, type: 2}
+  fires: {fileID: -8914232354606769085, guid: 852ec1fae1bb7274f82ddf6e5896264f, type: 2}
+  crate: {fileID: -5703189962977364163, guid: 852ec1fae1bb7274f82ddf6e5896264f, type: 2}
+  hitRock: {fileID: 8300000, guid: feb01d609078c2349b65d0dd23bdaf06, type: 3}
+  breakRock: {fileID: 8300000, guid: 0dfe423e6604e01498e0d3cc90a57add, type: 3}
+  onPressurePlate: {fileID: 8300000, guid: 162c662936ae2e54daa3a8717ac6311a, type: 3}
+  openDoor: {fileID: 8300000, guid: 42581ff7422d7ee408aa20be9769cb9a, type: 3}
+  lightFire: {fileID: 8300000, guid: e9fe88e1e1baa6c4c95e6e56cc1f28e7, type: 3}
+  heavyCrateMove: {fileID: 8300000, guid: 348fea4725e38f74eb7a83a886953cd4, type: 3}
+  lightCrateMove: {fileID: 8300000, guid: a24cc569f03a602488e56191668e88de, type: 3}
+  lightCratebreak: {fileID: 8300000, guid: cbb58342b0f8d1b4c8d42ad80d1f4617, type: 3}
+  fireCamp: {fileID: 8300000, guid: 49575d4d60fe22045a942e442968f329, type: 3}
 --- !u!1 &8981378725365782442
 GameObject:
   m_ObjectHideFlags: 0

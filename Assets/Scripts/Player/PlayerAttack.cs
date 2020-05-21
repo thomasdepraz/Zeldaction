@@ -24,6 +24,8 @@ public class PlayerAttack : MonoBehaviour
     private ContactFilter2D bossFilter;
     private ContactFilter2D bossLegFilter;
 
+    private EnemyHP enemyHP;
+
     [Header("Knockback")]
     [Range(0f, 3f)]
     public float lightKnockbackForce = 1f;
@@ -73,6 +75,10 @@ public class PlayerAttack : MonoBehaviour
                 if (channelTime > 0.3f)
                 {
                     GetComponent<PlayerMovement>().playerSpeed = 140f; // ralentit le player quand il canalise l'attaque lourde
+                    if(!playerAudio.soundSource.isPlaying)
+                    {
+                        playerAudio.PlayClipNat(playerAudio.soundSource, playerAudio.heavyAttackLoad, 1, playerAudio.misc);
+                    }
                 }
             }
             if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide
@@ -80,7 +86,7 @@ public class PlayerAttack : MonoBehaviour
                 anim.SetBool("isAttacking", true);
 
                 Attack(lightAttackDamage, lightKnockbackForce, lightKnockbackDuration, lightAttackRange, lightAttackPointCollider);
-                playerAudio.PlayClip(playerAudio.lightAttack, 1);
+                playerAudio.PlayClip(playerAudio.soundSource, playerAudio.lightAttack, 1, playerAudio.attack);
                 //StartCoroutine(AttackCooldown(lightAttackCooldown));
                 StartCoroutine("resetAttack");
                 channelTime = 0;
@@ -91,7 +97,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 anim.SetBool("isHeavyAttack", true);
                 Attack(heavyAttackDamage, heavyKnockbackForce, heavyKnockbackDuration, heavyAttackRange, heavyAttackPointCollider);
-                playerAudio.PlayClip(playerAudio.heavyAttack, 1);
+                playerAudio.PlayClip(playerAudio.soundSource, playerAudio.heavyAttack, 1, playerAudio.attack);
                 //StartCoroutine(AttackCooldown(heavyAttackCooldown));
                 StartCoroutine("resetAttack");
                 channelTime = 0;
@@ -109,14 +115,18 @@ public class PlayerAttack : MonoBehaviour
         {
             if (enemy.GetType() == typeof(BoxCollider2D)) //va prendre en compte uniquement les boxcollider de l'ennemi dans le calcul des dommages
             {
-                enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
-                StartCoroutine(KnockBackMove(enemy.GetComponent<EnemyMovement>(), knockbackDuration));
-                enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
-                enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
-                //dé-lock sa position
-                //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                if (enemy.TryGetComponent<EnemyHP>(out enemyHP))
+                {
+                    enemy.GetComponent<EnemyHP>().TakeDamage(attackDamage);
 
-                Knockback(enemy.gameObject, knockbackForce);
+                    StartCoroutine(KnockBackMove(enemy.GetComponent<EnemyMovement>(), knockbackDuration));
+                    enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+                    enemy.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+                    //dé-lock sa position
+                    //enemy.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+                    Knockback(enemy.gameObject, knockbackForce);
+                }
             }
         }
 
