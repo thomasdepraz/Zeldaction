@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4047628440438062216}
-  - {fileID: 1849980690369887299}
+  - {fileID: 8360930787121692630}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -132,7 +132,7 @@ MonoBehaviour:
   currentSpriteIndex: 0
   loot: {fileID: 6135825320653908896, guid: a0f134617c070e543882177898724c0e, type: 3}
   hitParticle: {fileID: 8569114383526112961}
-  audioManager: {fileID: 5444045672610806180}
+  audioManager: {fileID: 6004784905182109949}
 --- !u!50 &3532998301623407319
 Rigidbody2D:
   serializedVersion: 4
@@ -154,7 +154,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &8081610064830871467
+--- !u!1 &5681896829156535777
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,23 +162,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1849980690369887299}
-  - component: {fileID: 3391991712510797403}
-  - component: {fileID: 5444045672610806180}
+  - component: {fileID: 8360930787121692630}
+  - component: {fileID: 3025948659673678013}
+  - component: {fileID: 6004784905182109949}
   m_Layer: 0
-  m_Name: AudioSource
+  m_Name: 'AudioSource '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1849980690369887299
+--- !u!4 &8360930787121692630
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8081610064830871467}
+  m_GameObject: {fileID: 5681896829156535777}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.65, y: -1.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -186,17 +186,16 @@ Transform:
   m_Father: {fileID: 3532998301623407318}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &3391991712510797403
+--- !u!82 &3025948659673678013
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8081610064830871467}
+  m_GameObject: {fileID: 5681896829156535777}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 4414387205583231907, guid: c1735c874ee5afd419a44902eb4f7f60,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -283,23 +282,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5444045672610806180
+--- !u!114 &6004784905182109949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8081610064830871467}
+  m_GameObject: {fileID: 5681896829156535777}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a768da67661aad74dbab549b4466374a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundSource: {fileID: 3391991712510797403}
-  hitRock: {fileID: 8300000, guid: 0a9a53f70723d364b987d6461ba5aa30, type: 3}
-  breakRock: {fileID: 8300000, guid: b9e359c3de5883a48b1dcfd148e3a8df, type: 3}
-  onPressurePlate: {fileID: 8300000, guid: 147f782af74b68c48aed785abbbd6512, type: 3}
-  openDoor: {fileID: 0}
+  soundSource: {fileID: 3025948659673678013}
+  rocks: {fileID: -7310514793605743111, guid: 852ec1fae1bb7274f82ddf6e5896264f, type: 2}
+  plates: {fileID: 2699289821833024796, guid: 852ec1fae1bb7274f82ddf6e5896264f, type: 2}
+  fires: {fileID: -8914232354606769085, guid: 852ec1fae1bb7274f82ddf6e5896264f, type: 2}
+  crate: {fileID: -5703189962977364163, guid: 852ec1fae1bb7274f82ddf6e5896264f, type: 2}
+  hitRock: {fileID: 8300000, guid: feb01d609078c2349b65d0dd23bdaf06, type: 3}
+  breakRock: {fileID: 8300000, guid: 0dfe423e6604e01498e0d3cc90a57add, type: 3}
+  onPressurePlate: {fileID: 8300000, guid: 162c662936ae2e54daa3a8717ac6311a, type: 3}
+  openDoor: {fileID: 8300000, guid: 42581ff7422d7ee408aa20be9769cb9a, type: 3}
+  closeDoor: {fileID: 0}
+  lightFire: {fileID: 8300000, guid: e9fe88e1e1baa6c4c95e6e56cc1f28e7, type: 3}
+  heavyCrateMove: {fileID: 8300000, guid: 348fea4725e38f74eb7a83a886953cd4, type: 3}
+  lightCrateMove: {fileID: 8300000, guid: a24cc569f03a602488e56191668e88de, type: 3}
+  lightCratebreak: {fileID: 8300000, guid: cbb58342b0f8d1b4c8d42ad80d1f4617, type: 3}
+  fireCamp: {fileID: 8300000, guid: 49575d4d60fe22045a942e442968f329, type: 3}
 --- !u!1001 &7920128017576788914
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -75,6 +75,10 @@ public class PlayerAttack : MonoBehaviour
                 if (channelTime > 0.3f)
                 {
                     GetComponent<PlayerMovement>().playerSpeed = 140f; // ralentit le player quand il canalise l'attaque lourde
+                    if(!playerAudio.soundSource.isPlaying)
+                    {
+                        playerAudio.PlayClipNat(playerAudio.soundSource, playerAudio.heavyAttackLoad, 1, playerAudio.misc);
+                    }
                 }
             }
             if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide

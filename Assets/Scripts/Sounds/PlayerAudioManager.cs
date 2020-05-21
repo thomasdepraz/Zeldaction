@@ -45,6 +45,7 @@ public class PlayerAudioManager : MonoBehaviour
     public void PlayClipNat(AudioSource source, AudioClip clip, float volume, AudioMixerGroup mixer)
     {
         source.outputAudioMixerGroup = mixer;
+        source.pitch =1;
         source.volume = volume;
         source.clip = clip;
         source.Play();

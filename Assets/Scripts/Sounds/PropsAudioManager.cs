@@ -14,6 +14,7 @@ public class PropsAudioManager : MonoBehaviour
     public AudioClip breakRock;
     public AudioClip onPressurePlate;
     public AudioClip openDoor;
+    public AudioClip closeDoor;
     public AudioClip lightFire;
     public AudioClip heavyCrateMove;
     public AudioClip lightCrateMove;
@@ -36,6 +37,7 @@ public class PropsAudioManager : MonoBehaviour
     {
         soundSource.loop = false;
         soundSource.volume = volume;
+        soundSource.pitch = 1;
         soundSource.outputAudioMixerGroup = mixer;
         soundSource.clip = clip;
         soundSource.Play();

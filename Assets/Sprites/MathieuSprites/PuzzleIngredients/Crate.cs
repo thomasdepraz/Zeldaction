@@ -96,6 +96,7 @@ public class Crate : MonoBehaviour
                 hitbox.SetActive(false);
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 spr.sprite = lightCrateRumble;
+                spr.sortingOrder = -2;
                 audioManager.PlayClipNat(audioManager.lightCratebreak, 1, audioManager.crate);
             }
         }
