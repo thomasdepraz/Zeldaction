@@ -97,17 +97,21 @@ public class EnemyAttack : MonoBehaviour
         }
         while (chargeTime < chargeMaxTime && !Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer));
 
-        enemyRb.velocity = Vector2.zero;
-
-        yield return new WaitForSeconds(stunTime);
-        enemyMovement.canMove = true;
-        coroutineCanStart = true;
     }
     public void GetAnimationEvent(string parameter)
     {
         if(parameter == "attackEnded")
         {
             anim.SetBool("isAttacking", false);
+            enemyRb.velocity = Vector2.zero;
+            anim.SetBool("isStun", true);
+        }
+
+        if(parameter == "stunEnded")
+        {
+            anim.SetBool("isStun", false);
+            coroutineCanStart = true;
+            enemyMovement.canMove = true;
         }
     }
 

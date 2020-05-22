@@ -321,6 +321,7 @@ MonoBehaviour:
   damageMaterial: {fileID: 2100000, guid: 0193e928e75afe44fa72a94f8a4a638e, type: 3}
   hitParticle: {fileID: 1796707588023139258}
   impulseSource: {fileID: 1826523282532648684}
+  audioManager: {fileID: 8450841925209230702}
 --- !u!114 &2501730103344179338
 MonoBehaviour:
   m_ObjectHideFlags: 0

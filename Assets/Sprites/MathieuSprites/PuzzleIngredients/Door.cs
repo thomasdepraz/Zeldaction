@@ -12,7 +12,6 @@ public class Door : MonoBehaviour
     private SpriteRenderer rend;
     public Sprite closedDoor;
     public Sprite openDoor;
-    public PropsAudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
