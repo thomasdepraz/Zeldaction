@@ -12,6 +12,7 @@ public class EnemyAttack : MonoBehaviour
     private bool coroutineCanStart = true;
     [HideInInspector] public bool enemysIsTackling;
     private Rigidbody2D enemyRb;
+    public ParticleSystem attackParticle;
 
     [Header("Charge Details")]
     public float chargeStopDistance;
@@ -50,6 +51,7 @@ public class EnemyAttack : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerHP = player.GetComponent<PlayerHP>();
         anim = gameObject.GetComponent<Animator>();
+        attackParticle.Stop();
     }
 
     // Update is called once per frame
@@ -77,8 +79,13 @@ public class EnemyAttack : MonoBehaviour
         enemyMovement.canMove = false;
         enemyRb.velocity = Vector2.zero;
         //activer particule
+        attackParticle.Play();
+
         yield return new WaitForSeconds(prepairTime);
+
         //desactiver particule
+        attackParticle.Stop();
+
         anim.SetBool("isAttacking", true);
         audioManager.PlayClip(audioManager.chargeAttack, 1, audioManager.output);
         float chargeTime = 0f;
