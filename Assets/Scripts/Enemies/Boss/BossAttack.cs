@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossAttack : MonoBehaviour
@@ -20,6 +19,7 @@ public class BossAttack : MonoBehaviour
     public GameObject leftClaw;
     public GameObject rightClaw;
     public GameObject player;
+    public BossAudioSource bossAudio;
     void Update()
     {
         Attack(knockbackforce, attackRange, knockbackduration, attackDamage, player);
@@ -66,5 +66,8 @@ public class BossAttack : MonoBehaviour
         yield return new WaitForSeconds(bossCD);
         canDoDamage = true;
     }
-
+    public void PlayAudio()
+    {
+        bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.BalayagePince, 1, bossAudio.attack);
+    }
 }
