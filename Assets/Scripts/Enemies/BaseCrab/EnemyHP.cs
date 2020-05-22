@@ -15,6 +15,7 @@ public class EnemyHP : MonoBehaviour
 
     public ParticleSystem hitParticle;
     public CinemachineImpulseSource impulseSource;
+    public BaseCrabAudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,20 +25,20 @@ public class EnemyHP : MonoBehaviour
         defaultMaterial = GetComponent<SpriteRenderer>().material;
     }
 
-    private void Update()
-    {
- 
-    }
-
     public void TakeDamage(int damage)
     {
         hitParticle.Play();
         impulseSource.GenerateImpulse(Vector3.up);
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle de l'ennemi
+        if(currentHealth > 0)
+        {
+            audioManager.PlayClip(audioManager.onHit, 1, audioManager.output);
+        }
         StartCoroutine(DamageFB());
         if (currentHealth <= 0)
         {
             anim.SetBool("isDead", true);
+            audioManager.PlayClipNat(audioManager.death, 1, audioManager.output);
         }
     }
 

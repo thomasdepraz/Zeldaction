@@ -54,7 +54,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 11
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -142,7 +142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundSource: {fileID: 3151858296063659271}
+  output: {fileID: -1671276194718943903, guid: 6e9096a5e0e5952489c5df3f8c2ba42c, type: 2}
   chargeAttack: {fileID: 8300000, guid: 56a83d733a5b22a4faf83c9256e30843, type: 3}
+  onHit: {fileID: 8300000, guid: ed9b2e600c057104dae5f87ddcaaf3f7, type: 3}
+  death: {fileID: 8300000, guid: 4ff35ca97cf84924eb278d856a9dac5b, type: 3}
 --- !u!1 &5930221659852930160
 GameObject:
   m_ObjectHideFlags: 0

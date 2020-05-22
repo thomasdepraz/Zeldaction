@@ -1,25 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class BaseCrabAudioManager : MonoBehaviour
 {
     public AudioSource soundSource;
+    public AudioMixerGroup output;
     public AudioClip chargeAttack;
-    public void PlayClip(AudioClip clip, float volume)
+    public AudioClip onHit;
+    public AudioClip death;
+    public void PlayClip(AudioClip clip, float volume, AudioMixerGroup mixer )
     {
         float pitch = Random.Range(0.8f, 1.2f);
+        soundSource.outputAudioMixerGroup = mixer;
         soundSource.pitch = pitch;
         soundSource.volume = volume;
         soundSource.clip = clip;
         soundSource.Play();
     }
 
-    public void PlayClipDelay(AudioClip clip, float delay)
+    public void PlayClipNat(AudioClip clip, float volume, AudioMixerGroup mixer)
     {
-        float pitch = Random.Range(0.8f, 1.2f);
-        soundSource.pitch = pitch;
+        soundSource.outputAudioMixerGroup = mixer;
+        soundSource.pitch = 1;
+        soundSource.volume = volume;
         soundSource.clip = clip;
-        soundSource.PlayDelayed(delay);
+        soundSource.Play();
     }
 }

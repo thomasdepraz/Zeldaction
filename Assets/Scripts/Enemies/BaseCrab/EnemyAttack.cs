@@ -80,7 +80,7 @@ public class EnemyAttack : MonoBehaviour
         yield return new WaitForSeconds(prepairTime);
         //desactiver particule
         anim.SetBool("isAttacking", true);
-        audioManager.PlayClip(audioManager.chargeAttack, 1);
+        audioManager.PlayClip(audioManager.chargeAttack, 1, audioManager.output);
         float chargeTime = 0f;
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
