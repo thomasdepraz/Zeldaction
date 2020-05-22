@@ -79,6 +79,7 @@ public class PlayerAttack : MonoBehaviour
                     {
                         playerAudio.PlayClipNat(playerAudio.soundSource, playerAudio.heavyAttackLoad, 1, playerAudio.misc);
                     }
+                    anim.SetBool("isCharging", true);
                 }
             }
             if (Input.GetButtonUp("AttackButton") && canAttack == true && channelTime < 1f) // si le bouton est pressé moins de 1 secondes et que le cd est respecté, fait une attaque rapide
@@ -227,5 +228,6 @@ public class PlayerAttack : MonoBehaviour
         canAttack = true;
         anim.SetBool("isAttacking", false);
         anim.SetBool("isHeavyAttack", false);
+        anim.SetBool("isCharging", false);
     }
 }
