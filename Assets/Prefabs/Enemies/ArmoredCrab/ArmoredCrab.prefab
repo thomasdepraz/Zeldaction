@@ -192,7 +192,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 11
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -280,7 +280,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundSource: {fileID: 812315111307696214}
-  lightAttack: {fileID: 8300000, guid: 9a939f31d254b1649aa2a766713a88ff, type: 3}
+  output: {fileID: -4857104074191739393, guid: 6e9096a5e0e5952489c5df3f8c2ba42c, type: 2}
+  shoot: {fileID: 8300000, guid: a40db8666b32c0e4298485d18b9de588, type: 3}
+  armorDown: {fileID: 8300000, guid: 0e5d6c347ae375a4f992ff43b074314c, type: 3}
 --- !u!1 &4496600482519829621
 GameObject:
   m_ObjectHideFlags: 0

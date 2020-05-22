@@ -153,11 +153,8 @@ public class ArmoredCrab : MonoBehaviour
         
         GameObject Projectile = Instantiate(projectile, transform.position, Quaternion.identity);
         Projectile.transform.position = player.transform.position;
-        audioManager.PlayClip(audioManager.lightAttack, 1);
+        audioManager.PlayClip(audioManager.shoot, 1, audioManager.output);
         yield return null;
-        //yield return new WaitForSeconds(1f);//Wait for projectile traveltime
-
-        //Projectile.GetComponent<ArmoredCrabProjectile>().Explode();//activate Projectile damage
     }
 
     private IEnumerator Stun()

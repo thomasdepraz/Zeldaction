@@ -16,6 +16,7 @@ public class CrabeSouterrain : MonoBehaviour
     private Hookable hookable;
     private float distanceToPlayer;
     public CinemachineImpulseSource impulseSource;
+    public UndergroundCrabAudioManager audioManager;
 
     
     [Header("Tweaks")]
@@ -71,6 +72,14 @@ public class CrabeSouterrain : MonoBehaviour
             direction = player.transform.position - gameObject.transform.position;
             rb.velocity = direction.normalized * speed * Time.deltaTime;
             particles.SetActive(true);
+
+            if(!audioManager.soundSource.isPlaying)
+            {
+                if (audioManager.soundSource.clip != audioManager.move)
+                {
+                    audioManager.PlayAndLoop(audioManager.move, 1, audioManager.output);
+                }
+            }
         }
         else
         {
@@ -104,10 +113,12 @@ public class CrabeSouterrain : MonoBehaviour
 
         yield return new WaitForSeconds(loadAttack); //préparation de l'attaque
         hookable.isActive = true;
+        audioManager.PlayClip(audioManager.clawOut, 1, audioManager.output);
         anim.SetBool("isAttacking", true);                         
 
         yield return new WaitForSeconds(stunTime);//après attaque stun puis peut bouger à nouveau
         anim.SetBool("isRetracting", true);
+        audioManager.PlayClip(audioManager.clawIn, 1, audioManager.output);
         hookable.isActive = false;   
     }
 
@@ -116,8 +127,7 @@ public class CrabeSouterrain : MonoBehaviour
     {
         hookable.isActive = false;
         anim.SetBool("isDead", true);
-
-        
+        audioManager.PlayClip(audioManager.death, 1, audioManager.output);
     }
 
     public void GetAnimationEvent(string parameter)
@@ -149,7 +159,6 @@ public class CrabeSouterrain : MonoBehaviour
             {
                 GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
             }
-            //GameObject.Instantiate(baseCrab, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

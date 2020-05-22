@@ -187,6 +187,7 @@ public class HookThrow : MonoBehaviour
             {
                 GameObject ArmoredCrab = hook.transform.parent.gameObject;
                 ArmoredCrab.GetComponent<ArmoredCrab>().anim.SetBool("isDead", true);
+                ArmoredCrab.GetComponent<ArmoredCrab>().audioManager.PlayClip(ArmoredCrab.GetComponent<ArmoredCrab>().audioManager.armorDown, 1, ArmoredCrab.GetComponent<ArmoredCrab>().audioManager.output);  
                 GameObject Armor = Instantiate(ArmoredCrab.GetComponent<ArmoredCrab>().armor, ArmoredCrab.transform.position, Quaternion.identity);
                 hook.transform.SetParent(Armor.transform);
                 objectDrag = Armor.GetComponent<Rigidbody2D>().drag;
