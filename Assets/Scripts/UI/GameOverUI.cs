@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class GameOverUI : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class GameOverUI : MonoBehaviour
     public GameObject retryButton;
     public bool reset;
     public static bool startAnim = false;
-     
+    public UIAudioManager audioManager;
+
 
 
     private void Start()
@@ -36,7 +38,25 @@ public class GameOverUI : MonoBehaviour
 
     public void Retry()
     {
-        if(SceneManager.GetActiveScene().name != "DungeonScene")
+        StartCoroutine(RetryCoroutine());
+    }
+
+    public void MainMenu()
+    {
+        StartCoroutine(QuitCoroutine());
+    }
+
+    private IEnumerator QuitCoroutine()
+    {
+        yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
+    private IEnumerator RetryCoroutine()
+    {
+        yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
+
+        if (SceneManager.GetActiveScene().name != "DungeonScene")
         {
             player.transform.position = PlayerManager.lastCheckpoint.transform.position;
             PlayerManager.canAttack = true;
@@ -55,16 +75,9 @@ public class GameOverUI : MonoBehaviour
             SceneManager.LoadScene("DungeonScene");
         }
     }
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("MainMenuScene");
-    }
-
     public void getUIButtons() //AnimEvent
     {
         eventSystem.firstSelectedGameObject = retryButton;
         eventSystem.SetSelectedGameObject(retryButton);
     }
-
 }

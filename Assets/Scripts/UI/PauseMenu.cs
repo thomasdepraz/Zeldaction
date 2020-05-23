@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Diagnostics;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class PauseMenu : MonoBehaviour
     private bool isPaused;
     private EventSystem eventSystem;
     public GameObject pauseButton;
+    public UIAudioManager audioManager;
+    private bool canStartCoroutine = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +43,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        audioManager.PlayClip(audioManager.soundSource, audioManager.openMenu, 1, audioManager.menu);
         eventSystem.firstSelectedGameObject = pauseButton;
         eventSystem.SetSelectedGameObject(pauseButton);
         pauseMenu.SetActive(true);
@@ -48,9 +53,10 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1;
-        isPaused = false;
+        if(canStartCoroutine)
+        {
+            StartCoroutine(ResumeCoroutine());
+        }
     }
 
     public void Options()
@@ -60,6 +66,33 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit()
     {
+        if(canStartCoroutine)
+        {
+            StartCoroutine(QuitCoroutine());
+        }
+    }
+
+    private IEnumerator ResumeCoroutine()
+    {
+        canStartCoroutine = false;
+        eventSystem.enabled = false;
+        yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+        isPaused = false;
+        audioManager.PlayClip(audioManager.soundSource, audioManager.closeMenu, 1, audioManager.menu);
+        eventSystem.enabled = true;
+        canStartCoroutine = true;
+    }
+
+    private IEnumerator QuitCoroutine()
+    {
+        canStartCoroutine = false;
+        eventSystem.enabled = false;
+        yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
+        eventSystem.enabled = true;
+        canStartCoroutine = true;
         SceneManager.LoadScene("MainMenuScene");
     }
+  
 }
