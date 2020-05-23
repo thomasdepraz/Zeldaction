@@ -1,24 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public UIAudioManager audioManager;
     
     public void Play()
     {
-        SceneManager.LoadScene("MainScene");
+        StartCoroutine(PlayCoroutine());
     }
 
     public void Options()
@@ -28,7 +18,19 @@ public class MainMenu : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();   
+        StartCoroutine(QuitCoroutine());
+    }
+
+    private IEnumerator PlayCoroutine()
+    {
+        yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
+        SceneManager.LoadScene("MainScene");
+    }
+
+    private IEnumerator QuitCoroutine()
+    {
+        yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
+        Application.Quit();
     }
 
 }
