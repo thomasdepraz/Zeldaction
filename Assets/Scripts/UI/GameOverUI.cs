@@ -13,6 +13,7 @@ public class GameOverUI : MonoBehaviour
     public bool reset;
     public static bool startAnim = false;
     public UIAudioManager audioManager;
+    private bool canStartCoroutine = true;
 
 
 
@@ -48,12 +49,18 @@ public class GameOverUI : MonoBehaviour
 
     private IEnumerator QuitCoroutine()
     {
+        canStartCoroutine = false;
+        eventSystem.enabled = false;
         yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
+        eventSystem.enabled = true;
+        canStartCoroutine = true;
         SceneManager.LoadScene("MainMenuScene");
     }
 
     private IEnumerator RetryCoroutine()
     {
+        canStartCoroutine = false;
+        eventSystem.enabled = false;
         yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
 
         if (SceneManager.GetActiveScene().name != "DungeonScene")
@@ -74,6 +81,8 @@ public class GameOverUI : MonoBehaviour
             Time.timeScale = 1f;
             SceneManager.LoadScene("DungeonScene");
         }
+        eventSystem.enabled = true;
+        canStartCoroutine = true;
     }
     public void getUIButtons() //AnimEvent
     {
