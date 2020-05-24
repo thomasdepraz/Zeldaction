@@ -39,12 +39,18 @@ public class GameOverUI : MonoBehaviour
 
     public void Retry()
     {
-        StartCoroutine(RetryCoroutine());
+        if(canStartCoroutine)
+        {
+            StartCoroutine(RetryCoroutine());
+        }
     }
 
     public void MainMenu()
     {
-        StartCoroutine(QuitCoroutine());
+        if(canStartCoroutine)
+        {
+            StartCoroutine(QuitCoroutine());
+        }
     }
 
     private IEnumerator QuitCoroutine()
