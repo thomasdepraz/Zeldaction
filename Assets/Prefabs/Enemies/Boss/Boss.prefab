@@ -1134,7 +1134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8857848667643520999
 Transform:
   m_ObjectHideFlags: 0
@@ -1342,6 +1342,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   crabcounter: 0
   Waypoint0: {fileID: 0}
+  bossAudio: {fileID: 344056156}
 --- !u!114 &510300641
 MonoBehaviour:
   m_ObjectHideFlags: 0
