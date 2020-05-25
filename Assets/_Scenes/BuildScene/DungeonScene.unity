@@ -708,7 +708,7 @@ PrefabInstance:
     - target: {fileID: 8857848667643520927, guid: 3e225201064362b44a8ed5e2380c8ae3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8857848667643520999, guid: 3e225201064362b44a8ed5e2380c8ae3,
         type: 3}
@@ -16495,7 +16495,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1096875276}
   - component: {fileID: 1096875278}
-  - component: {fileID: 1096875277}
   - component: {fileID: 1096875279}
   m_Layer: 0
   m_Name: Boss Collider CAM
@@ -16518,18 +16517,6 @@ Transform:
   m_Father: {fileID: 1773426435}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1096875277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1096875275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dedd62c85ccfce45a2bdcf534903cd2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1096875278
 BoxCollider2D:
   m_ObjectHideFlags: 0

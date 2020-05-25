@@ -26,9 +26,13 @@ public class BossLegProjectile : MonoBehaviour
     public LayerMask bossMask;
     private float attackRange = 0.47f;
     public SpriteRenderer sr;
+    public BossAudioSource bossAudio;
 
 
-
+    void Awake()
+    {
+        bossAudio = GameObject.Find("Boss").GetComponent<BossAudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +82,7 @@ public class BossLegProjectile : MonoBehaviour
 
     public void Explode()
     {
+        bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.FrappePatte, 1, bossAudio.attack);
         //Lancer l'anim d'explo
         if ((player.transform.position - gameObject.transform.position).magnitude <= strikeRange)
         {
