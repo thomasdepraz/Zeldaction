@@ -14,15 +14,22 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseButton;
     public UIAudioManager audioManager;
     private bool canStartCoroutine = true;
+    private GameObject player;
+    public GameObject retryButton;
     // Start is called before the first frame update
     void Start()
     {
         eventSystem = EventSystem.current;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(PlayerManager.lastCheckpoint != null || SceneManager.GetActiveScene().name == "DungeonScene")
+        {
+            retryButton.SetActive(true);
+        }
         if(!gameOverPanel.activeSelf)
         {
             if (Input.GetButtonDown("StartButton"))
@@ -59,16 +66,19 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Options()
-    {
-        //WIP
-    }
-
     public void Quit()
     {
         if(canStartCoroutine)
         {
             StartCoroutine(QuitCoroutine());
+        }
+    }
+
+    public void Retry()
+    {
+        if (canStartCoroutine)
+        {
+            StartCoroutine(RetryCoroutine());
         }
     }
 
@@ -94,5 +104,30 @@ public class PauseMenu : MonoBehaviour
         canStartCoroutine = true;
         SceneManager.LoadScene("MainMenuScene");
     }
-  
+
+    private IEnumerator RetryCoroutine()
+    {
+        canStartCoroutine = false;
+        eventSystem.enabled = false;
+        yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
+
+        if (SceneManager.GetActiveScene().name != "DungeonScene")
+        {
+            player.transform.position = PlayerManager.lastCheckpoint.transform.position;
+            PlayerManager.lastCheckpoint.GetComponent<Checkpoint>().ResetFight();
+            Time.timeScale = 1f;
+            isPaused = false;
+            pauseMenu.SetActive(false);
+            player.GetComponent<PlayerHP>().anim.SetBool("isDead", false);
+        }
+        else
+        {
+            isPaused = false;
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("DungeonScene");
+        }
+        eventSystem.enabled = true;
+        canStartCoroutine = true;
+    }
+
 }

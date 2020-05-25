@@ -12,7 +12,6 @@ public class VolumeManager : MonoBehaviour
 
     public void setVolume(float volume)
     {
-        //volume *= 40;
         player.SetFloat("MyExposedParam", volume);
         props.SetFloat("MyExposedParam", volume);
         UI.SetFloat("MyExposedParam", volume);
