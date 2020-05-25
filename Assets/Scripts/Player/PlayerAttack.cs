@@ -105,6 +105,11 @@ public class PlayerAttack : MonoBehaviour
                 GetComponent<PlayerMovement>().playerSpeed = 150f;
                 canAttack = false;
             }
+            if (Input.GetButtonUp("AttackButton"))
+            {
+                channelTime = 0f;
+                anim.SetBool("isCharging", false);
+            }
         }
     }
     void Attack(int attackDamage, float knockbackForce, float knockbackDuration, float attackRange, Collider2D collider)

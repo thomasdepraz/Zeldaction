@@ -18,7 +18,7 @@ public class BossManager : MonoBehaviour
     public GameObject waypoint2;
     public GameObject WaypointBoss;
     public GameObject Anchor;
-    private float bossSpeed = 15f;
+    private readonly float bossSpeed = 15f;
     public GameObject phase1Cam;
     public GameObject phase2Cam;
     private SpriteRenderer sr;
@@ -41,6 +41,7 @@ public class BossManager : MonoBehaviour
             {
                 float step = bossSpeed * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, WaypointBoss.transform.position, step);
+                Debug.Log("Bouge");
             }
 
             if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed)
@@ -49,10 +50,9 @@ public class BossManager : MonoBehaviour
             }
         }
 
-        if(deadBoss)
+        if (deadBoss)
         {
-            winUI.SetActive(true);
-            Time.timeScale = 0f;
+            anim.SetTrigger("Death");
         }
     }
     public void Phase2()
@@ -67,7 +67,7 @@ public class BossManager : MonoBehaviour
         Plate1 = Instantiate(plate1, waypoint1.transform.position, Quaternion.identity);
         Plate2 = Instantiate(plate2, waypoint2.transform.position, Quaternion.identity);
         gameObject.GetComponent<BossMovement>().enabled = false;
-        
+
     }
     public void Phase3()
     {
@@ -99,5 +99,10 @@ public class BossManager : MonoBehaviour
         sr.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         sr.color = Color.white;
+    }
+    public void DeadUI()
+    {
+        winUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
