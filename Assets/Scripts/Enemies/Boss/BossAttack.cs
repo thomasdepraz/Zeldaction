@@ -19,7 +19,7 @@ public class BossAttack : MonoBehaviour
     public GameObject leftClaw;
     public GameObject rightClaw;
     public GameObject player;
-    public BossAudioSource bossAudio;
+    public BossAudioManager bossAudio;
     void Update()
     {
         Attack(knockbackforce, attackRange, knockbackduration, attackDamage, player);

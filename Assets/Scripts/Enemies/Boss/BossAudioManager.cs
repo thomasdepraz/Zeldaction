@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
-public class BossAudioSource : MonoBehaviour
+public class BossAudioManager : MonoBehaviour
 {
     public AudioSource soundSource;
     public AudioSource audioSource02;

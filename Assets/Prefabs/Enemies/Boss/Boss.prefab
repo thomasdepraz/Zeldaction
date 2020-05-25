@@ -1134,7 +1134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8857848667643520999
 Transform:
   m_ObjectHideFlags: 0
@@ -1383,6 +1383,7 @@ MonoBehaviour:
   phase1Cam: {fileID: 0}
   phase2Cam: {fileID: 0}
   winUI: {fileID: 0}
+  bossAudio: {fileID: 344056156}
 --- !u!114 &612397333
 MonoBehaviour:
   m_ObjectHideFlags: 0

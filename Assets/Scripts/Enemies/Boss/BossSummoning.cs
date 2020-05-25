@@ -21,6 +21,7 @@ public class BossSummoning : MonoBehaviour
     [Header("Compteur de crabes invoqués actuellement par le boss")]
     public int crabcounter = 0;
     public GameObject Waypoint0;
+    public BossAudioManager bossAudio;
     // Start is called before the first frame update
     void Awake()
     {
@@ -61,11 +62,14 @@ public class BossSummoning : MonoBehaviour
     {
         Instantiate(baseCrab, Waypoint0.transform.position, transform.rotation);
         crabcounter++;
+        bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.Invocation, 1, bossAudio.attack);
     }
     void SummonPhase2()
     {
         Instantiate(armoredCrab, Waypoint0.transform.position, transform.rotation);
         crabcounter++;
+        bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.Invocation, 1, bossAudio.attack);
+
     }
    /* IEnumerator StopMoving()
     {

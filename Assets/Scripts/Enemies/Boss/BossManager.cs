@@ -24,6 +24,9 @@ public class BossManager : MonoBehaviour
     private SpriteRenderer sr;
     public static bool deadBoss = false;
     public GameObject winUI;
+    public BossAudioManager bossAudio;
+    private bool canPlayImpactSound = true;
+    private bool canPlayDeathSound = true;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +44,11 @@ public class BossManager : MonoBehaviour
             {
                 float step = bossSpeed * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, WaypointBoss.transform.position, step);
-                Debug.Log("Bouge");
+            }
+            else if (Vector2.Distance(transform.position, WaypointBoss.transform.position) == 0 && canPlayImpactSound == true)
+            {
+                bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.Saut, 1, bossAudio.cutscenes);
+                canPlayImpactSound = false;
             }
 
             if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed)
@@ -50,9 +57,12 @@ public class BossManager : MonoBehaviour
             }
         }
 
-        if (deadBoss)
+        if (deadBoss && canPlayDeathSound == true)
         {
             anim.SetTrigger("Death");
+            bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.MortBoss, 1, bossAudio.health);
+            canPlayDeathSound = false;
+            //add screenshake
         }
     }
     public void Phase2()
@@ -89,6 +99,7 @@ public class BossManager : MonoBehaviour
     public void AnchorFB()
     {
         StartCoroutine(AnchorDamageFB());
+        bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.ImpactRoche, 1, bossAudio.cutscenes);
     }
     IEnumerator AnchorDamageFB()
     {

@@ -23,15 +23,16 @@ public class BossLegProjectile : MonoBehaviour
     private bool LegHit;
     private bool Missed;
     public bool Broken;
+    private bool canPlayBrokenSound = true;
     public LayerMask bossMask;
     private float attackRange = 0.47f;
     public SpriteRenderer sr;
-    public BossAudioSource bossAudio;
+    public BossAudioManager bossAudio;
 
 
     void Awake()
     {
-        bossAudio = GameObject.Find("Boss").GetComponent<BossAudioSource>();
+        bossAudio = GameObject.Find("BossAudioSource").GetComponent<BossAudioManager>();
     }
 
     // Start is called before the first frame update
@@ -56,6 +57,11 @@ public class BossLegProjectile : MonoBehaviour
             else if (Broken == true)
             {
                 timer = brokenTimer += Time.deltaTime;
+                if (canPlayBrokenSound == true)
+                {
+                    bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.PatteCassée, 1, bossAudio.health);
+                    canPlayBrokenSound = false;
+                }
             }
 
             if (BossLegThrow.Instance.isInjured == false)
@@ -82,7 +88,7 @@ public class BossLegProjectile : MonoBehaviour
 
     public void Explode()
     {
-        bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.FrappePatte, 1, bossAudio.attack);
+        bossAudio.PlayClip(bossAudio.soundSource, bossAudio.FrappePatte, 1, bossAudio.attack);
         //Lancer l'anim d'explo
         if ((player.transform.position - gameObject.transform.position).magnitude <= strikeRange)
         {
@@ -130,6 +136,7 @@ public class BossLegProjectile : MonoBehaviour
         {
             if (BossLegThrow.Instance.isInjured == false)
             {
+                bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.PriseDégats, 1, bossAudio.health);
                 StartCoroutine(DamageFB());
                 GetComponent<SpriteRenderer>().enabled = false;
             }
