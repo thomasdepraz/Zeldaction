@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if(playerRb.velocity == Vector2.zero)
         {
             animator.SetBool("isMoving", false);
+            isMoving = false;
         }
     }
 
