@@ -64,8 +64,9 @@ public class PlayerHP : MonoBehaviour
         StartCoroutine("portraitSwap");//damaged portrait
         StartCoroutine("DamageFB");//damage FX
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !gameOverUI.activeSelf)
         {
+            PlayerManager.canMove = false;
             playerAudio.PlayClip(playerAudio.soundSource, playerAudio.death, 1, playerAudio.life);
             anim.SetBool("isDead", true);
         }
