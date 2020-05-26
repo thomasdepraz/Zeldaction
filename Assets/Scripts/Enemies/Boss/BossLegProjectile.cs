@@ -136,7 +136,7 @@ public class BossLegProjectile : MonoBehaviour
         {
             if (BossLegThrow.Instance.isInjured == false)
             {
-                bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.PriseDégats, 1, bossAudio.health);
+                bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.PriseDégats, 2f, bossAudio.health);
                 StartCoroutine(DamageFB());
                 GetComponent<SpriteRenderer>().enabled = false;
             }

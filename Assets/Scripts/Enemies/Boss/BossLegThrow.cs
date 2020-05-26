@@ -142,8 +142,8 @@ public class BossLegThrow : MonoBehaviour
         foreach (GameObject projectileLeg in legs)
         {
             GameObject.Destroy(projectileLeg);
-            LegCounter--;
         }
+        LegCounter = 0;
 
         anim.ResetTrigger("canRecall");
         LeftLeg.SetActive(true);

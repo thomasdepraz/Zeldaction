@@ -45,12 +45,12 @@ public class BossSummoning : MonoBehaviour
                 //StartCoroutine(StopMoving());
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 anim.SetTrigger("SummonPhase1");
-                startTimer = -3f;
+                startTimer = 0f;
             }
             else if (timer >= 5f && GetComponent<BossManager>().isPhase2 == true && crabcounter <2) // && phase 2
             {
                 anim.SetTrigger("SummonPhase2");
-                startTimer = -3f;
+                startTimer = 0f;
             }
         }
         else if (Vector2.Distance(player.position, rb.position) <= attackRange)
@@ -62,14 +62,17 @@ public class BossSummoning : MonoBehaviour
     {
         Instantiate(baseCrab, Waypoint0.transform.position, transform.rotation);
         crabcounter++;
-        bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.Invocation, 1, bossAudio.attack);
+        //bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.Invocation, 1, bossAudio.attack);
     }
     void SummonPhase2()
     {
         Instantiate(armoredCrab, Waypoint0.transform.position, transform.rotation);
         crabcounter++;
+        //bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.Invocation, 1, bossAudio.attack);
+    }
+    void SummonNoise()
+    {
         bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.Invocation, 1, bossAudio.attack);
-
     }
    /* IEnumerator StopMoving()
     {
@@ -78,13 +81,13 @@ public class BossSummoning : MonoBehaviour
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
     }*/
-    public void canMove()
+    void canMove()
     {
         GetComponent<BossMovement>().canMove = true;
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
         rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
     }
-    public void cannotMove()
+    void cannotMove()
     {
         GetComponent<BossMovement>().canMove = false;
     }

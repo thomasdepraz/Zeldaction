@@ -1357,6 +1357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
+  bossAudio: {fileID: 344056156}
 --- !u!114 &510300650
 MonoBehaviour:
   m_ObjectHideFlags: 0
