@@ -153,7 +153,7 @@ public class ArmoredCrab : MonoBehaviour
         
         GameObject Projectile = Instantiate(projectile, transform.position, Quaternion.identity);
         Projectile.transform.position = player.transform.position;
-        audioManager.PlayClip(audioManager.shoot, 1, audioManager.output);
+        audioManager.PlayClip(audioManager.shoot, 0.7f, audioManager.output);
         yield return null;
     }
 
