@@ -73,7 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 5114a74acd052d942aa9721a6b675498, type: 3}
+  m_Sprite: {fileID: 3742095874381565632, guid: 3cbac5fe545caf54297f7620829b6cfb,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,8 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a62f8ad695c854f9220f0b96901974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  realesedSprite: {fileID: 21300000, guid: 5114a74acd052d942aa9721a6b675498, type: 3}
-  pressedSprite: {fileID: 21300000, guid: e5f7787d8f80d9049b748b44479e426c, type: 3}
+  realesedSprite: {fileID: 3742095874381565632, guid: 3cbac5fe545caf54297f7620829b6cfb,
+    type: 3}
+  pressedSprite: {fileID: 4980901177339203906, guid: 3cbac5fe545caf54297f7620829b6cfb,
+    type: 3}
   hitboxLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -118,18 +121,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0013543367, y: 0.016587853}
+  m_Offset: {x: -0.00349617, y: -0.0005464554}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 0.59375}
+    oldSize: {x: 0.84375, y: 0.59375}
     newSize: {x: 0.375, y: 0.375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6214912, y: 0.55851984}
+  m_Size: {x: 0.7799835, y: 0.47284818}
   m_EdgeRadius: 0
 --- !u!1 &5646933772895857474
 GameObject:
