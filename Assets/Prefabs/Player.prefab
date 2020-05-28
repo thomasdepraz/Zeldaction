@@ -1316,7 +1316,7 @@ MonoBehaviour:
   heavyAttackPointCollider: {fileID: 1487890051}
   lightAttackPointCollider: {fileID: 1860917429}
   lightAttackDamage: 1
-  heavyAttackDamage: 2
+  heavyAttackDamage: 3
   lightAttackRange: 0.3
   heavyAttackRange: 0.5
   lightAttackCooldown: 0.2
