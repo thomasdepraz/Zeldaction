@@ -141,7 +141,15 @@ public class BossLegThrow : MonoBehaviour
         GameObject[] legs = GameObject.FindGameObjectsWithTag("Hookable");
         foreach (GameObject projectileLeg in legs)
         {
-            GameObject.Destroy(projectileLeg);
+            if (projectileLeg.transform.childCount == 0)
+            {
+                Destroy(projectileLeg);
+            }
+            else
+            {
+                projectileLeg.GetComponent<Hookable>().isActive = false;
+                StartCoroutine(AutoDestroy(projectileLeg));
+            }
         }
         LegCounter = 0;
 
@@ -155,5 +163,10 @@ public class BossLegThrow : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         canThrow = true;
+    }
+    IEnumerator AutoDestroy(GameObject projectileLeg)
+    {
+        yield return new WaitForSeconds(3f);
+        DestroyImmediate(projectileLeg, true);
     }
 }

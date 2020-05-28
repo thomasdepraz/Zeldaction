@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossManager : MonoBehaviour
@@ -27,6 +26,7 @@ public class BossManager : MonoBehaviour
     public BossAudioManager bossAudio;
     private bool canPlayImpactSound = true;
     private bool canPlayDeathSound = true;
+    private bool canGoPhase3;
 
     // Start is called before the first frame update
     void Start()
@@ -50,8 +50,20 @@ public class BossManager : MonoBehaviour
                 bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.Saut, 1, bossAudio.cutscenes);
                 canPlayImpactSound = false;
             }
+            GameObject[] Armors = GameObject.FindGameObjectsWithTag("Hookable");
+            foreach (GameObject Armor in Armors)
+            {
+                if (Armor.transform.childCount > 1)
+                {
+                    canGoPhase3 = false;
+                }
+                else
+                {
+                    canGoPhase3 = true;
+                }
+            }
 
-            if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed)
+            if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed && canGoPhase3 == true)
             {
                 Phase3();
             }
@@ -77,7 +89,6 @@ public class BossManager : MonoBehaviour
         Plate1 = Instantiate(plate1, waypoint1.transform.position, Quaternion.identity);
         Plate2 = Instantiate(plate2, waypoint2.transform.position, Quaternion.identity);
         gameObject.GetComponent<BossMovement>().enabled = false;
-
     }
     public void Phase3()
     {
@@ -86,10 +97,13 @@ public class BossManager : MonoBehaviour
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         GameObject[] monster = GameObject.FindGameObjectsWithTag("Hookable");
         GetComponent<BossSummoning>().enabled = false;
+        anim.ResetTrigger("SummonPhase2");
+       
         foreach (GameObject Monsters in monster)
         {
             GameObject.Destroy(Monsters);
         }
+        
         anim.SetTrigger("GoPhase3"); // intégrer l'animation de transition de phase
         GetComponent<BossLegThrow>().enabled = true;
         Anchor.GetComponent<BrokenAnchor>().enabled = true;
