@@ -28,7 +28,13 @@ public class HealthLoot : MonoBehaviour
                 pickup = true;
             }
 
-            if(pickup)
+            else if (playerHP.currentHealth < playerHP.maxHealth - healValue / 2)
+            {
+                playerHP.TakeDamage(-healValue/2);
+                pickup = true;
+            }
+
+            if (pickup)
             {
                 Destroy(gameObject);
             }

@@ -11,6 +11,7 @@ public class eventHook : MonoBehaviour
     public GameObject transitionPanel;
     private Animator anim;
     [HideInInspector] public static bool teleport;
+    bool coroutineLaunch = false;
 
     //CAM TRANSITION
     public CinemachineVirtualCamera playerCam;
@@ -29,28 +30,18 @@ public class eventHook : MonoBehaviour
         anim = transitionPanel.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (teleport)
-        {
-            Teleportation();
-        }
-    }
-
-    public void Teleportation()
-    {
-        player.transform.position = targetPosition.position;
-        teleport = false;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        transitionPanel.SetActive(true);
-        anim.SetBool("teleport", false);
-        anim.SetBool("teleport", true);
-        colliderArena.SetActive(true);
-        StartCoroutine(LoadEventHook());
+        if(coroutineLaunch == false)
+        {
+            transitionPanel.SetActive(true);
+            anim.SetBool("teleport", false);
+            anim.SetBool("teleport", true);
+            colliderArena.SetActive(true);
+            StartCoroutine(LoadEventHook());
+            coroutineLaunch = true;
+        }
     }
 
     IEnumerator LoadEventHook()
