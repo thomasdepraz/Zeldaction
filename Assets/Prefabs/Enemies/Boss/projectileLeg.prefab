@@ -148,6 +148,7 @@ MonoBehaviour:
   currentHealth: 0
   anim: {fileID: 1749873991727021219}
   BrokenLegSprite: {fileID: 21300000, guid: f5cbffaf41743df458dbdf20e6fc2d6a, type: 3}
+  bossAudio: {fileID: 0}
 --- !u!114 &511929049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1749873991727021219}
-  projectileDamage: 4
+  projectileDamage: 2
   strikeRange: 0.9
   startTimer: 0
   timer: 0
@@ -209,3 +210,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   sr: {fileID: 0}
+  bossAudio: {fileID: 0}
