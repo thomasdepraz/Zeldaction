@@ -17,6 +17,11 @@ public class eventHook : MonoBehaviour
     public CinemachineVirtualCamera transitionCam;
 
     public GameObject colliderArena;
+    public GameObject takableHook;
+    public GameObject falseHook;
+
+    [Header("Activable")]
+    public GameObject bobInterpellation02;
 
     void Start()
     {
@@ -51,8 +56,11 @@ public class eventHook : MonoBehaviour
     IEnumerator LoadEventHook()
     {
         yield return new WaitForSeconds(2f);
+        takableHook.SetActive(true);
+        falseHook.SetActive(false);
         player.transform.position = targetPosition.position;
         playerCam.gameObject.SetActive(false);
         transitionCam.gameObject.SetActive(true);
+        bobInterpellation02.SetActive(true);
     }
 }
