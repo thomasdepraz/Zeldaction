@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3036507682515649614}
   - component: {fileID: 3036507682515649615}
-  - component: {fileID: 7387222591028922652}
   m_Layer: 0
   m_Name: FilsViolet
   m_TagString: Untagged
@@ -82,29 +81,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7387222591028922652
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3036507682515649612}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.009851813, y: -0.024414867}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.52376705, y: 0.43282497}
-    oldSize: {x: 1.03125, y: 0.84375}
-    newSize: {x: 1.03125, y: 0.84375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.841573, y: 0.6815624}
-  m_EdgeRadius: 0

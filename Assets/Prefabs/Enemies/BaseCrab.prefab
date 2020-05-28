@@ -5170,7 +5170,7 @@ MonoBehaviour:
   enemysIsTackling: 0
   attackParticle: {fileID: 1764296631950974489}
   chargeStopDistance: 0.7
-  enemyChargeSpeed: 400
+  enemyChargeSpeed: 300
   chargeMaxTime: 0.5
   chargeRadiusTriggerAttack: 0.2
   prepairTime: 1

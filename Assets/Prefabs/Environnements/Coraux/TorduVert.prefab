@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5297091247881410134}
   - component: {fileID: 7843870666000341030}
-  - component: {fileID: 3908852656140359600}
   m_Layer: 0
   m_Name: TorduVert
   m_TagString: Untagged
@@ -82,29 +81,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3908852656140359600
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 327225110399497663}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.015885979, y: 0.032536745}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.46368918, y: 0.029774915}
-    oldSize: {x: 0.4375, y: 0.625}
-    newSize: {x: 0.4375, y: 0.625}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4375, y: 0.10229206}
-  m_EdgeRadius: 0

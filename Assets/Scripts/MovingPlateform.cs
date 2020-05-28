@@ -35,6 +35,11 @@ public class MovingPlateform : MonoBehaviour
             speed = maxSpeed;
             particles.SetActive(true);
         }
+
+        if(!firstRaft)
+        {
+            startedMoving = true;
+        }
     }
 
     void Update()
