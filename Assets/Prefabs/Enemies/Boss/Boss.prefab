@@ -1318,7 +1318,6 @@ MonoBehaviour:
   patrolRadius: 0
   minStopDistance: 0
   anim: {fileID: 8857848667643520992}
-  targetPosition: {x: 0, y: 0}
 --- !u!114 &8857848669021489326
 MonoBehaviour:
   m_ObjectHideFlags: 0

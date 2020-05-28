@@ -12,10 +12,12 @@ public class BossMovement : MonoBehaviour
     public float patrolRadius;
     public float minStopDistance;
     public Animator anim;
-
+    private Vector2 direction;
     private Vector2 patrolCenterPosition;
-    public Vector2 targetPosition;
+    private Vector2 target;
     Transform player;
+    private bool changedirection = true;
+    private float attackRange = 2.5f;
 
     void Start()
     {
@@ -26,35 +28,41 @@ public class BossMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Vector2.Distance(player.position, bossRb.position) >= 2.5f && canMove == true)
+
+
+        if (Vector2.Distance(player.position, bossRb.position) >= attackRange && canMove == true)
         {
-            Patrol();
-            StartCoroutine(MoveTimer());
-            anim.SetBool("isRunning", true);
+            if (changedirection == true)
+            {
+                StartCoroutine(ChangeDirection());
+            }
+            bossRb.velocity = direction.normalized * bossSpeed * Time.fixedDeltaTime;
+            if (bossRb.velocity != Vector2.zero)
+            {
+                anim.SetBool("isRunning", true);
+            }
         }
-        else if (Vector2.Distance(player.position, bossRb.position) <= 3.5f)
+
+        else if (Vector2.Distance(player.position, bossRb.position) < attackRange || canMove == false)
         {
             bossRb.velocity = Vector2.zero;
             anim.SetBool("isRunning", false);
         }
     }
-    void Patrol()
+
+    IEnumerator ChangeDirection()
     {
-        Vector2 target = new Vector2(Random.Range(-5.0f, 5.0f), patrolCenterPosition.y);
-        Vector2 direction = target - (Vector2)transform.position;
-        bossRb.velocity = direction.normalized * bossSpeed * Time.fixedDeltaTime;
+        changedirection = false;
+        target = new Vector2(Random.Range(-5.0f, 5.0f), patrolCenterPosition.y);
+        direction = target - (Vector2)transform.position;
+        yield return new WaitForSeconds(1f);
+        changedirection = true;
     }
 
-    IEnumerator MoveTimer()
-    {
-        canMove = false;
-        yield return new WaitForSeconds(2f);
-        canMove = true;
-    }
-    void OnCollisionEnter2D(Collision2D collision)
+   /* void OnCollisionEnter2D(Collision2D collision)
     {
         bossRb.constraints = RigidbodyConstraints2D.FreezeAll;
-    }
+    }*/
     void OnCollisionExit2D(Collision2D collision)
     {
         bossRb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
