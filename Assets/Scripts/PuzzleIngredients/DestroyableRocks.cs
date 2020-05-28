@@ -34,10 +34,11 @@ public class DestroyableRocks : MonoBehaviour
             {
                 audioManager.PlayClip(audioManager.breakRock, 1, audioManager.rocks);
                 float stat = Random.Range(0f, 1f);
-                if (stat < 0.7)
+                if (stat < 0.5)
                 {
                     GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
                 }
+                StartCoroutine(RockReset());
                 looted = true;
             }
         }
@@ -54,5 +55,16 @@ public class DestroyableRocks : MonoBehaviour
     {
         spriteRenderer.sprite = RockSprites[3];
         hitParticle.Play();
+    }
+
+    private IEnumerator RockReset()
+    {
+        yield return new WaitForSeconds(30);
+        currentSpriteIndex = 0;
+        spriteRenderer.sortingOrder = 0;
+        spriteRenderer.sprite = RockSprites[0];
+        boxCollider.enabled = true;
+        looted = false;
+
     }
 }

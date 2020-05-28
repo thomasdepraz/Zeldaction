@@ -14,6 +14,8 @@ public class HealthLoot : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag(playerTag);
         playerHP = player.GetComponent<PlayerHP>();
+
+        StartCoroutine(LootFade());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,6 +33,15 @@ public class HealthLoot : MonoBehaviour
                 Destroy(gameObject);
             }
            
+        }
+    }
+
+    private IEnumerator LootFade()
+    {
+        yield return new WaitForSeconds(10);
+        if(gameObject.transform.childCount == 2)
+        {
+            Destroy(gameObject);
         }
     }
 }
