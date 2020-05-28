@@ -16,6 +16,7 @@ public class BossManager : MonoBehaviour
     public GameObject waypoint1;
     public GameObject waypoint2;
     public GameObject WaypointBoss;
+    public GameObject WaypointCollider;
     public GameObject Anchor;
     private readonly float bossSpeed = 15f;
     public GameObject phase1Cam;
@@ -27,6 +28,7 @@ public class BossManager : MonoBehaviour
     private bool canPlayImpactSound = true;
     private bool canPlayDeathSound = true;
     private bool canGoPhase3;
+    public GameObject BubbleFX;
 
     // Start is called before the first frame update
     void Start()
@@ -89,6 +91,7 @@ public class BossManager : MonoBehaviour
         Plate1 = Instantiate(plate1, waypoint1.transform.position, Quaternion.identity);
         Plate2 = Instantiate(plate2, waypoint2.transform.position, Quaternion.identity);
         gameObject.GetComponent<BossMovement>().enabled = false;
+        BubbleFX.transform.position = WaypointCollider.transform.position;
     }
     public void Phase3()
     {

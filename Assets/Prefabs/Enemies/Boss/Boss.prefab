@@ -1381,11 +1381,13 @@ MonoBehaviour:
   waypoint1: {fileID: 0}
   waypoint2: {fileID: 0}
   WaypointBoss: {fileID: 0}
+  WaypointCollider: {fileID: 0}
   Anchor: {fileID: 0}
   phase1Cam: {fileID: 0}
   phase2Cam: {fileID: 0}
   winUI: {fileID: 0}
   bossAudio: {fileID: 344056156}
+  BubbleFX: {fileID: 0}
 --- !u!114 &612397333
 MonoBehaviour:
   m_ObjectHideFlags: 0
