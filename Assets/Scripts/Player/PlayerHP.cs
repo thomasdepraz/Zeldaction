@@ -45,7 +45,7 @@ public class PlayerHP : MonoBehaviour
         }
         else
         {
-            playerAudio.PlayClip(playerAudio.soundSource, playerAudio.lifeUp, 1, playerAudio.life);
+            playerAudio.PlayClip(playerAudio.soundSource, playerAudio.lifeUp, 0.6f, playerAudio.life);
         }
 
         GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.up);//screenshake
