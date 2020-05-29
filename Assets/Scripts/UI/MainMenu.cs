@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
     private IEnumerator PlayCoroutine()
     {
         yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("CinematicScene");
     }
 
     private IEnumerator QuitCoroutine()

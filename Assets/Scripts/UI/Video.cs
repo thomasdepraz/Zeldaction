@@ -1,32 +1,24 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class Video : MonoBehaviour
 {
     private VideoPlayer video;
-    public AudioSource audioSource;
-    public RawImage image;
     // Start is called before the first frame update
     void Start()
     {
         video = GetComponent<VideoPlayer>();
-        StartCoroutine(PlayVideo());
+        StartCoroutine(NextScene());
     }
 
-    private IEnumerator PlayVideo()
+    private IEnumerator NextScene()
     {
-        video.Prepare();
-        while(!video.isPrepared)
-        {
-            Debug.Log("waiting");
-            yield return new WaitForSeconds(1);
-            break;
-        }
-        //image.texture = video.texture;
-        Debug.Log("play");
-        video.Play();
-        audioSource.Play();
+        yield return new WaitForSeconds(2);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainScene");
+        asyncLoad.allowSceneActivation = false;
+        yield return new WaitUntil(() => video.isPlaying);
+        asyncLoad.allowSceneActivation = true;
     }
 }
