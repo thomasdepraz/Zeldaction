@@ -74,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
                 channelTime += Time.deltaTime;
                 if (channelTime > 0.3f)
                 {
-                    GetComponent<PlayerMovement>().playerSpeed = 140f; // ralentit le player quand il canalise l'attaque lourde
+                    GetComponent<PlayerMovement>().playerSpeed = 100f; // ralentit le player quand il canalise l'attaque lourde
                     if(!playerAudio.soundSource.isPlaying)
                     {
                         playerAudio.PlayClipNat(playerAudio.soundSource, playerAudio.heavyAttackLoad, 1, playerAudio.misc);
