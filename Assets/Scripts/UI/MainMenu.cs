@@ -44,7 +44,6 @@ public class MainMenu : MonoBehaviour
     {
         while(mainThemeSource.volume <=  maxVolume)
         {
-            Debug.Log("heho");
             yield return new WaitForSeconds(0.3f);
             mainThemeSource.volume += 0.001f;
         }
