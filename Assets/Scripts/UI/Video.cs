@@ -18,7 +18,7 @@ public class Video : MonoBehaviour
         yield return new WaitForSeconds(2);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainScene");
         asyncLoad.allowSceneActivation = false;
-        yield return new WaitUntil(() => video.isPlaying);
+        yield return new WaitUntil(() => !video.isPlaying);
         asyncLoad.allowSceneActivation = true;
     }
 }

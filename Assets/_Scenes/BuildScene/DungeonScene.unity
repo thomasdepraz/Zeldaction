@@ -1041,6 +1041,7 @@ GameObject:
   - component: {fileID: 146481532}
   - component: {fileID: 146481531}
   - component: {fileID: 146481530}
+  - component: {fileID: 146481533}
   m_Layer: 5
   m_Name: WinUI
   m_TagString: Untagged
@@ -1126,6 +1127,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146481528}
   m_CullTransparentMesh: 0
+--- !u!111 &146481533
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146481528}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &156247115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7478032158538649809, guid: f2e68c6cf1f16ef41ac883a736af2716,
@@ -8171,6 +8187,11 @@ PrefabInstance:
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 441267706}
+    - target: {fileID: 5782698825011767677, guid: 772003cd1e9c25c4d9c2d7856cf56754,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8745817041954531269, guid: 772003cd1e9c25c4d9c2d7856cf56754,
         type: 3}
       propertyPath: m_Name
