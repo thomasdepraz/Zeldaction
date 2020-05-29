@@ -5,10 +5,17 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public UIAudioManager audioManager;
-    
+    public AudioSource mainThemeSource;
+    public float maxVolume;
+
+    private void Start()
+    {
+        StartCoroutine(FadeSound());
+    }
     public void Play()
     {
         StartCoroutine(PlayCoroutine());
+        
     }
 
     public void Options()
@@ -31,6 +38,15 @@ public class MainMenu : MonoBehaviour
     {
         yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
         Application.Quit();
+    }
+
+    private IEnumerator FadeSound()
+    {
+        while(mainThemeSource.volume <=  maxVolume)
+        {
+            yield return new WaitForSeconds(0.3f);
+            mainThemeSource.volume += 0.001f;
+        }
     }
 
 }

@@ -31,7 +31,7 @@ public class Door : MonoBehaviour
             if (plate.isPressed)
             {
                 col.enabled = false;
-                rend.sortingOrder = 0;
+                rend.sortingOrder = -2;
                 rend.sprite = openDoor;
                 
             }
@@ -40,7 +40,7 @@ public class Door : MonoBehaviour
                 if(!stayOpen)
                 {
                     rend.sprite = closedDoor;
-                    rend.sortingOrder = -2;
+                    rend.sortingOrder = 0;
                     col.enabled = true;
                     
                 }
