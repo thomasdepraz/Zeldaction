@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &1217721515605021372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
   stayOpen: 0
   closedDoor: {fileID: 21300000, guid: 5f34d1b0d229e4d418bf38b5fe360d00, type: 3}
   openDoor: {fileID: 21300000, guid: 18db7941c3ce6994ea7db8c1d9937a23, type: 3}
-  audioManager: {fileID: 0}
 --- !u!61 &5913229274571596937
 BoxCollider2D:
   m_ObjectHideFlags: 0
