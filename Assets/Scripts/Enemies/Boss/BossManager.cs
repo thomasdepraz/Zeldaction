@@ -131,6 +131,6 @@ public class BossManager : MonoBehaviour
     public void DeadUI()
     {
         winUI.SetActive(true);
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 }
