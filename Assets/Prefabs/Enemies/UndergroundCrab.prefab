@@ -148,7 +148,7 @@ MonoBehaviour:
   impulseSource: {fileID: 1919185224562512637}
   audioManager: {fileID: 5716434516675123818}
   speed: 67.7
-  attackDamage: 7
+  attackDamage: 4
   detectionDistance: 3
   attackDistance: 0.5
   pinceCrabe: {fileID: 2763688605903889196}

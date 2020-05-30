@@ -53,6 +53,7 @@ public class ArmoredCrabProjectile : MonoBehaviour
         {
             anim.SetBool("Explode", true);
             Explode();
+            audioSource.volume = 0.1f;
             audioSource.Play();
             impulseSource.GenerateImpulse(Vector3.up);
         }
