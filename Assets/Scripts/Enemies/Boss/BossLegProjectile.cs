@@ -24,6 +24,7 @@ public class BossLegProjectile : MonoBehaviour
     private bool Missed;
     public bool Broken;
     private bool canPlayBrokenSound = true;
+    private bool canPlayDamageSound = true;
     public LayerMask bossMask;
     private float attackRange = 0.47f;
     public SpriteRenderer sr;
@@ -134,8 +135,9 @@ public class BossLegProjectile : MonoBehaviour
 
         if (ColInfo != null)
         {
-            if (BossLegThrow.Instance.isInjured == false)
+            if (BossLegThrow.Instance.isInjured == false && canPlayDamageSound == true)
             {
+                canPlayDamageSound = false;
                 bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.PriseDégats, 2f, bossAudio.health);
                 StartCoroutine(DamageFB());
                 GetComponent<SpriteRenderer>().enabled = false;
