@@ -44,8 +44,8 @@ public class MainMenu : MonoBehaviour
     {
         while(mainThemeSource.volume <=  maxVolume)
         {
-            yield return new WaitForSeconds(0.3f);
-            mainThemeSource.volume += 0.001f;
+            yield return new WaitForSeconds(0.1f);
+            mainThemeSource.volume += 0.01f;
         }
     }
 
