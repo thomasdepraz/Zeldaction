@@ -44,7 +44,16 @@ public class PostProcessingManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        volumeProfile = volume.profile;
+        if (volumeProfile.TryGet<Bloom>(out Bloom blm))
+        {
+            bloom = blm;
+        }
+        if (volumeProfile.TryGet<Vignette>(out Vignette vgn))
+        {
+            vignette = vgn;
+        }
+        if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(VignetteTransition(vignette.intensity.value, vignetteIntensity, vignette, true));
             StartCoroutine(VignetteTransition(vignette.smoothness.value, vignetteSmoothness, vignette, false));
