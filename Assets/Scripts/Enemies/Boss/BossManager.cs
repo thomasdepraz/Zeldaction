@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BossManager : MonoBehaviour
@@ -131,6 +132,12 @@ public class BossManager : MonoBehaviour
     public void DeadUI()
     {
         winUI.SetActive(true);
-        //Time.timeScale = 0f;
+        EnemyHP[] Crabs = null;
+        Object.FindObjectsOfType<EnemyHP>();
+        Crabs = Object.FindObjectsOfType<EnemyHP>();
+        foreach (EnemyHP BaseCrab in Crabs)
+        {
+            Destroy(BaseCrab.transform.gameObject);
+        }
     }
 }
