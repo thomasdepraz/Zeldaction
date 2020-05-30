@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +22,7 @@ public class BossManager : MonoBehaviour
     private readonly float bossSpeed = 15f;
     public GameObject phase1Cam;
     public GameObject phase2Cam;
+    public GameObject bossCam;
     private SpriteRenderer sr;
     public static bool deadBoss = false;
     public GameObject winUI;
@@ -74,6 +75,8 @@ public class BossManager : MonoBehaviour
 
         if (deadBoss && canPlayDeathSound == true)
         {
+            phase2Cam.SetActive(false);
+            bossCam.SetActive(true);
             anim.SetTrigger("Death");
             bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.MortBoss, 1, bossAudio.health);
             canPlayDeathSound = false;

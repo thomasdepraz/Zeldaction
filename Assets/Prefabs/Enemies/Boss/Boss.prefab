@@ -1384,6 +1384,7 @@ MonoBehaviour:
   Anchor: {fileID: 0}
   phase1Cam: {fileID: 0}
   phase2Cam: {fileID: 0}
+  bossCam: {fileID: 0}
   winUI: {fileID: 0}
   bossAudio: {fileID: 344056156}
   BubbleFX: {fileID: 0}
