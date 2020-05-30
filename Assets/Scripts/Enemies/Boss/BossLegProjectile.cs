@@ -142,7 +142,7 @@ public class BossLegProjectile : MonoBehaviour
                 StartCoroutine(DamageFB());
                 GetComponent<SpriteRenderer>().enabled = false;
             }
-            else
+            else if (BossLegThrow.Instance.isInjured == true)
             {
                 StartCoroutine(DamageFB());
                 GetComponent<SpriteRenderer>().enabled = false;
