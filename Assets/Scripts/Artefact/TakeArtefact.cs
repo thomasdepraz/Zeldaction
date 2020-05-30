@@ -6,18 +6,24 @@ public class TakeArtefact : MonoBehaviour
 {
     public bool playerInRange;
     public GameObject Button;
+    private UIAudioManager audioManager;
 
     void Start()
     {
-        
+        audioManager = GetComponent<UIAudioManager>();
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("interact") && playerInRange)
+        if (Input.GetButtonDown("interact") && playerInRange && !audioManager.soundSource.isPlaying)
         {
             ArtefactTextScript.artefactCounter += 1;
-            Destroy(gameObject);
+            audioManager.PlayClip(audioManager.soundSource, audioManager.artefact,1, audioManager.artefactOutput);
+            Button.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            StartCoroutine(Artefact());
+
         }
     }
 
@@ -37,5 +43,11 @@ public class TakeArtefact : MonoBehaviour
             Button.SetActive(false);            
             playerInRange = false;
         }
+    }
+
+    private IEnumerator Artefact()
+    {
+        yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
+        Destroy(gameObject);   
     }
 }

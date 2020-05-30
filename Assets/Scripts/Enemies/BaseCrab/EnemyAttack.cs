@@ -13,6 +13,7 @@ public class EnemyAttack : MonoBehaviour
     [HideInInspector] public bool enemysIsTackling;
     private Rigidbody2D enemyRb;
     public ParticleSystem attackParticle;
+    private EnemyHP enemyHP;
 
     [Header("Charge Details")]
     public float chargeStopDistance;
@@ -52,6 +53,7 @@ public class EnemyAttack : MonoBehaviour
         playerHP = player.GetComponent<PlayerHP>();
         anim = gameObject.GetComponent<Animator>();
         attackParticle.Stop();
+        enemyHP = GetComponent<EnemyHP>();
     }
 
     // Update is called once per frame
@@ -99,7 +101,10 @@ public class EnemyAttack : MonoBehaviour
             yield return new WaitForFixedUpdate();
             if (Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer))
             {
-                playerHP.TakeDamage(attackDamage);
+                if(enemyHP.currentHealth > 0)
+                {
+                    playerHP.TakeDamage(attackDamage);
+                }
             }
         }
         while (chargeTime < chargeMaxTime && !Physics2D.OverlapCircle(transform.position, chargeRadiusTriggerAttack, playerLayer));

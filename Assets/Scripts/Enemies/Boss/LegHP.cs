@@ -10,7 +10,12 @@ public class LegHP : MonoBehaviour
     SpriteRenderer sr;
     public Animator anim;
     public Sprite BrokenLegSprite;
+    public BossAudioManager bossAudio;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        bossAudio = GameObject.Find("BossAudioSource").GetComponent<BossAudioManager>();
+    }
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -20,6 +25,7 @@ public class LegHP : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle de l'ennemi
+        bossAudio.PlayClip(bossAudio.soundSource, bossAudio.PriseDégats, 1, bossAudio.health);
         if (currentHealth > 0)
         {
             StartCoroutine(DamageFB());

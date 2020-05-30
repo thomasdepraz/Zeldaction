@@ -35,43 +35,52 @@ public class MovingPlateform : MonoBehaviour
             speed = maxSpeed;
             particles.SetActive(true);
         }
+
+        if(!firstRaft)
+        {
+            startedMoving = true;
+        }
     }
 
     void Update()
     {
-        
-        if (index <= position.Length - 1)
+        if(position != null)
         {
-            if (transform.position == nextPos)
+            if (index <= position.Length - 1)
             {
-                index++;
-                nextPos = position[index].position;
+                if (transform.position == nextPos)
+                {
+                    index++;
+                    nextPos = position[index].position;
+                }
+
+                transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+            }
+            else
+            {
+                index = -1;
             }
 
-            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
-        }
-        else
-        {
-            index = -1;
-        }
-
-        if (pillar.transform.childCount > 0 && !onRaft)
-        {
-            Debug.Log("je me suis arreté");
-            speed = 0;
-        }
-        else
-        {
-            if (startedMoving)
+            if (pillar.transform.childCount > 0 && !onRaft)
+            {
+                Debug.Log("je me suis arreté");
+                speed = 0;
+            }
+            else
+            {
+                if (startedMoving)
+                {
+                    speed = maxSpeed;
+                }
+            }
+        
+            if(onRaft)
             {
                 speed = maxSpeed;
             }
+
         }
         
-        if(onRaft)
-        {
-            speed = maxSpeed;
-        }
 
     }
 

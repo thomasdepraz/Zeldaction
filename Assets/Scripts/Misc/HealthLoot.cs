@@ -14,6 +14,8 @@ public class HealthLoot : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag(playerTag);
         playerHP = player.GetComponent<PlayerHP>();
+
+        StartCoroutine(LootFade());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,11 +28,26 @@ public class HealthLoot : MonoBehaviour
                 pickup = true;
             }
 
-            if(pickup)
+            else if (playerHP.currentHealth < playerHP.maxHealth - healValue / 2)
+            {
+                playerHP.TakeDamage(-healValue/2);
+                pickup = true;
+            }
+
+            if (pickup)
             {
                 Destroy(gameObject);
             }
            
+        }
+    }
+
+    private IEnumerator LootFade()
+    {
+        yield return new WaitForSeconds(10);
+        if(gameObject.transform.childCount == 2)
+        {
+            Destroy(gameObject);
         }
     }
 }

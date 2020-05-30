@@ -1318,7 +1318,6 @@ MonoBehaviour:
   patrolRadius: 0
   minStopDistance: 0
   anim: {fileID: 8857848667643520992}
-  targetPosition: {x: 0, y: 0}
 --- !u!114 &8857848669021489326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,6 +1341,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   crabcounter: 0
   Waypoint0: {fileID: 0}
+  bossAudio: {fileID: 344056156}
 --- !u!114 &510300641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1356,6 +1356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
+  bossAudio: {fileID: 344056156}
 --- !u!114 &510300650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1379,10 +1380,14 @@ MonoBehaviour:
   waypoint1: {fileID: 0}
   waypoint2: {fileID: 0}
   WaypointBoss: {fileID: 0}
+  WaypointCollider: {fileID: 0}
   Anchor: {fileID: 0}
   phase1Cam: {fileID: 0}
   phase2Cam: {fileID: 0}
+  bossCam: {fileID: 0}
   winUI: {fileID: 0}
+  bossAudio: {fileID: 344056156}
+  BubbleFX: {fileID: 0}
 --- !u!114 &612397333
 MonoBehaviour:
   m_ObjectHideFlags: 0

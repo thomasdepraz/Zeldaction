@@ -85,6 +85,7 @@ public class GameOverUI : MonoBehaviour
         else
         {
             Time.timeScale = 1f;
+            PlayerManager.canMove = true;
             SceneManager.LoadScene("DungeonScene");
         }
         eventSystem.enabled = true;

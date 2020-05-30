@@ -9,6 +9,7 @@ public class BossHP : MonoBehaviour
     public int currentHealth;
     bool isPhase1;
     private SpriteRenderer sr;
+    public BossAudioManager bossAudio;
     //bool isPhase2;
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class BossHP : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle de l'ennemi
+        bossAudio.PlayClip(bossAudio.soundSource, bossAudio.PriseDégats, 1, bossAudio.health);
         StartCoroutine(DamageFB());
         if (currentHealth <= 0 && isPhase1 == true)
         {
