@@ -20,7 +20,7 @@ public class GameOverUI : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        if(reset == true)
+        if (reset == true)
         {
             Retry();
             reset = false;
@@ -30,7 +30,7 @@ public class GameOverUI : MonoBehaviour
 
     private void Update()
     {
-        if(startAnim)
+        if (startAnim)
         {
             anim.SetBool("GameOverUI", true);
             startAnim = false;
@@ -39,7 +39,9 @@ public class GameOverUI : MonoBehaviour
 
     public void Retry()
     {
-        if(canStartCoroutine)
+        /*player.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+        player.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;*/
+        if (canStartCoroutine)
         {
             StartCoroutine(RetryCoroutine());
         }
@@ -47,7 +49,9 @@ public class GameOverUI : MonoBehaviour
 
     public void MainMenu()
     {
-        if(canStartCoroutine)
+            /*player.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
+            player.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;*/
+        if (canStartCoroutine)
         {
             StartCoroutine(QuitCoroutine());
         }
