@@ -72,7 +72,8 @@ public class PlayerHP : MonoBehaviour
             PlayerManager.canMove = false;
             playerAudio.PlayClip(playerAudio.soundSource, playerAudio.death, 1, playerAudio.life);
             anim.SetBool("isDead", true);
-            //rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            rb.simulated = false;
+            rb.velocity = Vector2.zero;
             if (SceneManager.GetActiveScene().name == "DungeonScene")
             {
                 GameObject.Find("Boss").SetActive(false);

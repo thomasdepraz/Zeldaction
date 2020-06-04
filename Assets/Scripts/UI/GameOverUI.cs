@@ -39,8 +39,6 @@ public class GameOverUI : MonoBehaviour
 
     public void Retry()
     {
-        /*player.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
-        player.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;*/
         if (canStartCoroutine)
         {
             StartCoroutine(RetryCoroutine());
@@ -49,8 +47,6 @@ public class GameOverUI : MonoBehaviour
 
     public void MainMenu()
     {
-            /*player.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;
-            player.GetComponent<Rigidbody2D>().constraints &= ~RigidbodyConstraints2D.FreezePositionX;*/
         if (canStartCoroutine)
         {
             StartCoroutine(QuitCoroutine());
@@ -86,13 +82,15 @@ public class GameOverUI : MonoBehaviour
             gameOverUI.SetActive(false);
             player.GetComponent<PlayerHP>().anim.SetBool("isDead", false);
             player.GetComponent<HookThrow>().ResetHook();
+            player.GetComponent<Rigidbody2D>().simulated = true;
         }
         else
         {
             Time.timeScale = 1f;
             PlayerManager.canMove = true;
-            SceneManager.LoadScene("DungeonScene");
             player.GetComponent<HookThrow>().ResetHook();
+            player.GetComponent<Rigidbody2D>().simulated = true;
+            SceneManager.LoadScene("DungeonScene");
         }
         eventSystem.enabled = true;
         canStartCoroutine = true;
