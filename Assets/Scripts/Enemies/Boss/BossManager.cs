@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,12 +32,14 @@ public class BossManager : MonoBehaviour
     private bool canPlayDeathSound = true;
     private bool canGoPhase3;
     public GameObject BubbleFX;
+    private CinemachineImpulseSource ScreenshakeSource;
 
     // Start is called before the first frame update
     void Start()
     {
         isPhase1 = true;
         sr = GetComponent<SpriteRenderer>();
+        ScreenshakeSource = GetComponent<CinemachineImpulseSource>();
     }
 
     // Update is called once per frame
@@ -54,7 +57,7 @@ public class BossManager : MonoBehaviour
                 bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.Saut, 1, bossAudio.cutscenes);
                 canPlayImpactSound = false;
             }
-            GameObject[] Armors = GameObject.FindGameObjectsWithTag("Hookable");
+            /*GameObject[] Armors = GameObject.FindGameObjectsWithTag("Hookable");
             foreach (GameObject Armor in Armors)
             {
                 if (Armor.transform.childCount > 1)
@@ -65,9 +68,9 @@ public class BossManager : MonoBehaviour
                 {
                     canGoPhase3 = true;
                 }
-            }
+            }*/
 
-            if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed && canGoPhase3 == true)
+            if (Plate1.GetComponent<PressurePlate>().isPressed && Plate2.GetComponent<PressurePlate>().isPressed) // && canGoPhase3 == true;
             {
                 Phase3();
             }
@@ -80,7 +83,7 @@ public class BossManager : MonoBehaviour
             anim.SetTrigger("Death");
             bossAudio.PlayClipNat(bossAudio.soundSource, bossAudio.MortBoss, 1, bossAudio.health);
             canPlayDeathSound = false;
-            //add screenshake
+            ScreenshakeSource.GenerateImpulse(Vector2.up);
         }
     }
     public void Phase2()
@@ -99,8 +102,8 @@ public class BossManager : MonoBehaviour
     }
     public void Phase3()
     {
-        Destroy(Plate1);
-        Destroy(Plate2);
+        /*Destroy(Plate1);
+        Destroy(Plate2);*/
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         GameObject[] monster = GameObject.FindGameObjectsWithTag("Hookable");
         GetComponent<BossSummoning>().enabled = false;

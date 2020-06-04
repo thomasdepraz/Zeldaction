@@ -81,7 +81,6 @@ public class HookThrow : MonoBehaviour
 
         if(PlayerManager.hasHook && PlayerManager.useHook)
         {
-            
             if (Input.GetButtonDown("Throw") && !isThrown && !isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
             {
                 hook.GetComponent<BoxCollider2D>().isTrigger = false;
@@ -141,6 +140,7 @@ public class HookThrow : MonoBehaviour
     Vector2 storedVelocity;
     void Throw()
     {
+        Debug.Log("Throwing");
         direction = (crosshair.transform.position - hook.transform.position).normalized; //direction player-> crosshair
         hookRigidBody.velocity += (Vector2)direction * speed; //déplacement du hook
         storedVelocity = hookRigidBody.velocity;
@@ -307,5 +307,20 @@ public class HookThrow : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(hook.transform.position, hookDetectionRange);
+    }
+
+    public void ResetHook()
+    {
+        hook.transform.position = player.transform.position;
+        hook.transform.parent = player.transform;
+        hookRigidBody.velocity = Vector2.zero;
+        hookRigidBody.simulated = false;
+        isHooked = false;
+        isPulling = false;
+        isThrown = false;
+        canHook = true;
+        hookUI.sprite = hookAvailable;
+        PlayerManager.useHook = true;
+        PlayerManager.hasHook = true;
     }
 }

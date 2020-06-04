@@ -3,12 +3,13 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHP : MonoBehaviour
 {
 
-    [Header ("Player Health")]
-    [Range (1,20)]
+    [Header("Player Health")]
+    [Range(1, 20)]
     public int maxHealth = 20;
     public int currentHealth;
     public int heal = 1;
@@ -22,6 +23,7 @@ public class PlayerHP : MonoBehaviour
     public Material damageMaterial;
     private Material defaultMaterial;
     public PlayerAudioManager playerAudio;
+    private Rigidbody2D rb;
     [HideInInspector] public Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -32,13 +34,14 @@ public class PlayerHP : MonoBehaviour
         defaultMaterial = GetComponent<SpriteRenderer>().material;
 
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void TakeDamage(int damage)
     {
         if (damage > 0)
         {
-            if(currentHealth > 0)
+            if (currentHealth > 0)
             {
                 playerAudio.PlayClip(playerAudio.soundSource, playerAudio.onHit, 1, playerAudio.life);
             }
@@ -69,6 +72,12 @@ public class PlayerHP : MonoBehaviour
             PlayerManager.canMove = false;
             playerAudio.PlayClip(playerAudio.soundSource, playerAudio.death, 1, playerAudio.life);
             anim.SetBool("isDead", true);
+            rb.simulated = false;
+            rb.velocity = Vector2.zero;
+            if (SceneManager.GetActiveScene().name == "DungeonScene")
+            {
+                GameObject.Find("Boss").SetActive(false);
+            }
         }
     }
 

@@ -20,7 +20,7 @@ public class GameOverUI : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        if(reset == true)
+        if (reset == true)
         {
             Retry();
             reset = false;
@@ -30,7 +30,7 @@ public class GameOverUI : MonoBehaviour
 
     private void Update()
     {
-        if(startAnim)
+        if (startAnim)
         {
             anim.SetBool("GameOverUI", true);
             startAnim = false;
@@ -39,7 +39,7 @@ public class GameOverUI : MonoBehaviour
 
     public void Retry()
     {
-        if(canStartCoroutine)
+        if (canStartCoroutine)
         {
             StartCoroutine(RetryCoroutine());
         }
@@ -47,7 +47,7 @@ public class GameOverUI : MonoBehaviour
 
     public void MainMenu()
     {
-        if(canStartCoroutine)
+        if (canStartCoroutine)
         {
             StartCoroutine(QuitCoroutine());
         }
@@ -81,11 +81,15 @@ public class GameOverUI : MonoBehaviour
             Time.timeScale = 1f;
             gameOverUI.SetActive(false);
             player.GetComponent<PlayerHP>().anim.SetBool("isDead", false);
+            player.GetComponent<HookThrow>().ResetHook();
+            player.GetComponent<Rigidbody2D>().simulated = true;
         }
         else
         {
             Time.timeScale = 1f;
             PlayerManager.canMove = true;
+            player.GetComponent<HookThrow>().ResetHook();
+            player.GetComponent<Rigidbody2D>().simulated = true;
             SceneManager.LoadScene("DungeonScene");
         }
         eventSystem.enabled = true;
