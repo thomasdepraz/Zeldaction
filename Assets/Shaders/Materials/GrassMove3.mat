@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GrassMove2
+  m_Name: GrassMove3
   m_Shader: {fileID: -6465566751694194690, guid: 8e15cdc855338744bad60c5f8e6b5cd9,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -38,7 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_93816C6A: 0
-    - Vector1_A7C795B7: 0.089
+    - Vector1_A7C795B7: 0.05
     - Vector1_B74AAC19: 4
     - _EnableExternalAlpha: 0
     m_Colors:
