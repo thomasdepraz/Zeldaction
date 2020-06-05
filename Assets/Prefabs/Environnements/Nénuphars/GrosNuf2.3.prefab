@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1887734245221411435}
   - component: {fileID: 1887734245221411434}
   - component: {fileID: 8566165766170516396}
+  - component: {fileID: 6838388280804329534}
   m_Layer: 0
   m_Name: GrosNuf2.3
   m_TagString: Untagged
@@ -108,3 +109,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.68873835, y: 0.5941627}
   m_EdgeRadius: 0
+--- !u!95 &6838388280804329534
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887734245221411437}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 84171b7084a242644b841bf59a356fb9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

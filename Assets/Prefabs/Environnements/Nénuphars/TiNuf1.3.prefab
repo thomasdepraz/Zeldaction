@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9216553751288601417}
   - component: {fileID: 9216553751288601416}
   - component: {fileID: 2665195461039769823}
+  - component: {fileID: 7146610723404190597}
   m_Layer: 0
   m_Name: TiNuf1.3
   m_TagString: Untagged
@@ -108,3 +109,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29882812, y: 0.296875}
   m_EdgeRadius: 0
+--- !u!95 &7146610723404190597
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216553751288601419}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c494c97cc5433bc4fb893bba4e0922b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
