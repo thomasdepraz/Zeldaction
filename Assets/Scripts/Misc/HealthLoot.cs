@@ -22,17 +22,13 @@ public class HealthLoot : MonoBehaviour
     {
         if(collision.gameObject.CompareTag(playerTag) && gameObject.transform.childCount == 2)
         {
-            if(playerHP.currentHealth < playerHP.maxHealth - healValue)
+            if(playerHP.currentHealth < playerHP.maxHealth)
             {
                 playerHP.TakeDamage(-healValue);
                 pickup = true;
             }
 
-            else if (playerHP.currentHealth < playerHP.maxHealth - healValue / 2)
-            {
-                playerHP.TakeDamage(-healValue/2);
-                pickup = true;
-            }
+     
 
             if (pickup)
             {

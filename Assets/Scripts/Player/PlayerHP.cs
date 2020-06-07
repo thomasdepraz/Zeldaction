@@ -35,6 +35,29 @@ public class PlayerHP : MonoBehaviour
 
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+
+        
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            TakeDamage(1);
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            TakeDamage(2);
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            TakeDamage(-1);
+        }
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            TakeDamage(-2);
+        }
     }
 
     public void TakeDamage(int damage)
@@ -53,7 +76,15 @@ public class PlayerHP : MonoBehaviour
 
         GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.up);//screenshake
 
-        currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle du joueur
+        if(currentHealth <= maxHealth)
+        {
+            currentHealth -= damage; // le montant des dommages va être soustrait à la vie actuelle du joueur
+        }
+
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
 
         if (currentHealth >= 0)
         {
