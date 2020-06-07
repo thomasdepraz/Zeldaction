@@ -40,26 +40,6 @@ public class PlayerHP : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            TakeDamage(1);
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            TakeDamage(2);
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            TakeDamage(-1);
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            TakeDamage(-2);
-        }
-    }
-
     public void TakeDamage(int damage)
     {
         if (damage > 0)
@@ -67,6 +47,7 @@ public class PlayerHP : MonoBehaviour
             if (currentHealth > 0)
             {
                 playerAudio.PlayClip(playerAudio.soundSource, playerAudio.onHit, 1, playerAudio.life);
+                GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.up);//screenshake
             }
         }
         else
@@ -74,7 +55,7 @@ public class PlayerHP : MonoBehaviour
             playerAudio.PlayClip(playerAudio.soundSource, playerAudio.lifeUp, 0.6f, playerAudio.life);
         }
 
-        GetComponent<CinemachineImpulseSource>().GenerateImpulse(Vector3.up);//screenshake
+        
 
         if(currentHealth <= maxHealth)
         {
