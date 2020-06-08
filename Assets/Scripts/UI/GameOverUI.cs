@@ -68,7 +68,7 @@ public class GameOverUI : MonoBehaviour
         canStartCoroutine = false;
         eventSystem.enabled = false;
         yield return new WaitUntil(() => !audioManager.soundSource.isPlaying);
-
+        anim.SetBool("GameOverUI", false);
         if (SceneManager.GetActiveScene().name != "DungeonScene")
         {
             player.transform.position = PlayerManager.lastCheckpoint.transform.position;

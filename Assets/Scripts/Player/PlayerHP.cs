@@ -40,6 +40,14 @@ public class PlayerHP : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            TakeDamage(2);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         if (damage > 0)
