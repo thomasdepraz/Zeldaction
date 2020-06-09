@@ -34,7 +34,6 @@ public class ArmoredCrabProjectile : MonoBehaviour
 
     public void Explode()
     {
-        //Lancer l'anim d'explo
         if ((player.transform.position - gameObject.transform.position).magnitude <= explodeRange)
         {
             player.GetComponent<PlayerHP>().TakeDamage(projectileDamage);
