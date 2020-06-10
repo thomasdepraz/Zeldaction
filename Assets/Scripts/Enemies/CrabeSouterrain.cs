@@ -166,6 +166,7 @@ public class CrabeSouterrain : MonoBehaviour
             isDead = true;
             GetComponent<BoxCollider2D>().enabled = false;
             rb.simulated = false;
+            gameObject.transform.parent = null;
         }
     }
 }

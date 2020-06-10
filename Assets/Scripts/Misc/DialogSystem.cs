@@ -47,6 +47,7 @@ public class DialogSystem : MonoBehaviour
     private bool startMove;
     private bool dialogIsFinished;
     private bool isTalking;
+    private bool unlockedAttack = false;
 
     [Header("Objects to activate / deactivate(forced dialog only)")]
     public GameObject[] objects;
@@ -153,9 +154,16 @@ public class DialogSystem : MonoBehaviour
             {
                 //destroy when exit reached
                 playerMovement.canMove = true;
+                PlayerManager.useHook = true;
+                if (unlockedAttack == true)
+                {
+                    PlayerManager.canAttack = true;
+                }
+                     
                 if(gameObject.name == "Phish Interpellation 01_B")
                 {
                     PlayerManager.canAttack = true;
+                    unlockedAttack = true;
                 }
                 if(objects != null)
                 {
@@ -199,6 +207,11 @@ public class DialogSystem : MonoBehaviour
                 eventCam.gameObject.SetActive(false);
                 fight.combatStarted = true;
                 playerMovement.canMove = true;
+                PlayerManager.useHook = true;
+                if (unlockedAttack == true)
+                {
+                    PlayerManager.canAttack = true;
+                }
                 dialogBox.SetActive(false);
                 for(int i =0; i < enemiesPlaceHolders.Length; i++)
                 {
@@ -222,6 +235,8 @@ public class DialogSystem : MonoBehaviour
             {
                 playerMovement.canMove = false;
                 playerMovement.playerRb.velocity = Vector2.zero;
+                PlayerManager.useHook = false;
+                PlayerManager.canAttack = false;
                 StartCoroutine("DialogEvent");
                 if (isForcedDialog)
                 {
