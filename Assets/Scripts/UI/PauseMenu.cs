@@ -119,14 +119,20 @@ public class PauseMenu : MonoBehaviour
             isPaused = false;
             pauseMenu.SetActive(false);
             player.GetComponent<PlayerHP>().anim.SetBool("isDead", false);
-            player.GetComponent<HookThrow>().ResetHook();
+            if (PlayerManager.hasHook)
+            {
+                player.GetComponent<HookThrow>().ResetHook();
+            }
         }
         else
         {
             isPaused = false;
             Time.timeScale = 1f;
             SceneManager.LoadScene("DungeonScene");
-            player.GetComponent<HookThrow>().ResetHook();
+            if (PlayerManager.hasHook)
+            {
+                player.GetComponent<HookThrow>().ResetHook();
+            }
         }
         eventSystem.enabled = true;
         canStartCoroutine = true;

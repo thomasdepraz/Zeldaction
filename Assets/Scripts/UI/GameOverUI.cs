@@ -81,14 +81,20 @@ public class GameOverUI : MonoBehaviour
             Time.timeScale = 1f;
             gameOverUI.SetActive(false);
             player.GetComponent<PlayerHP>().anim.SetBool("isDead", false);
-            player.GetComponent<HookThrow>().ResetHook();
+            if(PlayerManager.hasHook)
+            {
+                player.GetComponent<HookThrow>().ResetHook();
+            }
             player.GetComponent<Rigidbody2D>().simulated = true;
         }
         else
         {
             Time.timeScale = 1f;
             PlayerManager.canMove = true;
-            player.GetComponent<HookThrow>().ResetHook();
+            if (PlayerManager.hasHook)
+            {
+                player.GetComponent<HookThrow>().ResetHook();
+            }
             player.GetComponent<Rigidbody2D>().simulated = true;
             SceneManager.LoadScene("DungeonScene");
         }
