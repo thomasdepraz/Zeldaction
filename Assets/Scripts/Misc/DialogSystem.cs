@@ -171,7 +171,7 @@ public class DialogSystem : MonoBehaviour
                         deactivateObjects[i].SetActive(false);
                     }
                 }
-                Destroy(gameObject); //POUR L'INSTANT
+                gameObject.SetActive(false); //POUR L'INSTANT
             }
         }
 
@@ -204,7 +204,7 @@ public class DialogSystem : MonoBehaviour
                 {
                     enemiesPlaceHolders[i].SetActive(false);
                 }
-                Destroy(gameObject); //POUR L'INSTANT
+                gameObject.SetActive(false); //POUR L'INSTANT
             }
         }
     }

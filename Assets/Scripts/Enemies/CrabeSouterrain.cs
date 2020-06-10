@@ -30,6 +30,7 @@ public class CrabeSouterrain : MonoBehaviour
     public float attackDistance;
 
     public GameObject pinceCrabe;
+    private bool isDead;
 
     [Header("LoadTime")]
     public float loadAttack;
@@ -58,8 +59,11 @@ public class CrabeSouterrain : MonoBehaviour
 
     void Update()
     { 
-        Movement();
-        CrabeAttack();
+        if (!isDead)
+        {
+            CrabeAttack();
+            Movement();
+        }
     }
 
     // Déplacement du crabe : Si la distance entre le PJ et le crabe est inférieur à la distance de détection, le crabe se met en mouvement.     
@@ -159,7 +163,9 @@ public class CrabeSouterrain : MonoBehaviour
             {
                 GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
             }
-            Destroy(gameObject);
+            isDead = true;
+            GetComponent<BoxCollider2D>().enabled = false;
+            rb.simulated = false;
         }
     }
 }

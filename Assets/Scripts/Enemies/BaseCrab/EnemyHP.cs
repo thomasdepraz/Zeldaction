@@ -9,6 +9,7 @@ public class EnemyHP : MonoBehaviour
     private Animator anim;
     private bool crabcd;
     public GameObject loot;
+    public GameObject claw;
 
     public Material damageMaterial;
     private Material defaultMaterial;
@@ -63,6 +64,7 @@ public class EnemyHP : MonoBehaviour
         if (stat < 0.3f)
         {
             GameObject.Instantiate(loot, gameObject.transform.position, Quaternion.identity);
+            GameObject.Instantiate(claw, gameObject.transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
     }

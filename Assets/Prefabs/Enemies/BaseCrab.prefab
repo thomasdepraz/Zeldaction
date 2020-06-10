@@ -5132,6 +5132,7 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   loot: {fileID: 6135825320653908896, guid: a0f134617c070e543882177898724c0e, type: 3}
+  claw: {fileID: 2611800298931031812, guid: 62f7025473892754199f821badc0a3b1, type: 3}
   damageMaterial: {fileID: 2100000, guid: 0193e928e75afe44fa72a94f8a4a638e, type: 3}
   hitParticle: {fileID: 1796707588023139258}
   impulseSource: {fileID: 1826523282532648684}
