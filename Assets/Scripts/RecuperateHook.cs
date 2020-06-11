@@ -13,10 +13,10 @@ public class RecuperateHook : MonoBehaviour
     public GameObject title;
     public GameObject buttonUI;
     public Animator anim;
-    public AudioSource audioSource;
     bool coroutineLaunch = false;
     bool scalingIsFinish = false;
     public GameObject colliderArena;
+    public MusicManager musicManager;
 
     //Cam Transition
     public CinemachineVirtualCamera littleCam;
@@ -41,7 +41,6 @@ public class RecuperateHook : MonoBehaviour
         if (scalingIsFinish == true && Input.GetButtonDown("interact"))
         {
             anim.SetBool("FadeOut", true);
-            audioSource.Stop();
             bigCam.gameObject.SetActive(false);
             playerCam.gameObject.SetActive(true);
             colliderArena.SetActive(false);
@@ -59,7 +58,7 @@ public class RecuperateHook : MonoBehaviour
             hookSpr.enabled = false;
             buttonSpr.enabled = false;
             title.SetActive(true);
-            audioSource.Play();
+            musicManager.CrossfadeStart(musicManager.mainTheme);
             StartCoroutine(LoadScalingCam());
             coroutineLaunch = true;
         }        

@@ -9,6 +9,7 @@ public class VolumeManager : MonoBehaviour
     public AudioMixer UI;
     public AudioMixer enemy;
     public AudioMixer boss;
+    public AudioMixer music;
 
     public void setVolume(float volume)
     {
@@ -17,5 +18,6 @@ public class VolumeManager : MonoBehaviour
         UI.SetFloat("MyExposedParam", volume);
         enemy.SetFloat("MyExposedParam", volume);
         boss.SetFloat("MyExposedParam", volume);
+        music.SetFloat("MyExposedParam", volume);
     }
 }

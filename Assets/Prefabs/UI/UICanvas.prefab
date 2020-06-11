@@ -606,6 +606,7 @@ MonoBehaviour:
   UI: {fileID: 24100000, guid: f3e95650a149fb74ab6446ad027761e5, type: 2}
   enemy: {fileID: 24100000, guid: 6e9096a5e0e5952489c5df3f8c2ba42c, type: 2}
   boss: {fileID: 24100000, guid: fb5b355a735bb0443bba2e74228e71d8, type: 2}
+  music: {fileID: 24100000, guid: 43da1e64a965bd64caa6f1bac9dc193f, type: 2}
 --- !u!1 &2919539594166359163
 GameObject:
   m_ObjectHideFlags: 0

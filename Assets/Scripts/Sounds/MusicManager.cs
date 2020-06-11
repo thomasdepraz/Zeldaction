@@ -10,6 +10,9 @@ public class MusicManager : MonoBehaviour
     public AudioClip chillTheme2;
     public AudioClip bossFight;
     public AudioClip sadEpicTheme;
+    public AudioClip clapPercu;
+    public AudioClip tensionPercu;
+    public AudioClip rythmicTamtam;
 
     private bool canStartCoroutine = true;
 
