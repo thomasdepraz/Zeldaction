@@ -47,7 +47,7 @@ public class DialogSystem : MonoBehaviour
     private bool startMove;
     private bool dialogIsFinished;
     private bool isTalking;
-    private bool unlockedAttack = false;
+
 
     [Header("Objects to activate / deactivate(forced dialog only)")]
     public GameObject[] objects;
@@ -155,15 +155,16 @@ public class DialogSystem : MonoBehaviour
                 //destroy when exit reached
                 playerMovement.canMove = true;
                 PlayerManager.useHook = true;
-                if (unlockedAttack == true)
-                {
-                    PlayerManager.canAttack = true;
-                }
-                     
+                  
                 if(gameObject.name == "Phish Interpellation 01_B")
                 {
                     PlayerManager.canAttack = true;
-                    unlockedAttack = true;
+                    PlayerManager.unlockedAttack = true;
+                }
+                if (PlayerManager.unlockedAttack == true)
+                {
+                    PlayerManager.canAttack = true;
+                    Debug.Log("J'ai activé l'attaque");
                 }
                 if(objects != null)
                 {
@@ -179,6 +180,7 @@ public class DialogSystem : MonoBehaviour
                         deactivateObjects[i].SetActive(false);
                     }
                 }
+                Debug.Log(PlayerManager.unlockedAttack);
                 gameObject.SetActive(false); //POUR L'INSTANT
             }
         }
@@ -208,7 +210,7 @@ public class DialogSystem : MonoBehaviour
                 fight.combatStarted = true;
                 playerMovement.canMove = true;
                 PlayerManager.useHook = true;
-                if (unlockedAttack == true)
+                if (PlayerManager.unlockedAttack == true)
                 {
                     PlayerManager.canAttack = true;
                 }
@@ -235,6 +237,7 @@ public class DialogSystem : MonoBehaviour
             {
                 playerMovement.canMove = false;
                 playerMovement.playerRb.velocity = Vector2.zero;
+                Debug.Log("J'ai marché dans le trigger");
                 PlayerManager.useHook = false;
                 PlayerManager.canAttack = false;
                 StartCoroutine("DialogEvent");

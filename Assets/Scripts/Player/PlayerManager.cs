@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] public static bool hasHook = false;
     [SerializeField] public static bool canAttack = false;
+    public static bool unlockedAttack;
     public static bool canMove = true;
     public static bool useHook = true;
     [SerializeField] public static GameObject lastCheckpoint;
