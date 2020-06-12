@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Cinemachine;
 
 namespace Player
 {
@@ -26,6 +27,9 @@ namespace Player
 
         private bool coroutineCanStart = false;
         public bool isAiming = false;
+        public CinemachineVirtualCamera playerCam;
+        public Transform cameraTarget;
+        public Transform playerPos;
 
         [Header("Tweak")]
         [Range(1f, 5f)]
@@ -45,6 +49,7 @@ namespace Player
             if(PlayerManager.hasHook)
             {
                 Aim();
+                cameraTarget.localPosition = (aimDirectionPreview.transform.position - playerPos.position) / 2;
             }
 
             if(!isAiming)
@@ -80,6 +85,8 @@ namespace Player
                 //on ralentit le joueur       
                 playerMovement.playerSpeed = 145f;
                 isAiming = true;
+                playerCam.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = 2.5f;
+                playerCam.GetCinemachineComponent<CinemachineTransposer>().m_YDamping = 2.5f;
             }
 
             else if (horizontalAim == 0 && verticalAim == 0)//Si le joystick est à 0,0 alors la visée est désactivée après 1 sec.
@@ -94,11 +101,14 @@ namespace Player
         private IEnumerator HideCrosshair() //Après une sec d'inactivitée on désactive le viseur
         {
             coroutineCanStart = false;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             if (horizontalAim == 0 && verticalAim == 0)
             {
                 aimDirectionPreview.SetActive(false);
                 aimDirectionPreview.transform.position = transform.position;
+                playerCam.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = 1;
+                playerCam.GetCinemachineComponent<CinemachineTransposer>().m_YDamping = 1;
+
                 //on reset la vitesse du joueur
                 playerMovement.playerSpeed = 150f;
                 isAiming = false;
