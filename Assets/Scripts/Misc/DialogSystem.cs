@@ -164,7 +164,6 @@ public class DialogSystem : MonoBehaviour
                 if (PlayerManager.unlockedAttack == true)
                 {
                     PlayerManager.canAttack = true;
-                    Debug.Log("J'ai activé l'attaque");
                 }
                 if(objects != null)
                 {
@@ -237,7 +236,6 @@ public class DialogSystem : MonoBehaviour
             {
                 playerMovement.canMove = false;
                 playerMovement.playerRb.velocity = Vector2.zero;
-                Debug.Log("J'ai marché dans le trigger");
                 PlayerManager.useHook = false;
                 PlayerManager.canAttack = false;
                 StartCoroutine("DialogEvent");
