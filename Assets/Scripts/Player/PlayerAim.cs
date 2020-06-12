@@ -98,6 +98,7 @@ namespace Player
             if (horizontalAim == 0 && verticalAim == 0)
             {
                 aimDirectionPreview.SetActive(false);
+                aimDirectionPreview.transform.position = transform.position;
                 //on reset la vitesse du joueur
                 playerMovement.playerSpeed = 150f;
                 isAiming = false;

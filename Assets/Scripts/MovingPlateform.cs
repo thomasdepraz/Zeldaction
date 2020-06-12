@@ -46,7 +46,7 @@ public class MovingPlateform : MonoBehaviour
     {
         if(position != null)
         {
-            if (index <= position.Length - 1)
+            if (index < position.Length - 1)
             {
                 if (transform.position == nextPos)
                 {
@@ -63,7 +63,6 @@ public class MovingPlateform : MonoBehaviour
 
             if (pillar.transform.childCount > 0 && !onRaft)
             {
-                Debug.Log("je me suis arreté");
                 speed = 0;
             }
             else
