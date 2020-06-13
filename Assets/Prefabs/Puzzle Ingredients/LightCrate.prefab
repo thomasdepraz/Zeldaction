@@ -125,7 +125,7 @@ MonoBehaviour:
   isArmor: 0
   hitbox: {fileID: 6272499802135800087}
   audioManager: {fileID: 3305791493306563956}
-  crateDamage: 1
+  crateDamage: 3
 --- !u!61 &6272499802043134895
 BoxCollider2D:
   m_ObjectHideFlags: 0
