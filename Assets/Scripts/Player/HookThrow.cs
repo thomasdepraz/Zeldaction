@@ -191,6 +191,7 @@ public class HookThrow : MonoBehaviour
                 GameObject Armor = Instantiate(ArmoredCrab.GetComponent<ArmoredCrab>().armor, ArmoredCrab.transform.position, Quaternion.identity);
                 hook.transform.SetParent(Armor.transform);
                 objectDrag = Armor.GetComponent<Rigidbody2D>().drag;
+                ArmoredCrab.GetComponent<Hookable>().isActive = false;
                 Pull();
             }
         }
