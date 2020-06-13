@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Audio;
 
 public class RecuperateHook : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class RecuperateHook : MonoBehaviour
     bool scalingIsFinish = false;
     public GameObject colliderArena;
     public MusicManager musicManager;
+    public AudioMixerGroup mixer;
 
     //Cam Transition
     public CinemachineVirtualCamera littleCam;
@@ -58,6 +60,7 @@ public class RecuperateHook : MonoBehaviour
             hookSpr.enabled = false;
             buttonSpr.enabled = false;
             title.SetActive(true);
+            musicManager.audioSource.outputAudioMixerGroup = mixer;
             musicManager.CrossfadeStart(musicManager.mainTheme);
             StartCoroutine(LoadScalingCam());
             coroutineLaunch = true;
