@@ -33,6 +33,8 @@ public class BossManager : MonoBehaviour
     private bool canGoPhase3;
     public GameObject BubbleFX;
     private CinemachineImpulseSource ScreenshakeSource;
+    public MusicManager musicManager;
+    public AudioClip creditTheme;
 
     // Start is called before the first frame update
     void Start()
@@ -138,6 +140,7 @@ public class BossManager : MonoBehaviour
     public void DeadUI()
     {
         winUI.SetActive(true);
+        musicManager.CrossfadeStart(creditTheme);
         EnemyHP[] Crabs = null;
         Object.FindObjectsOfType<EnemyHP>();
         Crabs = Object.FindObjectsOfType<EnemyHP>();
