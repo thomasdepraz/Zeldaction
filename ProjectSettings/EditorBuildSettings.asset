@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/_Scenes/BuildScene/MainScene.unity
     guid: 62c2b02e07e6b44409ac608bea3308dd
   - enabled: 1
+    path: Assets/_Scenes/BuildScene/MainScene_DestroyedVillage.unity
+    guid: fb255c93446f4d848be71706e5d255df
+  - enabled: 1
+    path: Assets/_Scenes/BuildScene/MainScene_Hook.unity
+    guid: 96f0adf929695304eb5a9bb448ba7abb
+  - enabled: 1
     path: Assets/_Scenes/BuildScene/DungeonScene.unity
     guid: 46f936198d7b3c547b2015df783498b7
   m_configObjects: {}

@@ -607,6 +607,7 @@ MonoBehaviour:
   enemy: {fileID: 24100000, guid: 6e9096a5e0e5952489c5df3f8c2ba42c, type: 2}
   boss: {fileID: 24100000, guid: fb5b355a735bb0443bba2e74228e71d8, type: 2}
   music: {fileID: 24100000, guid: 43da1e64a965bd64caa6f1bac9dc193f, type: 2}
+  environment: {fileID: 24100000, guid: c1735c874ee5afd419a44902eb4f7f60, type: 2}
 --- !u!1 &2919539594166359163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,8 +1208,8 @@ RectTransform:
   m_Father: {fileID: 2140971040509220684}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2254,7 +2255,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.000061035156, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

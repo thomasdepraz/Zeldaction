@@ -152,7 +152,7 @@ public class HookThrow : MonoBehaviour
     public void Pull()
     {
         isPulling = true;
-        playerMovement.canMove = false;
+        PlayerManager.canMove = false;
         playerMovement.playerRb.velocity = Vector2.zero;
         if (playerRb.GetContacts(playerContacts) == 0)
         {
@@ -267,7 +267,7 @@ public class HookThrow : MonoBehaviour
         if(!isPulling && !hook.transform.parent.CompareTag("Player"))
         {
             isPulling = true;
-            playerMovement.canMove = false;
+            PlayerManager.canMove = false;
             playerMovement.playerRb.velocity = Vector2.zero;
             hook.transform.SetParent(gameObject.transform);
             hookRigidBody.simulated = true;
@@ -301,7 +301,7 @@ public class HookThrow : MonoBehaviour
         canStartCoroutineHitbox = false;
         yield return new WaitForSeconds(0.3f);
         Physics2D.IgnoreLayerCollision(10, 10, false);
-        playerMovement.canMove = true;
+        PlayerManager.canMove = true;
         canStartCoroutineHitbox = true;
     }
 
