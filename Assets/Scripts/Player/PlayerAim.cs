@@ -77,7 +77,7 @@ namespace Player
                 aimDirectionPreview.SetActive(true); // ajout Tim: active le gameobject arrow
                 aimDirectionPreview.transform.position = (Vector3)transform.position + direction.normalized * range; //The float is the distance from the player
                 aimDirectionPreview.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction));
-                if(!hookThrow.isThrown)
+                if(!Hook.Instance.isThrown)
                 {
                     hook.transform.localEulerAngles = new Vector3(0.0f, 0.0f, Vector2.SignedAngle(Vector2.up, direction));
                 }

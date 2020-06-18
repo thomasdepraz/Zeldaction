@@ -67,7 +67,7 @@ public class HookThrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!hookUI.gameObject.activeSelf)
+        /*if(!hookUI.gameObject.activeSelf)
         {
             if(!PlayerManager.hasHook)
             {
@@ -77,53 +77,50 @@ public class HookThrow : MonoBehaviour
             {
                 hookUI.gameObject.SetActive(true);
             }
-        }
+        }*/
 
         if(PlayerManager.hasHook && PlayerManager.useHook)
         {
-            if (Input.GetButtonDown("Throw") && !isThrown && !isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
+           /* if (Input.GetButtonDown("Throw") && !Hook.Instance.isThrown && !Hook.Instance.isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
             {
-                hook.GetComponent<BoxCollider2D>().isTrigger = false;
-                hookRigidBody.simulated = true;
-                Throw();
+                //hook.GetComponent<BoxCollider2D>().isTrigger = false;
+                Hook.Instance.Throw();
             }
-            else if (Input.GetButtonDown("Throw") && isThrown && !isPulling)// si l'hameçon est lancée et qu'on appuie sur R1 on le tire
+            else if (Input.GetButtonDown("Throw") && Hook.Instance.isThrown && !Hook.Instance.isPulling)// si l'hameçon est lancée et qu'on appuie sur R1 on le tire
             {
-                Pull();                
+                Hook.Instance.Pull();                
             }
             if (isThrown) //Quand le hameçon est lancé on vérifie s'il peut se hook
             {
-                Hook();
-                hookLine.SetPosition(0, transform.position);
-                hookLine.SetPosition(1, hook.transform.position);
+                Hook.Instance.HookObject();
+                //hookLine.SetPosition(0, transform.position);
+                //hookLine.SetPosition(1, hook.transform.position);
             }
 
-            if((player.transform.position - hook.transform.position).sqrMagnitude > hookRange && isThrown)
+            if((transform.position - Hook.Instance.transform.position).sqrMagnitude > hookRange && Hook.Instance.isThrown)
             {
-                Pull();
-            }
+                Hook.Instance.Pull();
+            }*/
 
-            if(playerAim.isAiming)
+            /*if(playerAim.isAiming)
             {
                 hookSpr.enabled = true;
             }
             else if(!playerAim.isAiming)
             {
                 hookSpr.enabled = false;
-            }
+            }*/
 
-            if(isThrown && !isPulling)
+            /*if(isThrown && !isPulling)
             {
                 if(hookRigidBody.GetContacts(hookContacts) >= 1 && hook.transform.parent == gameObject.transform)
                 {
                     hookHitParticle.Play();
                     Pull();
-                }
-                
-               
-            }
+                }     
+            }*/
 
-            if(isPulling)
+            /*if(isPulling)
             {
                 hook.GetComponent<BoxCollider2D>().isTrigger = true;
 
@@ -134,13 +131,12 @@ public class HookThrow : MonoBehaviour
                         StartCoroutine("UnHook");
                     }
                 }
-            }
+            }*/
         }
     }
     Vector2 storedVelocity;
     void Throw()
     {
-        Debug.Log("Throwing");
         direction = (crosshair.transform.position - hook.transform.position).normalized; //direction player-> crosshair
         hookRigidBody.velocity += (Vector2)direction * speed; //déplacement du hook
         storedVelocity = hookRigidBody.velocity;
@@ -204,7 +200,7 @@ public class HookThrow : MonoBehaviour
         }
     }
 
-    void Hook()
+    void Hooked()
     {
         if(canHook)
         {

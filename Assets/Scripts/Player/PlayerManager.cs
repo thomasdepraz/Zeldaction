@@ -1,23 +1,35 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : Singleton<PlayerManager>
 {
 
     public GameObject hook;
     public GameObject aimDirectionPreview;
 
-    [SerializeField] public static bool hasHook = false;
+    [SerializeField] public static bool hasHook = true;
     [SerializeField] public static bool canAttack = false;
     public static bool unlockedAttack;
     public static bool canMove = true;
     public static bool useHook = true;
     [SerializeField] public static GameObject lastCheckpoint;
+
+
+    //Player scripts 
+    public HookThrow hookThrow = null;
+    public PlayerAim playerAim = null;
+    public PlayerAttack playerAttack= null;
+    public PlayerHP playerHP = null;
+    public PlayerMovement playerMovement = null;
+
+
     // Start is called before the first frame update
 
 
     private void Awake()
     {
+        MakeSingleton(true);
         if (!hasHook)
         {
             hook.SetActive(false);
@@ -39,7 +51,6 @@ public class PlayerManager : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!hasHook)
