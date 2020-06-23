@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
+using UnityEditor;
 
 public class Hook : Singleton<Hook>
 {
@@ -72,11 +73,10 @@ public class Hook : Singleton<Hook>
             #region BasicActions
             if (Input.GetButtonDown("Throw") && !isThrown && !isHooked && playerAim.isAiming)//Si le hameçon n'est pas lancé et qu'on appui sur R1 alors on le lance.
             {
-                //hook.GetComponent<BoxCollider2D>().isTrigger = false;
                 Throw();
             }
             else if (Input.GetButtonDown("Throw") && isThrown && !isPulling)// si l'hameçon est lancée et qu'on appuie sur R1 on le tire
-            {
+            {     
                 Pull();
             }
 
@@ -107,7 +107,7 @@ public class Hook : Singleton<Hook>
             #region Particles
             if (isThrown && !isPulling)
             {
-                if (hookRigidBody.GetContacts(hookContacts) >= 1 && hook.transform.parent == gameObject.transform)
+                if (hookRigidBody.GetContacts(hookContacts) >= 1 && transform.parent == null)
                 {
                     hookHitParticle.Play();
                     Pull();
@@ -128,11 +128,13 @@ public class Hook : Singleton<Hook>
             }
         }*/
             #endregion
+
         }
     }
 
     public void Throw()
     {
+        GetComponent<BoxCollider2D>().isTrigger = false;
         isThrown = true;
         backToPlayer = false;
 
@@ -147,9 +149,12 @@ public class Hook : Singleton<Hook>
     public void Pull()
     {
         isPulling = true;
+        GetComponent<BoxCollider2D>().isTrigger = true;
+        StartCoroutine(UnHook());
         if (isHooked)
         {
-            if(isHooked && currentHookable.isActive)
+            GetComponent<BoxCollider2D>().isTrigger = false;
+            if (isHooked && currentHookable.isActive)
             {
                 if(currentHookable.isLight)
                 {
@@ -160,7 +165,11 @@ public class Hook : Singleton<Hook>
                 }
                 if(currentHookable.isHeavy)
                 {
-                    
+                    if(canStartCoroutine)
+                    {
+                        PlayerManager.canMove = false;
+                        StartCoroutine(PullingPlayer());
+                    }
                 }
             }
         }
@@ -175,8 +184,9 @@ public class Hook : Singleton<Hook>
 
     public void HookObject()
     {
+        #region HookObjects
         //Hook Objects
-        if(canHook)
+        if (canHook)
         {
             List<Collider2D> hitHookables = new List<Collider2D>();
             Physics2D.OverlapCollider(hook.GetComponent<BoxCollider2D>(), hookableFilter, hitHookables);
@@ -202,7 +212,11 @@ public class Hook : Singleton<Hook>
                         isHooked = true;
 
                         if (isPulling)
+                        {
+                            StopAllCoroutines();
+                            canStartCoroutine = true;
                             Pull();
+                        }
 
                         //if (canStartCoroutine)
                             //StartCoroutine("HookCancel");
@@ -210,22 +224,15 @@ public class Hook : Singleton<Hook>
                 }
             }
         }
+        #endregion
 
+        #region HookPlayer
         //HookPlayer
-        if(isPulling && (player.transform.position - transform.position).magnitude < hookDetectionRange)
+        if (isPulling && (player.transform.position - transform.position).magnitude < hookDetectionRange)
         {
             if(isHooked)
             {
-                
-                if (hookedObjectparent  != null)
-                {
-                    currentHookable.gameObject.transform.SetParent(hookedObjectparent.transform);
-                }
-                else
-                {
-                    currentHookable.gameObject.transform.SetParent(null);
-                }
-                currentHookable.GetComponent<Rigidbody2D>().simulated = true;
+                ResetParent(currentHookable.gameObject);
                 currentHookable.GetComponent<Rigidbody2D>().velocity = storedVelocity;
                 isHooked = false;
                 //Ignore Layer Collisions
@@ -238,11 +245,21 @@ public class Hook : Singleton<Hook>
             isPulling = false;
             canHook = true;
             isThrown = false;
+            if(PlayerManager.canMove == false)
+            {
+                PlayerManager.canMove = true;
+            }
             backToPlayer = true;
             canStartCoroutine = true;
+
+            //cancel unhook coroutine
+            StopCoroutine(UnHook());
+            canStartUnhook = true;
         }
+        #endregion
     }
 
+    #region PullCoroutines
     private IEnumerator PullingHook()
     {
         canStartCoroutine = false;
@@ -257,4 +274,54 @@ public class Hook : Singleton<Hook>
             }
         }   
     }
+
+    private IEnumerator PullingPlayer()
+    {
+        canStartCoroutine = false;
+        while (!backToPlayer)
+        {
+            yield return null;
+            if ((player.transform.position - transform.position).magnitude > hookDetectionRange)
+            {
+                direction = (transform.position - player.transform.position);
+                playerRb.velocity = direction.normalized * speed * 2;
+            }
+        }
+    }
+    #endregion
+
+    #region CancelCoroutines
+    private IEnumerator UnHook()
+    {
+        canStartUnhook = false;
+        yield return new WaitForSeconds(0.6f);
+        if (isPulling && isHooked)
+        {
+            canHook = false;
+            isHooked = false;
+            ResetParent(currentHookable.gameObject);
+            Pull();
+        }
+        canStartUnhook = true;
+    }
+
+
+    #endregion
+
+    #region Utilities
+    private void ResetParent(GameObject hookable)
+    {
+        if (hookedObjectparent != null)
+        {
+            hookable.transform.SetParent(hookedObjectparent.transform);
+        }
+        else
+        {
+            hookable.transform.SetParent(null);
+        }
+
+        hookable.GetComponent<Rigidbody2D>().simulated = true;
+    }
+    #endregion
+
 }
