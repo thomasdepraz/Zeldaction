@@ -30,6 +30,7 @@ public class Hook : Singleton<Hook>
     [HideInInspector] public bool isHooked = false;
     [HideInInspector] public bool isPulling = false;
     private bool canStartCoroutine = true;
+    private bool canStartCancel = true;
     private bool canStartCoroutineHitbox = true;
     private ContactFilter2D hookableFilter;
     private float objectDrag;
@@ -98,7 +99,7 @@ public class Hook : Singleton<Hook>
             {
                 hookSpr.enabled = true;
             }
-            else if(!playerAim.isAiming)
+            else if(!playerAim.isAiming && !isThrown)
             {
                 hookSpr.enabled = false;
             }
@@ -150,6 +151,8 @@ public class Hook : Singleton<Hook>
     {
         isPulling = true;
         GetComponent<BoxCollider2D>().isTrigger = true;
+        Physics2D.IgnoreLayerCollision(10, 10, true); //collisions between player and interactible objects
+
         StartCoroutine(UnHook());
         if (isHooked)
         {
@@ -171,6 +174,8 @@ public class Hook : Singleton<Hook>
                         StartCoroutine(PullingPlayer());
                     }
                 }
+
+                //Armor + Underground
             }
         }
         else
@@ -218,8 +223,8 @@ public class Hook : Singleton<Hook>
                             Pull();
                         }
 
-                        //if (canStartCoroutine)
-                            //StartCoroutine("HookCancel");
+                        if (canStartCancel)
+                            StartCoroutine(HookCancel());
                     }
                 }
             }
@@ -235,9 +240,9 @@ public class Hook : Singleton<Hook>
                 ResetParent(currentHookable.gameObject);
                 currentHookable.GetComponent<Rigidbody2D>().velocity = storedVelocity;
                 isHooked = false;
-                //Ignore Layer Collisions
             }
             
+            StartCoroutine(HitBoxOff());
             hookRigidBody.velocity = Vector2.zero;
             hookRigidBody.simulated = false;
             transform.position = player.transform.position;//Apres la main
@@ -254,6 +259,7 @@ public class Hook : Singleton<Hook>
 
             //cancel unhook coroutine
             StopCoroutine(UnHook());
+            StopCoroutine(HookCancel());
             canStartUnhook = true;
         }
         #endregion
@@ -305,6 +311,28 @@ public class Hook : Singleton<Hook>
         canStartUnhook = true;
     }
 
+    private IEnumerator HookCancel()
+    {
+        canStartCancel = false;
+        yield return new WaitForSeconds(timeToCancel);
+        if(!isPulling)
+        {
+            canHook = false;
+            isHooked = false;
+            ResetParent(currentHookable.gameObject);
+            Pull();
+        }
+        canStartCancel = true;
+    }
+
+    private IEnumerator HitBoxOff()
+    {
+        canStartCoroutineHitbox = false;
+        yield return new WaitForSeconds(0.3f);
+        Physics2D.IgnoreLayerCollision(10, 10, false);
+        PlayerManager.canMove = true;
+        canStartCoroutineHitbox = true;
+    }
 
     #endregion
 
@@ -322,6 +350,23 @@ public class Hook : Singleton<Hook>
 
         hookable.GetComponent<Rigidbody2D>().simulated = true;
     }
+
+    public void ResetHook()
+    {
+        transform.position = player.transform.position;
+        transform.parent = player.transform;
+        hookRigidBody.velocity = Vector2.zero;
+        hookRigidBody.simulated = false;
+        isHooked = false;
+        isPulling = false;
+        isThrown = false;
+        canHook = true;
+        //hookUI.sprite = hookAvailable;
+        PlayerManager.useHook = true;
+        PlayerManager.hasHook = true;
+        StopAllCoroutines();
+    }
     #endregion
 
 }
+
