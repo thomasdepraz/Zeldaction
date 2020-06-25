@@ -147,6 +147,15 @@ public class ArmoredCrab : MonoBehaviour
         }
     }
 
+    public void Die(GameObject hook)
+    {
+        GameObject Armor = Instantiate(armor, hook.transform.position, Quaternion.identity);
+
+        anim.SetBool("isDead", true);
+        audioManager.PlayClip(audioManager.armorDown, 1, audioManager.output);
+        GetComponent<Hookable>().isActive = false;
+    }
+
     private IEnumerator ShootProjectiles()
     {
         canShoot = false;

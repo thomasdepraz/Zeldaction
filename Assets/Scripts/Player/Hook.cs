@@ -36,10 +36,12 @@ public class Hook : Singleton<Hook>
     private float objectDrag;
     private ContactPoint2D[] hookContacts = new ContactPoint2D[10];
     private ContactPoint2D[] playerContacts = new ContactPoint2D[10];
-    private bool canStartUnhook = true;
     private bool canHook = true;
     private bool backToPlayer;
     private Vector2 storedVelocity;
+
+    private Coroutine unhook;
+
 
     [Header("Tweak")]
     [Range(0f, 5f)]
@@ -153,7 +155,7 @@ public class Hook : Singleton<Hook>
         GetComponent<BoxCollider2D>().isTrigger = true;
         Physics2D.IgnoreLayerCollision(10, 10, true); //collisions between player and interactible objects
 
-        StartCoroutine(UnHook());
+        unhook = StartCoroutine(UnHook());
         if (isHooked)
         {
             GetComponent<BoxCollider2D>().isTrigger = false;
@@ -174,8 +176,24 @@ public class Hook : Singleton<Hook>
                         StartCoroutine(PullingPlayer());
                     }
                 }
+                if(currentHookable.isUndergroundCrab)
+                {
+                    currentHookable.GetComponent<CrabeSouterrain>().isPulled();
+                    StopCoroutine(unhook);
+                    ResetParent(currentHookable.gameObject);
+                    canHook = false;
+                    isHooked = false;
+                    Pull();
+                }
+                if(currentHookable.isArmoredCrab)
+                {
+                    ResetParent(currentHookable.gameObject);
+                    currentHookable.gameObject.GetComponent<ArmoredCrab>().Die(gameObject);
 
-                //Armor + Underground
+                    Pull();
+                }
+                //ArmoredCrab
+
             }
         }
         else
@@ -260,7 +278,6 @@ public class Hook : Singleton<Hook>
             //cancel unhook coroutine
             StopCoroutine(UnHook());
             StopCoroutine(HookCancel());
-            canStartUnhook = true;
         }
         #endregion
     }
@@ -299,16 +316,16 @@ public class Hook : Singleton<Hook>
     #region CancelCoroutines
     private IEnumerator UnHook()
     {
-        canStartUnhook = false;
+        
         yield return new WaitForSeconds(0.6f);
         if (isPulling && isHooked)
         {
+            Debug.Log("Heo");
             canHook = false;
             isHooked = false;
             ResetParent(currentHookable.gameObject);
             Pull();
         }
-        canStartUnhook = true;
     }
 
     private IEnumerator HookCancel()
